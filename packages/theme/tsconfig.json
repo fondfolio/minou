@@ -1,0 +1,12 @@
+{
+  "extends": "../../config/typescript/tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "build",
+    "tsBuildInfoFile": "build/.tsbuildinfo",
+    "baseUrl": "src",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["**/tests/**/*.ts", "**/tests/**/*.tsx"],
+  "references": []
+}

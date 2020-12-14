@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "include": [],
+  "references": [
+    {"path": "./packages/theme"},
+    {"path": "./packages/minou"},
+    {"path": "./packages/core"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@minou/theme",
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/fondfolio/minou.git",
+  "gitHead": "e80a486848f02470991d163dcfa86473af4df616"
+}
