@@ -5,6 +5,7 @@ module.exports = {
       'packages/theme/tsconfig.json',
       'packages/docs/tsconfig.json',
       'packages/minou/tsconfig.json',
+      'packages/utilities/tsconfig.json',
     ],
   },
   extends: [
