@@ -1,4 +1,4 @@
-import {Box} from '@minou/core';
+import {Box} from 'minou';
 
 export default function Home() {
   return (

@@ -9,8 +9,7 @@
   },
   "dependencies": {
     "next": "latest",
-    "@minou/theme": "*",
-    "@minou/core": "*",
+    "minou": "*",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
