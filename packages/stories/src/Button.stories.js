@@ -1,14 +1,15 @@
 import React from 'react';
+import {Button} from 'minou';
 
-import { Button } from './Button';
-
-export default {
+const config = {
   title: 'Example/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: {control: 'color'},
   },
 };
+
+export default config;
 
 const Template = (args) => <Button {...args} />;
 

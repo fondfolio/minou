@@ -1,33 +1,58 @@
+import {toPx, createScale} from '@minou/utilities';
+
 /**
  * Preset minou theme based on https://theme-ui.com/theme-spec/
  */
+
+export const pallet = {
+  teal: '#005D63',
+  tealDark: '#00383C',
+  tealLight: '#90DEE3',
+  blue: '#3FC5D9',
+  blueLightest: '#EEFBFD',
+  green: '#0EC8A9',
+  greenLightest: '#EEFBF8',
+  grey: '#7E7A7E',
+  greyLight: '#EAEAEA',
+  greySuperlight: '#F5F5F5',
+  greyLightest: '#FBFBFB',
+  greyMedium: '#C0BEC0',
+  greyDark: '#5B585B',
+  red: '#EE5E5E',
+  redDark: '#B62A34',
+  redLightest: '#FDEEEE',
+  yellow: '#F8D04D',
+  yellowLightest: '#FDFCF6',
+  white: '#FFFFFF',
+  black: '#231D24',
+};
+
+const timings = createScale(200, 2, 3, toPx);
+
+const timing = timings[0];
 
 export const theme = {
   breakpoints: ['40em', '56em', '64em'],
 
   borderRadius: '4px',
+  radii: toPx([0, 2, 4]),
 
+  // text	Body foreground color
+  // background	Body background color
+  // primary	Primary brand color for links, buttons, etc.
+  // secondary	A secondary brand color for alternative styling
+  // accent	A contrast color for emphasizing UI
+  // highlight	A background color for highlighting text
+  // muted	A faint color for backgrounds, borders, and accents that do not require high contrast with the background color
   colors: {
-    teal: '#005D63',
-    tealDark: '#00383C',
-    tealLight: '#90DEE3',
-    blue: '#3FC5D9',
-    blueLightest: '#EEFBFD',
-    green: '#0EC8A9',
-    greenLightest: '#EEFBF8',
-    grey: '#7E7A7E',
-    greyLight: '#EAEAEA',
-    greySuperlight: '#F5F5F5',
-    greyLightest: '#FBFBFB',
-    greyMedium: '#C0BEC0',
-    greyDark: '#5B585B',
-    red: '#EE5E5E',
-    redDark: '#B62A34',
-    redLightest: '#FDEEEE',
-    yellow: '#F8D04D',
-    yellowLightest: '#FDFCF6',
-    white: '#FFFFFF',
-    black: '#231D24',
+    ...pallet,
+    primary: pallet.teal,
+    secondary: pallet.grey,
+    text: pallet.black,
+    background: pallet.white,
+    accent: pallet.blue,
+    highlight: pallet.yellow,
+    muted: pallet.greyLight,
   },
 
   fonts: {
@@ -128,6 +153,12 @@ export const theme = {
       bg: 'white',
       boxShadow: 'inset 0 0 2px',
     },
+  },
+
+  transitions: {
+    all: `all ${timing} ease`,
+    background: `background ${timing}`,
+    color: `color  ${timing} ease`,
   },
 };
 

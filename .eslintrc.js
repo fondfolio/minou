@@ -26,4 +26,7 @@ module.exports = {
     'packages/*/*.esnext',
     'packages/**/tests/fixtures/',
   ],
+  rules: {
+    'lines-around-comment': 'off',
+  },
 };

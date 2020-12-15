@@ -1,6 +1,12 @@
 import {css} from 'styled-components';
 
-const utilities = {};
+function transform(suffix: string) {
+  return (arr: number[]) => arr.map((val) => `${val.toString()}${suffix}`);
+}
+
+export const toMs = transform('ms');
+export const toPx = transform('px');
+export const toEm = transform('em');
 
 export const reset = css`
   appearance: none;
@@ -8,6 +14,23 @@ export const reset = css`
   background: none;
   font-size: 100%;
   font-family: inherit;
+  margin: 0;
+  padding: 0;
 `;
 
-export default utilities;
+export function createScale(
+  initial: number,
+  multiplier: number,
+  length: number,
+  transformFunction?: (val: number[]) => string[],
+) {
+  const values = Array.from({length}, (_, index) => {
+    return initial * multiplier * (index + 1);
+  });
+
+  if (typeof transformFunction === 'function') {
+    return transformFunction(values);
+  }
+
+  return values;
+}

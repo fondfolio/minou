@@ -8,12 +8,14 @@
   "dependencies": {
     "@types/styled-components": "^5.0.0",
     "@types/styled-system": "^5.1.10",
-    "styled-components": "^5.0.0",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "@minou/utilities": "*",
+    "@minou/theme": "*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "styled-components": ">=5.0.0"
   },
   "publishConfig": {
     "access": "public"
