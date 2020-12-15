@@ -1,7 +1,7 @@
 {
   "name": "@minou/theme",
   "version": "0.0.0",
-  "main": "src",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },

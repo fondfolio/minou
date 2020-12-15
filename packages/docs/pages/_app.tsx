@@ -1,5 +1,5 @@
 import {createGlobalStyle, ThemeProvider} from 'styled-components';
-import theme from '@minou/theme';
+import {theme} from 'minou';
 
 const GlobalStyle = createGlobalStyle`
   *,  
