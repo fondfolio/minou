@@ -8,8 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "latest",
     "minou": "*",
+    "next": "latest",
+    "next-transpile-modules": "^6.0.0",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
