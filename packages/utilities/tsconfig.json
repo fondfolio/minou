@@ -8,9 +8,5 @@
   },
   "include": ["src/**/*"],
   "exclude": ["**/tests/**/*.ts", "**/tests/**/*.tsx"],
-  "references": [
-    {"path": "../theme"},
-    {"path": "../core"},
-    {"path": "../utilities"}
-  ]
+  "references": []
 }

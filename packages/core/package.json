@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "tsc"
   },
   "dependencies": {
     "@types/styled-components": "^5.0.0",
@@ -21,13 +19,5 @@
     "access": "public"
   },
   "repository": "https://github.com/fondfolio/minou.git",
-  "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@storybook/addon-actions": "^6.1.11",
-    "@storybook/addon-essentials": "^6.1.11",
-    "@storybook/addon-links": "^6.1.11",
-    "@storybook/react": "^6.1.11",
-    "babel-loader": "^8.2.2",
-    "storybook-addon-styled-component-theme": "^1.3.0"
-  }
+  "devDependencies": {}
 }
