@@ -1,6 +1,7 @@
 {
   "extends": "../../config/typescript/tsconfig.base.json",
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "outDir": "build",
     "tsBuildInfoFile": "build/.tsbuildinfo",
     "baseUrl": "src",

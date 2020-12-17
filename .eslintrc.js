@@ -6,6 +6,7 @@ module.exports = {
       'packages/docs/tsconfig.json',
       'packages/minou/tsconfig.json',
       'packages/utilities/tsconfig.json',
+      'packages/icons/tsconfig.json',
     ],
   },
   extends: [
@@ -28,5 +29,6 @@ module.exports = {
   ],
   rules: {
     'lines-around-comment': 'off',
+    '@typescript-eslint/array-type': ['error', {defaultOption: 'array'}],
   },
 };

@@ -10,9 +10,11 @@
     "@minou/utilities": "^0.0.2-alpha.0",
     "@types/styled-components": "^5.0.0",
     "@types/styled-system": "^5.1.10",
+    "react-markdown": "^5.0.3",
     "styled-system": "^5.1.5"
   },
   "peerDependencies": {
+    "next": ">=10.0.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
     "styled-components": ">=5.0.0"

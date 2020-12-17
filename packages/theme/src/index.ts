@@ -1,4 +1,4 @@
-import {toPx, createScale} from '@minou/utilities';
+import {toMs, createScale} from '@minou/utilities';
 
 /**
  * Preset minou theme based on https://theme-ui.com/theme-spec/
@@ -27,7 +27,7 @@ export const pallet = {
   black: '#231D24',
 };
 
-const timings = createScale(200, 2, 3, toPx);
+const timings = createScale(200, 2, 3, toMs);
 
 const timing = timings[0];
 
@@ -35,7 +35,10 @@ export const theme = {
   breakpoints: ['40em', '56em', '64em'],
 
   borderRadius: '4px',
-  radii: toPx([0, 2, 4]),
+  radii: {
+    button: '2px',
+    input: '2px',
+  },
 
   // text	Body foreground color
   // background	Body background color
@@ -56,10 +59,10 @@ export const theme = {
   },
 
   fonts: {
-    body: 'Karla, sans-serif, system-ui',
+    body: 'Faktum, sans-serif, system-ui',
     heading: 'inherit',
     serif: 'Lora, Georgia, serif',
-    sans: 'Karla, sans-serif',
+    sans: 'Faktum, sans-serif, system-ui',
     monospace: 'Inconsolata, monospace',
   },
 
@@ -70,7 +73,7 @@ export const theme = {
   fontWeights: {
     body: 400,
     normal: 400,
-    bold: 700,
+    bold: 500,
   },
 
   lineHeights: {

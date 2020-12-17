@@ -8,11 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "minou": "^0.0.2-alpha.0",
+    "babel-plugin-inline-react-svg": "^1.1.2",
+    "minou": "*",
     "next": "latest",
-    "styled-components": "^5.0.0"
-  },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^1.8.0"
+    "styled-components": "^5.0.0",
+    "react": "^17.0.1"
   }
 }

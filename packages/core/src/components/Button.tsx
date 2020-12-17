@@ -1,46 +1,109 @@
 import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {reset} from '@minou/utilities';
+import {ComplexAction} from 'types';
 
 interface Props {
-  variant?: 'primary';
+  /** Changes the button size */
+  size?: 'small';
+  /**
+   * By default a button that looks like a link
+   * "primary" provides extra visual weight and identifies the primary action in a set of buttons
+   * "secondary" gives the button a subtle alternative to the default button styling, appropriate for certain backdrops
+   * "destructive" indicates a dangerous or potentially negative action
+   */
+  variant?: 'primary' | 'secondary' | 'destructive';
   /** The content to display inside the button */
-  children: string;
+  children?: string | string[];
 }
+
+type CombinedProps = Props & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const StyledButton = styled.button<Props>`
   ${reset};
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: baseline;
+  text-align: center;
+  user-select: none;
   text-decoration: none;
   cursor: pointer;
   position: relative;
-  display: inline-flex;
   color: ${({theme}) => theme.colors.teal};
+  transition: ${({theme}) => theme.transitions.all};
+  font-size: ${({size}) => (size === 'small' ? '0.8em' : '1em')};
+
   &:hover {
     text-decoration: underline;
+    color: ${({theme}) => theme.colors.tealDark};
   }
 `;
 
 const StyledPrimaryButton = styled(StyledButton)`
   color: ${({theme}) => theme.colors.white};
   background: ${({theme}) => theme.colors.teal};
-  padding: 0.5em 1em;
-  border-radius: ${({theme}) => theme.radii[1]};
-  box-shadow: inset 0 0 0 0 ${({theme}) => theme.colors.tealDark};
-  transition: ${({theme}) => theme.transitions.background};
+  padding: 0.8em 1.6em;
+  font-weight: ${({theme}) => theme.fontWeights.bold};
+  border-radius: ${({theme}) => theme.radii.button};
+  border: 1px solid;
 
   &:hover {
+    color: ${({theme}) => theme.colors.white};
     background: ${({theme}) => theme.colors.tealDark};
     text-decoration: none;
   }
 `;
 
-export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  const {variant} = props;
-  if (variant === 'primary') {
-    return <StyledPrimaryButton ref={ref} {...props} />;
-  }
+const StyledSecondaryButton = styled(StyledPrimaryButton)`
+  color: ${({theme}) => theme.colors.teal};
+  background: ${({theme}) => theme.colors.white};
 
-  return <StyledButton ref={ref} {...props} />;
-});
+  &:hover {
+    text-decoration: none;
+    color: ${({theme}) => theme.colors.tealDark};
+    background: ${({theme}) => theme.colors.white};
+  }
+`;
+
+const StyledDestructiveButton = styled(StyledSecondaryButton)`
+  color: ${({theme}) => theme.colors.red};
+
+  &:hover {
+    color: ${({theme}) => theme.colors.redDark};
+  }
+`;
+
+export const Button = forwardRef<HTMLButtonElement, CombinedProps>(
+  (props, ref) => {
+    const {variant} = props;
+    const combinedProps = {ref, ...props};
+
+    switch (variant) {
+      case 'primary':
+        return <StyledPrimaryButton {...combinedProps} />;
+      case 'secondary':
+        return <StyledSecondaryButton {...combinedProps} />;
+      case 'destructive':
+        return <StyledDestructiveButton {...combinedProps} />;
+      default:
+        return <StyledButton {...combinedProps} />;
+    }
+  },
+);
 
 Button.displayName = 'Button';
+
+export function buttonFrom(
+  {content, onAction, ...action}: ComplexAction,
+  overrides?: Partial<CombinedProps>,
+  key?: any,
+) {
+  return (
+    <Button key={key} onClick={onAction} {...action} {...overrides}>
+      {content}
+    </Button>
+  );
+}

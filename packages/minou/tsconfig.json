@@ -11,6 +11,7 @@
   "references": [
     {"path": "../theme"},
     {"path": "../core"},
-    {"path": "../utilities"}
+    {"path": "../utilities"},
+    {"path": "../icons"}
   ]
 }

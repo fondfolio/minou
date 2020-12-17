@@ -7,6 +7,7 @@
     {"path": "./packages/core"},
     {"path": "./packages/utilities"},
     {"path": "./packages/docs"},
-    {"path": "./packages/stories"}
+    {"path": "./packages/stories"},
+    {"path": "./packages/icons"}
   ]
 }
