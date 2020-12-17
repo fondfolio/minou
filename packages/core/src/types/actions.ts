@@ -31,6 +31,7 @@ export interface DestructableAction extends Action {
 
 export interface IconableAction extends Action {
   /** Source of the icon */
+  // eslint-disable-next-line no-warning-comments
   // TODO: Bring Icon into minou and type this
   // icon?: IconProps['source'];
 }
@@ -42,7 +43,7 @@ export interface LoadableAction extends Action {
 
 export interface ComplexAction
   extends Action,
-  DisableableAction,
-  DestructableAction,
-  IconableAction,
-  LoadableAction {}
+    DisableableAction,
+    DestructableAction,
+    IconableAction,
+    LoadableAction {}

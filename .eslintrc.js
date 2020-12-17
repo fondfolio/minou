@@ -28,5 +28,6 @@ module.exports = {
   ],
   rules: {
     'lines-around-comment': 'off',
+    '@typescript-eslint/array-type': ['error', {defaultOption: 'array'}],
   },
 };

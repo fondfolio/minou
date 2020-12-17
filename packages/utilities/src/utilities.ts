@@ -1,7 +1,13 @@
 import {css} from 'styled-components';
 
 function transform(suffix: string) {
-  return (arr: number[]) => arr.map((val) => `${val.toString()}${suffix}`);
+  return (arr: number | number[]) => {
+    if (!Array.isArray(arr)) {
+      return `${arr.toString()}${suffix}`;
+    }
+
+    return arr.map((val) => `${val.toString()}${suffix}`);
+  };
 }
 
 export const toMs = transform('ms');
