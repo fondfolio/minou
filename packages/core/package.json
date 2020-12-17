@@ -1,16 +1,16 @@
 {
   "name": "@minou/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
+    "@minou/theme": "^0.0.1",
+    "@minou/utilities": "^0.0.1",
     "@types/styled-components": "^5.0.0",
     "@types/styled-system": "^5.1.10",
-    "styled-system": "^5.1.5",
-    "@minou/utilities": "*",
-    "@minou/theme": "*"
+    "styled-system": "^5.1.5"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -20,6 +20,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/fondfolio/minou.git",
-  "devDependencies": {}
+  "repository": "https://github.com/fondfolio/minou.git"
 }

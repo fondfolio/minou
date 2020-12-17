@@ -1,6 +1,6 @@
 {
   "name": "@minou/utilities",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
@@ -9,11 +9,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@minou/theme": "*"
+    "@minou/theme": "^0.0.1"
   },
   "peerDependencies": {
-    "styled-components": ">=5.0.0",
-    "jest": ">=26.0.0"
+    "jest": ">=26.0.0",
+    "styled-components": ">=5.0.0"
   },
   "repository": "https://github.com/fondfolio/minou.git",
   "gitHead": "e80a486848f02470991d163dcfa86473af4df616"

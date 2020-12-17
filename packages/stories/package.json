@@ -1,22 +1,21 @@
 {
   "name": "@minou/stories",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook"
   },
   "dependencies": {
-    "minou": "*",
-    "storybook-addon-styled-component-theme": "^1.3.0",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
-    "@storybook/react": "^6.1.11"
+    "@storybook/react": "^6.1.11",
+    "minou": "^0.0.1",
+    "storybook-addon-styled-component-theme": "^1.3.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "devDependencies": {}
+  }
 }
