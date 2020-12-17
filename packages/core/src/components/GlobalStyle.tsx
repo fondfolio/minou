@@ -16,5 +16,21 @@ export const GlobalStyle = createGlobalStyle`
   *:before,
   *:after {
     ${reset}
+    color: ${theme.colors.black};
+  }
+
+  @font-face {
+    font-family: "Faktum";
+    src: url("/fonts/FaktumTest-Regular.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Faktum";
+    src: url("/fonts/FaktumTest-Medium.otf");
+    font-style: medium;
+    font-weight: 500;
+    font-display: swap;
   }
 `;

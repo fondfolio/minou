@@ -1,13 +1,9 @@
-import {ThemeProvider} from 'styled-components';
-import {GlobalStyle} from 'minou';
+import {Provider as MinouProvider} from 'minou';
 
 export default function App({Component, pageProps}) {
   return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={{}}>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+    <MinouProvider>
+      <Component {...pageProps} />
+    </MinouProvider>
   );
 }

@@ -12,6 +12,7 @@
     "@minou/theme": "^0.0.2-alpha.0"
   },
   "peerDependencies": {
+    "react": ">=17.0.0",
     "jest": ">=26.0.0",
     "styled-components": ">=5.0.0"
   },

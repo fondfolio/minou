@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {
   space,
   layout,
-  typography,
   color,
   flexbox,
   SpaceProps,
@@ -11,6 +10,7 @@ import {
   ColorProps,
   FlexboxProps,
 } from 'styled-system';
+import {reset} from '@minou/utilities';
 
 export interface BoxProps
   extends SpaceProps,
@@ -22,12 +22,10 @@ export interface BoxProps
 }
 
 export const Box = styled.div<BoxProps>`
-  box-sizing: border-box;
-  min-width: 0;
+  ${reset}
   ${space}
   ${layout}
   ${color}
-  ${typography}
   ${flexbox}
 `;
 
