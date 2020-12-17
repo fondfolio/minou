@@ -1,6 +1,6 @@
 {
   "name": "@minout/docs",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "minou": "^0.0.1",
+    "minou": "^0.0.2-alpha.0",
     "next": "latest",
     "styled-components": "^5.0.0"
   },
