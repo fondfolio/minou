@@ -9,5 +9,5 @@
   },
   "include": ["src/**/*"],
   "exclude": ["**/tests/**/*.ts", "**/tests/**/*.tsx"],
-  "references": [{"path": "../utilities"}, {"path": "../theme"}]
+  "references": [{"path": "../theme"}, {"path": "../utilities"}]
 }

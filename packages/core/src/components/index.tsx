@@ -8,3 +8,4 @@ export {GlobalStyle} from './GlobalStyle';
 export {Meta} from './Meta';
 export {ButtonGroup} from './ButtonGroup';
 export {Provider} from './Provider';
+export {TextField} from './TextField';

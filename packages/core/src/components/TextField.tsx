@@ -20,7 +20,7 @@ interface NonMutuallyExclusiveProps {
   /** Additional hint text to display */
   helpText?: React.ReactNode;
   /** Label for the input */
-  label: string;
+  label?: string;
   /** Adds an action to the label */
   labelAction?: LabelledProps['action'];
   /** Visually hide the label */
@@ -95,7 +95,7 @@ export type TextFieldProps = NonMutuallyExclusiveProps &
   (
     | {readOnly: true}
     | {disabled: true}
-    | {onChange(value: string, id: string): void}
+    | {onChange?(value: string, id: string): void}
   );
 
 export function TextField({

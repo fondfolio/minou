@@ -11,7 +11,7 @@ export interface LabelledProps {
   /** A unique identifier for the label */
   id: string;
   /** Text for the label */
-  label: string;
+  label?: string;
   /** Error to display beneath the label */
   error?: Error | boolean;
   /** An action */

@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Remarkable} from 'remarkable';
+import Markdown from 'react-markdown';
 
 const StyledLabel = styled.label``;
-const markdown = new Remarkable();
 
 export interface LabelProps {
   /** Label content */
@@ -18,7 +17,11 @@ export interface LabelProps {
 export function Label({children, size, ...rest}: LabelProps) {
   switch (size) {
     case 'large':
-      return <StyledLabel {...rest}>{markdown.render(children)}</StyledLabel>;
+      return (
+        <StyledLabel {...rest}>
+          <Markdown>{children}</Markdown>
+        </StyledLabel>
+      );
     default:
       return <StyledLabel {...rest}>{children}</StyledLabel>;
   }

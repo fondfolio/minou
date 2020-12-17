@@ -22,7 +22,7 @@ interface Props {
   /** Determine type of input */
   type?: Type;
 
-  focus: boolean;
+  focus?: boolean;
 }
 
 type CombinedProps = Props & React.InputHTMLAttributes<HTMLInputElement>;

@@ -1,9 +1,9 @@
 import {css} from 'styled-components';
 
 function transform(suffix: string) {
-  return (arr: number | number[]) => {
+  return (arr: string | number | (string | number)[]) => {
     if (!Array.isArray(arr)) {
-      return `${arr.toString()}${suffix}`;
+      return [`${arr.toString()}${suffix}`];
     }
 
     return arr.map((val) => `${val.toString()}${suffix}`);
@@ -39,4 +39,31 @@ export function createScale(
   }
 
   return values;
+}
+
+/**
+ * Shorthand to set the height and width properties in a single statement.
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *   ...size('300px', '250px')
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *   ${size('300px', '250px')}
+ * `
+ *
+ * // CSS as JS Output
+ *
+ * div {
+ *   'height': '300px',
+ *   'width': '250px',
+ * }
+ */
+export function size(height: string | number, width: string | number = height) {
+  return {
+    height,
+    width,
+  };
 }

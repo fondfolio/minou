@@ -1,6 +1,19 @@
-import {Box, ButtonGroup, Input, Link, Heading, Button, Text} from 'minou';
+import {useState} from 'react';
+import {
+  Box,
+  ButtonGroup,
+  TextField,
+  Input,
+  Link,
+  Heading,
+  Button,
+  Text,
+  Icon,
+  Icons,
+} from 'minou';
 
 export default function Home() {
+  const [textFieldContent, setTextFieldContent] = useState('');
   return (
     <Box p={4}>
       <Box p={1}>
@@ -34,10 +47,13 @@ export default function Home() {
         </ButtonGroup>
       </Box>
       <Box pb={2}>
-        <Input />
-      </Box>
-      <Box pb={2}>
-        <Input size="small" />
+        <Icon icon={Icons.ArrowDown} />
+        <Icon icon={Icons.Close} />
+        <TextField
+          label="test"
+          value={textFieldContent}
+          onChange={(value) => setTextFieldContent(value)}
+        />
       </Box>
     </Box>
   );
