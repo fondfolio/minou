@@ -1,4 +1,4 @@
-import {createScale} from '../';
+import {createScale} from '../utilities';
 
 describe('utilities', () => {
   describe('createScale', () => {
@@ -9,7 +9,7 @@ describe('utilities', () => {
     });
 
     it('creates a scale with a given transform function', () => {
-      const transformFunction = jest.fn((arr) =>
+      const transformFunction = jest.fn((arr: any[]) =>
         arr.map((val) => `${val.toString()}-transformed`),
       );
       const scale = createScale(200, 2, 2, transformFunction);
