@@ -15,7 +15,7 @@
     "strictNullChecks": true,
     "jsx": "preserve",
     "paths": {
-      "minou": ["../minou/src"]
+      "minou": ["../minou"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
