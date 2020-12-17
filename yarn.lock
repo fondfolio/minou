@@ -2394,20 +2394,6 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@minou/theme@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@minou/theme/-/theme-0.0.1.tgz#70bccf78f9805a82540a4842b9358175c59186f3"
-  integrity sha512-Ig9/E7tLmSuCcxrSuO1M6MFK7BzF0atx2tySyWKxLNL6huHSZeFUFajASc4q4VWPoBKP7HtB/InL6Qj/qpfWtA==
-  dependencies:
-    "@minou/utilities" "^0.0.1"
-
-"@minou/utilities@*", "@minou/utilities@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@minou/utilities/-/utilities-0.0.1.tgz#6699c5b09bafb5b5523c94e711afe7133409b4c8"
-  integrity sha512-Vxz6FJUREC8nxROkJe6iQvF+zfuzU58n1rBDqAw4/oFZPUO+ORmVqoT1yuLab/zgNohFbPsUP7rvbEnM0ANrSg==
-  dependencies:
-    "@minou/theme" "^0.0.1"
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -4686,7 +4672,7 @@ babel-plugin-react-docgen@^4.2.1:
     lodash "^4.17.15"
     react-docgen "^5.0.0"
 
-"babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.8.0:
+"babel-plugin-styled-components@>= 1":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.12.0.tgz#1dec1676512177de6b827211e9eda5a30db4f9b9"
   integrity sha512-FEiD7l5ZABdJPpLssKXjBUJMYqzbcNzBowfXDCdJhOpbhWiewapUaY+LZGT8R4Jg2TwOjGjG4RKeyrO5p9sBkA==
@@ -7594,11 +7580,6 @@ execa@^4.0.0:
     onetime "^5.1.0"
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
-
-exenv@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
-  integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
 
 exit@^0.1.2:
   version "0.1.2"
@@ -11172,6 +11153,16 @@ minizlib@^2.1.1:
     minipass "^3.0.0"
     yallist "^4.0.0"
 
+minou@latest:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/minou/-/minou-0.0.2.tgz#fa565530ddefeb7b1c99563fa1c9cab93d83f4e8"
+  integrity sha512-3fzxr1Q6xRX6PCXbna3u6O7nKGnUr4/r2S+9BV5ftoM8c2bpwJqGP148/fLi8mzSnYVOEoatkWQfxYA8tFUvRQ==
+  dependencies:
+    "@minou/core" "^0.0.2"
+    "@minou/icons" "^0.0.2"
+    "@minou/theme" "^0.0.2"
+    "@minou/utilities" "^0.0.2"
+
 mississippi@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/mississippi/-/mississippi-3.0.0.tgz#ea0a3291f97e0b5e8776b363d5f0a12d94c67022"
@@ -12987,11 +12978,6 @@ react-fast-compare@^3.0.1, react-fast-compare@^3.2.0:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
-react-from-dom@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/react-from-dom/-/react-from-dom-0.5.1.tgz#5ab82944209059aded60dc26abf43f8989126fa2"
-  integrity sha512-ki6OGVgSjDCF0Gt4SMl2cUNBA9ZB8g59bwv9ZiSEXQ37Cw9ZGY0s7EgfPFQYDvaiVx22jto7/dYgQeS+Qw1Mfw==
-
 react-helmet-async@^1.0.2:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.7.tgz#b988fbc3abdc4b704982bb74b9cb4a08fcf062c1"
@@ -13009,14 +12995,6 @@ react-hotkeys@2.0.0:
   integrity sha512-3n3OU8vLX/pfcJrR3xJ1zlww6KS1kEJt0Whxc4FiGV+MJrQ1mYSYI3qS/11d2MJDFm8IhOXMTFQirfu6AVOF6Q==
   dependencies:
     prop-types "^15.6.1"
-
-react-inlinesvg@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/react-inlinesvg/-/react-inlinesvg-2.2.2.tgz#b43ac35ed9d0b6f60274b93049a5d091fd4384b6"
-  integrity sha512-5uXTB0yL9LiRLbN5FhTnL1IK9mLg93kspY2HnKUftzoJDEqZrlscuZxzXStbMBZpNyO359U7QDspM3AqUYUrog==
-  dependencies:
-    exenv "^1.2.2"
-    react-from-dom "^0.5.1"
 
 react-inspector@^5.0.1:
   version "5.1.0"

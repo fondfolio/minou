@@ -47,8 +47,39 @@ export default function Home() {
         </ButtonGroup>
       </Box>
       <Box pb={2}>
+        <Icon icon={Icons.User} />
         <Icon icon={Icons.ArrowDown} />
+        <Icon icon={Icons.ArrowUp} />
+        <Icon icon={Icons.DropUp} />
+        <Icon icon={Icons.DropDown} />
+        <Icon icon={Icons.ArrowLongRight} />
+        <Icon icon={Icons.ArrowLongLeft} />
+        <Icon icon={Icons.ArrowLongExternal} />
         <Icon icon={Icons.Close} />
+        <Icon icon={Icons.MoreDots} />
+        <Icon icon={Icons.Clipboard} />
+        <Icon icon={Icons.Search} />
+        <Icon icon={Icons.Lightbulb} />
+        <Icon icon={Icons.Mail} />
+        <Icon icon={Icons.Tooltip} />
+        <Icon icon={Icons.Plus} />
+        <Icon icon={Icons.EventBirthday} />
+        <Icon icon={Icons.EventCause} />
+        <Icon icon={Icons.EventWedding} />
+        <Icon icon={Icons.EventAnniversary} />
+        <Icon icon={Icons.EventEngagement} />
+        <Icon icon={Icons.EventWedding} />
+        <Icon icon={Icons.EventRetirement} />
+        <Icon icon={Icons.EventRecovery} />
+        <Icon icon={Icons.EventRemembering} />
+        <Icon icon={Icons.EventSuccess} />
+        <Icon icon={Icons.EventNewborn} />
+        <Icon icon={Icons.LogoIcon} />
+        <Icon icon={Icons.LogoWord} />
+        <Icon icon={Icons.Logo} />
+        <Icon icon={Icons.Facebook} />
+        <Icon icon={Icons.Twitter} />
+        <Icon icon={Icons.Instagram} />
         <TextField
           label="test"
           value={textFieldContent}

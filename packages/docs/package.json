@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "babel-plugin-inline-react-svg": "^1.1.2",
-    "minou": "*",
+    "minou": "latest",
     "next": "latest",
     "react": "^17.0.1",
     "styled-components": "^5.0.0"
