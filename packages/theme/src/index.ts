@@ -60,8 +60,8 @@ export const theme = {
 
   fonts: {
     body: 'Faktum, sans-serif, system-ui',
-    heading: 'inherit',
-    serif: 'Lora, Georgia, serif',
+    heading: 'Fragen, Georgia, serif',
+    serif: 'Fragen, Georgia, serif',
     sans: 'Faktum, sans-serif, system-ui',
     monospace: 'Inconsolata, monospace',
   },
