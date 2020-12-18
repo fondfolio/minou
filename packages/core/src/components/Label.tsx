@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Markdown from 'react-markdown';
 
+import {Heading} from './Heading';
+
 const StyledLabel = styled.label``;
 
 export interface LabelProps {
@@ -24,6 +26,12 @@ export function Label({children, size, ...rest}: LabelProps) {
         </StyledLabel>
       );
     default:
-      return <StyledLabel {...rest}>{children}</StyledLabel>;
+      return (
+        <StyledLabel {...rest}>
+          <Heading level={3} pb={2}>
+            {children}
+          </Heading>
+        </StyledLabel>
+      );
   }
 }

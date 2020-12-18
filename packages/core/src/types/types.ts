@@ -21,10 +21,11 @@ export type Color =
   | 'white'
   | 'default';
 
-export type Error =
-  | string
-  | React.ReactElement
-  | (string | React.ReactElement)[];
+export interface FormError {
+  field?: string[] | null;
+  message: string;
+}
+export type Error = string | FormError;
 
 export enum Key {
   Backspace = 8,

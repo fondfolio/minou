@@ -20,6 +20,7 @@ export const reset = css`
   background: none;
   font-size: 100%;
   font-family: inherit;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 `;

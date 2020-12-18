@@ -56,6 +56,7 @@ export const theme = {
     accent: pallet.blue,
     highlight: pallet.yellow,
     muted: pallet.greyLight,
+    error: pallet.red,
   },
 
   fonts: {
@@ -63,10 +64,9 @@ export const theme = {
     heading: 'Fragen, Georgia, serif',
     serif: 'Fragen, Georgia, serif',
     sans: 'Faktum, sans-serif, system-ui',
-    monospace: 'Inconsolata, monospace',
   },
 
-  fontSizes: [12, 14, 16, 18, 22, 24, 32, 48, 64, 96],
+  fontSizes: [10, 12, 14, 16, 18, 22, 24, 32, 48, 64, 96],
 
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 
@@ -81,81 +81,8 @@ export const theme = {
     heading: 1.25,
   },
 
-  text: {
-    heading1: {
-      fontFamily: 'serif',
-      lineHeight: 'heading',
-      fontWeight: 'normal',
-      fontSize: [6, 7],
-    },
-    heading2: {
-      fontFamily: 'serif',
-      lineHeight: 'heading',
-      fontWeight: 'normal',
-      fontSize: [5, 6],
-    },
-    heading3: {
-      fontFamily: 'sans',
-      lineHeight: 'heading',
-      fontWeight: 'normal',
-      fontSize: [4],
-    },
-    heading4: {
-      fontFamily: 'sans',
-      lineHeight: 'heading',
-      fontWeight: 'bold',
-      fontSize: [3],
-    },
-    heading5: {
-      fontFamily: 'sans',
-      lineHeight: 'heading',
-      fontWeight: 'bold',
-      fontSize: [2],
-    },
-    heading6: {
-      fontFamily: 'monospace',
-      lineHeight: 'body',
-      fontWeight: 'bold',
-      fontSize: [1],
-    },
-    bodyLarge: {
-      fontFamily: 'sans',
-      lineHeight: 'body',
-      fontWeight: 'normal',
-      fontSize: [3],
-    },
-    body: {
-      fontFamily: 'sans',
-      lineHeight: 'body',
-      fontWeight: 'normal',
-      fontSize: [2],
-    },
-    caption: {
-      fontFamily: 'sans',
-      lineHeight: 'body',
-      fontWeight: 'normal',
-      fontSize: [1],
-    },
-    caps: {
-      textTransform: 'uppercase',
-      letterSpacing: '0.5em',
-    },
-  },
-
-  buttons: {
-    primary: {
-      fontSize: 2,
-      fontWeight: 'bold',
-      color: 'white',
-      bg: 'tealDark',
-      borderRadius: 'default',
-    },
-    outline: {
-      variant: 'buttons.primary',
-      color: 'tealDark',
-      bg: 'white',
-      boxShadow: 'inset 0 0 2px',
-    },
+  shadows: {
+    large: 'rgba(0, 0, 0, 0.12) 0px 5px 10px 0px',
   },
 
   transitions: {
@@ -166,3 +93,26 @@ export const theme = {
 };
 
 export default theme;
+
+// bodyLarge: {
+//   fontFamily: 'sans',
+//   lineHeight: 'body',
+//   fontWeight: 'normal',
+//   fontSize: [3],
+// },
+// body: {
+//   fontFamily: 'sans',
+//   lineHeight: 'body',
+//   fontWeight: 'normal',
+//   fontSize: [2],
+// },
+// caption: {
+//   fontFamily: 'sans',
+//   lineHeight: 'body',
+//   fontWeight: 'normal',
+//   fontSize: [1],
+// },
+// caps: {
+//   textTransform: 'uppercase',
+//   letterSpacing: '0.5em',
+// },

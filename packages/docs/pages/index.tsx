@@ -1,19 +1,51 @@
-import {useState} from 'react';
+import React from 'react';
+import {useField, useForm, notEmpty, lengthMoreThan} from '@shopify/react-form';
 import {
   Box,
   ButtonGroup,
   TextField,
-  Input,
+  Card,
   Link,
   Heading,
   Button,
   Text,
   Icon,
   Icons,
+  Flex,
+  Form,
+  TextArea,
 } from 'minou';
 
 export default function Home() {
-  const [textFieldContent, setTextFieldContent] = useState('');
+  const {
+    fields: {title, question, introduction, password},
+    submit,
+    submitting,
+    submitErrors,
+  } = useForm({
+    fields: {
+      title: useField({
+        value: '',
+        validates: [
+          notEmpty('Title is required'),
+          lengthMoreThan(3, 'Title must be more than 3 characters'),
+        ],
+      }),
+      question: useField(
+        'Do you remember the exact moment? What were you both doing at the time? Who spoke up first? What were your first impressions? Talk about the events or specific situations that led to you knowing each other. Perhaps you have the same blood running through your veins and have known them since birth – can you describe what it was like growing up together?',
+      ),
+      introduction: useField('some default intro'),
+      password: useField('some default intro'),
+    },
+    onSubmit: async (fieldValues) => {
+      const values = await Promise.resolve(fieldValues);
+
+      console.log(values);
+
+      return {status: 'fail', errors: [{message: 'bad form data'}]};
+    },
+  });
+
   return (
     <Box p={4}>
       <Box p={1}>
@@ -25,8 +57,42 @@ export default function Home() {
         <Button variant="destructive">Destructive Button</Button>
       </ButtonGroup>
       <Box p={1} pb={3}>
-        <Heading>Questionnaire</Heading>
-        <Text pb={4}>
+        <ButtonGroup>
+          <Button variant="primary">Primary</Button>
+          <Button size="small" variant="primary">
+            Small Button
+          </Button>
+          <Button size="small" variant="secondary">
+            Small Button
+          </Button>
+          <Button size="small">
+            <Icon color="teal" icon={Icons.ArrowDown} />
+          </Button>
+        </ButtonGroup>
+      </Box>
+      <Heading pb={4} level={1}>
+        Minou‘s Success
+      </Heading>
+      <Heading pb={4} level={2}>
+        Questionnaire
+      </Heading>
+      <Heading pb={4} level={3}>
+        Heading three
+      </Heading>
+      <Heading pb={4} level={4}>
+        Heading four
+      </Heading>
+      <Heading pb={4} level={5}>
+        Heading five
+      </Heading>
+      <Heading pb={4} level={6}>
+        Forgot password?
+      </Heading>
+      <Card variant="large">
+        <Heading pb={3} level={3}>
+          Questionnaire
+        </Heading>
+        <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat
           aliquet metus, id bibendum ante porta non. Sed ac tempus sem. Sed
           vehicula auctor tristique. Vestibulum metus erat, ullamcorper quis
@@ -36,56 +102,82 @@ export default function Home() {
           metus, sit amet tincidunt neque ornare et. Maecenas lacinia lacus ut
           tempor tincidunt.
         </Text>
-        <ButtonGroup>
-          <Button variant="primary">Primary</Button>
-          <Button size="small" variant="primary">
-            Small Button
-          </Button>
-          <Button size="small" variant="secondary">
-            Small Button
-          </Button>
-        </ButtonGroup>
-      </Box>
-      <Box pb={2}>
-        <Icon icon={Icons.User} />
-        <Icon icon={Icons.ArrowDown} />
-        <Icon icon={Icons.ArrowUp} />
-        <Icon icon={Icons.DropUp} />
-        <Icon icon={Icons.DropDown} />
-        <Icon icon={Icons.ArrowLongRight} />
-        <Icon icon={Icons.ArrowLongLeft} />
-        <Icon icon={Icons.ArrowLongExternal} />
-        <Icon icon={Icons.Close} />
-        <Icon icon={Icons.MoreDots} />
-        <Icon icon={Icons.Clipboard} />
-        <Icon icon={Icons.Search} />
-        <Icon icon={Icons.Lightbulb} />
-        <Icon icon={Icons.Mail} />
-        <Icon icon={Icons.Tooltip} />
-        <Icon icon={Icons.Plus} />
-        <Icon icon={Icons.EventBirthday} />
-        <Icon icon={Icons.EventCause} />
-        <Icon icon={Icons.EventWedding} />
-        <Icon icon={Icons.EventAnniversary} />
-        <Icon icon={Icons.EventEngagement} />
-        <Icon icon={Icons.EventWedding} />
-        <Icon icon={Icons.EventRetirement} />
-        <Icon icon={Icons.EventRecovery} />
-        <Icon icon={Icons.EventRemembering} />
-        <Icon icon={Icons.EventSuccess} />
-        <Icon icon={Icons.EventNewborn} />
-        <Icon icon={Icons.LogoIcon} />
-        <Icon icon={Icons.LogoWord} />
-        <Icon icon={Icons.Logo} />
-        <Icon icon={Icons.Facebook} />
-        <Icon icon={Icons.Twitter} />
-        <Icon icon={Icons.Instagram} />
+      </Card>
+      <Flex pb={2} flexWrap="wrap">
+        <IconBox icon={Icons.User} />
+        <IconBox icon={Icons.ArrowDown} />
+        <IconBox icon={Icons.ArrowUp} />
+        <IconBox icon={Icons.DropUp} />
+        <IconBox icon={Icons.DropDown} />
+        <IconBox icon={Icons.ArrowLongRight} />
+        <IconBox icon={Icons.ArrowLongLeft} />
+        <IconBox icon={Icons.ArrowLongExternal} />
+        <IconBox icon={Icons.Close} />
+        <IconBox icon={Icons.MoreDots} />
+        <IconBox icon={Icons.Clipboard} />
+        <IconBox icon={Icons.Search} />
+        <IconBox icon={Icons.Lightbulb} />
+        <IconBox icon={Icons.Mail} />
+        <IconBox icon={Icons.Tooltip} />
+        <IconBox icon={Icons.Plus} />
+        <IconBox icon={Icons.EventBirthday} />
+        <IconBox icon={Icons.EventCause} />
+        <IconBox icon={Icons.EventWedding} />
+        <IconBox icon={Icons.EventAnniversary} />
+        <IconBox icon={Icons.EventEngagement} />
+        <IconBox icon={Icons.EventWedding} />
+        <IconBox icon={Icons.EventRetirement} />
+        <IconBox icon={Icons.EventRecovery} />
+        <IconBox icon={Icons.EventRemembering} />
+        <IconBox icon={Icons.EventSuccess} />
+        <IconBox icon={Icons.EventNewborn} />
+        <IconBox icon={Icons.LogoIcon} />
+        <IconBox icon={Icons.LogoWord} />
+        <IconBox icon={Icons.Logo} />
+        <IconBox icon={Icons.Facebook} />
+        <IconBox icon={Icons.Twitter} />
+        <IconBox icon={Icons.Instagram} />
+      </Flex>
+      <Form onSubmit={submit} loading={submitting} errors={submitErrors}>
         <TextField
-          label="test"
-          value={textFieldContent}
-          onChange={(value) => setTextFieldContent(value)}
+          label="Title"
+          helpText="Appears at the start and throughout the questionnaire."
+          {...title}
         />
-      </Box>
+        <TextField label="Introduction" multiline {...introduction} />
+        <Flex alignItems="flex-start">
+          <Flex flexDirection="column" p={2}>
+            <Button size="small">
+              <Icon color="teal" icon={Icons.ArrowUp} />
+            </Button>
+            <Button size="small">
+              <Icon color="teal" icon={Icons.ArrowDown} />
+            </Button>
+          </Flex>
+          <Box width="100%">
+            <TextArea
+              value={question.value}
+              textSize="small"
+              onChange={(event) => question.onChange(event.target.value)}
+            />
+            <TextArea
+              value={question.value}
+              textSize="small"
+              onChange={(event) => question.onChange(event.target.value)}
+            />
+          </Box>
+        </Flex>
+        <TextField label="Password" {...password} />
+        <Button onClick={submit}>Submit</Button>
+      </Form>
+    </Box>
+  );
+}
+
+function IconBox({icon}) {
+  return (
+    <Box p={4}>
+      <Icon icon={icon} />
     </Box>
   );
 }

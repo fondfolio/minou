@@ -1,18 +1,15 @@
 import React, {createElement, useState, useEffect, useRef} from 'react';
 import {useUniqueId} from '@minou/utilities';
 
-import {Key} from '../types';
+import {Key, Error} from '../types';
 
-import {Input, Type} from './Input';
+import {Input, Type, TextArea} from './Input';
+import {Box} from './Box';
 import {Labelled, LabelledProps, helpTextID} from './Labelled';
 
 type Alignment = 'left' | 'center' | 'right';
 
 interface NonMutuallyExclusiveProps {
-  /** Text to display before value */
-  prefix?: React.ReactNode;
-  /** Text to display after value */
-  suffix?: React.ReactNode;
   /** Hint text to display */
   placeholder?: string;
   /** Initial value for the input */
@@ -27,8 +24,6 @@ interface NonMutuallyExclusiveProps {
   labelHidden?: boolean;
   /** Disable the input */
   disabled?: boolean;
-  /** Show a clear text button in the input */
-  clearButton?: boolean;
   /** Disable editing of the input */
   readOnly?: boolean;
   /** Automatically focus the input */
@@ -39,10 +34,6 @@ interface NonMutuallyExclusiveProps {
   multiline?: boolean | number;
   /** Error to display beneath the label */
   error?: Error | boolean | string;
-  /** An element connected to the right of the input */
-  connectedRight?: React.ReactNode;
-  /** An element connected to the left of the input */
-  connectedLeft?: React.ReactNode;
   /** Determine type of input */
   type?: Type;
   /** Name of the input */
@@ -75,14 +66,10 @@ interface NonMutuallyExclusiveProps {
   ariaActiveDescendant?: string;
   /** Indicates what kind of user input completion suggestions are provided */
   ariaAutocomplete?: 'none' | 'inline' | 'list' | 'both' | undefined;
-  /** Indicates whether or not the character count should be displayed */
-  showCharacterCount?: boolean;
   /** Determines the alignment of the text in the input */
   align?: Alignment;
   /** Determines the size of the text in the input */
   textSize?: 'small' | 'large';
-  /** Callback when clear button is clicked */
-  onClearButtonClick?(id: string): void;
   /** Callback when value is changed */
   onChange?(value: string, id: string): void;
   /** Callback when input is focused */
@@ -133,12 +120,8 @@ export function TextField({
   textSize,
 }: TextFieldProps) {
   const [focus, setFocus] = useState(Boolean(focused));
-
   const id = useUniqueId('TextField', idProp);
-
   const inputRef = useRef<HTMLElement>(null);
-  const prefixRef = useRef<HTMLDivElement>(null);
-  const suffixRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const input = inputRef.current;
@@ -163,7 +146,7 @@ export function TextField({
     describedBy.push(helpTextID(id || ''));
   }
 
-  const input = createElement(multiline ? Input : Input, {
+  const input = createElement(multiline ? TextArea : Input, {
     name,
     id: id || '',
     disabled,
@@ -185,6 +168,7 @@ export function TextField({
     maxLength,
     spellCheck,
     pattern,
+    error: Boolean(error),
     focus,
     type: inputType,
     'aria-describedby': describedBy.length ? describedBy.join(' ') : undefined,
@@ -201,19 +185,19 @@ export function TextField({
     <Labelled
       label={label}
       id={id || ''}
-      error={Boolean(error)}
+      error={error}
       action={labelAction}
       labelHidden={labelHidden}
       helpText={helpText}
     >
-      <div
+      <Box
         onKeyPress={handleKeyPress}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClick={handleClick}
       >
         {input}
-      </div>
+      </Box>
     </Labelled>
   );
 
@@ -226,24 +210,13 @@ export function TextField({
     event.preventDefault();
   }
 
-  function containsAffix(target: HTMLElement | EventTarget) {
-    return (
-      target instanceof HTMLElement &&
-      ((prefixRef.current && prefixRef.current.contains(target)) ||
-        (suffixRef.current && suffixRef.current.contains(target)))
-    );
-  }
-
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     if (onChange) {
       onChange(event.currentTarget.value, id || '');
     }
   }
 
-  function handleFocus({target}: React.FocusEvent) {
-    if (containsAffix(target)) {
-      return;
-    }
+  function handleFocus() {
     setFocus(true);
   }
 
@@ -251,11 +224,7 @@ export function TextField({
     setFocus(false);
   }
 
-  function handleClick({target}: React.MouseEvent) {
-    if (containsAffix(target)) {
-      return;
-    }
-
+  function handleClick() {
     if (inputRef.current) {
       inputRef.current.focus();
     }

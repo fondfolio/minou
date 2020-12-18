@@ -11,9 +11,9 @@ module.exports = {
   },
   extends: [
     'plugin:@shopify/typescript',
-    'plugin:@shopify/typescript-type-checking',
     'plugin:@shopify/react',
     'plugin:@shopify/node',
+    'plugin:@shopify/typescript-type-checking',
     'plugin:@shopify/prettier',
   ],
   ignorePatterns: [
@@ -30,5 +30,7 @@ module.exports = {
   rules: {
     'lines-around-comment': 'off',
     '@typescript-eslint/array-type': ['error', {defaultOption: 'array'}],
+    '@typescript-eslint/unbound-method': 'off',
+    'react/no-array-index-key': 'off',
   },
 };
