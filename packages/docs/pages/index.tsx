@@ -25,7 +25,7 @@ export default function Home() {
         <Button variant="destructive">Destructive Button</Button>
       </ButtonGroup>
       <Box p={1} pb={3}>
-        <Heading>Heading</Heading>
+        <Heading>Questionnaire</Heading>
         <Text pb={4}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat
           aliquet metus, id bibendum ante porta non. Sed ac tempus sem. Sed
