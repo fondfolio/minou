@@ -11,7 +11,8 @@ export interface LabelProps {
   id: string;
   /** Visually hide the label */
   hidden?: boolean;
-  size?: string;
+  /** Size of the label */
+  size?: 'large';
 }
 
 export function Label({children, size, ...rest}: LabelProps) {
