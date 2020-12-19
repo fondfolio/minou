@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@shopify/react-form": "^0.10.0",
     "babel-plugin-inline-react-svg": "^1.1.2",
     "minou": "latest",
     "next": "latest",

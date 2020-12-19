@@ -14,7 +14,7 @@ interface Props {
    */
   variant?: 'primary' | 'secondary' | 'destructive';
   /** The content to display inside the button */
-  children?: string | string[];
+  children?: React.ReactNode;
 }
 
 type CombinedProps = Props & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -34,7 +34,7 @@ const StyledButton = styled.button<Props>`
   position: relative;
   color: ${({theme}) => theme.colors.teal};
   transition: ${({theme}) => theme.transitions.all};
-  font-size: ${({size}) => (size === 'small' ? '0.8em' : '1em')};
+  font-size: ${({size}) => (size === 'small' ? '0.75em' : '1em')};
 
   &:hover {
     text-decoration: underline;
@@ -45,10 +45,10 @@ const StyledButton = styled.button<Props>`
 const StyledPrimaryButton = styled(StyledButton)`
   color: ${({theme}) => theme.colors.white};
   background: ${({theme}) => theme.colors.teal};
-  padding: 0.8em 1.6em;
+  padding: ${({size}) => (size === 'small' ? '0.4em 1.6em' : '0.8em 1.6em;')};
   font-weight: ${({theme}) => theme.fontWeights.bold};
   border-radius: ${({theme}) => theme.radii.button};
-  border: 1px solid;
+  border: 1px solid ${({theme}) => theme.colors.tealDark};
 
   &:hover {
     color: ${({theme}) => theme.colors.white};
@@ -70,9 +70,11 @@ const StyledSecondaryButton = styled(StyledPrimaryButton)`
 
 const StyledDestructiveButton = styled(StyledSecondaryButton)`
   color: ${({theme}) => theme.colors.red};
+  border: 1px solid ${({theme}) => theme.colors.red};
 
   &:hover {
     color: ${({theme}) => theme.colors.redDark};
+    border: 1px solid ${({theme}) => theme.colors.redDark};
   }
 `;
 

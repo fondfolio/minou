@@ -20,8 +20,19 @@ export const reset = css`
   background: none;
   font-size: 100%;
   font-family: inherit;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+`;
+
+export const visuallyHidden = css`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 `;
 
 export function createScale(

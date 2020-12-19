@@ -4,29 +4,36 @@ import {
   layout,
   color,
   flexbox,
+  border,
+  shadow,
   SpaceProps,
   LayoutProps,
   TypographyProps,
   ColorProps,
   FlexboxProps,
+  BorderProps,
+  ShadowProps,
 } from 'styled-system';
-import {reset} from '@minou/utilities';
 
 export interface BoxProps
   extends SpaceProps,
     LayoutProps,
     TypographyProps,
     ColorProps,
-    FlexboxProps {
+    FlexboxProps,
+    BorderProps,
+    ShadowProps {
+  /** specify the underlaying component  */
   as?: React.ElementType;
 }
 
 export const Box = styled.div<BoxProps>`
-  ${reset}
   ${space}
   ${layout}
   ${color}
   ${flexbox}
+  ${border}
+  ${shadow}
 `;
 
 export const Flex = styled(Box)`
