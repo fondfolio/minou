@@ -42,6 +42,7 @@ const StyledInput = styled.input<Props>`
       ? `2px solid ${theme.colors.error}`
       : `1px solid ${theme.colors.greyLight}`};
   font-size: ${({textSize}) => (textSize === 'small' ? '0.8em' : '1em')};
+  line-height: 1.45;
   margin-bottom: 1em;
   height: ${({height}) => (height ? `${height}px` : 'auto')};
   &:focus {

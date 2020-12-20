@@ -45,10 +45,11 @@ const StyledButton = styled.button<Props>`
 const StyledPrimaryButton = styled(StyledButton)`
   color: ${({theme}) => theme.colors.white};
   background: ${({theme}) => theme.colors.teal};
-  padding: ${({size}) => (size === 'small' ? '0.4em 1.6em' : '0.8em 1.6em;')};
+  padding: ${({size}) => (size === 'small' ? '0.8em 1.6em' : '0.8em 1.6em;')};
   font-weight: ${({theme}) => theme.fontWeights.bold};
   border-radius: ${({theme}) => theme.radii.button};
   border: 1px solid ${({theme}) => theme.colors.tealDark};
+  line-height: 0.9;
 
   &:hover {
     color: ${({theme}) => theme.colors.white};
