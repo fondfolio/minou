@@ -93,6 +93,10 @@ export const theme = {
     background: `background ${timing}`,
     color: `color  ${timing} ease`,
   },
+
+  zIndices: {
+    header: 10,
+  },
 };
 
 export default theme;

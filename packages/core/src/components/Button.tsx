@@ -3,16 +3,7 @@ import styled from 'styled-components';
 import {reset} from '@minou/utilities';
 import {ComplexAction} from 'types';
 
-interface Props {
-  /** Changes the button size */
-  size?: 'small';
-  /**
-   * By default a button that looks like a link
-   * "primary" provides extra visual weight and identifies the primary action in a set of buttons
-   * "secondary" gives the button a subtle alternative to the default button styling, appropriate for certain backdrops
-   * "destructive" indicates a dangerous or potentially negative action
-   */
-  variant?: 'primary' | 'secondary' | 'destructive';
+interface Props extends ComplexAction {
   /** The content to display inside the button */
   children?: React.ReactNode;
 }

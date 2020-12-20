@@ -6,8 +6,21 @@ const root = resolve(__dirname, '..');
 const projectDir = process.argv[2];
 
 config.fatal = true;
-
-const log = echo;
+const logBreak = () => {
+  echo(' ');
+};
+const log = (text) => {
+  echo(`  ${text}`);
+};
+const logDivder = () => {
+  logBreak();
+  echo('-----');
+  logBreak();
+};
+const logHeader = (header) => {
+  echo(`/ ${header}`);
+  logBreak();
+};
 
 const SCOPE = '@minou';
 const LOCAL_PACKAGE_DIR = 'packages';
@@ -41,7 +54,10 @@ const files = [
   },
 ];
 
+logBreak();
 files.forEach(({name, scope}) => {
+  logHeader(name);
+
   const source = resolve(LOCAL_PACKAGE_DIR, name);
   const destination = scope
     ? resolve(DEST_PACKAGE_DIR, SCOPE)
@@ -56,8 +72,12 @@ files.forEach(({name, scope}) => {
 
   log('Copying build to node_modules...');
   cp('-R', source, destination);
+
+  log('Success!');
+  logDivder();
 });
 
+logBreak();
 log(
   'Build copied to consuming project. You can now run the consuming app and it will include your changes from Polaris.',
 );

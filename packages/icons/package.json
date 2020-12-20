@@ -5,15 +5,10 @@
   "scripts": {
     "build": "tsc"
   },
-  "dependencies": {
-    "@minou/core": "^0.0.10",
-    "@minou/theme": "^0.0.10"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "next": ">=10.0.0",
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "styled-components": ">=5.0.0"
+    "react-dom": ">=16.8.0"
   },
   "publishConfig": {
     "access": "public"

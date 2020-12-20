@@ -1,13 +1,30 @@
+/** Layout */
 export {Box, Flex} from './Box';
-export {Text} from './Text';
-export {Heading} from './Heading';
-export {Link} from './Link';
-export {Input, TextArea} from './Input';
-export {Button} from './Button';
-export {GlobalStyle} from './GlobalStyle';
-export {Meta} from './Meta';
-export {ButtonGroup} from './ButtonGroup';
-export {Provider} from './Provider';
-export {TextField} from './TextField';
 export {Card} from './Card';
+export {Header} from './Header';
+
+/** Actions */
+export {Link} from './Link';
+export {Button} from './Button';
+export {ButtonGroup} from './ButtonGroup';
+
+/** Forms */
 export {Form} from './Form';
+export {FieldSet} from './FieldSet';
+export {TextField} from './TextField';
+
+/** Typography & Icons*/
+export {Text} from './Text';
+export {Title} from './Title';
+export {DisplayText} from './DisplayText';
+export {Icon} from './Icon';
+
+/** Global */
+export {Provider} from './Provider';
+
+/** Overlays */
+// Dropdown
+// Modal
+
+/** Navigation */
+// Tabs

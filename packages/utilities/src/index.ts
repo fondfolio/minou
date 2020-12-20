@@ -1,2 +1,2 @@
 export * from './utilities';
-export {useUniqueId} from './unique-id';
+export {useUniqueId, globalIdGeneratorFactory} from './unique-id';

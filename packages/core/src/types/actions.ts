@@ -15,6 +15,15 @@ export interface BaseAction {
   onMouseEnter?(): void;
   /** Callback when element is touched */
   onTouchStart?(): void;
+  /** Changes the button size */
+  size?: 'small';
+  /**
+   * By default a button that looks like a link
+   * "primary" provides extra visual weight and identifies the primary action in a set of buttons
+   * "secondary" gives the button a subtle alternative to the default button styling, appropriate for certain backdrops
+   * "destructive" indicates a dangerous or potentially negative action
+   */
+  variant?: 'primary' | 'secondary' | 'destructive';
 }
 
 export interface Action extends BaseAction {}
