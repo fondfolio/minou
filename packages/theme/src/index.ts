@@ -27,6 +27,8 @@ export const pallet = {
   black: '#231D24',
 };
 
+// const sans = `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`;
+const sans = 'Franca, georgia';
 const timings = createScale(200, 2, 3, toMs);
 
 const timing = timings[0];
@@ -60,10 +62,10 @@ export const theme = {
   },
 
   fonts: {
-    body: 'Faktum, sans-serif, system-ui',
+    body: sans,
     heading: 'Fragen, Georgia, serif',
     serif: 'Fragen, Georgia, serif',
-    sans: 'Faktum, sans-serif, system-ui',
+    sans,
   },
 
   fontSizes: [10, 12, 14, 16, 18, 22, 24, 32, 48, 64, 96],

@@ -20,6 +20,7 @@ export const Text = styled.span<TextProps>`
   ${reset}
   display: block;
   max-width: 60em;
+  line-height: 1.45;
   ${typography}
   ${space}
   ${color}

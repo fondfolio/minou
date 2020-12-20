@@ -20,15 +20,16 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Faktum";
-    src: url("/fonts/FaktumTest-Regular.otf");
+    font-family: "Franca";
+    src: url("/fonts/FrancaTest-Book.otf");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
   }
+  
   @font-face {
-    font-family: "Faktum";
-    src: url("/fonts/FaktumTest-Medium.otf");
+    font-family: "Franca";
+    src: url("/fonts/FrancaTest-Medium.otf");
     font-style: medium;
     font-weight: 500;
     font-display: swap;
