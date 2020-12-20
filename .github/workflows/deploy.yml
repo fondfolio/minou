@@ -1,12 +1,12 @@
-name: Deploy
+name: "tagged-release"
 
 on:
-  release:
-    types: # This configuration does not affect the page_build event above
-      - published
-
+  push:
+    tags:
+      - "v*"
 jobs:
-  build:
+  tagged-release:
+    name: "Tagged Release"
     runs-on: ubuntu-latest
 
     steps:
