@@ -1,6 +1,6 @@
 {
   "name": "@minou/utilities",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
@@ -9,7 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@minou/theme": "^0.0.6"
+    "@minou/theme": "^0.0.7"
   },
   "peerDependencies": {
     "jest": ">=26.0.0",

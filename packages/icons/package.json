@@ -1,13 +1,13 @@
 {
   "name": "@minou/icons",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@minou/core": "^0.0.6",
-    "@minou/theme": "^0.0.6"
+    "@minou/core": "^0.0.7",
+    "@minou/theme": "^0.0.7"
   },
   "peerDependencies": {
     "next": ">=10.0.0",
