@@ -14,7 +14,8 @@
     "build": "tsc -b",
     "version-bump": "lerna version",
     "deploy": "lerna publish from-package --yes --no-verify-access",
-    "lint": "eslint . --ext .ts --ext .tsx --ext .js"
+    "lint": "eslint . --ext .ts --ext .tsx --ext .js",
+    "tophat": "node scripts/tophat.js"
   },
   "devDependencies": {
     "@shopify/eslint-plugin": "^39.0.3",

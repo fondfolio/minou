@@ -27,6 +27,14 @@ yarn                                                          # install dependen
 
 Next, start the development server by running `yarn dev`.
 
+### Testing changes
+
+You can run `yarn tophat <destination>` to copy your local changes to a consuming project. For example, to test changes in the admin, run:
+
+```
+yarn tophat admin
+```
+
 ### Publishing
 
 You can publish new versions of the packages with the following commands:
