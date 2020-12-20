@@ -1,6 +1,6 @@
 {
   "name": "@minou/docs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,7 @@
   "dependencies": {
     "@shopify/react-form": "^0.10.0",
     "babel-plugin-inline-react-svg": "^1.1.2",
-    "minou": "^0.0.8",
+    "minou": "^0.0.9",
     "next": "^10.0.3",
     "react": "^17.0.1",
     "styled-components": "^5.0.0"
