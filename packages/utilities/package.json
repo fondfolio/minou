@@ -8,9 +8,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@minou/theme": "^0.0.9"
-  },
   "peerDependencies": {
     "jest": ">=26.0.0",
     "react": ">=17.0.0",
