@@ -20,7 +20,7 @@
     "@shopify/eslint-plugin": "^39.0.3",
     "@shopify/prettier-config": "^1.1.2",
     "@types/jest": "^26.0.19",
-    "eslint": "7.10.0",
+    "eslint": "^7.16.0",
     "jest": "^26.6.3",
     "ts-jest": "^26.4.4",
     "lerna": "^3.16.4",
