@@ -35,6 +35,29 @@ export const visuallyHidden = css`
   width: 1px;
 `;
 
+export const center = (
+  {x, y}: {x: boolean; y: boolean} = {x: false, y: false},
+) => {
+  if (x && y) {
+    return css`
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    `;
+  } else if (x) {
+    return css`
+      left: 50%;
+      transform: translate(-50%, 0);
+    `;
+  } else if (y) {
+    return css`
+      top: 50%;
+      transform: translate(0, -50%);
+    `;
+  }
+  return ``;
+};
+
 export function createScale(
   initial: number,
   multiplier: number,

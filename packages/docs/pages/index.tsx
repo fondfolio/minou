@@ -6,14 +6,15 @@ import {
   TextField,
   Card,
   Link,
-  Heading,
   Button,
   Text,
   Icon,
   Icons,
   Flex,
   Form,
-  TextArea,
+  Title,
+  DisplayText,
+  Header,
 } from 'minou';
 
 export default function Home() {
@@ -47,130 +48,102 @@ export default function Home() {
   });
 
   return (
-    <Box p={4}>
-      <Box p={1}>
-        <Link href="https://fondfolio.com">Link</Link>
-      </Box>
-      <ButtonGroup p={1}>
-        <Button>Button</Button>
-        <Button variant="secondary">Secondary Button</Button>
-        <Button variant="destructive">Destructive Button</Button>
-      </ButtonGroup>
-      <Box p={1} pb={3}>
-        <ButtonGroup>
-          <Button variant="primary">Primary</Button>
-          <Button size="small" variant="primary">
-            Small Button
-          </Button>
-          <Button size="small" variant="secondary">
-            Small Button
-          </Button>
-          <Button size="small">
-            <Icon color="teal" icon={Icons.ArrowDown} />
-          </Button>
+    <>
+      <Header left={<div>left</div>} right={<div>right</div>} />
+      <Box p={4}>
+        <Box p={1}>
+          <Link href="https://fondfolio.com">Link</Link>
+        </Box>
+        <ButtonGroup p={1}>
+          <Button>Button</Button>
+          <Button variant="secondary">Secondary Button</Button>
+          <Button variant="destructive">Destructive Button</Button>
         </ButtonGroup>
-      </Box>
-      <Heading pb={4} level={1}>
-        Minou‘s Success
-      </Heading>
-      <Heading pb={4} level={2}>
-        Questionnaire
-      </Heading>
-      <Heading pb={4} level={3}>
-        Heading three
-      </Heading>
-      <Heading pb={4} level={4}>
-        Heading four
-      </Heading>
-      <Heading pb={4} level={5}>
-        Heading five
-      </Heading>
-      <Heading pb={4} level={6}>
-        Forgot password?
-      </Heading>
-      <Card variant="large">
-        <Heading pb={3} level={3}>
-          Questionnaire
-        </Heading>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat
-          aliquet metus, id bibendum ante porta non. Sed ac tempus sem. Sed
-          vehicula auctor tristique. Vestibulum metus erat, ullamcorper quis
-          urna sit amet, rhoncus euismod lectus. Vestibulum ante ipsum primis in
-          faucibus orci luctus et ultrices posuere cubilia curae; Morbi
-          pellentesque erat nec turpis efficitur pretium. Donec feugiat nulla
-          metus, sit amet tincidunt neque ornare et. Maecenas lacinia lacus ut
-          tempor tincidunt.
-        </Text>
-      </Card>
-      <Flex pb={2} flexWrap="wrap">
-        <IconBox icon={Icons.User} />
-        <IconBox icon={Icons.ArrowDown} />
-        <IconBox icon={Icons.ArrowUp} />
-        <IconBox icon={Icons.DropUp} />
-        <IconBox icon={Icons.DropDown} />
-        <IconBox icon={Icons.ArrowLongRight} />
-        <IconBox icon={Icons.ArrowLongLeft} />
-        <IconBox icon={Icons.ArrowLongExternal} />
-        <IconBox icon={Icons.Close} />
-        <IconBox icon={Icons.MoreDots} />
-        <IconBox icon={Icons.Clipboard} />
-        <IconBox icon={Icons.Search} />
-        <IconBox icon={Icons.Lightbulb} />
-        <IconBox icon={Icons.Mail} />
-        <IconBox icon={Icons.Tooltip} />
-        <IconBox icon={Icons.Plus} />
-        <IconBox icon={Icons.EventBirthday} />
-        <IconBox icon={Icons.EventCause} />
-        <IconBox icon={Icons.EventWedding} />
-        <IconBox icon={Icons.EventAnniversary} />
-        <IconBox icon={Icons.EventEngagement} />
-        <IconBox icon={Icons.EventWedding} />
-        <IconBox icon={Icons.EventRetirement} />
-        <IconBox icon={Icons.EventRecovery} />
-        <IconBox icon={Icons.EventRemembering} />
-        <IconBox icon={Icons.EventSuccess} />
-        <IconBox icon={Icons.EventNewborn} />
-        <IconBox icon={Icons.LogoIcon} />
-        <IconBox icon={Icons.LogoWord} />
-        <IconBox icon={Icons.Logo} />
-        <IconBox icon={Icons.Facebook} />
-        <IconBox icon={Icons.Twitter} />
-        <IconBox icon={Icons.Instagram} />
-      </Flex>
-      <Form onSubmit={submit} loading={submitting} errors={submitErrors}>
-        <TextField
-          label="Title"
-          helpText="Appears at the start and throughout the questionnaire."
-          {...title}
-        />
-        <TextField label="Introduction" multiline {...introduction} />
-        <Flex alignItems="flex-start">
-          <Flex flexDirection="column" p={2}>
-            <Button size="small">
-              <Icon color="teal" icon={Icons.ArrowUp} />
+        <Box p={1} pb={3}>
+          <ButtonGroup>
+            <Button variant="primary">Primary</Button>
+            <Button size="small" variant="primary">
+              Small Button
+            </Button>
+            <Button size="small" variant="secondary">
+              Small Button
             </Button>
             <Button size="small">
               <Icon color="teal" icon={Icons.ArrowDown} />
             </Button>
-          </Flex>
-          <Box width="100%">
-            <TextArea
-              value={question.value}
-              textSize="small"
-              onChange={(event) => question.onChange(event.target.value)}
-            />
-            <TextArea
-              value={question.value}
-              textSize="small"
-              onChange={(event) => question.onChange(event.target.value)}
-            />
-          </Box>
+          </ButtonGroup>
+        </Box>
+        <Title>Title Component</Title>
+        <DisplayText>Display Text</DisplayText>
+        <Card variant="large">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat
+            aliquet metus, id bibendum ante porta non. Sed ac tempus sem. Sed
+            vehicula auctor tristique. Vestibulum metus erat, ullamcorper quis
+            urna sit amet, rhoncus euismod lectus. Vestibulum ante ipsum primis
+            in faucibus orci luctus et ultrices posuere cubilia curae; Morbi
+            pellentesque erat nec turpis efficitur pretium. Donec feugiat nulla
+            metus, sit amet tincidunt neque ornare et. Maecenas lacinia lacus ut
+            tempor tincidunt.
+          </Text>
+        </Card>
+        <Flex pb={2} flexWrap="wrap">
+          <IconBox icon={Icons.User} />
+          <IconBox icon={Icons.ArrowDown} />
+          <IconBox icon={Icons.ArrowUp} />
+          <IconBox icon={Icons.DropUp} />
+          <IconBox icon={Icons.DropDown} />
+          <IconBox icon={Icons.ArrowLongRight} />
+          <IconBox icon={Icons.ArrowLongLeft} />
+          <IconBox icon={Icons.ArrowLongExternal} />
+          <IconBox icon={Icons.Close} />
+          <IconBox icon={Icons.MoreDots} />
+          <IconBox icon={Icons.Clipboard} />
+          <IconBox icon={Icons.Search} />
+          <IconBox icon={Icons.Lightbulb} />
+          <IconBox icon={Icons.Mail} />
+          <IconBox icon={Icons.Tooltip} />
+          <IconBox icon={Icons.Plus} />
+          <IconBox icon={Icons.EventBirthday} />
+          <IconBox icon={Icons.EventCause} />
+          <IconBox icon={Icons.EventWedding} />
+          <IconBox icon={Icons.EventAnniversary} />
+          <IconBox icon={Icons.EventEngagement} />
+          <IconBox icon={Icons.EventWedding} />
+          <IconBox icon={Icons.EventRetirement} />
+          <IconBox icon={Icons.EventRecovery} />
+          <IconBox icon={Icons.EventRemembering} />
+          <IconBox icon={Icons.EventSuccess} />
+          <IconBox icon={Icons.EventNewborn} />
+          <IconBox icon={Icons.LogoIcon} />
+          <IconBox icon={Icons.LogoWord} />
+          <IconBox icon={Icons.Logo} />
+          <IconBox icon={Icons.Facebook} />
+          <IconBox icon={Icons.Twitter} />
+          <IconBox icon={Icons.Instagram} />
         </Flex>
-        <TextField label="Password" {...password} />
-        <Button onClick={submit}>Submit</Button>
-      </Form>
-    </Box>
+        <Form onSubmit={submit} loading={submitting} errors={submitErrors}>
+          <TextField
+            label="Title"
+            helpText="Appears at the start and throughout the questionnaire."
+            {...title}
+          />
+          <TextField label="Introduction" multiline {...introduction} />
+          <Flex alignItems="flex-start">
+            <Flex flexDirection="column" p={2}>
+              <Button size="small">
+                <Icon color="teal" icon={Icons.ArrowUp} />
+              </Button>
+              <Button size="small">
+                <Icon color="teal" icon={Icons.ArrowDown} />
+              </Button>
+            </Flex>
+          </Flex>
+          <TextField label="Password" {...password} />
+          <Button onClick={submit}>Submit</Button>
+        </Form>
+      </Box>
+    </>
   );
 }
 

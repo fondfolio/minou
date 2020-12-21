@@ -58,7 +58,7 @@ export function Labelled({
   ) : null;
 
   return (
-    <Box pb={4}>
+    <Box>
       {labelMarkup}
       {helpTextMarkup}
       {children}
