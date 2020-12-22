@@ -18,6 +18,7 @@ export {Text} from './Text';
 export {Title} from './Title';
 export {DisplayText} from './DisplayText';
 export {Icon} from './Icon';
+export {Rule} from './Rule';
 
 /** Global */
 export {Provider} from './Provider';

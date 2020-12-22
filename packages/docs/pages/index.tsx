@@ -15,6 +15,7 @@ import {
   Title,
   DisplayText,
   Header,
+  Rule,
 } from 'minou';
 
 export default function Home() {
@@ -87,6 +88,13 @@ export default function Home() {
             tempor tincidunt.
           </Text>
         </Card>
+        <Rule m={4} icon={Icons.LogoIcon} color="primary" />
+        <Rule
+          m={4}
+          text="Know someone else who would like this gift?
+"
+        />
+        <Rule m={4} />
         <Flex pb={2} flexWrap="wrap">
           <IconBox icon={Icons.User} />
           <IconBox icon={Icons.ArrowDown} />
