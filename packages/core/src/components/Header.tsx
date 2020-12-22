@@ -11,7 +11,7 @@ interface Props extends BoxProps {
 }
 
 const StyledHeader = styled(Flex)<Props>`
-  position: ${({position}) => (position ? position : 'static')};
+  position: ${({position}) => (position ? position : 'relative')};
   z-index: ${({theme}) => theme.zIndices.header};
   width: 100%;
 `;

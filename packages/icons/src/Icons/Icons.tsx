@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface IconConfig {
+export interface IconType {
   path: React.SVGProps<SVGPathElement>;
   width?: number;
   height?: number;
 }
 
-export const Icons: {[key: string]: IconConfig} = {
+export const Icons: {[key: string]: IconType} = {
   LogoWord: {
     width: 140,
     path: (

@@ -1,25 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import {IconType} from '@minou/icons';
 
-import {Box} from './Box';
+import {Box, BoxProps} from './Box';
+
+export {IconType};
 
 const DEFAULT_SIZE = 24;
 
-interface StyledProps {
-  color?: string;
+interface Props extends BoxProps {
+  icon: IconType;
 }
 
-interface IconConfig {
-  path: React.SVGProps<SVGPathElement>;
-  width?: number;
-  height?: number;
-}
-
-type Props = StyledProps & {
-  icon: IconConfig;
-};
-
-const StyledIcon = styled(Box)<StyledProps>`
+const StyledIcon = styled(Box)<Props>`
   fill: ${({theme, color}) => theme.colors[color as any]};
 `;
 

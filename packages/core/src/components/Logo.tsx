@@ -6,7 +6,7 @@ import {Icons} from '@minou/icons';
 import {Icon} from './Icon';
 import {Link} from './Link';
 
-const StyledLogo = styled.a`
+const StyledLogo = styled(Link)`
   position: absolute;
   display: block;
   ${center({x: true, y: true})}
@@ -18,9 +18,7 @@ interface Props {
 }
 
 export const Logo = ({color, ...rest}: Props) => (
-  <Link href="/">
-    <StyledLogo {...rest}>
-      <Icon icon={Icons.LogoWord} color={color} />
-    </StyledLogo>
-  </Link>
+  <StyledLogo href="/" {...rest}>
+    <Icon icon={Icons.LogoWord} color={color} />
+  </StyledLogo>
 );
