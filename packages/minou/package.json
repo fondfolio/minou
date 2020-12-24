@@ -1,15 +1,15 @@
 {
   "name": "minou",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@minou/core": "^0.0.13",
-    "@minou/icons": "^0.0.13",
-    "@minou/theme": "^0.0.13",
-    "@minou/utilities": "^0.0.13"
+    "@minou/core": "^0.0.14",
+    "@minou/icons": "^0.0.14",
+    "@minou/theme": "^0.0.14",
+    "@minou/utilities": "^0.0.14"
   },
   "publishConfig": {
     "access": "public"
