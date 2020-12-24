@@ -7,8 +7,9 @@ interface Props {}
 
 export const StyledBanner = styled(Box)<Props>`
   border: 1px solid ${({theme}) => theme.colors.greySuperlight};
+  width: 100%;
 `;
 
 export function Banner(props: Props) {
-  return <StyledBanner borderRadius={2} mb={4} p={3} {...props} />;
+  return <StyledBanner borderRadius={2} my={2} p={3} {...props} />;
 }

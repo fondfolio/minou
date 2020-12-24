@@ -1,7 +1,8 @@
 import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {reset} from '@minou/utilities';
-import {ComplexAction} from 'types';
+
+import {ComplexAction} from '../types';
 
 interface Props extends ComplexAction {
   /** Changes the button size */
@@ -17,7 +18,9 @@ interface Props extends ComplexAction {
   children?: React.ReactNode;
 }
 
-type CombinedProps = Props & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type CombinedProps = Props &
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  ComplexAction;
 
 const StyledButton = styled.button<ComplexAction>`
   ${reset};
@@ -42,7 +45,7 @@ const StyledButton = styled.button<ComplexAction>`
   }
 `;
 
-const StyledPrimaryButton = styled(StyledButton)`
+const StyledPrimaryButton = styled(StyledButton)<ComplexAction>`
   color: ${({theme}) => theme.colors.white};
   background: ${({theme}) => theme.colors.teal};
   padding: ${({size}) => (size === 'small' ? '0.8em 1.6em' : '0.8em 1.6em;')};
@@ -58,7 +61,7 @@ const StyledPrimaryButton = styled(StyledButton)`
   }
 `;
 
-const StyledSecondaryButton = styled(StyledPrimaryButton)`
+const StyledSecondaryButton = styled(StyledPrimaryButton)<ComplexAction>`
   color: ${({theme}) => theme.colors.teal};
   background: ${({theme}) => theme.colors.white};
 
@@ -69,7 +72,7 @@ const StyledSecondaryButton = styled(StyledPrimaryButton)`
   }
 `;
 
-const StyledDestructiveButton = styled(StyledSecondaryButton)`
+const StyledDestructiveButton = styled(StyledSecondaryButton)<ComplexAction>`
   color: ${({theme}) => theme.colors.red};
   border: 1px solid ${({theme}) => theme.colors.red};
 
@@ -100,7 +103,7 @@ export const Button = forwardRef<HTMLButtonElement, CombinedProps>(
 Button.displayName = 'Button';
 
 export function buttonFrom(
-  {content, onAction, ...action}: ComplexAction,
+  {content, onAction, url, ...action}: ComplexAction,
   overrides?: Partial<CombinedProps>,
   key?: any,
 ) {
@@ -109,4 +112,24 @@ export function buttonFrom(
       {content}
     </Button>
   );
+}
+
+export function buttonsFrom(
+  action: ComplexAction,
+  overrides?: Partial<CombinedProps>,
+): React.ReactElement<CombinedProps>;
+export function buttonsFrom(
+  actions: ComplexAction[],
+  overrides?: Partial<CombinedProps>,
+): React.ReactElement<CombinedProps>[];
+export function buttonsFrom(
+  actions: ComplexAction[] | ComplexAction,
+  overrides: Partial<CombinedProps> = {},
+) {
+  if (Array.isArray(actions)) {
+    return actions.map((action, index) => buttonFrom(action, overrides, index));
+  } else {
+    const action = actions;
+    return buttonFrom(action, overrides);
+  }
 }

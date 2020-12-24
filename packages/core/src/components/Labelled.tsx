@@ -3,7 +3,7 @@ import React from 'react';
 import type {Action, Error} from '../types';
 
 import {buttonFrom} from './Button';
-import {Box} from './Box';
+import {Box, Flex} from './Box';
 import {Label} from './Label';
 import {Text} from './Text';
 import {InlineError} from './InlineError';
@@ -35,10 +35,12 @@ export function Labelled({
   labelHidden,
   ...rest
 }: LabelledProps) {
-  const actionMarkup = action ? <div>{buttonFrom(action)}</div> : null;
+  const actionMarkup = action ? (
+    <div>{buttonFrom(action, {size: 'small', type: 'button'})}</div>
+  ) : null;
 
   const helpTextMarkup = helpText ? (
-    <Text fontSize={2} pb={3} color="grey" id={helpTextID(id)}>
+    <Text fontSize={2} color="grey" id={helpTextID(id)}>
       {helpText}
     </Text>
   ) : null;
@@ -48,22 +50,24 @@ export function Labelled({
   );
 
   const labelMarkup = label ? (
-    <>
+    <Flex alignItems="center" justifyContent="space-between">
       <Label id={id} {...rest} hidden={false}>
         {label}
       </Label>
 
       {actionMarkup}
-    </>
+    </Flex>
   ) : null;
 
   return (
-    <Box>
-      {labelMarkup}
-      {helpTextMarkup}
+    <>
+      <Box pt={4} pb="3">
+        {labelMarkup}
+        {helpTextMarkup}
+      </Box>
       {children}
       {errorMarkup}
-    </Box>
+    </>
   );
 }
 

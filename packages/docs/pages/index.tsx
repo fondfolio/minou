@@ -16,6 +16,9 @@ import {
   DisplayText,
   Header,
   Rule,
+  Actions,
+  Page,
+  Spinner,
 } from 'minou';
 
 export default function Home() {
@@ -50,7 +53,7 @@ export default function Home() {
 
   return (
     <>
-      <Header left={<div>left</div>} right={<div>right</div>} />
+      <Header secondary={<div>left</div>} primary={<div>right</div>} />
       <Box p={4}>
         <Box p={1}>
           <Link href="https://fondfolio.com">Link</Link>
@@ -147,10 +150,22 @@ export default function Home() {
               </Button>
             </Flex>
           </Flex>
-          <TextField label="Password" {...password} />
+          <TextField
+            labelAction={{content: 'Forgot password'}}
+            type="password"
+            label="Password"
+            {...password}
+          />
           <Button onClick={submit}>Submit</Button>
+          <Actions
+            secondaryActions={[{size: 'small', content: 'Back to fondfolio'}]}
+            primaryAction={{content: 'Submit'}}
+          />
         </Form>
       </Box>
+      <Link href="/test">To Test</Link>
+      <Link href="https://fondfolio.com">To Fondfolio</Link>
+      <LoginSignUp />
     </>
   );
 }
@@ -160,5 +175,46 @@ function IconBox({icon}) {
     <Box p={4}>
       <Icon icon={icon} />
     </Box>
+  );
+}
+
+export function LoginSignUp() {
+  const {fields, submit, submitting, submitErrors} = useForm({
+    fields: {
+      email: useField(''),
+      password: useField(''),
+    },
+    async onSubmit(fieldValues) {
+      console.log('submitting', fieldValues);
+      return Promise.resolve({status: 'fail', errors: []});
+    },
+  });
+
+  return (
+    <Page>
+      <Page.Section>
+        <Form loading={submitting} onSubmit={submit}>
+          <TextField
+            type="text"
+            label="Email Address"
+            name="email"
+            placeholder="your@email.com"
+            {...fields.email}
+          />
+          <TextField
+            type="password"
+            placeholder="••••••••"
+            label="Password"
+            name="password"
+            labelAction={{
+              content: 'Forgot password?',
+              url: '/test',
+            }}
+            {...fields.password}
+          />
+          <Actions primaryAction={{content: 'Login'}} />
+        </Form>
+      </Page.Section>
+    </Page>
   );
 }

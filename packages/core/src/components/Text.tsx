@@ -12,11 +12,12 @@ import {reset} from '@minou/utilities';
 
 export interface TextProps extends TypographyProps, SpaceProps, ColorProps {
   children: React.ReactNode;
+  id?: string;
   /** specify the underlaying component  */
   as?: React.ElementType;
 }
 
-export const Text = styled.span<TextProps>`
+const StyledText = styled.span<TextProps>`
   ${reset}
   display: block;
   max-width: 60em;
@@ -25,3 +26,7 @@ export const Text = styled.span<TextProps>`
   ${space}
   ${color}
 `;
+
+export function Text(props: TextProps) {
+  return <StyledText fontSize={2} {...props} />;
+}

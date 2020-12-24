@@ -12,31 +12,27 @@ const StyledHeader = styled(Text)<HeadingProps>``;
 export function Heading({level, ...props}: HeadingProps) {
   const commonProps = {
     ...props,
-    fontFamily: 'heading',
+    fontFamily: 'sans',
   };
   switch (level) {
     case 1:
-      return <StyledHeader {...commonProps} fontSize={[6, 7]} />;
+      return (
+        <StyledHeader {...commonProps} fontFamily="serif" fontSize={[6, 7]} />
+      );
     case 2:
       return <StyledHeader {...commonProps} fontSize={[5, 6]} />;
     case 3:
       return <StyledHeader {...commonProps} fontSize={[4]} />;
     case 4:
-      return <StyledHeader {...commonProps} fontSize={[3]} />;
-    case 5:
       return (
-        <StyledHeader
-          {...commonProps}
-          fontWeight="bold"
-          fontFamily="sans"
-          fontSize={[3]}
-        />
+        <StyledHeader {...commonProps} fontFamily="serif" fontSize={[3]} />
       );
+    case 5:
+      return <StyledHeader {...commonProps} fontWeight="bold" fontSize={[3]} />;
     case 6:
       return (
         <StyledHeader
           {...commonProps}
-          fontFamily="sans"
           lineHeight="body"
           letterSpacing="0.08em"
           fontSize={[1]}

@@ -5,8 +5,8 @@ import {Flex, BoxProps} from './Box';
 import {Logo} from './Logo';
 
 interface Props extends BoxProps {
-  left: React.ReactNode;
-  right: React.ReactNode;
+  secondary: React.ReactNode;
+  primary: React.ReactNode;
   position?: 'absolute' | 'fixed';
 }
 
@@ -16,7 +16,7 @@ const StyledHeader = styled(Flex)<Props>`
   width: 100%;
 `;
 
-export function Header({left, right, ...props}: Props) {
+export function Header({secondary, primary, ...props}: Props) {
   return (
     <StyledHeader
       as="header"
@@ -25,9 +25,9 @@ export function Header({left, right, ...props}: Props) {
       justifyContent="space-between"
       {...props}
     >
-      {left}
+      {secondary}
       <Logo color="primary" />
-      {right}
+      {primary}
     </StyledHeader>
   );
 }

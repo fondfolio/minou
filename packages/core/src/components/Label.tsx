@@ -28,7 +28,7 @@ export function Label({children, size, ...rest}: LabelProps) {
     default:
       return (
         <StyledLabel {...rest}>
-          <Heading level={3} pb={2}>
+          <Heading level={4} pb={1}>
             {children}
           </Heading>
         </StyledLabel>

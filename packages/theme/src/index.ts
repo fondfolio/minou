@@ -27,6 +27,8 @@ export const pallet = {
   black: '#231D24',
 };
 
+const gray = ['#EAEAEA', '#F5F5F5', '#FBFBFB', '#C0BEC0', '#7E7A7E', '#5B585B'];
+
 // const sans =
 const sans =
   'Franca, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
@@ -52,6 +54,7 @@ export const theme = {
   // muted	A faint color for backgrounds, borders, and accents that do not require high contrast with the background color
   colors: {
     ...pallet,
+    gray,
     primary: pallet.teal,
     secondary: pallet.grey,
     text: pallet.black,

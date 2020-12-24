@@ -10,13 +10,14 @@ const DEFAULT_SIZE = 24;
 
 interface Props extends BoxProps {
   icon: IconType;
+  overrides?: React.SVGProps<SVGElement>;
 }
 
 const StyledIcon = styled(Box)<Props>`
   fill: ${({theme, color}) => theme.colors[color as any]};
 `;
 
-export function Icon({icon, ...props}: Props) {
+export function Icon({icon, overrides, ...props}: Props) {
   const {width = DEFAULT_SIZE, height = DEFAULT_SIZE} = icon;
 
   return (
@@ -27,6 +28,7 @@ export function Icon({icon, ...props}: Props) {
       height={height}
       fill="currentColor"
       {...props}
+      {...overrides}
     >
       {icon.path}
     </StyledIcon>
