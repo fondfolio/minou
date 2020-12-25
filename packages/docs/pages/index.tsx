@@ -31,6 +31,7 @@ export default function Home() {
   return (
     <>
       <Header secondary={<div>left</div>} primary={<div>right</div>} />
+     
       <Page>
         <Page.Section>
           <Box pb={4}>
