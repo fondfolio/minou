@@ -1,28 +1,22 @@
-import React, {forwardRef} from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import NextLink from 'next/link';
 import {reset} from '@minou/utilities';
 
 import {ComplexAction} from '../types';
 
+import {Spinner} from './Spinner';
+
 interface Props extends ComplexAction {
-  /** Changes the button size */
-  size?: 'small';
-  /**
-   * By default a button that looks like a link
-   * "primary" provides extra visual weight and identifies the primary action in a set of buttons
-   * "secondary" gives the button a subtle alternative to the default button styling, appropriate for certain backdrops
-   * "destructive" indicates a dangerous or potentially negative action
-   */
-  variant?: 'primary' | 'secondary' | 'destructive';
-  /** The content to display inside the button */
-  children?: React.ReactNode;
+  href?: string;
+  external?: boolean;
 }
 
 type CombinedProps = Props &
-  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  React.HTMLAttributes<HTMLButtonElement> &
   ComplexAction;
 
-const StyledButton = styled.button<ComplexAction>`
+const StyledBasicButton = styled.button<CombinedProps>`
   ${reset};
   -webkit-font-smoothing: antialiased;
   -webkit-touch-callout: none;
@@ -33,77 +27,119 @@ const StyledButton = styled.button<ComplexAction>`
   text-align: center;
   user-select: none;
   text-decoration: none;
-  cursor: pointer;
-  position: relative;
-  color: ${({theme}) => theme.colors.teal};
+  cursor: ${({disabled}) => (disabled ? 'default' : 'pointer')};
+  pointer-events: ${({disabled}) => (disabled ? 'none' : 'auto')};
   transition: ${({theme}) => theme.transitions.all};
-  font-size: ${({size}) => (size === 'small' ? '0.75em' : '1em')};
+  position: relative;
+  color: ${({theme, destructive}) =>
+    destructive ? theme.colors.redDark : theme.colors.primary};
+  transition: ${({theme}) => theme.transitions.all};
+  font-size: ${({size}) => (size === 'small' ? '0.8em' : '1em')};
+  padding: 1px;
+  line-height: 1.8;
+  font-weight: ${({theme}) => theme.fontWeights.bold};
 
   &:hover {
-    text-decoration: underline;
-    color: ${({theme}) => theme.colors.tealDark};
+    color: ${({theme, destructive}) =>
+      destructive ? theme.colors.red : theme.colors.tealDark};
+    background: ${({theme, destructive}) =>
+      destructive ? 'none' : theme.colors.teal[0]};
   }
 `;
 
-const StyledPrimaryButton = styled(StyledButton)<ComplexAction>`
+const StyledPrimaryButton = styled(StyledBasicButton)<CombinedProps>`
   color: ${({theme}) => theme.colors.white};
-  background: ${({theme}) => theme.colors.teal};
-  padding: ${({size}) => (size === 'small' ? '0.8em 1.6em' : '0.8em 1.6em;')};
-  font-weight: ${({theme}) => theme.fontWeights.bold};
+  background: ${({theme, destructive}) =>
+    destructive ? theme.colors.redDark : theme.colors.primary};
+  padding: 0.4em 1.2em;
   border-radius: ${({theme}) => theme.radii.button};
-  border: 1px solid ${({theme}) => theme.colors.tealDark};
-  line-height: 0.9;
 
+  opacity: ${({disabled}) => (disabled ? '0.75' : '1')};
   &:hover {
     color: ${({theme}) => theme.colors.white};
-    background: ${({theme}) => theme.colors.tealDark};
-    text-decoration: none;
+    background: ${({theme, destructive}) =>
+      destructive ? theme.colors.red : theme.colors.tealDark};
   }
 `;
 
-const StyledSecondaryButton = styled(StyledPrimaryButton)<ComplexAction>`
-  color: ${({theme}) => theme.colors.teal};
+const StyledSecondaryButton = styled(StyledPrimaryButton)<CombinedProps>`
   background: ${({theme}) => theme.colors.white};
+  color: ${({theme, destructive}) =>
+    destructive ? theme.colors.redDark : theme.colors.primary};
+  border: 1px solid
+    ${({theme, destructive}) =>
+      destructive ? theme.colors.redDark : theme.colors.primary};
 
   &:hover {
-    text-decoration: none;
-    color: ${({theme}) => theme.colors.tealDark};
     background: ${({theme}) => theme.colors.white};
+    color: ${({theme, destructive}) =>
+      destructive ? theme.colors.red : theme.colors.tealDark};
+    border: 1px solid
+      ${({theme, destructive}) =>
+        destructive ? theme.colors.red : theme.colors.tealDark};
   }
 `;
 
-const StyledDestructiveButton = styled(StyledSecondaryButton)<ComplexAction>`
-  color: ${({theme}) => theme.colors.red};
-  border: 1px solid ${({theme}) => theme.colors.red};
+export function Button({
+  variant,
+  url,
+  loading,
+  external,
+  ...props
+}: CombinedProps) {
+  let spinnerColor;
 
-  &:hover {
-    color: ${({theme}) => theme.colors.redDark};
-    border: 1px solid ${({theme}) => theme.colors.redDark};
+  if (variant === 'primary') {
+    spinnerColor = 'white';
+  } else if (props.destructive) {
+    spinnerColor = 'error';
   }
-`;
 
-export const Button = forwardRef<HTMLButtonElement, CombinedProps>(
-  (props, ref) => {
-    const {variant} = props;
-    const combinedProps = {ref, ...props};
+  const loadingMarkup = loading ? (
+    <Spinner pr={2} color={spinnerColor} />
+  ) : null;
 
-    switch (variant) {
-      case 'primary':
-        return <StyledPrimaryButton {...combinedProps} />;
-      case 'secondary':
-        return <StyledSecondaryButton {...combinedProps} />;
-      case 'destructive':
-        return <StyledDestructiveButton {...combinedProps} />;
-      default:
-        return <StyledButton {...combinedProps} />;
+  const children = (
+    <>
+      {loadingMarkup}
+      {props.children}
+    </>
+  );
+
+  if (url) {
+    const additionalProps: any = {as: 'a'};
+
+    if (external) {
+      return (
+        <StyledBasicButton {...props} href={url} {...additionalProps}>
+          {children}
+        </StyledBasicButton>
+      );
     }
-  },
-);
 
-Button.displayName = 'Button';
+    return (
+      <NextLink href={url}>
+        <StyledBasicButton {...props} {...additionalProps}>
+          {children}
+        </StyledBasicButton>
+      </NextLink>
+    );
+  }
+
+  switch (variant) {
+    case 'primary':
+      return <StyledPrimaryButton {...props}>{children}</StyledPrimaryButton>;
+    case 'secondary':
+      return (
+        <StyledSecondaryButton {...props}>{children}</StyledSecondaryButton>
+      );
+    default:
+      return <StyledBasicButton {...props}>{children}</StyledBasicButton>;
+  }
+}
 
 export function buttonFrom(
-  {content, onAction, url, ...action}: ComplexAction,
+  {content, onAction, ...action}: CombinedProps,
   overrides?: Partial<CombinedProps>,
   key?: any,
 ) {
@@ -115,15 +151,15 @@ export function buttonFrom(
 }
 
 export function buttonsFrom(
-  action: ComplexAction,
+  action: CombinedProps,
   overrides?: Partial<CombinedProps>,
 ): React.ReactElement<CombinedProps>;
 export function buttonsFrom(
-  actions: ComplexAction[],
+  actions: CombinedProps[],
   overrides?: Partial<CombinedProps>,
 ): React.ReactElement<CombinedProps>[];
 export function buttonsFrom(
-  actions: ComplexAction[] | ComplexAction,
+  actions: CombinedProps[] | CombinedProps,
   overrides: Partial<CombinedProps> = {},
 ) {
   if (Array.isArray(actions)) {

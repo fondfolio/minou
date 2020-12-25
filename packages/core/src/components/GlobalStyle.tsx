@@ -2,6 +2,13 @@ import {createGlobalStyle} from 'styled-components';
 import {theme} from '@minou/theme';
 import {reset} from '@minou/utilities';
 
+const props = {
+  background: '#FFF',
+  color: '#EAEAEA',
+  size: '2px',
+  space: '24px',
+};
+
 export const GlobalStyle = createGlobalStyle`
   html,
   body {
@@ -12,6 +19,19 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.body};
     font-weight: ${theme.fontWeights.body};
   }
+
+ body {
+	background:
+		linear-gradient(90deg, ${props.background} (${props.space} - ${props.size}), transparent 1%) center,
+		linear-gradient(${props.background} (${props.space} - ${props.size}), transparent 1%) center,
+		${props.color};
+  background-size: ${props.space} ${props.space};
+    
+    background: linear-gradient(90deg, ${props.background} 22px, transparent 1%) center, linear-gradient(${props.background} 22px, transparent 1%) center, ${props.color};
+    background-size: ${props.space} ${props.space};
+
+  }
+
   *,
   *:before,
   *:after {

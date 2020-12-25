@@ -23,6 +23,7 @@ export interface LabelledProps {
   children?: React.ReactNode;
   /** Visually hide the label */
   labelHidden?: boolean;
+  center?: boolean;
 }
 
 export function Labelled({
@@ -33,14 +34,15 @@ export function Labelled({
   helpText,
   children,
   labelHidden,
+  center,
   ...rest
 }: LabelledProps) {
   const actionMarkup = action ? (
-    <div>{buttonFrom(action, {size: 'small', type: 'button'})}</div>
+    <div>{buttonFrom(action, {size: 'small'})}</div>
   ) : null;
 
   const helpTextMarkup = helpText ? (
-    <Text fontSize={2} color="grey" id={helpTextID(id)}>
+    <Text fontSize={2} pb="1" id={helpTextID(id)}>
       {helpText}
     </Text>
   ) : null;
@@ -51,7 +53,7 @@ export function Labelled({
 
   const labelMarkup = label ? (
     <Flex alignItems="center" justifyContent="space-between">
-      <Label id={id} {...rest} hidden={false}>
+      <Label {...rest} hidden={false}>
         {label}
       </Label>
 
@@ -60,14 +62,14 @@ export function Labelled({
   ) : null;
 
   return (
-    <>
-      <Box pt={4} pb="3">
+    <Box pb={4}>
+      <Box pb={1}>
         {labelMarkup}
         {helpTextMarkup}
       </Box>
       {children}
       {errorMarkup}
-    </>
+    </Box>
   );
 }
 
