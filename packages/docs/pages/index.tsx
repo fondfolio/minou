@@ -115,6 +115,10 @@ export default function Home() {
           <IconBox icon={Icons.Mail} />
           <IconBox icon={Icons.Tooltip} />
           <IconBox icon={Icons.Plus} />
+          <IconBox icon={Icons.Success} />
+          <IconBox icon={Icons.Error} />
+          <IconBox icon={Icons.Warning} />
+          <IconBox icon={Icons.Info} />
           <IconBox icon={Icons.EventBirthday} />
           <IconBox icon={Icons.EventCause} />
           <IconBox icon={Icons.EventWedding} />
