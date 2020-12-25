@@ -34,6 +34,7 @@ interface Props {
 type CombinedProps = Props & React.InputHTMLAttributes<HTMLInputElement>;
 
 const StyledInput = styled.input<Props>`
+  background: white;
   width: 100%;
   border-radius: ${({theme}) => theme.radii.input};
   padding: 0.8em 1.2em;
@@ -58,5 +59,3 @@ export const Input = (props: CombinedProps) => {
 export const TextArea = (props: CombinedProps) => {
   return <StyledInput as="textarea" height={200} {...props} />;
 };
-
-Input.displayName = 'Input';

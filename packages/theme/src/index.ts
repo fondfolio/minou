@@ -23,13 +23,14 @@ export const pallet = {
   redLightest: '#FDEEEE',
   yellow: '#F8D04D',
   yellowLightest: '#FDFCF6',
+  yellowDark: '#d09f01',
   white: '#FFFFFF',
   black: '#231D24',
 };
 
+const teal = ['#EBFFFF', '#005D63', '#00383C', '#90DEE3'];
 const gray = ['#EAEAEA', '#F5F5F5', '#FBFBFB', '#C0BEC0', '#7E7A7E', '#5B585B'];
 
-// const sans =
 const sans =
   'Franca, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
 const timings = createScale(200, 2, 3, toMs);
@@ -41,7 +42,7 @@ export const theme = {
 
   borderRadius: '4px',
   radii: {
-    button: '2px',
+    button: '4px',
     input: '2px',
   },
 
@@ -54,15 +55,18 @@ export const theme = {
   // muted	A faint color for backgrounds, borders, and accents that do not require high contrast with the background color
   colors: {
     ...pallet,
+    teal,
     gray,
     primary: pallet.teal,
+    success: pallet.blue,
+    warning: pallet.yellowDark,
     secondary: pallet.grey,
     text: pallet.black,
     background: pallet.white,
     accent: pallet.blue,
     highlight: pallet.yellow,
     muted: pallet.greyLight,
-    error: pallet.red,
+    error: pallet.redDark,
   },
 
   fonts: {
@@ -72,7 +76,7 @@ export const theme = {
     sans,
   },
 
-  fontSizes: [10, 12, 14, 16, 18, 22, 24, 32, 48, 64, 96],
+  fontSizes: [10, 12, 14, 16, 18, 22, 24, 32, 42, 64, 96],
 
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 

@@ -3,41 +3,43 @@ import styled from 'styled-components';
 
 import {Error} from '../types';
 
-import {InlineError} from './InlineError';
+import {Box} from './Box';
 import {Banner} from './Banner';
 import {Spinner} from './Spinner';
 
 interface Props extends React.FormHTMLAttributes<HTMLFormElement> {
   /** The fields of the form */
   children: React.ReactNode;
-  loading?: boolean;
+  submitting?: boolean;
   errors?: Error[];
 }
 
 const StyledForm = styled.form<Props>`
-  opacity: ${({loading}) => (loading ? '0.5' : '1')};
+  opacity: ${({submitting}) => (submitting ? '0.5' : '1')};
   width: 100%;
 `;
 
-export function Form({children, errors, loading, ...props}: Props) {
-  const loadingMarkup = loading ? <Spinner /> : null;
+export function Form({children, errors, submitting, ...props}: Props) {
+  const loadingMarkup = submitting ? <Spinner /> : null;
   const errorMarkup =
     errors && errors.length ? (
-      <Banner>
+      <Box pb={3} width={[1]}>
         {errors.map((error, index) => {
           const message = typeof error === 'string' ? error : error.message;
-
           return (
-            <InlineError key={`${message}${index}`}>{message}</InlineError>
+            <Banner variant="error" key={`${message}${index}`}>
+              {message}
+            </Banner>
           );
         })}
-      </Banner>
+      </Box>
     ) : null;
+
   return (
     <>
       {loadingMarkup}
       {errorMarkup}
-      <StyledForm loading={loading} {...props}>
+      <StyledForm submitting={submitting} {...props}>
         {children}
       </StyledForm>
     </>
