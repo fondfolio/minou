@@ -15,6 +15,7 @@ export interface TextProps extends TypographyProps, SpaceProps, ColorProps {
   id?: string;
   /** specify the underlaying component  */
   as?: React.ElementType;
+  large?: boolean;
 }
 
 const StyledText = styled.span<TextProps>`
@@ -27,6 +28,10 @@ const StyledText = styled.span<TextProps>`
   ${color}
 `;
 
-export function Text(props: TextProps) {
-  return <StyledText fontSize={2} {...props} />;
+export function Text({large, ...props}: TextProps) {
+  if (large) {
+    return <StyledText as="p" pb={3} fontSize={4} {...props} />;
+  }
+
+  return <StyledText as="p" fontSize={2} pb={3} {...props} />;
 }

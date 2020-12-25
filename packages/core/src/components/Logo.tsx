@@ -18,7 +18,7 @@ interface Props {
 }
 
 export const Logo = ({color, ...rest}: Props) => (
-  <StyledLogo href="/" {...rest}>
+  <StyledLogo url="/" {...rest}>
     <Icon icon={Icons.LogoWord} color={color} />
   </StyledLogo>
 );

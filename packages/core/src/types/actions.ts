@@ -23,7 +23,7 @@ export interface BaseAction {
    * "secondary" gives the button a subtle alternative to the default button styling, appropriate for certain backdrops
    * "destructive" indicates a dangerous or potentially negative action
    */
-  variant?: 'primary' | 'secondary' | 'destructive';
+  variant?: 'primary' | 'secondary';
 }
 
 export interface Action extends BaseAction {}

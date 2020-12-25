@@ -16,6 +16,13 @@ export function Meta() {
         as="font"
         crossOrigin=""
       />
+      <meta charSet="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
+      />
+      <link rel="manifest" href="site.webmanifest" />
+      <link rel="shortcut icon" href="favicon.ico" />
     </Head>
   );
 }

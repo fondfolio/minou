@@ -13,163 +13,340 @@ import {
   Flex,
   Form,
   Title,
-  DisplayText,
   Header,
   Rule,
   Actions,
   Page,
   Spinner,
+  Blockquote,
+  DisplayText,
+  Caption,
+  Italic,
+  Banner,
+  Cards,
+  Image,
 } from 'minou';
 
 export default function Home() {
-  const {
-    fields: {title, question, introduction, password},
-    submit,
-    submitting,
-    submitErrors,
-  } = useForm({
-    fields: {
-      title: useField({
-        value: '',
-        validates: [
-          notEmpty('Title is required'),
-          lengthMoreThan(3, 'Title must be more than 3 characters'),
-        ],
-      }),
-      question: useField(
-        'Do you remember the exact moment? What were you both doing at the time? Who spoke up first? What were your first impressions? Talk about the events or specific situations that led to you knowing each other. Perhaps you have the same blood running through your veins and have known them since birth – can you describe what it was like growing up together?',
-      ),
-      introduction: useField('some default intro'),
-      password: useField('some default intro'),
-    },
-    onSubmit: async (fieldValues) => {
-      const values = await Promise.resolve(fieldValues);
-
-      console.log(values);
-
-      return {status: 'fail', errors: [{message: 'bad form data'}]};
-    },
-  });
-
   return (
     <>
       <Header secondary={<div>left</div>} primary={<div>right</div>} />
-      <Box p={4}>
-        <Box p={1}>
-          <Link href="https://fondfolio.com">Link</Link>
-        </Box>
-        <ButtonGroup p={1}>
-          <Button>Button</Button>
-          <Button variant="secondary">Secondary Button</Button>
-          <Button variant="destructive">Destructive Button</Button>
-        </ButtonGroup>
-        <Box p={1} pb={3}>
-          <ButtonGroup>
-            <Button variant="primary">Primary</Button>
-            <Button size="small" variant="primary">
-              Small Button
-            </Button>
-            <Button size="small" variant="secondary">
-              Small Button
-            </Button>
-            <Button size="small">
-              <Icon color="teal" icon={Icons.ArrowDown} />
-            </Button>
-          </ButtonGroup>
-        </Box>
-        <Title>Title Component</Title>
-        <DisplayText>Display Text</DisplayText>
-        <Card variant="large">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat
-            aliquet metus, id bibendum ante porta non. Sed ac tempus sem. Sed
-            vehicula auctor tristique. Vestibulum metus erat, ullamcorper quis
-            urna sit amet, rhoncus euismod lectus. Vestibulum ante ipsum primis
-            in faucibus orci luctus et ultrices posuere cubilia curae; Morbi
-            pellentesque erat nec turpis efficitur pretium. Donec feugiat nulla
-            metus, sit amet tincidunt neque ornare et. Maecenas lacinia lacus ut
-            tempor tincidunt.
-          </Text>
-        </Card>
-        <Rule m={4} icon={Icons.LogoIcon} color="primary" />
-        <Rule
-          m={4}
-          text="Know someone else who would like this gift?
-"
-        />
-        <Rule m={4} />
-        <Flex pb={2} flexWrap="wrap">
-          <IconBox icon={Icons.User} />
-          <IconBox icon={Icons.ArrowDown} />
-          <IconBox icon={Icons.ArrowUp} />
-          <IconBox icon={Icons.DropUp} />
-          <IconBox icon={Icons.DropDown} />
-          <IconBox icon={Icons.ArrowLongRight} />
-          <IconBox icon={Icons.ArrowLongLeft} />
-          <IconBox icon={Icons.ArrowLongExternal} />
-          <IconBox icon={Icons.Close} />
-          <IconBox icon={Icons.MoreDots} />
-          <IconBox icon={Icons.Clipboard} />
-          <IconBox icon={Icons.Search} />
-          <IconBox icon={Icons.Lightbulb} />
-          <IconBox icon={Icons.Mail} />
-          <IconBox icon={Icons.Tooltip} />
-          <IconBox icon={Icons.Plus} />
-          <IconBox icon={Icons.Success} />
-          <IconBox icon={Icons.Error} />
-          <IconBox icon={Icons.Warning} />
-          <IconBox icon={Icons.Info} />
-          <IconBox icon={Icons.EventBirthday} />
-          <IconBox icon={Icons.EventCause} />
-          <IconBox icon={Icons.EventWedding} />
-          <IconBox icon={Icons.EventAnniversary} />
-          <IconBox icon={Icons.EventEngagement} />
-          <IconBox icon={Icons.EventWedding} />
-          <IconBox icon={Icons.EventRetirement} />
-          <IconBox icon={Icons.EventRecovery} />
-          <IconBox icon={Icons.EventRemembering} />
-          <IconBox icon={Icons.EventSuccess} />
-          <IconBox icon={Icons.EventNewborn} />
-          <IconBox icon={Icons.LogoIcon} />
-          <IconBox icon={Icons.LogoWord} />
-          <IconBox icon={Icons.Logo} />
-          <IconBox icon={Icons.Facebook} />
-          <IconBox icon={Icons.Twitter} />
-          <IconBox icon={Icons.Instagram} />
-        </Flex>
-        <Form onSubmit={submit} loading={submitting} errors={submitErrors}>
-          <TextField
-            label="Title"
-            helpText="Appears at the start and throughout the questionnaire."
-            {...title}
-          />
-          <TextField label="Introduction" multiline {...introduction} />
-          <Flex alignItems="flex-start">
-            <Flex flexDirection="column" p={2}>
-              <Button size="small">
-                <Icon color="teal" icon={Icons.ArrowUp} />
-              </Button>
-              <Button size="small">
-                <Icon color="teal" icon={Icons.ArrowDown} />
-              </Button>
-            </Flex>
+     
+      <Page>
+        <Page.Section>
+          <Box pb={4}>
+            <DisplayText pb={0}>
+              Collaborative gift books for your favourite people.
+            </DisplayText>
+            <DisplayText color="primary">
+              <Italic>One of a kind, like the humans they’re made for</Italic>
+            </DisplayText>
+            <Title>
+              For life’s <Italic>significant</Italic> events
+            </Title>
+
+            <Text large>
+              Fondfolios are customized for your friend, made to order, and
+              produced by hand using a combination of modern technologies and
+              traditional book binding techniques.
+            </Text>
+            <Text large>
+              Coptic binding is used for maximum flexibility and durability —
+              allowing the book to lay flat. No glue, just high quality paper
+              and thread — made to last a lifetime.
+            </Text>
+            <Text large pl={5}>
+              <Italic>
+                Times when giftcards, chocolates or flowers can’t communicate
+                the depth of your gratitude for another’s existence
+              </Italic>
+            </Text>
+            <Caption>
+              Don’t pay until all contributions are collected.
+              <Italic>-and-</Italic>
+              <Link url="">Free Shipping</Link>
+            </Caption>
+          </Box>
+          <Box mb="5">
+            <Card active title="Wedding">
+              <Text pb={0}>
+                What better gift to give a couple on their wedding day than the
+                memories and wisdom from everyone near and dear, including those
+                unable to attend.
+              </Text>
+            </Card>
+            <Card active title="Milestone Birthday">
+              <Text pb={0}>
+                What better gift to give a couple on their wedding day than the
+                memories and wisdom from everyone near and dear, including those
+                unable to attend.
+              </Text>
+            </Card>
+          </Box>
+          <Card active title="Retirement" action={{content: 'Get started'}}>
+            <Text pb={0}>
+              What better gift to give a couple on their wedding day than the
+              memories and wisdom from everyone near and dear, including those
+              unable to attend.
+            </Text>
+          </Card>
+          <Card active action={{content: 'Create a Fondfolio'}}>
+            <Text large pb={0}>
+              Fondfolio allows you to create a beautiful collaborative book
+              filled with sincere and heartwarming words from loved ones. A
+              personal gift, for someone special.
+            </Text>
+          </Card>
+          <Card active title="Create">
+            <Text large pb={0}>
+              Fondfolio allows you to create a beautiful collaborative book
+              filled with sincere and heartwarming words from loved ones. A
+              personal gift, for someone special.
+            </Text>
+          </Card>
+          <Card active title="Collect">
+            <Text large pb={0}>
+              Share your unique questionnaire url with the friends and family of
+              the recipient. You will be notified each time someone contributes.
+            </Text>
+          </Card>
+          <Card active title="Order">
+            <Text large pb={0}>
+              When you’re ready, customize the design and place the order. We’ll
+              begin production right away and will notify you as soon as it
+              ships (gift wrapping included).
+            </Text>
+          </Card>
+        </Page.Section>
+        <Page.Section>
+          <Banner title="Whoops!" variant="error">
+            You did not enter a username or a password.
+          </Banner>
+          <Banner variant="error">
+            Must be at least 8 characters, Must have a lower case character,
+            Must have an upper case character, Must have at least 1 number, Must
+            have a special character
+          </Banner>
+          <Banner title="Sorry!" variant="warning">
+            That password isn’t right. <Link>Recover your password.</Link>
+          </Banner>
+          <Banner title="Nice!" variant="success">
+            Something successful just happened.
+          </Banner>
+          <Banner title="Okay">Everything is fine.</Banner>
+          <LoginSignUp />
+        </Page.Section>
+        <Page.Section full>
+          <Rule m={4} icon={Icons.LogoIcon} color="primary" />
+          <Flex pb={2} flexWrap="wrap" justifyContent="center">
+            <IconBox icon={Icons.User} />
+            <IconBox icon={Icons.ArrowDown} />
+            <IconBox icon={Icons.ArrowUp} />
+            <IconBox icon={Icons.DropUp} />
+            <IconBox icon={Icons.DropDown} />
+            <IconBox icon={Icons.ArrowLongRight} />
+            <IconBox icon={Icons.ArrowLongLeft} />
+            <IconBox icon={Icons.ArrowLongExternal} />
+            <IconBox icon={Icons.Close} />
+            <IconBox icon={Icons.MoreDots} />
+            <IconBox icon={Icons.Clipboard} />
+            <IconBox icon={Icons.Search} />
+            <IconBox icon={Icons.Lightbulb} />
+            <IconBox icon={Icons.Mail} />
+            <IconBox icon={Icons.Tooltip} />
+            <IconBox icon={Icons.Plus} />
+            <IconBox icon={Icons.EventBirthday} />
+            <IconBox icon={Icons.EventCause} />
+            <IconBox icon={Icons.EventWedding} />
+            <IconBox icon={Icons.EventAnniversary} />
+            <IconBox icon={Icons.EventEngagement} />
+            <IconBox icon={Icons.EventWedding} />
+            <IconBox icon={Icons.EventRetirement} />
+            <IconBox icon={Icons.EventRecovery} />
+            <IconBox icon={Icons.EventRemembering} />
+            <IconBox icon={Icons.EventSuccess} />
+            <IconBox icon={Icons.EventNewborn} />
+            <IconBox icon={Icons.LogoIcon} />
+            <IconBox icon={Icons.LogoWord} />
+            <IconBox icon={Icons.Logo} />
+            <IconBox icon={Icons.Facebook} />
+            <IconBox icon={Icons.Twitter} />
+            <IconBox icon={Icons.Instagram} />
+            <Spinner />
           </Flex>
-          <TextField
-            labelAction={{content: 'Forgot password'}}
-            type="password"
-            label="Password"
-            {...password}
-          />
-          <Button onClick={submit}>Submit</Button>
-          <Actions
-            secondaryActions={[{size: 'small', content: 'Back to fondfolio'}]}
-            primaryAction={{content: 'Submit'}}
-          />
-        </Form>
-      </Box>
-      <Link href="/test">To Test</Link>
-      <Link href="https://fondfolio.com">To Fondfolio</Link>
-      <LoginSignUp />
+        </Page.Section>
+        <Page.Section full>
+          <Rule m={4} text="Words from our customers" />
+          <Blockquote citation="Allan, Perth WA">
+            Lise absolutely loves the gift. She has been flipping through it
+            every day this week, and was brought to tears several times. Thank
+            you for making this possible.
+          </Blockquote>
+          <Rule m={4} />
+        </Page.Section>
+        <Page.Section size="large" width={[1]}>
+          <Cards>
+            <Card active title="Digital Only">
+              <Text large>
+                Your Fondfolio contributions stored online forever in a
+                personalized Fondfolio website—share the lovely words with
+                everyone who contributed. Sort responses by question type or
+                read individual responses.
+              </Text>
+              <Text color="primary" fontWeight="bold" large pb={0}>
+                $80
+              </Text>
+            </Card>
+            <Card active title="Digital + Hardcover">
+              <Text large>
+                Everything you get with digital, plus a beautiful handmade
+                hardcover version—each response occupying a spread. Free
+                Furoshiki giftwrapping, free shipping. Something tangible to
+                treasure.
+              </Text>
+              <Text color="primary" fontWeight="bold" large pb={0}>
+                $240
+              </Text>
+            </Card>
+            <Card active title="Digital + Custom">
+              <Text large>
+                Solid hardwood cover? Custom engraving inside? Handmade book
+                box? The only limits are that of your imagination, let us know
+                what you’re thinking.
+              </Text>
+              <Text color="primary" fontWeight="bold" large pb={0}>
+                $360
+              </Text>
+            </Card>
+          </Cards>
+          <Caption textAlign="center">
+            Don’t pay anything until all contributions have been collected and
+            you are ready to order. All prices in US Dollars (USD). Free
+            Shipping is within North America. International shipping is
+            available at a discounted rate.
+          </Caption>
+        </Page.Section>
+      </Page>
+      <Page>
+        <Page.Section>
+          <Title>Buttons</Title>
+        </Page.Section>
+        <Page.Section>
+          <Flex pb={3} flexDirection="column" width={[1]}>
+            <Box pb="1">
+              <Link external url="https://fondfolio.com">
+                External link
+              </Link>
+            </Box>
+            <Box pb="1">
+              <Link url="/test">Internal link</Link>
+            </Box>
+          </Flex>
+          <Flex pb={3} flexDirection="column" width={[1]}>
+            <Box pb="1">
+              <Button>Base button</Button>
+            </Box>
+            <Box pb="1">
+              <Button loading>Loading base button</Button>
+            </Box>
+            <Box pb="1">
+              <Button destructive>Destructive base button</Button>
+            </Box>
+            <Box pb="1">
+              <Button size="small">Small base button</Button>
+            </Box>
+          </Flex>
+          <Flex pb={3} flexDirection="column" width={[1]}>
+            <Box pb="1">
+              <Button variant="secondary">Secondary button</Button>
+            </Box>
+            <Box pb="1">
+              <Button disabled variant="secondary">
+                Disabled secondary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button loading variant="secondary">
+                Loading secondary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button variant="secondary" destructive>
+                Destructive secondary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button loading variant="secondary" destructive>
+                Loading destructive secondary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button disabled variant="secondary" destructive>
+                Disabled destructive secondary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button size="small" variant="secondary">
+                Small secondary button
+              </Button>
+            </Box>
+          </Flex>
+          <Flex pb={3} flexDirection="column" width={[1]}>
+            <Box pb="1">
+              <Button variant="primary">Primary button</Button>
+            </Box>
+            <Box pb="1">
+              <Button destructive variant="primary">
+                Destructive primary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button destructive loading variant="primary">
+                Loading destructive primary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button disabled destructive variant="primary">
+                Disabled destructive primary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button loading variant="primary">
+                Loading primary button
+              </Button>
+            </Box>
+            <Box pb="1">
+              <Button size="small" variant="primary">
+                Small primary button
+              </Button>
+            </Box>
+          </Flex>
+        </Page.Section>
+        <Page.Section>
+          <DisplayText>Forgot password</DisplayText>
+        </Page.Section>
+      </Page>
+      <Page.Section full bg="tealLight">
+        <Page.Section size="large" width={[1]}>
+          <Flex>
+            <Box width={[1 / 2]}>
+              <Image multiply src="/images/2.jpg" width={1200} height={1200} />
+            </Box>
+            <Box width={[1 / 2]} p={4}>
+              <Text large>
+                Sewn with durable waxed <Italic>Irish linen</Italic> thread, the
+                exposed spine allows for an infinite number of contributions,
+                and serves as a visual reminder of the real human connections
+                expressed within.
+              </Text>
+              <Text large>
+                Collect as many contributions as you can — the more the merrier,
+                at no extra cost.
+              </Text>
+            </Box>
+          </Flex>
+        </Page.Section>
+      </Page.Section>
     </>
   );
 }
@@ -195,30 +372,31 @@ export function LoginSignUp() {
   });
 
   return (
-    <Page>
-      <Page.Section>
-        <Form loading={submitting} onSubmit={submit}>
-          <TextField
-            type="text"
-            label="Email Address"
-            name="email"
-            placeholder="your@email.com"
-            {...fields.email}
-          />
-          <TextField
-            type="password"
-            placeholder="••••••••"
-            label="Password"
-            name="password"
-            labelAction={{
-              content: 'Forgot password?',
-              url: '/test',
-            }}
-            {...fields.password}
-          />
-          <Actions primaryAction={{content: 'Login'}} />
-        </Form>
-      </Page.Section>
-    </Page>
+    <Form submitting={submitting} onSubmit={submit}>
+      <TextField
+        type="text"
+        label="Email Address"
+        helpText="You need to have an email to join fondfolio."
+        name="email"
+        placeholder="your@email.com"
+        {...fields.email}
+      />
+      <TextField
+        type="password"
+        placeholder="••••••••"
+        label="Password"
+        name="password"
+        labelAction={{
+          content: 'Forgot password?',
+          url: '/test',
+        }}
+        {...fields.password}
+      />
+      <Caption textAlign="center">
+        By signing up for an account you agree to our
+        <Link url="">Terms &amp; Conditions</Link>
+      </Caption>
+      <Actions primaryAction={{content: 'Login'}} />
+    </Form>
   );
 }

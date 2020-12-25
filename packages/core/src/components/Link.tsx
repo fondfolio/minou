@@ -1,27 +1,58 @@
-import React, {forwardRef} from 'react';
+import React from 'react';
 import NextLink from 'next/link';
 import styled from 'styled-components';
+import {Icons} from '@minou/icons';
 
-const StyledLink = styled(NextLink)`
+import {Icon} from './Icon';
+
+const StyledLink = styled.a<Props>`
   text-decoration: none;
   cursor: pointer;
   position: relative;
-  display: inline-block;
-  color: ${({theme}) => theme.colors.teal};
+  display: inline-flex;
+  color: ${({theme}) => theme.colors.primary};
+  text-decoration: none;
+  transition: ${({theme}) => theme.transitions.all};
+  font-size: ${({size}) => (size === 'small' ? '0.75em' : '1em')};
+  padding: 0 1px;
+  align-items: center;
+
   &:hover {
     color: ${({theme}) => theme.colors.tealDark};
-    text-decoration: underline;
+    background: ${({theme}) => theme.colors.teal[0]};
+  }
+
+  &:after {
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: ${({theme}) => theme.colors.primary};
+    position: absolute;
   }
 `;
 
-interface Props {}
+interface Props {
+  size?: 'small';
+  url?: string;
+  children: React.ReactNode;
+  external?: boolean;
+}
 
-type CombinedProps = Props & React.ComponentProps<typeof StyledLink>;
+export function Link({url, external, children, ...props}: Props) {
+  if (external) {
+    return (
+      <StyledLink href={url || ''} {...props}>
+        {children}
+        <Icon color="primary" icon={Icons.ArrowLongExternal} />
+      </StyledLink>
+    );
+  }
 
-export const Link = forwardRef<HTMLAnchorElement, CombinedProps>(
-  ({external, ...props}, ref) => {
-    return <StyledLink ref={ref} {...props} />;
-  },
-);
-
-Link.displayName = 'Link';
+  return (
+    <NextLink href={url || ''}>
+      <StyledLink {...props}>{children}</StyledLink>
+    </NextLink>
+  );
+}

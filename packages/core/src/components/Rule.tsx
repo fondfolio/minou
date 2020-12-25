@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {Icon, IconType} from './Icon';
-import {Text} from './Text';
+import {Caption} from './Caption';
+import {Italic} from './Italic';
 import {Flex, BoxProps} from './Box';
 
 interface Props extends BoxProps {
@@ -11,7 +12,7 @@ interface Props extends BoxProps {
 }
 
 const StyledRule = styled(Flex)<Props>`
-  border: none;
+  width: 100%;
   align-items: center;
 
   &:before,
@@ -38,16 +39,10 @@ export function Rule(props: Props) {
 
   if (text) {
     return (
-      <StyledRule {...rest}>
-        <Text
-          mx={1}
-          fontSize="2"
-          fontStyle="italic"
-          fontFamily="serif"
-          color="secondary"
-        >
-          {text}
-        </Text>
+      <StyledRule>
+        <Caption>
+          <Italic>{text}</Italic>
+        </Caption>
       </StyledRule>
     );
   }

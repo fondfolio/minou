@@ -7,28 +7,56 @@ export interface HeadingProps extends TextProps {
   level?: number;
 }
 
-const StyledHeader = styled(Text)<HeadingProps>``;
+const StyledHeader = styled(Text)<HeadingProps>`
+  display: block;
+  width: 100%;
+`;
 
 export function Heading({level, ...props}: HeadingProps) {
   const commonProps = {
-    ...props,
     fontFamily: 'sans',
+    lineHeight: 'heading',
   };
   switch (level) {
     case 1:
       return (
-        <StyledHeader {...commonProps} fontFamily="serif" fontSize={[6, 7]} />
+        <StyledHeader
+          {...commonProps}
+          fontFamily="sans"
+          fontSize={[6, 8]}
+          {...props}
+        />
       );
     case 2:
-      return <StyledHeader {...commonProps} fontSize={[5, 6]} />;
-    case 3:
-      return <StyledHeader {...commonProps} fontSize={[4]} />;
-    case 4:
       return (
-        <StyledHeader {...commonProps} fontFamily="serif" fontSize={[3]} />
+        <StyledHeader
+          {...commonProps}
+          textAlign="left"
+          pb={3}
+          fontSize={[5, 6]}
+          {...props}
+        />
       );
+    case 3:
+      return (
+        <StyledHeader
+          {...commonProps}
+          fontSize={[3]}
+          fontWeight="bold"
+          {...props}
+        />
+      );
+    case 4:
+      return <StyledHeader {...commonProps} fontSize={[3]} {...props} />;
     case 5:
-      return <StyledHeader {...commonProps} fontWeight="bold" fontSize={[3]} />;
+      return (
+        <StyledHeader
+          {...commonProps}
+          fontWeight="bold"
+          fontSize={[3]}
+          {...props}
+        />
+      );
     case 6:
       return (
         <StyledHeader
@@ -36,59 +64,10 @@ export function Heading({level, ...props}: HeadingProps) {
           lineHeight="body"
           letterSpacing="0.08em"
           fontSize={[1]}
+          {...props}
         />
       );
     default:
-      return <StyledHeader {...commonProps} fontSize={[1, 7]} />;
+      return <StyledHeader {...commonProps} fontSize={[1, 7]} {...props} />;
   }
 }
-
-// text: {
-
-//   heading3: {
-//     fontFamily: 'sans',
-//     lineHeight: 'heading',
-//     fontWeight: 'normal',
-//     fontSize: [4],
-//   },
-//   heading4: {
-//     fontFamily: 'sans',
-//     lineHeight: 'heading',
-//     fontWeight: 'bold',
-//     fontSize: [3],
-//   },
-//   heading5: {
-//     fontFamily: 'sans',
-//     lineHeight: 'heading',
-//     fontWeight: 'bold',
-//     fontSize: [2],
-//   },
-//   heading6: {
-//     fontFamily: 'monospace',
-//     lineHeight: 'body',
-//     fontWeight: 'bold',
-//     fontSize: [1],
-//   },
-//   bodyLarge: {
-//     fontFamily: 'sans',
-//     lineHeight: 'body',
-//     fontWeight: 'normal',
-//     fontSize: [3],
-//   },
-//   body: {
-//     fontFamily: 'sans',
-//     lineHeight: 'body',
-//     fontWeight: 'normal',
-//     fontSize: [2],
-//   },
-//   caption: {
-//     fontFamily: 'sans',
-//     lineHeight: 'body',
-//     fontWeight: 'normal',
-//     fontSize: [1],
-//   },
-//   caps: {
-//     textTransform: 'uppercase',
-//     letterSpacing: '0.5em',
-//   },
-// },

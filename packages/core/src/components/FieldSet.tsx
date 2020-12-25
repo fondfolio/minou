@@ -18,9 +18,7 @@ interface Props extends BoxProps {
 const StyledFieldSet = styled(Flex)<Props>``;
 
 export function FieldSet({children, action, title}: Props) {
-  const actionMarkup = action ? (
-    <Box>{buttonFrom(action, {type: 'button'})}</Box>
-  ) : null;
+  const actionMarkup = action ? <Box>{buttonFrom(action)}</Box> : null;
   const titleMarkup = title ? (
     <Box pb={3}>
       <Title>{title}</Title>

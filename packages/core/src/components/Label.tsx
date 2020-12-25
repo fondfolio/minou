@@ -9,8 +9,6 @@ const StyledLabel = styled.label``;
 export interface LabelProps {
   /** Label content */
   children: string;
-  /** A unique identifier for the label */
-  id: string;
   /** Visually hide the label */
   hidden?: boolean;
   /** Size of the label */
@@ -28,7 +26,7 @@ export function Label({children, size, ...rest}: LabelProps) {
     default:
       return (
         <StyledLabel {...rest}>
-          <Heading level={4} pb={1}>
+          <Heading level={3} pb={1} {...rest}>
             {children}
           </Heading>
         </StyledLabel>

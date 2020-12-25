@@ -6,14 +6,14 @@ import {Flex} from './Box';
 import {ButtonGroup} from './ButtonGroup';
 import {buttonsFrom} from './Button';
 
-export interface PageActionsProps {
+export interface ActionsProps {
   /** The primary action for the page */
   primaryAction?: DisableableAction & LoadableAction;
   /** The secondary actions for the page */
   secondaryActions?: ComplexAction[];
 }
 
-export function Actions({primaryAction, secondaryActions}: PageActionsProps) {
+export function Actions({primaryAction, secondaryActions}: ActionsProps) {
   const primaryActionMarkup = primaryAction
     ? buttonsFrom(primaryAction, {variant: 'primary'})
     : null;

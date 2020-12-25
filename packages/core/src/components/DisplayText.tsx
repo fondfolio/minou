@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Heading} from './Heading';
+import {Heading, HeadingProps} from './Heading';
 
-interface Props {
+interface Props extends HeadingProps {
   /** The content to display inside the button */
   children: React.ReactNode;
 }
@@ -10,53 +10,3 @@ interface Props {
 export function DisplayText(props: Props) {
   return <Heading level={1} {...props} />;
 }
-
-// text: {
-
-//   heading3: {
-//     fontFamily: 'sans',
-//     lineHeight: 'heading',
-//     fontWeight: 'normal',
-//     fontSize: [4],
-//   },
-//   heading4: {
-//     fontFamily: 'sans',
-//     lineHeight: 'heading',
-//     fontWeight: 'bold',
-//     fontSize: [3],
-//   },
-//   heading5: {
-//     fontFamily: 'sans',
-//     lineHeight: 'heading',
-//     fontWeight: 'bold',
-//     fontSize: [2],
-//   },
-//   heading6: {
-//     fontFamily: 'monospace',
-//     lineHeight: 'body',
-//     fontWeight: 'bold',
-//     fontSize: [1],
-//   },
-//   bodyLarge: {
-//     fontFamily: 'sans',
-//     lineHeight: 'body',
-//     fontWeight: 'normal',
-//     fontSize: [3],
-//   },
-//   body: {
-//     fontFamily: 'sans',
-//     lineHeight: 'body',
-//     fontWeight: 'normal',
-//     fontSize: [2],
-//   },
-//   caption: {
-//     fontFamily: 'sans',
-//     lineHeight: 'body',
-//     fontWeight: 'normal',
-//     fontSize: [1],
-//   },
-//   caps: {
-//     textTransform: 'uppercase',
-//     letterSpacing: '0.5em',
-//   },
-// },
