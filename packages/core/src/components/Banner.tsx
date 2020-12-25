@@ -47,12 +47,15 @@ export function Banner({children, variant, title, ...props}: Props) {
 }
 
 function iconForVariant(variant?: 'success' | 'error' | 'warning') {
+  console.log(variant);
   switch (variant) {
     case 'success':
-      return Icons.Tooltip;
+      return Icons.Success;
     case 'warning':
-      return Icons.Lightbulb;
+      return Icons.Warning;
     case 'error':
-      return Icons.Close;
+      return Icons.Error;
+    default:
+      return Icons.Info;
   }
 }

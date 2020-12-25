@@ -2,7 +2,6 @@ import React from 'react';
 import {useField, useForm, notEmpty, lengthMoreThan} from '@shopify/react-form';
 import {
   Box,
-  ButtonGroup,
   TextField,
   Card,
   Link,
@@ -24,14 +23,13 @@ import {
   Italic,
   Banner,
   Cards,
-  Image,
 } from 'minou';
 
 export default function Home() {
   return (
     <>
       <Header secondary={<div>left</div>} primary={<div>right</div>} />
-     
+
       <Page>
         <Page.Section>
           <Box pb={4}>
@@ -172,6 +170,10 @@ export default function Home() {
             <IconBox icon={Icons.Facebook} />
             <IconBox icon={Icons.Twitter} />
             <IconBox icon={Icons.Instagram} />
+            <IconBox icon={Icons.Success} />
+            <IconBox icon={Icons.Error} />
+            <IconBox icon={Icons.Warning} />
+            <IconBox icon={Icons.Info} />
             <Spinner />
           </Flex>
         </Page.Section>
@@ -324,29 +326,18 @@ export default function Home() {
         </Page.Section>
         <Page.Section>
           <DisplayText>Forgot password</DisplayText>
+          <Text large>
+            Sewn with durable waxed <Italic>Irish linen</Italic> thread, the
+            exposed spine allows for an infinite number of contributions, and
+            serves as a visual reminder of the real human connections expressed
+            within.
+          </Text>
+          <Text large>
+            Collect as many contributions as you can — the more the merrier, at
+            no extra cost.
+          </Text>
         </Page.Section>
       </Page>
-      <Page.Section full bg="tealLight">
-        <Page.Section size="large" width={[1]}>
-          <Flex>
-            <Box width={[1 / 2]}>
-              <Image multiply src="/images/2.jpg" width={1200} height={1200} />
-            </Box>
-            <Box width={[1 / 2]} p={4}>
-              <Text large>
-                Sewn with durable waxed <Italic>Irish linen</Italic> thread, the
-                exposed spine allows for an infinite number of contributions,
-                and serves as a visual reminder of the real human connections
-                expressed within.
-              </Text>
-              <Text large>
-                Collect as many contributions as you can — the more the merrier,
-                at no extra cost.
-              </Text>
-            </Box>
-          </Flex>
-        </Page.Section>
-      </Page.Section>
     </>
   );
 }

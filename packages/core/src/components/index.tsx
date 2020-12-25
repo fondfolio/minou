@@ -32,7 +32,7 @@ export {Spinner} from './Spinner';
 export {Provider} from './Provider';
 
 /** Media */
-export {Image} from './Image';
+// export {Image} from './Image';
 
 /** Overlays */
 // Dropdown
