@@ -18,6 +18,7 @@ const StyledCard = styled(Box)<Props>`
   position: relative;
   margin-top: -1px;
   margin-left: -1px;
+  width: 100%;
 
   &,
   &:after {
@@ -35,6 +36,7 @@ const StyledCard = styled(Box)<Props>`
     transform: translate3d(0, 0, 0);
     transition: ${({theme}) => theme.transitions.all};
     transform: translate3d(0.5em, 0.5em, 0);
+    background: white;
   }
 
   &:hover:after,

@@ -15,20 +15,23 @@ interface SectionProps extends BoxProps {
   size?: 'large';
 }
 
-const StyledPage = styled(Flex)<PageProps>`
-  width: 100%;
-  min-height: 100vh;
-  text-align: center;
-`;
-
 export function Page({children, title, ...props}: PageProps) {
   return (
-    <StyledPage alignItems="center" flexDirection="column" {...props}>
+    <Flex
+      alignItems="center"
+      flexDirection="column"
+      borderTop="1px solid"
+      borderColor="primary"
+      width="100%"
+      textAlign="center"
+      minHeight="100vh"
+      {...props}
+    >
       <Head>
         <title>{title || 'Fondfolio'}</title>
       </Head>
       <Sections>{children}</Sections>
-    </StyledPage>
+    </Flex>
   );
 }
 
@@ -37,7 +40,6 @@ const StyledSections = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  flex: 1;
 `;
 
 function Sections({children}: {children: React.ReactNode}) {
@@ -47,6 +49,7 @@ function Sections({children}: {children: React.ReactNode}) {
 const StyledSection = styled(Flex)<SectionProps>`
   text-align: left;
   max-width: ${({full, size}) => (full ? '100%' : getWidth(size))};
+  width: 100%;
 `;
 
 function Section({full, size, ...props}: SectionProps) {
@@ -62,8 +65,8 @@ function Section({full, size, ...props}: SectionProps) {
   return (
     <StyledSection
       {...commonProps}
-      p={4}
-      width={[1, 2 / 3, 1 / 2]}
+      p={[3, 4]}
+      width={['100%', 2 / 3, 1 / 2]}
       full={full}
       size={size}
       {...props}
