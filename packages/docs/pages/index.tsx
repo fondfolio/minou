@@ -488,7 +488,12 @@ function UserMenu() {
     [],
   );
 
-  const activator = <Avatar onClick={togglePopoverActive} />;
+  const activator = (
+    <Flex alignItems="center">
+      <Icon icon={Icons.DropDown} color="primary" />
+      <Avatar active={popoverActive} onClick={togglePopoverActive} />
+    </Flex>
+  );
 
   return (
     <Dropdown

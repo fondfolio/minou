@@ -18,6 +18,7 @@ const StyledLink = styled.a<Props>`
     size === 'small' ? toPx(theme.fontSizes[0]) : '1em'};
   padding: 0 1px;
   align-items: center;
+  white-space: nowrap;
 
   &:hover {
     color: ${({theme}) => theme.colors.tealDark};
