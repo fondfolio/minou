@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
+import {Card} from './Card';
+
 interface BackdropProps {
   onClick(): void;
   active: boolean;
@@ -44,7 +46,7 @@ const StyledDropdown = styled.div`
   z-index: 1;
 `;
 
-const StyledDropdownContent = styled.div`
+const StyledDropdownContent = styled(Card)`
   position: absolute;
   margin-top: 0.5em;
   top: 100%;
@@ -53,8 +55,7 @@ const StyledDropdownContent = styled.div`
   background: white;
   min-width: 200px;
   max-width: 100%;
-  padding: 1em 0;
-  box-shadow: ${({theme}) => theme.shadows.default};
+  padding: 0 0 1em 0;
   animation: ${fadeInUp} ${({theme}) => `${theme.timings[0]} ${easing}`};
 `;
 

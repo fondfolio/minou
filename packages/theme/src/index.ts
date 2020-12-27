@@ -52,6 +52,7 @@ export const theme = {
   borderRadius: '4px',
   radii: {
     button: '4px',
+    card: '2px',
     input: '2px',
   },
 
@@ -85,7 +86,7 @@ export const theme = {
     sans,
   },
 
-  fontSizes: [10, 12, 14, 16, 18, 22, 24, 32, 42, 64, 96],
+  fontSizes: [13, 16, 22, 32, 42],
 
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 

@@ -7,6 +7,8 @@ interface Props extends TextProps {
   children: React.ReactNode;
 }
 
-export function Title(props: Props) {
-  return <Text textAlign="left" pb={3} fontSize={3} {...props} />;
+export function Display(props: Props) {
+  return (
+    <Text lineHeight="heading" fontFamily="sans" fontSize={4} {...props} />
+  );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Container} from './Container';
 import {Section} from './Section';
-import {DisplayText} from './DisplayText';
+import {Display} from './Display';
 import {Italic} from './Italic';
 
 interface Props {
@@ -13,9 +13,9 @@ export function Mast({title, ...props}: Props) {
   return (
     <Container pb={[0, 0]} bg="white" {...props}>
       <Section justifyContent="space-between" alignItems="center">
-        <DisplayText p={0}>
+        <Display p={0}>
           <Italic>{title}</Italic>
-        </DisplayText>
+        </Display>
       </Section>
     </Container>
   );

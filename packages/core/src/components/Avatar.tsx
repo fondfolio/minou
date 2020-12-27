@@ -25,6 +25,7 @@ const StyledAvatar = styled.button`
   overflow: hidden;
   background: ${({theme}) => theme.colors.primary};
   box-shadow: 0 0 0px 1px ${({theme}) => theme.colors.primary};
+  cursor: pointer;
 `;
 
 export function Avatar({user, ...props}: Props) {

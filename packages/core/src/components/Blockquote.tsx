@@ -1,9 +1,8 @@
 import React from 'react';
 
-import {DisplayText} from './DisplayText';
+import {Display} from './Display';
 import {Box, Flex} from './Box';
 import {Text} from './Text';
-import {Italic} from './Italic';
 
 interface Props {
   /** The content to display inside the button */
@@ -14,9 +13,9 @@ interface Props {
 export function Blockquote({citation, children}: Props) {
   return (
     <Flex flexDirection="column" alignItems="center" p="4">
-      <DisplayText textAlign="center">
-        <Italic>{children}</Italic>
-      </DisplayText>
+      <Display textAlign="center" italic>
+        {children}
+      </Display>
       <Box pt="4">
         <Text textAlign="center">– {citation}</Text>
       </Box>

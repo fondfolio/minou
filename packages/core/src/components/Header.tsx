@@ -1,22 +1,45 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 import {Section} from './Section';
 import {Container} from './Container';
 import {Logo} from './Logo';
 
 interface Props {
-  secondary: React.ReactNode;
-  primary: React.ReactNode;
-  position?: 'absolute' | 'fixed';
+  secondary?: React.ReactNode;
+  primary?: React.ReactNode;
+  position?: 'absolute' | 'fixed' | 'sticky';
 }
 
 const StyledHeader = styled.header<Omit<Props, 'primary' | 'secondary'>>`
-  position: ${({position}) => (position ? position : 'relative')};
+  ${position}
   z-index: ${({theme}) => theme.zIndices.header};
   margin: auto;
   width: 100%;
+  top: 0px;
 `;
+
+function position({position}: Props) {
+  switch (position) {
+    case 'sticky':
+      return css`
+        position: sticky;
+        position: -webkit-sticky;
+      `;
+    case 'absolute':
+      return css`
+        position: absolute;
+      `;
+    case 'fixed':
+      return css`
+        position: fixed;
+      `;
+    default:
+      return css`
+        position: relative;
+      `;
+  }
+}
 
 export function Header({secondary, primary, ...props}: Props) {
   return (

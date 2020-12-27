@@ -5,7 +5,7 @@ import type {ComplexAction} from '../types';
 
 import {buttonsFrom} from './Button';
 import {Box, Flex, BoxProps} from './Box';
-import {Subtitle} from './Subtitle';
+import {Label} from './Label';
 
 interface Props extends BoxProps {
   active?: boolean;
@@ -35,19 +35,20 @@ const StyledCard = styled(Box)<Props>`
     z-index: -1;
     transform: translate3d(0, 0, 0);
     transition: ${({theme}) => theme.transitions.all};
-    transform: translate3d(0.5em, 0.5em, 0);
+    transform: translate3d(0, 0, 0);
     background: white;
+    border-radius: ${({theme}) => theme.radii.card};
   }
 
-  &:hover:after,
-  &:focus:after {
-    transform: translate3d(0.5em, 0.5em, 0);
+  // &:hover:after,
+  // &:focus:after {
+  //   transform: translate3d(0.5em, 0.5em, 0);
 
-    > * {
-      position: relative;
-      z-index: 1;
-    }
-  }
+  //   > * {
+  //     position: relative;
+  //     z-index: 1;
+  //   }
+  // }
 
   ${({active}) =>
     active &&
@@ -65,8 +66,8 @@ export function Card({children, title, action, ...props}: Props) {
   const actionMarkup = action ? <Box pt={3}>{buttonsFrom(action)}</Box> : null;
 
   return (
-    <StyledCard p={4} bg="white" {...props}>
-      <Subtitle pb={2}>{title}</Subtitle>
+    <StyledCard p={4} bg="white" borderRadius={2} {...props}>
+      <Label pb={2}>{title}</Label>
       {children}
       {actionMarkup}
     </StyledCard>

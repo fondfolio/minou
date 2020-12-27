@@ -2,6 +2,7 @@ import React from 'react';
 import NextLink from 'next/link';
 import styled, {css} from 'styled-components';
 import {Icons} from '@minou/icons';
+import {toPx} from '@minou/utilities';
 
 import {Icon} from './Icon';
 
@@ -13,7 +14,8 @@ const StyledLink = styled.a<Props>`
   color: ${({theme}) => theme.colors.primary};
   text-decoration: none;
   transition: ${({theme}) => theme.transitions.all};
-  font-size: ${({size}) => (size === 'small' ? '0.75em' : '1em')};
+  font-size: ${({size, theme}) =>
+    size === 'small' ? toPx(theme.fontSizes[0]) : '1em'};
   padding: 0 1px;
   align-items: center;
 

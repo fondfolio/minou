@@ -5,24 +5,40 @@ import {ComplexAction} from '../types';
 
 import {Flex, BoxProps} from './Box';
 import {Link} from './Link';
+import {Rule} from './Rule';
+
+type MenuAction = ComplexAction & {
+  segment?: boolean;
+};
 
 interface Props extends BoxProps {
-  items: ComplexAction[];
+  items: MenuAction[];
   prefix?: React.ReactNode;
   postfix?: React.ReactNode;
 }
 
-const Tab = styled(Link)<ComplexAction>`
+const Item = styled(Link)<ComplexAction>`
   padding: 0.5em 0 0 1.5em;
 `;
 
 export function Menu({items, prefix, postfix, ...props}: Props) {
-  const itemsMarkup = items.map(({content, ...item}, index) => {
-    return (
-      <Tab key={index} unstyled {...item}>
+  const itemsMarkup = items.map(({content, segment, ...item}, index) => {
+    const itemMarkup = (
+      <Item key={index} unstyled {...item}>
         {content}
-      </Tab>
+      </Item>
     );
+
+    if (segment) {
+      return (
+        <>
+          <Rule mt={2} />
+          {itemMarkup}
+        </>
+      );
+    }
+
+    return itemMarkup;
   });
 
   return (

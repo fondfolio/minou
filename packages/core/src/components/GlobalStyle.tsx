@@ -49,8 +49,8 @@ export const GlobalStyle = createGlobalStyle`
   
   @font-face {
     font-family: "Franca";
-    src: url("/fonts/FrancaTest-Medium.otf");
-    font-style: medium;
+    src: url("/fonts/FrancaTest-SemiBold.otf");
+    font-style: bold;
     font-weight: 500;
     font-display: swap;
   }
