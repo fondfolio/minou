@@ -159,18 +159,32 @@ export default function Home() {
             <IconBox icon={Icons.Mail} />
             <IconBox icon={Icons.Tooltip} />
             <IconBox icon={Icons.Plus} />
+            <IconBox icon={Icons.EventMoving}/>
+            <IconBox icon={Icons.EventMovingLarge} />
             <IconBox icon={Icons.EventBirthday} />
+            <IconBox icon={Icons.EventBirthdayLarge} />
             <IconBox icon={Icons.EventCause} />
-            <IconBox icon={Icons.EventWedding} />
+            <IconBox icon={Icons.EventCauseLarge} />
             <IconBox icon={Icons.EventAnniversary} />
+            <IconBox icon={Icons.EventAnniversaryLarge} />
             <IconBox icon={Icons.EventEngagement} />
+            <IconBox icon={Icons.EventEngagementLarge} />
             <IconBox icon={Icons.EventWedding} />
+            <IconBox icon={Icons.EventWeddingLarge} />
             <IconBox icon={Icons.EventRetirement} />
+            <IconBox icon={Icons.EventRetirementLarge} />
             <IconBox icon={Icons.EventRecovery} />
+            <IconBox icon={Icons.EventRecoveryLarge} />
             <IconBox icon={Icons.EventRemembering} />
+            <IconBox icon={Icons.EventRememberingLarge} />
             <IconBox icon={Icons.EventSuccess} />
+            <IconBox icon={Icons.EventSuccessLarge} />
             <IconBox icon={Icons.EventNewborn} />
+            <IconBox icon={Icons.EventNewbornLarge} />
+            <IconBox icon={Icons.Folio} />
+            <IconBox icon={Icons.FolioLarge} />
             <IconBox icon={Icons.LogoIcon} />
+            <IconBox icon={Icons.LogoIconLarge} />
             <IconBox icon={Icons.LogoWord} />
             <IconBox icon={Icons.Logo} />
             <IconBox icon={Icons.Facebook} />
@@ -180,6 +194,9 @@ export default function Home() {
             <IconBox icon={Icons.Error} />
             <IconBox icon={Icons.Warning} />
             <IconBox icon={Icons.Info} />
+            <IconBox icon={Icons.OptionHardcover} />
+            <IconBox icon={Icons.OptionDigital} />
+            <IconBox icon={Icons.OptionCustom} />
             <Spinner />
           </Flex>
         </Page.Section>
