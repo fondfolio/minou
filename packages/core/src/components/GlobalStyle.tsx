@@ -41,7 +41,9 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: "Franca";
-    src: url("/fonts/FrancaTest-Book.otf");
+    src: url("/fonts/Franca-Book.otf");
+    src: url('/fonts/Franca-Book.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Franca-Book.woff') format('woff'); /* Pretty Modern Browsers */
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -49,7 +51,9 @@ export const GlobalStyle = createGlobalStyle`
   
   @font-face {
     font-family: "Franca";
-    src: url("/fonts/FrancaTest-SemiBold.otf");
+    src: url("/fonts/Franca-SemiBold.otf");
+    url('/fonts/Franca-SemiBold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/Franca-SemiBold.woff') format('woff'); /* Pretty Modern Browsers */
     font-style: bold;
     font-weight: 500;
     font-display: swap;
