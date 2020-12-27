@@ -6,13 +6,13 @@ export function Meta() {
     <Head>
       <link
         rel="preload"
-        href="/fonts/FrancaTest-Book.otf"
+        href="/fonts/Franca-Book.otf"
         as="font"
         crossOrigin=""
       />
       <link
         rel="preload"
-        href="/fonts/FrancaTest-Medium.otf"
+        href="/fonts/Franca-SemiBold.otf"
         as="font"
         crossOrigin=""
       />
