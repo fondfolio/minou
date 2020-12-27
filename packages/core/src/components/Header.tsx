@@ -21,7 +21,7 @@ const StyledHeader = styled.header<Omit<Props, 'primary' | 'secondary'>>`
 export function Header({secondary, primary, ...props}: Props) {
   return (
     <StyledHeader {...props}>
-      <Container py={3}>
+      <Container py={3} bg="white">
         <Section alignItems="center" justifyContent="space-between">
           {secondary}
           <Logo color="primary" />

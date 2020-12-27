@@ -38,6 +38,7 @@ const StyledBasicButton = styled.button<CombinedProps>`
   padding: 1px;
   line-height: 1.8;
   font-weight: ${({theme}) => theme.fontWeights.bold};
+  white-space: nowrap;
 
   &:hover {
     color: ${({theme, destructive}) =>

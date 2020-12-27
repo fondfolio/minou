@@ -3,56 +3,62 @@ import styled from 'styled-components';
 
 import {ComplexAction} from '../types';
 
+import {Section} from './Section';
+import {Container} from './Container';
 import {Flex, BoxProps} from './Box';
 import {Link} from './Link';
 
 interface Props extends BoxProps {
-  rightToLeft?: boolean;
   items: ComplexAction[];
-  variant?: 'tabs' | 'links';
+  prefix?: React.ReactNode;
+  postfix?: React.ReactNode;
 }
 
-const StyledNavigation = styled(Flex)<Props>`
-  margin: ${({rightToLeft}) =>
-    rightToLeft ? '0 -0.5em -1px 0' : '0 0 -1px -0.5em'};
+const Tab = styled(Link)<ComplexAction>`
+  padding-bottom: 1em;
+  margin: 0 1em;
 
-  > a {
-    margin: 0 0.5em;
-
-    &:after {
-      transform: scaleX(0);
-    }
-
-    &.active {
-      pointer-events: none;
-
-      &:hover {
-        background: none;
-      }
-
-      &:after {
-        transform: scaleX(1);
-      }
-    }
+  &:hover {
+    background: none;
   }
 `;
 
-export function Navigation({items, variant, ...props}: Props) {
+const Wrapper = styled(Flex)`
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export function Navigation({items, prefix, postfix, ...props}: Props) {
   const itemsMarkup = items.map(({content, ...item}, index) => {
-    return variant === 'tabs' ? (
-      <Link tab key={index} {...item}>
+    return (
+      <Tab key={index} active={false} {...item}>
         {content}
-      </Link>
-    ) : (
-      <Link key={index} {...item}>
-        {content}
-      </Link>
+      </Tab>
     );
   });
 
   return (
-    <StyledNavigation as="nav" {...props}>
-      {itemsMarkup}
-    </StyledNavigation>
+    <Container
+      as="nav"
+      pb={[0, 0]}
+      borderBottom="1px solid"
+      borderColor="gray.0"
+      {...props}
+    >
+      <Section alignItems="baseline">
+        {prefix}
+        <Wrapper mb="-1px" ml="-1em" mr="1em" flex="1" alignItems="baseline">
+          {itemsMarkup}
+        </Wrapper>
+        {postfix}
+      </Section>
+    </Container>
   );
 }

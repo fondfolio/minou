@@ -37,12 +37,13 @@ export {Spinner} from './Spinner';
 export {Provider} from './Provider';
 
 /** Media */
-// export {Image} from './Image';
+export {Image} from './Image';
+export {Avatar} from './Avatar';
 
 /** Overlays */
-// Dropdown
+export {Dropdown} from './Dropdown';
 // Modal
 
 /** Navigation */
 export {Navigation} from './Navigation';
-// Menu
+export {Menu} from './Menu';

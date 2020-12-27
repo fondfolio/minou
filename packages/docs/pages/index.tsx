@@ -1,5 +1,6 @@
-import React from 'react';
-import {useField, useForm, notEmpty, lengthMoreThan} from '@shopify/react-form';
+/* eslint-disable react/jsx-child-element-spacing */
+import React, {useCallback, useState} from 'react';
+import {useField, useForm} from '@shopify/react-form';
 import {
   Box,
   TextField,
@@ -24,7 +25,12 @@ import {
   Banner,
   Cards,
   Navigation,
+  Section,
+  Container,
   Mast,
+  Menu,
+  Dropdown,
+  Avatar,
 } from 'minou';
 
 export default function Home() {
@@ -32,7 +38,7 @@ export default function Home() {
     <>
       <Header
         secondary={<Navigation items={[]} />}
-        primary={<Navigation items={[]} rightToLeft />}
+        primary={<Navigation items={[]} />}
       />
 
       <Page>
@@ -253,34 +259,86 @@ export default function Home() {
         </Page.Section>
       </Page>
       <Page>
-        <Header
-          secondary={<Navigation items={[{content: 'Help'}]} />}
-          primary={<Navigation rightToLeft items={[{content: 'Me'}]} />}
+        <Header secondary={<Link unstyled>Help</Link>} primary={<UserMenu />} />
+        <Mast title="Minou‘s Success" />
+        <Navigation
+          bg="white"
+          postfix={<Button variant="primary">Order Now</Button>}
+          items={[
+            {content: 'Contributions'},
+            {content: 'Details'},
+            {content: 'Share'},
+            {content: 'Customizations', active: true},
+            {content: 'Questionnaire', external: true},
+          ]}
         />
-        <Mast />
-      </Page>
-      <Page>
-        <Page.Section>
-          <Card active title="Matthew Seccafien Contributed">
-            <Text pb={0}>
-              10 Minutes ago <Link>Edit</Link>
-            </Text>
-          </Card>
-          <Card active title="Fiona McDougall Contributed">
-            <Text pb={0}>
-              10 Minutes ago <Link>Edit</Link>
-            </Text>
-          </Card>
-        </Page.Section>
-        <Page.Section>
-          <Card active title="What‘s Next" action={{content: 'Do this now'}}>
-            <Text pb={0}>
-              What better gift to give a couple on their wedding day than the
-              memories and wisdom from everyone near and dear, including those
-              unable to attend.
-            </Text>
-          </Card>
-        </Page.Section>
+        <Container>
+          <Section>
+            <Card active title="Matthew Seccafien Contributed">
+              <Text pb={0}>
+                10 Minutes ago <Link>Edit</Link>
+              </Text>
+            </Card>
+            <Card active title="Fiona McDougall Contributed">
+              <Text pb={0}>
+                10 Minutes ago <Link>Edit</Link>
+              </Text>
+            </Card>
+            <Card active title="What‘s Next" action={{content: 'Do this now'}}>
+              <Text pb={0}>
+                What better gift to give a couple on their wedding day than the
+                memories and wisdom from everyone near and dear, including those
+                unable to attend.
+              </Text>
+            </Card>
+          </Section>
+        </Container>
+        <Rule my={2} icon={Icons.LogoIcon} />
+        <Container>
+          <Section justifyContent="center" flexDirection={['column', 'row']}>
+            <Box px={3}>
+              <Text large textAlign={['center', 'right']}>
+                Questions? <Italic>We’re here to help.</Italic>
+                <br />
+                <Link>Visit support</Link> or <Link>Send us an email</Link>
+                <br />
+                We value your words.
+              </Text>
+            </Box>
+            <Box px={3}>
+              <Text large textAlign={['center', 'left']}>
+                Gifting tips, special offers and
+                <br />
+                an occasional bundle of email joy.
+                <br />
+                <Link>Subscribe to our newsletter</Link>
+              </Text>
+            </Box>
+          </Section>
+        </Container>
+        <Navigation
+          prefix={
+            <Box pr={4} display={['none', 'none', 'block']}>
+              <Caption fontWeight="bold">Copyright 2020 Fondfolio Inc.</Caption>
+            </Box>
+          }
+          items={[
+            {content: 'Help', size: 'small'},
+            {content: 'Terms', size: 'small'},
+            {content: 'Privacy', size: 'small'},
+            {content: 'About', size: 'small'},
+            {content: 'Blog', size: 'small'},
+          ]}
+          postfix={
+            <Box pl={2} display={['none', 'none', 'block']}>
+              <Caption>
+                <Italic>
+                  <Link unstyled>Proudly made in Toronto by Cartogram</Link>
+                </Italic>
+              </Caption>
+            </Box>
+          }
+        />
       </Page>
       <Page>
         <Page.Section>
@@ -403,7 +461,36 @@ function IconBox({icon}) {
   );
 }
 
-export function LoginSignUp() {
+function UserMenu() {
+  const [popoverActive, setPopoverActive] = useState(true);
+
+  const togglePopoverActive = useCallback(
+    () => setPopoverActive((popoverActive) => !popoverActive),
+    [],
+  );
+
+  const activator = <Avatar onClick={togglePopoverActive} />;
+
+  return (
+    <Dropdown
+      active={popoverActive}
+      activator={activator}
+      onClose={togglePopoverActive}
+    >
+      <Menu
+        items={[
+          {content: 'Help'},
+          {content: 'Terms'},
+          {content: 'Privacy'},
+          {content: 'About'},
+          {content: 'Blog'},
+        ]}
+      />
+    </Dropdown>
+  );
+}
+
+function LoginSignUp() {
   const {fields, submit, submitting, submitErrors} = useForm({
     fields: {
       email: useField(''),

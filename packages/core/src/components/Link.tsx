@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {Icons} from '@minou/icons';
 
 import {Icon} from './Icon';
@@ -23,17 +23,41 @@ const StyledLink = styled.a<Props>`
       unstyled ? 'none' : theme.colors.teal[0]};
   }
 
-  &:after {
-    content: '';
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    background: ${({theme}) => theme.colors.primary};
-    position: absolute;
-    transform: ${({unstyled}) => (unstyled ? 'scaleX(0)' : 'scaleX(1)')};
-  }
+  ${line}
 `;
+
+function line({theme, active, unstyled}: any) {
+  const showLine = 'scaleX(1);';
+  const hideLine = 'scaleX(0);';
+  let transform = hideLine;
+
+  if (active) {
+    transform = showLine;
+  }
+
+  if (unstyled) {
+    transform = hideLine;
+  }
+
+  return css`
+    &:after {
+      content: '';
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: ${theme.colors.primary};
+      position: absolute;
+      transform: ${transform};
+      transform-origin: 0 0;
+      transition: ${({theme}) => theme.transitions.all};
+    }
+
+    &:hover:after {
+      transform: ${unstyled ? hideLine : showLine};
+    }
+  `;
+}
 
 interface Props {
   size?: 'small';
@@ -45,43 +69,21 @@ interface Props {
   unstyled?: boolean;
 }
 
-const StyledTab = styled(StyledLink)<Props>`
-  padding-bottom: 1em;
-
-  &:hover {
-    background: none;
-  }
-
-  &:after {
-    transform: scaleX(0);
-    transform-origin: 0 0;
-    transition: ${({theme}) => theme.transitions.all};
-  }
-
-  &:hover:after {
-    transform: scaleX(1);
-  }
-`;
-
-export function Link({url, external, tab, children, active, ...props}: Props) {
-  const Component = tab ? StyledTab : StyledLink;
-
+export function Link({url, external, tab, children, ...props}: Props) {
   if (external) {
     return (
-      <Component href={url || ''} {...props}>
+      <StyledLink href={url || ''} active {...props}>
         {children}
         <Icon color="primary" icon={Icons.ArrowLongExternal} />
-      </Component>
+      </StyledLink>
     );
   }
 
-  const className = active ? 'active' : '';
-
   return (
     <NextLink href={url || ''}>
-      <Component {...props} className={className}>
+      <StyledLink active {...props}>
         {children}
-      </Component>
+      </StyledLink>
     </NextLink>
   );
 }

@@ -1,5 +1,4 @@
 import {toMs, createScale} from '@minou/utilities';
-
 /**
  * Preset minou theme based on https://theme-ui.com/theme-spec/
  */
@@ -28,6 +27,16 @@ export const pallet = {
   black: '#231D24',
 };
 
+const shadows = {
+  default: '0px 2px 8px 0px rgba(0,0,0,0.10)',
+  Switch: '0 2px 4px 0 rgba(35,29,36,0.20)',
+  outline: '0px 0px 1px 0px rgba(0,0,0,0.4)',
+  smallest: '0px 4px 8px rgba(0,0,0,0.12)',
+  small: '0 5px 10px rgba(0,0,0,0.12)',
+  medium: '0 8px 30px rgba(0,0,0,0.12)',
+  large: '0 30px 60px rgba(0,0,0,0.12)',
+};
+
 const teal = ['#EBFFFF', '#005D63', '#00383C', '#90DEE3'];
 const gray = ['#EAEAEA', '#F5F5F5', '#FBFBFB', '#C0BEC0', '#7E7A7E', '#5B585B'];
 
@@ -39,7 +48,7 @@ const timing = timings[0];
 
 export const theme = {
   breakpoints: ['40em', '56em', '64em'],
-
+  timings,
   borderRadius: '4px',
   radii: {
     button: '4px',
@@ -91,9 +100,7 @@ export const theme = {
     heading: 1.25,
   },
 
-  shadows: {
-    large: 'rgba(0, 0, 0, 0.12) 0px 5px 10px 0px',
-  },
+  shadows,
 
   transitions: {
     all: `all ${timing} ease`,
