@@ -42,5 +42,4 @@ You can publish new versions of the packages with the following commands:
 ```bash
 git checkout main                                              # make sure you are on the main branch
 yarn version-bump                                              # tag the new version
-yarn deploy                                                    # push to npm
 ```
