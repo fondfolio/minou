@@ -1,33 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {Flex, BoxProps} from './Box';
+import {Section} from './Section';
+import {Container} from './Container';
 import {Logo} from './Logo';
 
-interface Props extends BoxProps {
+interface Props {
   secondary: React.ReactNode;
   primary: React.ReactNode;
   position?: 'absolute' | 'fixed';
 }
 
-const StyledHeader = styled(Flex)<Props>`
+const StyledHeader = styled.header<Omit<Props, 'primary' | 'secondary'>>`
   position: ${({position}) => (position ? position : 'relative')};
   z-index: ${({theme}) => theme.zIndices.header};
+  margin: auto;
   width: 100%;
 `;
 
 export function Header({secondary, primary, ...props}: Props) {
   return (
-    <StyledHeader
-      as="header"
-      padding={[3, 4]}
-      alignItems="center"
-      justifyContent="space-between"
-      {...props}
-    >
-      {secondary}
-      <Logo color="primary" />
-      {primary}
+    <StyledHeader {...props}>
+      <Container py={3}>
+        <Section alignItems="center" justifyContent="space-between">
+          {secondary}
+          <Logo color="primary" />
+          {primary}
+        </Section>
+      </Container>
     </StyledHeader>
   );
 }

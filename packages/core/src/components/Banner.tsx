@@ -47,7 +47,6 @@ export function Banner({children, variant, title, ...props}: Props) {
 }
 
 function iconForVariant(variant?: 'success' | 'error' | 'warning') {
-  console.log(variant);
   switch (variant) {
     case 'success':
       return Icons.Success;

@@ -24,6 +24,7 @@ export interface BaseAction {
    * "destructive" indicates a dangerous or potentially negative action
    */
   variant?: 'primary' | 'secondary';
+  active?: boolean;
 }
 
 export interface Action extends BaseAction {}

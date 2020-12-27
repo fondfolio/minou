@@ -23,12 +23,17 @@ import {
   Italic,
   Banner,
   Cards,
+  Navigation,
+  Mast,
 } from 'minou';
 
 export default function Home() {
   return (
     <>
-      <Header secondary={<div>left</div>} primary={<div>right</div>} />
+      <Header
+        secondary={<Navigation items={[]} />}
+        primary={<Navigation items={[]} rightToLeft />}
+      />
 
       <Page>
         <Page.Section>
@@ -53,6 +58,7 @@ export default function Home() {
               allowing the book to lay flat. No glue, just high quality paper
               and thread — made to last a lifetime.
             </Text>
+
             <Text large pl={5}>
               <Italic>
                 Times when giftcards, chocolates or flowers can’t communicate
@@ -227,6 +233,36 @@ export default function Home() {
             Shipping is within North America. International shipping is
             available at a discounted rate.
           </Caption>
+        </Page.Section>
+      </Page>
+      <Page>
+        <Header
+          secondary={<Navigation items={[{content: 'Help'}]} />}
+          primary={<Navigation rightToLeft items={[{content: 'Me'}]} />}
+        />
+        <Mast />
+      </Page>
+      <Page>
+        <Page.Section>
+          <Card active title="Matthew Seccafien Contributed">
+            <Text pb={0}>
+              10 Minutes ago <Link>Edit</Link>
+            </Text>
+          </Card>
+          <Card active title="Fiona McDougall Contributed">
+            <Text pb={0}>
+              10 Minutes ago <Link>Edit</Link>
+            </Text>
+          </Card>
+        </Page.Section>
+        <Page.Section>
+          <Card active title="What‘s Next" action={{content: 'Do this now'}}>
+            <Text pb={0}>
+              What better gift to give a couple on their wedding day than the
+              memories and wisdom from everyone near and dear, including those
+              unable to attend.
+            </Text>
+          </Card>
         </Page.Section>
       </Page>
       <Page>

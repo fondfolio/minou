@@ -19,7 +19,8 @@ const StyledLink = styled.a<Props>`
 
   &:hover {
     color: ${({theme}) => theme.colors.tealDark};
-    background: ${({theme}) => theme.colors.teal[0]};
+    background: ${({theme, unstyled}) =>
+      unstyled ? 'none' : theme.colors.teal[0]};
   }
 
   &:after {
@@ -30,6 +31,7 @@ const StyledLink = styled.a<Props>`
     height: 1px;
     background: ${({theme}) => theme.colors.primary};
     position: absolute;
+    transform: ${({unstyled}) => (unstyled ? 'scaleX(0)' : 'scaleX(1)')};
   }
 `;
 
@@ -38,21 +40,48 @@ interface Props {
   url?: string;
   children: React.ReactNode;
   external?: boolean;
+  active?: boolean;
+  tab?: boolean;
+  unstyled?: boolean;
 }
 
-export function Link({url, external, children, ...props}: Props) {
+const StyledTab = styled(StyledLink)<Props>`
+  padding-bottom: 1em;
+
+  &:hover {
+    background: none;
+  }
+
+  &:after {
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: ${({theme}) => theme.transitions.all};
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+  }
+`;
+
+export function Link({url, external, tab, children, active, ...props}: Props) {
+  const Component = tab ? StyledTab : StyledLink;
+
   if (external) {
     return (
-      <StyledLink href={url || ''} {...props}>
+      <Component href={url || ''} {...props}>
         {children}
         <Icon color="primary" icon={Icons.ArrowLongExternal} />
-      </StyledLink>
+      </Component>
     );
   }
 
+  const className = active ? 'active' : '';
+
   return (
     <NextLink href={url || ''}>
-      <StyledLink {...props}>{children}</StyledLink>
+      <Component {...props} className={className}>
+        {children}
+      </Component>
     </NextLink>
   );
 }
