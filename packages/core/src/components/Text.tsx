@@ -10,12 +10,16 @@ import {
 } from 'styled-system';
 import {reset} from '@minou/utilities';
 
+import {Italic} from './Italic';
+
 export interface TextProps extends TypographyProps, SpaceProps, ColorProps {
   children: React.ReactNode;
+  italic?: boolean;
   id?: string;
   /** specify the underlaying component  */
   as?: React.ElementType;
   large?: boolean;
+  small?: boolean;
 }
 
 const StyledText = styled.span<TextProps>`
@@ -28,10 +32,28 @@ const StyledText = styled.span<TextProps>`
   ${color}
 `;
 
-export function Text({large, ...props}: TextProps) {
-  if (large) {
-    return <StyledText as="p" pb={3} fontSize={4} {...props} />;
+export function Text({large, small, italic, children, ...props}: TextProps) {
+  const content = italic ? <Italic>{children}</Italic> : children;
+
+  if (small) {
+    return (
+      <StyledText as="p" pb={3} fontSize={0} {...props}>
+        {content}
+      </StyledText>
+    );
   }
 
-  return <StyledText as="p" fontSize={2} pb={3} {...props} />;
+  if (large) {
+    return (
+      <StyledText as="p" pb={3} fontSize={2} {...props}>
+        {content}
+      </StyledText>
+    );
+  }
+
+  return (
+    <StyledText as="p" fontSize={1} pb={3} {...props}>
+      {content}
+    </StyledText>
+  );
 }

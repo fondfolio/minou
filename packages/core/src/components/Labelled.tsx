@@ -42,7 +42,7 @@ export function Labelled({
   ) : null;
 
   const helpTextMarkup = helpText ? (
-    <Text fontSize={2} pb="1" id={helpTextID(id)}>
+    <Text small pb="1" id={helpTextID(id)}>
       {helpText}
     </Text>
   ) : null;
@@ -53,7 +53,7 @@ export function Labelled({
 
   const labelMarkup = label ? (
     <Flex alignItems="center" justifyContent="space-between">
-      <Label {...rest} hidden={false}>
+      <Label pb={0} {...rest} hidden={false}>
         {label}
       </Label>
 

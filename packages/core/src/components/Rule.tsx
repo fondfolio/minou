@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {Icon, IconType} from './Icon';
-import {Caption} from './Caption';
-import {Italic} from './Italic';
+import {Text} from './Text';
 import {Flex, BoxProps} from './Box';
 
 interface Props extends BoxProps {
@@ -40,9 +39,9 @@ export function Rule(props: Props) {
   if (text) {
     return (
       <StyledRule>
-        <Caption>
-          <Italic>{text}</Italic>
-        </Caption>
+        <Text small italic pb={0}>
+          {text}
+        </Text>
       </StyledRule>
     );
   }

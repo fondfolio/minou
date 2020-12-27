@@ -1,35 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import Markdown from 'react-markdown';
 
-import {Heading} from './Heading';
+import {Text, TextProps} from './Text';
 
-const StyledLabel = styled.label``;
-
-export interface LabelProps {
+export interface LabelProps extends TextProps {
+  small?: boolean;
   /** Label content */
-  children: string;
+  children: React.ReactNode;
   /** Visually hide the label */
   hidden?: boolean;
   /** Size of the label */
-  size?: 'large';
 }
 
-export function Label({children, size, ...rest}: LabelProps) {
-  switch (size) {
-    case 'large':
-      return (
-        <StyledLabel {...rest}>
-          <Markdown>{children}</Markdown>
-        </StyledLabel>
-      );
-    default:
-      return (
-        <StyledLabel {...rest}>
-          <Heading level={3} pb={1} {...rest}>
-            {children}
-          </Heading>
-        </StyledLabel>
-      );
-  }
+export function Label(props: LabelProps) {
+  return <Text fontWeight="bold" {...props} />;
 }

@@ -20,15 +20,14 @@ export {Form} from './Form';
 export {FieldSet} from './FieldSet';
 export {TextField} from './TextField';
 export {Banner} from './Banner';
+export {Label} from './Label';
 
 /** Typography & Icons*/
 export {Text} from './Text';
 export {Title} from './Title';
-export {Caption} from './Caption';
 export {Italic} from './Italic';
-export {Subtitle} from './Subtitle';
 export {Blockquote} from './Blockquote';
-export {DisplayText} from './DisplayText';
+export {Display} from './Display';
 export {Icon} from './Icon';
 export {Rule} from './Rule';
 export {Spinner} from './Spinner';

@@ -19,8 +19,7 @@ import {
   Page,
   Spinner,
   Blockquote,
-  DisplayText,
-  Caption,
+  Display,
   Italic,
   Banner,
   Cards,
@@ -31,6 +30,7 @@ import {
   Menu,
   Dropdown,
   Avatar,
+  Label,
 } from 'minou';
 
 export default function Home() {
@@ -44,16 +44,15 @@ export default function Home() {
       <Page>
         <Page.Section>
           <Box pb={4}>
-            <DisplayText pb={0}>
+            <Display pb={0}>
               Collaborative gift books for your favourite people.
-            </DisplayText>
-            <DisplayText color="primary">
+            </Display>
+            <Display color="primary">
               <Italic>One of a kind, like the humans they’re made for</Italic>
-            </DisplayText>
+            </Display>
             <Title>
               For life’s <Italic>significant</Italic> events
             </Title>
-
             <Text large>
               Fondfolios are customized for your friend, made to order, and
               produced by hand using a combination of modern technologies and
@@ -64,18 +63,15 @@ export default function Home() {
               allowing the book to lay flat. No glue, just high quality paper
               and thread — made to last a lifetime.
             </Text>
-
-            <Text large pl={5}>
-              <Italic>
-                Times when giftcards, chocolates or flowers can’t communicate
-                the depth of your gratitude for another’s existence
-              </Italic>
+            <Text large pl={5} italic>
+              Times when giftcards, chocolates or flowers can’t communicate the
+              depth of your gratitude for another’s existence
             </Text>
-            <Caption>
+            <Text small>
               Don’t pay until all contributions are collected.
               <Italic>-and-</Italic>
               <Link url="">Free Shipping</Link>
-            </Caption>
+            </Text>
           </Box>
           <Box mb="5">
             <Card active title="Wedding">
@@ -218,44 +214,53 @@ export default function Home() {
         <Page.Section size="large" width={[1]}>
           <Cards>
             <Card active title="Digital Only">
+              <Box py={3}>
+                <Icon icon={Icons.OptionDigital} />
+              </Box>
               <Text large>
                 Your Fondfolio contributions stored online forever in a
                 personalized Fondfolio website—share the lovely words with
                 everyone who contributed. Sort responses by question type or
                 read individual responses.
               </Text>
-              <Text color="primary" fontWeight="bold" large pb={0}>
+              <Label large pb={0}>
                 $80
-              </Text>
+              </Label>
             </Card>
             <Card active title="Digital + Hardcover">
+              <Box py={3}>
+                <Icon icon={Icons.OptionHardcover} />
+              </Box>
               <Text large>
                 Everything you get with digital, plus a beautiful handmade
                 hardcover version—each response occupying a spread. Free
                 Furoshiki giftwrapping, free shipping. Something tangible to
                 treasure.
               </Text>
-              <Text color="primary" fontWeight="bold" large pb={0}>
+              <Label large pb={0}>
                 $240
-              </Text>
+              </Label>
             </Card>
             <Card active title="Digital + Custom">
+              <Box py={3}>
+                <Icon icon={Icons.OptionCustom} />
+              </Box>
               <Text large>
                 Solid hardwood cover? Custom engraving inside? Handmade book
                 box? The only limits are that of your imagination, let us know
                 what you’re thinking.
               </Text>
-              <Text color="primary" fontWeight="bold" large pb={0}>
+              <Label large pb={0}>
                 $360
-              </Text>
+              </Label>
             </Card>
           </Cards>
-          <Caption textAlign="center">
+          <Text small textAlign="center">
             Don’t pay anything until all contributions have been collected and
             you are ready to order. All prices in US Dollars (USD). Free
             Shipping is within North America. International shipping is
             available at a discounted rate.
-          </Caption>
+          </Text>
         </Page.Section>
       </Page>
       <Page>
@@ -274,9 +279,12 @@ export default function Home() {
         />
         <Container>
           <Section>
-            <Card active title="Matthew Seccafien Contributed">
-              <Text pb={0}>
-                10 Minutes ago <Link>Edit</Link>
+            <Card active>
+              <Label large pb={0}>
+                Matthew S. Contributed
+              </Label>
+              <Text italic small pb={0}>
+                10 minutes ago
               </Text>
             </Card>
             <Card active title="Fiona McDougall Contributed">
@@ -319,7 +327,9 @@ export default function Home() {
         <Navigation
           prefix={
             <Box pr={4} display={['none', 'none', 'block']}>
-              <Caption fontWeight="bold">Copyright 2020 Fondfolio Inc.</Caption>
+              <Label small pb={0}>
+                Copyright 2020 Fondfolio Inc.
+              </Label>
             </Box>
           }
           items={[
@@ -331,123 +341,132 @@ export default function Home() {
           ]}
           postfix={
             <Box pl={2} display={['none', 'none', 'block']}>
-              <Caption>
-                <Italic>
-                  <Link unstyled>Proudly made in Toronto by Cartogram</Link>
-                </Italic>
-              </Caption>
+              <Text small italic pb={0}>
+                <Link unstyled>Proudly made in Toronto by Cartogram</Link>
+              </Text>
             </Box>
           }
         />
       </Page>
       <Page>
-        <Page.Section>
-          <Title>Buttons</Title>
-        </Page.Section>
-        <Page.Section>
-          <Flex pb={3} flexDirection="column" width={[1]}>
-            <Box pb="1">
-              <Link external url="https://fondfolio.com">
-                External link
-              </Link>
-            </Box>
-            <Box pb="1">
-              <Link url="/test">Internal link</Link>
-            </Box>
-          </Flex>
-          <Flex pb={3} flexDirection="column" width={[1]}>
-            <Box pb="1">
-              <Button>Base button</Button>
-            </Box>
-            <Box pb="1">
-              <Button loading>Loading base button</Button>
-            </Box>
-            <Box pb="1">
-              <Button destructive>Destructive base button</Button>
-            </Box>
-            <Box pb="1">
-              <Button size="small">Small base button</Button>
-            </Box>
-          </Flex>
-          <Flex pb={3} flexDirection="column" width={[1]}>
-            <Box pb="1">
-              <Button variant="secondary">Secondary button</Button>
-            </Box>
-            <Box pb="1">
-              <Button disabled variant="secondary">
-                Disabled secondary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button loading variant="secondary">
-                Loading secondary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button variant="secondary" destructive>
-                Destructive secondary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button loading variant="secondary" destructive>
-                Loading destructive secondary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button disabled variant="secondary" destructive>
-                Disabled destructive secondary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button size="small" variant="secondary">
-                Small secondary button
-              </Button>
-            </Box>
-          </Flex>
-          <Flex pb={3} flexDirection="column" width={[1]}>
-            <Box pb="1">
-              <Button variant="primary">Primary button</Button>
-            </Box>
-            <Box pb="1">
-              <Button destructive variant="primary">
-                Destructive primary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button destructive loading variant="primary">
-                Loading destructive primary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button disabled destructive variant="primary">
-                Disabled destructive primary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button loading variant="primary">
-                Loading primary button
-              </Button>
-            </Box>
-            <Box pb="1">
-              <Button size="small" variant="primary">
-                Small primary button
-              </Button>
-            </Box>
-          </Flex>
-        </Page.Section>
-        <Page.Section>
-          <DisplayText>Forgot password</DisplayText>
-          <Text large>
-            Sewn with durable waxed <Italic>Irish linen</Italic> thread, the
-            exposed spine allows for an infinite number of contributions, and
-            serves as a visual reminder of the real human connections expressed
-            within.
-          </Text>
-          <Text large>
-            Collect as many contributions as you can — the more the merrier, at
-            no extra cost.
-          </Text>
-        </Page.Section>
+        <Container>
+          <Section>
+            <Display>
+              <Italic>Buttons</Italic>
+            </Display>
+          </Section>
+          <Section justifyContent="space-around">
+            <Flex p={3} pl={0} flexDirection="column">
+              <Box pb="1">
+                <Link external url="https://fondfolio.com">
+                  External link
+                </Link>
+              </Box>
+              <Box pb="1">
+                <Link url="/test">Internal link</Link>
+              </Box>
+            </Flex>
+            <Flex p={3} flexDirection="column">
+              <Box pb="1">
+                <Button>Base button</Button>
+              </Box>
+              <Box pb="1">
+                <Button loading>Loading base button</Button>
+              </Box>
+              <Box pb="1">
+                <Button destructive>Destructive base button</Button>
+              </Box>
+              <Box pb="1">
+                <Button size="small">Small base button</Button>
+              </Box>
+            </Flex>
+            <Flex p={3} flexDirection="column">
+              <Box pb="1">
+                <Button variant="secondary">Secondary button</Button>
+              </Box>
+              <Box pb="1">
+                <Button disabled variant="secondary">
+                  Disabled secondary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button loading variant="secondary">
+                  Loading secondary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button variant="secondary" destructive>
+                  Destructive secondary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button loading variant="secondary" destructive>
+                  Loading destructive secondary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button disabled variant="secondary" destructive>
+                  Disabled destructive secondary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button size="small" variant="secondary">
+                  Small secondary button
+                </Button>
+              </Box>
+            </Flex>
+            <Flex p={3} flexDirection="column">
+              <Box pb="1">
+                <Button variant="primary">Primary button</Button>
+              </Box>
+              <Box pb="1">
+                <Button destructive variant="primary">
+                  Destructive primary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button destructive loading variant="primary">
+                  Loading destructive primary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button disabled destructive variant="primary">
+                  Disabled destructive primary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button loading variant="primary">
+                  Loading primary button
+                </Button>
+              </Box>
+              <Box pb="1">
+                <Button size="small" variant="primary">
+                  Small primary button
+                </Button>
+              </Box>
+            </Flex>
+          </Section>
+          <Section>
+            <Display>
+              <Italic>Typograpy</Italic>
+            </Display>
+          </Section>
+          <Section>
+            <Flex flexDirection="column">
+              <Display>Display Text</Display>
+              <Title>Title</Title>
+              <Label>Label</Label>
+              <Label italic>Label italic</Label>
+              <Text large>Text Large</Text>
+              <Text large italic>
+                Text Large
+              </Text>
+              <Text>Text</Text>
+              <Text small>Text Small</Text>
+              <Label small>Text Small</Label>
+            </Flex>
+          </Section>
+        </Container>
       </Page>
     </>
   );
@@ -462,7 +481,7 @@ function IconBox({icon}) {
 }
 
 function UserMenu() {
-  const [popoverActive, setPopoverActive] = useState(true);
+  const [popoverActive, setPopoverActive] = useState(false);
 
   const togglePopoverActive = useCallback(
     () => setPopoverActive((popoverActive) => !popoverActive),
@@ -479,11 +498,11 @@ function UserMenu() {
     >
       <Menu
         items={[
-          {content: 'Help'},
-          {content: 'Terms'},
-          {content: 'Privacy'},
-          {content: 'About'},
-          {content: 'Blog'},
+          {content: 'Create new', external: true, url: '/help'},
+          {content: 'My fondfolios'},
+          {content: 'Settings'},
+          {content: 'Orders'},
+          {content: 'Log out', segment: true},
         ]}
       />
     </Dropdown>
@@ -523,10 +542,10 @@ function LoginSignUp() {
         }}
         {...fields.password}
       />
-      <Caption textAlign="center">
+      <Text small textAlign="center">
         By signing up for an account you agree to our
         <Link url="">Terms &amp; Conditions</Link>
-      </Caption>
+      </Text>
       <Actions primaryAction={{content: 'Login'}} />
     </Form>
   );
