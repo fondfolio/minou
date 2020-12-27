@@ -159,7 +159,7 @@ export default function Home() {
             <IconBox icon={Icons.Mail} />
             <IconBox icon={Icons.Tooltip} />
             <IconBox icon={Icons.Plus} />
-            <IconBox icon={Icons.EventMoving}/>
+            <IconBox icon={Icons.EventMoving} />
             <IconBox icon={Icons.EventMovingLarge} />
             <IconBox icon={Icons.EventBirthday} />
             <IconBox icon={Icons.EventBirthdayLarge} />
