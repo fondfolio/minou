@@ -20,8 +20,6 @@ export function Page({children, title, ...props}: PageProps) {
     <Flex
       alignItems="center"
       flexDirection="column"
-      borderTop="1px solid"
-      borderColor="primary"
       width="100%"
       textAlign="center"
       minHeight="100vh"
