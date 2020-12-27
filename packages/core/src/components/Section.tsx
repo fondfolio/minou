@@ -7,5 +7,7 @@ interface Props extends BoxProps {
 }
 
 export function Section(props: Props) {
-  return <Flex as="section" width="100%" maxWidth="1200px" {...props} />;
+  return (
+    <Flex as="section" width="100%" maxWidth="1200px" m="auto" {...props} />
+  );
 }

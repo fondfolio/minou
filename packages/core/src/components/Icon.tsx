@@ -32,6 +32,7 @@ export function Icon({icon, overrides, ...props}: Props) {
       width={width}
       height={height}
       fill="currentColor"
+      viewBox={`0 0 ${width} ${height}`}
       {...props}
       {...overrides}
     >

@@ -9,7 +9,6 @@ export interface HeadingProps extends TextProps {
 
 const StyledHeader = styled(Text)<HeadingProps>`
   display: block;
-  width: 100%;
 `;
 
 export function Heading({level, ...props}: HeadingProps) {
