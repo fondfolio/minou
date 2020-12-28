@@ -12,6 +12,7 @@ interface Props extends BoxProps {
   items: ComplexAction[];
   prefix?: React.ReactNode;
   postfix?: React.ReactNode;
+  location?: string;
 }
 
 const Tab = styled(Link)<ComplexAction>`
@@ -35,10 +36,16 @@ const Wrapper = styled(Flex)`
   }
 `;
 
-export function Navigation({items, prefix, postfix, ...props}: Props) {
-  const itemsMarkup = items.map(({content, ...item}, index) => {
+export function Navigation({
+  items,
+  location,
+  prefix,
+  postfix,
+  ...props
+}: Props) {
+  const itemsMarkup = items.map(({content, url, ...item}, index) => {
     return (
-      <Tab key={index} active={false} {...item}>
+      <Tab key={index} active={location === url} url={url} {...item}>
         {content}
       </Tab>
     );

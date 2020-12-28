@@ -21,7 +21,7 @@ export function FieldSet({children, action, title}: Props) {
   const actionMarkup = action ? <Box>{buttonFrom(action)}</Box> : null;
   const titleMarkup = title ? (
     <Box pb={3}>
-      <Title>{title}</Title>
+      <Title italic>{title}</Title>
     </Box>
   ) : null;
 

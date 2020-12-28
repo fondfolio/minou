@@ -10,7 +10,7 @@ interface User {
 
 interface Props {
   user?: User;
-  onClick(): void;
+  onClick?(): void;
   active?: boolean;
   large?: boolean;
 }
@@ -24,9 +24,6 @@ const sizes = {
 const StyledAvatar = styled.button<Props>`
   border-radius: 50%;
   max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
   background: ${({theme}) => theme.colors.primary};
@@ -49,6 +46,7 @@ export function Avatar({user, large, ...props}: Props) {
   return (
     <StyledAvatar {...props}>
       <Image
+        circle
         height={size}
         width={size}
         alt={user?.name}

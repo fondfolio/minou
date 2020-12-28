@@ -8,8 +8,7 @@ import {ComplexAction} from '../types';
 import {Spinner} from './Spinner';
 
 interface Props extends ComplexAction {
-  href?: string;
-  external?: boolean;
+  unstyled?: boolean;
 }
 
 type CombinedProps = Props &
@@ -43,8 +42,8 @@ const StyledBasicButton = styled.button<CombinedProps>`
   &:hover {
     color: ${({theme, destructive}) =>
       destructive ? theme.colors.red : theme.colors.tealDark};
-    background: ${({theme, destructive}) =>
-      destructive ? 'none' : theme.colors.teal[0]};
+    background: ${({theme, destructive, unstyled}) =>
+      destructive || unstyled ? 'none' : theme.colors.teal[0]};
   }
 `;
 
@@ -140,12 +139,12 @@ export function Button({
 }
 
 export function buttonFrom(
-  {content, onAction, ...action}: CombinedProps,
+  {content, ...action}: CombinedProps,
   overrides?: Partial<CombinedProps>,
   key?: any,
 ) {
   return (
-    <Button key={key} onClick={onAction} {...action} {...overrides}>
+    <Button key={key} {...action} {...overrides}>
       {content}
     </Button>
   );

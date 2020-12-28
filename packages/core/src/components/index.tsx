@@ -3,6 +3,7 @@ export {Box, Flex} from './Box';
 export {Page} from './Page';
 export {Container} from './Container';
 export {Section} from './Section';
+export {Layout} from './Layout';
 
 /** Site */
 export {Card, Cards} from './Card';
@@ -20,17 +21,18 @@ export {Form} from './Form';
 export {FieldSet} from './FieldSet';
 export {TextField} from './TextField';
 export {Banner} from './Banner';
-export {Label} from './Label';
 
 /** Typography & Icons*/
-export {Text} from './Text';
-export {Title} from './Title';
-export {Italic} from './Italic';
-export {Blockquote} from './Blockquote';
 export {Display} from './Display';
-export {Icon} from './Icon';
+export {Label} from './Label';
+export {Title} from './Title';
+export {Text} from './Text';
+// Modifiers
+export {Italic} from './Italic';
+export {Mono} from './Mono';
+//  Specials
+export {Blockquote} from './Blockquote';
 export {Rule} from './Rule';
-export {Spinner} from './Spinner';
 
 /** Global */
 export {Provider} from './Provider';
@@ -38,6 +40,7 @@ export {Provider} from './Provider';
 /** Media */
 export {Image} from './Image';
 export {Avatar} from './Avatar';
+export {Icon} from './Icon';
 
 /** Overlays */
 export {Dropdown} from './Dropdown';
@@ -46,3 +49,6 @@ export {Dropdown} from './Dropdown';
 /** Navigation */
 export {Navigation} from './Navigation';
 export {Menu} from './Menu';
+
+/** Indicators */
+export {Spinner} from './Spinner';

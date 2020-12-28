@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components';
 
 import {Error} from '../types';
@@ -12,6 +12,10 @@ interface Props extends React.FormHTMLAttributes<HTMLFormElement> {
   children: React.ReactNode;
   submitting?: boolean;
   errors?: Error[];
+  /** Blocks the default form action */
+  preventDefault?: boolean;
+  /** Callback when form is submitted */
+  onSubmit(event: React.FormEvent<HTMLFormElement>): void;
 }
 
 const StyledForm = styled.form<Props>`
@@ -19,7 +23,14 @@ const StyledForm = styled.form<Props>`
   width: 100%;
 `;
 
-export function Form({children, errors, submitting, ...props}: Props) {
+export function Form({
+  children,
+  errors,
+  submitting,
+  preventDefault = true,
+  onSubmit,
+  ...props
+}: Props) {
   const loadingMarkup = submitting ? <Spinner /> : null;
   const errorMarkup =
     errors && errors.length ? (
@@ -35,11 +46,23 @@ export function Form({children, errors, submitting, ...props}: Props) {
       </Box>
     ) : null;
 
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      if (!preventDefault) {
+        return;
+      }
+
+      event.preventDefault();
+      onSubmit(event);
+    },
+    [onSubmit, preventDefault],
+  );
+
   return (
     <>
       {loadingMarkup}
       {errorMarkup}
-      <StyledForm submitting={submitting} {...props}>
+      <StyledForm submitting={submitting} onSubmit={handleSubmit} {...props}>
         {children}
       </StyledForm>
     </>

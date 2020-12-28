@@ -25,7 +25,7 @@ export function Actions({primaryAction, secondaryActions}: ActionsProps) {
   const justifyContent = secondaryActions ? 'space-between' : 'center';
 
   return (
-    <Flex py={3} alignItems="center" justifyContent={justifyContent}>
+    <Flex py={4} alignItems="center" justifyContent={justifyContent}>
       {secondaryActionsMarkup}
       {primaryActionMarkup}
     </Flex>

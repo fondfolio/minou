@@ -10,7 +10,7 @@ export interface BaseAction {
   /** Forces url to open in a new tab */
   external?: boolean;
   /** Callback when an action takes place */
-  onAction?(): void;
+  onClick?(): void;
   /** Callback when mouse enter */
   onMouseEnter?(): void;
   /** Callback when element is touched */

@@ -2,20 +2,34 @@ import React from 'react';
 
 import {Container} from './Container';
 import {Section} from './Section';
-import {Display} from './Display';
-import {Italic} from './Italic';
+import {Title} from './Title';
+import {Image} from './Image';
+import {IconType} from './Icon';
+import {Flex, Box} from './Box';
 
 interface Props {
   title: React.ReactNode;
+  meta?: React.ReactNode;
+  image?: string | React.ReactNode | IconType;
 }
 
-export function Mast({title, ...props}: Props) {
+export function Mast({title, image, meta, ...props}: Props) {
+  const imageContent =
+    typeof image === 'string' ? (
+      <Image circle src={image} height="100" width="100" />
+    ) : (
+      image
+    );
+  const imageMarkup = imageContent ? <Box pr={4}>{imageContent}</Box> : null;
+
   return (
     <Container pb={[0, 0]} bg="white" {...props}>
-      <Section justifyContent="space-between" alignItems="center">
-        <Display p={0}>
-          <Italic>{title}</Italic>
-        </Display>
+      <Section alignItems="center">
+        {imageMarkup}
+        <Flex flexDirection="column">
+          <Title pb={1}>{title}</Title>
+          {meta}
+        </Flex>
       </Section>
     </Container>
   );

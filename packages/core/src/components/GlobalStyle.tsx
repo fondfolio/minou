@@ -10,9 +10,15 @@ const props = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+  *,
+  *:before,
+  *:after {
+    ${reset}
+    color: ${theme.colors.black};
+  }
+
   html,
   body {
-    height: 100%;
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -21,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
  body {
+  min-height: 100vh;
 	background:
 		linear-gradient(90deg, ${props.background} (${props.space} - ${props.size}), transparent 1%) center,
 		linear-gradient(${props.background} (${props.space} - ${props.size}), transparent 1%) center,
@@ -32,11 +39,8 @@ export const GlobalStyle = createGlobalStyle`
 
   }
 
-  *,
-  *:before,
-  *:after {
-    ${reset}
-    color: ${theme.colors.black};
+  html {
+    background: ${theme.colors.primary};
   }
 
   @font-face {

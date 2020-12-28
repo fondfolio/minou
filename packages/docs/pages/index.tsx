@@ -31,119 +31,120 @@ import {
   Dropdown,
   Avatar,
   Label,
+  Layout,
+  Mono,
 } from 'minou';
 
 export default function Home() {
   return (
     <>
-      <Header
-        secondary={<Navigation items={[]} />}
-        primary={<Navigation items={[]} />}
-      />
-
+      <Header />
       <Page>
-        <Page.Section>
-          <Box pb={4}>
-            <Display pb={0}>
-              Collaborative gift books for your favourite people.
-            </Display>
-            <Display color="primary">
-              <Italic>One of a kind, like the humans they’re made for</Italic>
-            </Display>
-            <Title>
-              For life’s <Italic>significant</Italic> events
-            </Title>
-            <Text large>
-              Fondfolios are customized for your friend, made to order, and
-              produced by hand using a combination of modern technologies and
-              traditional book binding techniques.
-            </Text>
-            <Text large>
-              Coptic binding is used for maximum flexibility and durability —
-              allowing the book to lay flat. No glue, just high quality paper
-              and thread — made to last a lifetime.
-            </Text>
-            <Text large pl={5} italic>
-              Times when giftcards, chocolates or flowers can’t communicate the
-              depth of your gratitude for another’s existence
-            </Text>
-            <Text small>
-              Don’t pay until all contributions are collected.
-              <Italic>-and-</Italic>
-              <Link url="">Free Shipping</Link>
-            </Text>
-          </Box>
-          <Box mb="5">
-            <Card active title="Wedding">
+        <Layout>
+          <Box>
+            <Box pb={4}>
+              <Display pb={0}>
+                Collaborative gift books for your favourite people.
+              </Display>
+              <Display color="primary">
+                <Italic>One of a kind, like the humans they’re made for</Italic>
+              </Display>
+              <Title>
+                For life’s <Italic>significant</Italic> events
+              </Title>
+              <Text large>
+                Fondfolios are customized for your friend, made to order, and
+                produced by hand using a combination of modern technologies and
+                traditional book binding techniques.
+              </Text>
+              <Text large>
+                Coptic binding is used for maximum flexibility and durability —
+                allowing the book to lay flat. No glue, just high quality paper
+                and thread — made to last a lifetime.
+              </Text>
+              <Text large pl={5} italic>
+                Times when giftcards, chocolates or flowers can’t communicate
+                the depth of your gratitude for another’s existence
+              </Text>
+              <Text small>
+                Don’t pay until all contributions are collected.
+                <Italic>-and-</Italic>
+                <Link url="">Free Shipping</Link>
+              </Text>
+            </Box>
+            <Box mb="5">
+              <Card active title="Wedding">
+                <Text pb={0}>
+                  What better gift to give a couple on their wedding day than
+                  the memories and wisdom from everyone near and dear, including
+                  those unable to attend.
+                </Text>
+              </Card>
+              <Card active title="Milestone Birthday">
+                <Text pb={0}>
+                  What better gift to give a couple on their wedding day than
+                  the memories and wisdom from everyone near and dear, including
+                  those unable to attend.
+                </Text>
+              </Card>
+            </Box>
+            <Card active title="Retirement" action={{content: 'Get started'}}>
               <Text pb={0}>
                 What better gift to give a couple on their wedding day than the
                 memories and wisdom from everyone near and dear, including those
                 unable to attend.
               </Text>
             </Card>
-            <Card active title="Milestone Birthday">
-              <Text pb={0}>
-                What better gift to give a couple on their wedding day than the
-                memories and wisdom from everyone near and dear, including those
-                unable to attend.
+            <Card active action={{content: 'Create a Fondfolio'}}>
+              <Text large pb={0}>
+                Fondfolio allows you to create a beautiful collaborative book
+                filled with sincere and heartwarming words from loved ones. A
+                personal gift, for someone special.
+              </Text>
+            </Card>
+            <Card active title="Create">
+              <Text large pb={0}>
+                Fondfolio allows you to create a beautiful collaborative book
+                filled with sincere and heartwarming words from loved ones. A
+                personal gift, for someone special.
+              </Text>
+            </Card>
+            <Card active title="Collect">
+              <Text large pb={0}>
+                Share your unique questionnaire url with the friends and family
+                of the recipient. You will be notified each time someone
+                contributes.
+              </Text>
+            </Card>
+            <Card active title="Order">
+              <Text large pb={0}>
+                When you’re ready, customize the design and place the order.
+                We’ll begin production right away and will notify you as soon as
+                it ships (gift wrapping included).
               </Text>
             </Card>
           </Box>
-          <Card active title="Retirement" action={{content: 'Get started'}}>
-            <Text pb={0}>
-              What better gift to give a couple on their wedding day than the
-              memories and wisdom from everyone near and dear, including those
-              unable to attend.
-            </Text>
-          </Card>
-          <Card active action={{content: 'Create a Fondfolio'}}>
-            <Text large pb={0}>
-              Fondfolio allows you to create a beautiful collaborative book
-              filled with sincere and heartwarming words from loved ones. A
-              personal gift, for someone special.
-            </Text>
-          </Card>
-          <Card active title="Create">
-            <Text large pb={0}>
-              Fondfolio allows you to create a beautiful collaborative book
-              filled with sincere and heartwarming words from loved ones. A
-              personal gift, for someone special.
-            </Text>
-          </Card>
-          <Card active title="Collect">
-            <Text large pb={0}>
-              Share your unique questionnaire url with the friends and family of
-              the recipient. You will be notified each time someone contributes.
-            </Text>
-          </Card>
-          <Card active title="Order">
-            <Text large pb={0}>
-              When you’re ready, customize the design and place the order. We’ll
-              begin production right away and will notify you as soon as it
-              ships (gift wrapping included).
-            </Text>
-          </Card>
-        </Page.Section>
-        <Page.Section>
-          <Banner title="Whoops!" variant="error">
-            You did not enter a username or a password.
-          </Banner>
-          <Banner variant="error">
-            Must be at least 8 characters, Must have a lower case character,
-            Must have an upper case character, Must have at least 1 number, Must
-            have a special character
-          </Banner>
-          <Banner title="Sorry!" variant="warning">
-            That password isn’t right. <Link>Recover your password.</Link>
-          </Banner>
-          <Banner title="Nice!" variant="success">
-            Something successful just happened.
-          </Banner>
-          <Banner title="Okay">Everything is fine.</Banner>
-          <LoginSignUp />
-        </Page.Section>
-        <Page.Section full>
-          <Rule m={4} icon={Icons.LogoIcon} color="primary" />
+          <Box>
+            <Banner title="Whoops!" variant="error">
+              You did not enter a username or a password.
+            </Banner>
+            <Banner variant="error">
+              Must be at least 8 characters, Must have a lower case character,
+              Must have an upper case character, Must have at least 1 number,
+              Must have a special character
+            </Banner>
+            <Banner title="Sorry!" variant="warning">
+              That password isn’t right. <Link>Recover your password.</Link>
+            </Banner>
+            <Banner title="Nice!" variant="success">
+              Something successful just happened.
+            </Banner>
+            <Banner title="Okay">Everything is fine.</Banner>
+            <LoginSignUp />
+          </Box>
+        </Layout>
+        <Rule m={4} icon={Icons.LogoIcon} color="primary" />
+        <Layout full>
           <Flex pb={2} flexWrap="wrap" justifyContent="center">
             <IconBox icon={Icons.User} />
             <IconBox icon={Icons.ArrowDown} />
@@ -201,17 +202,16 @@ export default function Home() {
             <IconBox icon={Icons.OptionCustom} />
             <Spinner />
           </Flex>
-        </Page.Section>
-        <Page.Section full>
-          <Rule m={4} text="Words from our customers" />
+        </Layout>
+        <Layout full>
+          <Rule text="Words from our customers" />
           <Blockquote citation="Allan, Perth WA">
             Lise absolutely loves the gift. She has been flipping through it
             every day this week, and was brought to tears several times. Thank
             you for making this possible.
           </Blockquote>
-          <Rule m={4} />
-        </Page.Section>
-        <Page.Section size="large" width={[1]}>
+        </Layout>
+        <Layout full>
           <Cards>
             <Card active title="Digital Only">
               <Box py={3}>
@@ -255,17 +255,28 @@ export default function Home() {
               </Label>
             </Card>
           </Cards>
-          <Text small textAlign="center">
+          <Text small m="auto" textAlign="center">
             Don’t pay anything until all contributions have been collected and
             you are ready to order. All prices in US Dollars (USD). Free
             Shipping is within North America. International shipping is
             available at a discounted rate.
           </Text>
-        </Page.Section>
+        </Layout>
       </Page>
       <Page>
         <Header secondary={<Link unstyled>Help</Link>} primary={<UserMenu />} />
-        <Mast title="Minou‘s Success" />
+        <Mast
+          title="Minou McDougafien"
+          image="/avatar.jpg"
+          meta={
+            <>
+              <Label small pb={0}>
+                Also known as:
+              </Label>
+              <Mono>Pizza Cat, Cheese Monster</Mono>
+            </>
+          }
+        />
         <Navigation
           bg="white"
           postfix={<Button variant="primary">Order Now</Button>}
@@ -365,6 +376,12 @@ export default function Home() {
               <Box pb="1">
                 <Link url="/test">Internal link</Link>
               </Box>
+              <Box pb="1">
+                <Link unstyled>Unstyled link</Link>
+              </Box>
+              <Box pb="1">
+                <Button unstyled>Unstyled button</Button>
+              </Box>
             </Flex>
             <Flex p={3} flexDirection="column">
               <Box pb="1">
@@ -390,7 +407,11 @@ export default function Home() {
                 </Button>
               </Box>
               <Box pb="1">
-                <Button loading variant="secondary">
+                <Button
+                  loading
+                  variant="secondary"
+                  onClick={() => console.log('clicked')}
+                >
                   Loading secondary button
                 </Button>
               </Box>
