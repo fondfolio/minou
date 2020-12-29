@@ -52,6 +52,7 @@ export const theme = {
   borderRadius: '4px',
   radii: {
     button: '4px',
+    toast: '2px',
     card: '2px',
     input: '2px',
     modal: '4px',
