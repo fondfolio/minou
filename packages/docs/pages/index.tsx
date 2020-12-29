@@ -35,6 +35,7 @@ import {
   Mono,
   FieldSet,
   Modal,
+  Toast,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
