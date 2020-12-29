@@ -26,7 +26,7 @@ export function FieldSet({children, action, title}: Props) {
   ) : null;
 
   return (
-    <StyledFieldSet pb={4} flexDirection="column" width={[1, 3 / 4, 1 / 2]}>
+    <StyledFieldSet pb={4} flexDirection="column">
       {titleMarkup}
       {children}
       {actionMarkup}

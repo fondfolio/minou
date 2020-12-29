@@ -10,6 +10,7 @@
   "dependencies": {
     "@shopify/react-form": "^0.10.0",
     "babel-plugin-inline-react-svg": "^1.1.2",
+    "copy-to-clipboard": "^3.3.1",
     "minou": "^0.0.18",
     "next": "^10.0.4",
     "react": "^17.0.1",
