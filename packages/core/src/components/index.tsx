@@ -53,3 +53,4 @@ export {Menu} from './Menu';
 
 /** Indicators */
 export {Spinner} from './Spinner';
+export {Loader} from './Loader';
