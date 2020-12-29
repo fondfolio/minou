@@ -6,6 +6,7 @@ import {
   flexbox,
   border,
   shadow,
+  position,
   SpaceProps,
   LayoutProps,
   TypographyProps,
@@ -13,6 +14,7 @@ import {
   FlexboxProps,
   BorderProps,
   ShadowProps,
+  PositionProps,
 } from 'styled-system';
 
 export interface BoxProps
@@ -22,6 +24,7 @@ export interface BoxProps
     ColorProps,
     FlexboxProps,
     BorderProps,
+    PositionProps,
     ShadowProps {
   /** specify the underlaying component  */
   as?: React.ElementType;
@@ -29,6 +32,7 @@ export interface BoxProps
 
 export const Box = styled.div<BoxProps>`
   ${space}
+  ${position}
   ${layout}
   ${color}
   ${flexbox}

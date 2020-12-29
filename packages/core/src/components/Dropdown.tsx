@@ -2,11 +2,7 @@ import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
 import {Card} from './Card';
-
-interface BackdropProps {
-  onClick(): void;
-  active: boolean;
-}
+import {Backdrop} from './Backdrop';
 
 const fadeInUp = keyframes`
   from {
@@ -21,25 +17,6 @@ const fadeInUp = keyframes`
 `;
 
 const easing = 'cubic-bezier(.19,1,.22,1)';
-
-const StyledBackdrop = styled.a`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: black;
-  opacity: 0;
-  z-index: 0;
-`;
-
-function Backdrop({onClick, active}: BackdropProps) {
-  if (!active) {
-    return null;
-  }
-
-  return <StyledBackdrop onClick={onClick} aria-hidden="true" />;
-}
 
 const StyledDropdown = styled.div`
   position: relative;

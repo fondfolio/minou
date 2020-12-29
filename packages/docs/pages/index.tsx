@@ -34,12 +34,23 @@ import {
   Layout,
   Mono,
   FieldSet,
+  Modal,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
+      <Modal
+        primaryAction={{content: 'Delete', destructive: true}}
+        active={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title="Are you sure you want to delete this contribution?"
+      >
+        <Text>This cannot be undone.</Text>
+      </Modal>
       <Header />
       <Page>
         <Layout>
@@ -161,6 +172,8 @@ export default function Home() {
                   value="https://fondfol.io/33NNMBl"
                 />
               </FieldSet>
+
+              <Button onClick={() => setModalOpen(true)}>Show Modal</Button>
             </Box>
           </Box>
         </Layout>

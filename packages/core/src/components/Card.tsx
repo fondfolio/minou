@@ -19,6 +19,7 @@ const StyledCard = styled(Box)<Props>`
   margin-top: -1px;
   margin-left: -1px;
   width: 100%;
+  z-index: ${({theme}) => theme.zIndices.card};
 
   &:after,
   &:before {
@@ -55,14 +56,14 @@ const StyledCard = styled(Box)<Props>`
     &:before {
       transform: translate3d(0.5em, 0.5em, 0);
     }
-    `}
+  `}
 `;
 
 export function Card({children, title, action, ...props}: Props) {
   const actionMarkup = action ? <Box pt={3}>{buttonsFrom(action)}</Box> : null;
 
   return (
-    <StyledCard p={4} bg="white" borderRadius={2} {...props}>
+    <StyledCard p={4} bg="white" borderRadius="card" {...props}>
       <Label pb={2}>{title}</Label>
       {children}
       {actionMarkup}
