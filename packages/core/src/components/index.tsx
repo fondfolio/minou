@@ -44,7 +44,7 @@ export {Icon} from './Icon';
 
 /** Overlays */
 export {Dropdown} from './Dropdown';
-// Modal
+export {Modal} from './Modal';
 
 /** Navigation */
 export {Navigation} from './Navigation';

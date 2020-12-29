@@ -12,7 +12,8 @@ const StyledButtonGroup = styled(Flex)`
   margin-left: -0.4em;
   align-items: baseline;
 
-  * {
+  > button,
+  > link {
     margin: 0 0.4em;
   }
 `;

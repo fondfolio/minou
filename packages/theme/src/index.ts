@@ -54,6 +54,7 @@ export const theme = {
     button: '4px',
     card: '2px',
     input: '2px',
+    modal: '4px',
   },
 
   // text	Body foreground color
@@ -110,7 +111,9 @@ export const theme = {
   },
 
   zIndices: {
+    card: 0,
     header: 10,
+    modal: 11,
   },
 };
 
