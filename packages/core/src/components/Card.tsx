@@ -20,19 +20,19 @@ const StyledCard = styled(Box)<Props>`
   margin-left: -1px;
   width: 100%;
 
-  &,
-  &:after {
+  &:after,
+  &:before {
     box-shadow: 0px 0px 1px currentColor inset;
   }
 
-  &:after {
+  &:after,
+  &:before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
-    z-index: -1;
     transform: translate3d(0, 0, 0);
     transition: ${({theme}) => theme.transitions.all};
     transform: translate3d(0, 0, 0);
@@ -40,26 +40,22 @@ const StyledCard = styled(Box)<Props>`
     border-radius: ${({theme}) => theme.radii.card};
   }
 
-  // &:hover:after,
-  // &:focus:after {
-  //   transform: translate3d(0.5em, 0.5em, 0);
+  &:after {
+    background: white;
+  }
 
-  //   > * {
-  //     position: relative;
-  //     z-index: 1;
-  //   }
-  // }
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   ${({active}) =>
     active &&
     `
-    &:after {
+    &:before {
       transform: translate3d(0.5em, 0.5em, 0);
     }
-    > * {
-      position: relative;
-      z-index: 1;
-    }`}
+    `}
 `;
 
 export function Card({children, title, action, ...props}: Props) {

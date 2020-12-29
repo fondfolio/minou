@@ -33,7 +33,9 @@ import {
   Label,
   Layout,
   Mono,
+  FieldSet,
 } from 'minou';
+import copy from 'copy-to-clipboard';
 
 export default function Home() {
   return (
@@ -141,6 +143,25 @@ export default function Home() {
             </Banner>
             <Banner title="Okay">Everything is fine.</Banner>
             <LoginSignUp />
+            <Box pt="6">
+              <FieldSet
+                action={{variant: 'secondary', content: 'Open questionnaire'}}
+              >
+                <TextField
+                  label="Share link"
+                  labelAction={{
+                    content: 'Copy to clipboard',
+                    onClick: () => {
+                      copy('Text', {
+                        debug: true,
+                        message: 'Press #{key} to copy',
+                      });
+                    },
+                  }}
+                  value="https://fondfol.io/33NNMBl"
+                />
+              </FieldSet>
+            </Box>
           </Box>
         </Layout>
         <Rule m={4} icon={Icons.LogoIcon} color="primary" />
