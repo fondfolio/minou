@@ -36,6 +36,7 @@ import {
   FieldSet,
   Modal,
   Toast,
+  Loader,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -86,7 +87,8 @@ export default function Home() {
                 <Link url="">Free Shipping</Link>
               </Text>
             </Box>
-            <Box mb="5">
+            <Loader />
+            <Box mt={4} mb="5">
               <Card active title="Wedding">
                 <Text pb={0}>
                   What better gift to give a couple on their wedding day than
