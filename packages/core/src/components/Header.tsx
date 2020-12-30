@@ -13,7 +13,6 @@ interface Props {
 
 const StyledHeader = styled.header<Omit<Props, 'primary' | 'secondary'>>`
   ${position}
-  z-index: ${({theme}) => theme.zIndices.header};
   margin: auto;
   width: 100%;
   top: 0px;

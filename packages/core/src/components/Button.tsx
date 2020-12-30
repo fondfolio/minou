@@ -106,36 +106,45 @@ export function Button({
     </>
   );
 
-  if (url) {
-    const additionalProps: any = {as: 'a'};
-
-    if (external) {
-      return (
-        <StyledBasicButton {...props} href={url} {...additionalProps}>
-          {children}
-        </StyledBasicButton>
-      );
-    }
-
-    return (
-      <NextLink href={url}>
-        <StyledBasicButton {...props} {...additionalProps}>
-          {children}
-        </StyledBasicButton>
-      </NextLink>
-    );
-  }
+  let buttonContent;
+  const additionalProps: any = {
+    as: url ? 'a' : 'button',
+    href: external ? url : undefined,
+  };
 
   switch (variant) {
     case 'primary':
-      return <StyledPrimaryButton {...props}>{children}</StyledPrimaryButton>;
-    case 'secondary':
-      return (
-        <StyledSecondaryButton {...props}>{children}</StyledSecondaryButton>
+      buttonContent = (
+        <StyledPrimaryButton {...props} {...additionalProps}>
+          {children}
+        </StyledPrimaryButton>
       );
+      break;
+    case 'secondary':
+      buttonContent = (
+        <StyledSecondaryButton {...props} {...additionalProps}>
+          {children}
+        </StyledSecondaryButton>
+      );
+
+      break;
     default:
-      return <StyledBasicButton {...props}>{children}</StyledBasicButton>;
+      buttonContent = (
+        <StyledBasicButton {...props} {...additionalProps}>
+          {children}
+        </StyledBasicButton>
+      );
   }
+
+  if (url) {
+    if (external) {
+      return buttonContent;
+    }
+
+    return <NextLink href={url}>{buttonContent}</NextLink>;
+  }
+
+  return buttonContent;
 }
 
 export function buttonFrom(

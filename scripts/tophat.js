@@ -78,6 +78,4 @@ files.forEach(({name, scope}) => {
 });
 
 logBreak();
-log(
-  'Build copied to consuming project. You can now run the consuming app and it will include your changes from Polaris.',
-);
+log('Build copied to consuming project. ');

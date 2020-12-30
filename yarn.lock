@@ -2042,6 +2042,11 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
+"@types/react@^0.14.44":
+  version "0.14.57"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-0.14.57.tgz#1878a8654fafdd1d381b8457292b6433498c5b62"
+  integrity sha1-GHioZU+v3R04G4RXKStkM0mMW2I=
+
 "@types/stack-utils@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.0.tgz#7036640b4e21cc2f259ae826ce843d277dad8cff"
@@ -10990,6 +10995,13 @@ type@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/type/-/type-2.1.0.tgz#9bdc22c648cf8cf86dd23d32336a41cfb6475e3f"
   integrity sha512-G9absDWvhAWCV2gmF1zKud3OyC61nZDwWvBL2DApaVFogI07CprggiQAOOjvp2NRjYWFzPyu7vwtDrQFq8jeSA==
+
+typed-react-markdown@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/typed-react-markdown/-/typed-react-markdown-0.1.0.tgz#1c3adaf42bc1f0d8c6a09b0ac8085f36df0a367f"
+  integrity sha1-HDra9CvB8NjGoJsKyAhfNt8KNn8=
+  dependencies:
+    "@types/react" "^0.14.44"
 
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"

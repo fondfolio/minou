@@ -29,6 +29,8 @@ interface Props {
   height?: number;
   /** Error to display beneath the label */
   error?: boolean;
+  /** Center align the text inside the input */
+  center?: boolean;
 }
 
 type CombinedProps = Props & React.InputHTMLAttributes<HTMLInputElement>;
@@ -38,6 +40,7 @@ const StyledInput = styled.input<Props>`
   width: 100%;
   border-radius: ${({theme}) => theme.radii.input};
   padding: 0.8em 1.2em;
+  text-align: ${({center}) => (center ? 'center' : 'left')};
   border: ${({theme, error}) =>
     error
       ? `2px solid ${theme.colors.error}`
@@ -46,6 +49,7 @@ const StyledInput = styled.input<Props>`
   line-height: 1.45;
   margin-bottom: 0.5em;
   height: ${({height}) => (height ? `${height}px` : 'auto')};
+
   &:focus {
     outline: none;
     border-color: ${({theme}) => theme.colors.tealLight};
@@ -57,5 +61,5 @@ export const Input = (props: CombinedProps) => {
 };
 
 export const TextArea = (props: CombinedProps) => {
-  return <StyledInput as="textarea" height={200} {...props} />;
+  return <StyledInput as="textarea" height={400} {...props} />;
 };

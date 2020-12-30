@@ -35,8 +35,8 @@ import {
   Mono,
   FieldSet,
   Modal,
-  Toast,
   Loader,
+  Markdown,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -178,6 +178,7 @@ export default function Home() {
 
               <Button onClick={() => setModalOpen(true)}>Show Modal</Button>
             </Box>
+            <Order />
           </Box>
         </Layout>
         <Rule m={4} icon={Icons.LogoIcon} color="primary" />
@@ -526,6 +527,59 @@ export default function Home() {
           </Section>
         </Container>
       </Page>
+      <Page>
+        <Container>
+          <Section>
+            <Layout center>
+              <>
+                <Icon icon={Icons.EventAnniversaryLarge} m="auto" />
+                <Display textAlign="center" italic>
+                  Minou’s Anniversary
+                </Display>
+                <Text large textAlign="center">
+                  You’ve been invited to participate in this short questionnaire
+                  because you’re part of Minou’s inner circle of most treasured
+                  friends and family. Your contribution will become part of a
+                  custom-made book that will be gifted to Minou. One submission
+                  per person. Also, it’s up to you to keep this a secret, the
+                  surprise will be that much sweeter! Thanks so much.
+                </Text>
+                <Box m="auto">
+                  <Button url="http://cartogram.ca" variant="primary" external>
+                    Get Started
+                  </Button>
+                </Box>
+              </>
+            </Layout>
+          </Section>
+        </Container>
+      </Page>
+      <Page>
+        <Container>
+          <Section>
+            <Layout full>
+              <>
+                <TextField
+                  textSize="small"
+                  value="Small text field"
+                  label="Describe a fond memory you recall having shared with Minou."
+                />
+                <TextField
+                  large
+                  horizontal
+                  multiline
+                  value="Large text field"
+                  helpText="It could be something seemingly mundane, like a great conversation you shared over a cup of coffee, or a completely unique and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it."
+                  label="Describe a fond memory you recall having shared with Minou."
+                />
+                <Markdown>
+                  **Markdown** [Link](/test) *Italic* Normal text
+                </Markdown>
+              </>
+            </Layout>
+          </Section>
+        </Container>
+      </Page>
     </>
   );
 }
@@ -572,6 +626,35 @@ function UserMenu() {
   );
 }
 
+function Order() {
+  const {fields, submit, submitting, submitErrors} = useForm({
+    fields: {
+      copies: useField('1'),
+    },
+    async onSubmit(fieldValues) {
+      console.log('submitting', fieldValues);
+      return Promise.resolve({status: 'fail', errors: []});
+    },
+  });
+
+  return (
+    <Form submitting={submitting} onSubmit={submit}>
+      <TextField
+        type="number"
+        label="Copies"
+        horizontal
+        center
+        textSize="small"
+        {...fields.copies}
+      />
+      <Actions
+        note="This is a note about the order"
+        primaryAction={{content: 'Order'}}
+      />
+    </Form>
+  );
+}
+
 function LoginSignUp() {
   const {fields, submit, submitting, submitErrors} = useForm({
     fields: {
@@ -593,6 +676,7 @@ function LoginSignUp() {
         name="email"
         placeholder="your@email.com"
         {...fields.email}
+        error="Not a valid email"
       />
       <TextField
         type="password"
@@ -603,6 +687,22 @@ function LoginSignUp() {
           content: 'Forgot password?',
           url: '/test',
         }}
+        {...fields.password}
+      />
+      <TextField
+        center
+        helpText="Enter your email and we will send you a reset link"
+        label="Forgot Password"
+        labelAction={{
+          content: 'Action',
+          url: '/test',
+        }}
+        {...fields.password}
+      />
+      <TextField
+        center
+        helpText="Enter your email and we will send you a reset link"
+        label="Forgot Password"
         {...fields.password}
       />
       <Text small textAlign="center">

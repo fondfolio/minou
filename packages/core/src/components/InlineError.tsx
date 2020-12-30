@@ -17,7 +17,7 @@ export function InlineError({children, fieldID, ...props}: InlineErrorProps) {
   }
 
   return (
-    <Text fontSize={2} color="error" id={errorTextID(fieldID || '')} {...props}>
+    <Text small color="error" id={errorTextID(fieldID || '')} {...props}>
       {children}
     </Text>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 
 import type {ComplexAction, DisableableAction, LoadableAction} from '../types';
 
-import {Flex} from './Box';
+import {Flex, Box} from './Box';
 import {ButtonGroup} from './ButtonGroup';
 import {buttonsFrom} from './Button';
 
@@ -11,9 +11,11 @@ export interface ActionsProps {
   primaryAction?: DisableableAction & LoadableAction;
   /** The secondary actions for the page */
   secondaryActions?: ComplexAction[];
+  /** Notes to display with the actons */
+  note?: string | React.ReactNode;
 }
 
-export function Actions({primaryAction, secondaryActions}: ActionsProps) {
+export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
   const primaryActionMarkup = primaryAction
     ? buttonsFrom(primaryAction, {variant: 'primary'})
     : null;
@@ -22,10 +24,13 @@ export function Actions({primaryAction, secondaryActions}: ActionsProps) {
     <ButtonGroup>{buttonsFrom(secondaryActions)}</ButtonGroup>
   ) : null;
 
-  const justifyContent = secondaryActions ? 'space-between' : 'center';
+  const noteMarkup = note ? <Box pr={5}>{note}</Box> : null;
+
+  const justifyContent = secondaryActions || note ? 'space-between' : 'center';
 
   return (
     <Flex alignItems="center" justifyContent={justifyContent}>
+      {noteMarkup}
       {secondaryActionsMarkup}
       {primaryActionMarkup}
     </Flex>

@@ -18,7 +18,7 @@ export function Layout({children, full, center}: Props) {
 
   const content = React.Children.map(children, (child, index) => {
     const props = {
-      width: full ? ['100%'] : ['100%', 1 / 2],
+      width: full ? ['100%'] : ['100%', '80%', '75%', '50%'],
       padding: full ? 0 : 3,
     };
 

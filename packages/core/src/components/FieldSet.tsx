@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import type {Action} from '../types';
+import type {ComplexAction} from '../types';
 
 import {Title} from './Title';
 import {Flex, Box, BoxProps} from './Box';
@@ -11,7 +11,7 @@ interface Props extends BoxProps {
   /** The fields of the fieldset*/
   children: React.ReactNode;
   /** The fields of the fieldset*/
-  action?: Action;
+  action?: ComplexAction;
   title?: string;
 }
 

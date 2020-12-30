@@ -38,7 +38,7 @@ export function Rule(props: Props) {
 
   if (text) {
     return (
-      <StyledRule>
+      <StyledRule {...rest}>
         <Text small italic pb={0}>
           {text}
         </Text>
