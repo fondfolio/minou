@@ -76,6 +76,12 @@ interface NonMutuallyExclusiveProps {
   onFocus?(): void;
   /** Callback when focus is removed */
   onBlur?(): void;
+  /** Side-by-side layout */
+  horizontal?: boolean;
+  /** Center layout */
+  center?: boolean;
+  /** Large label */
+  large?: boolean;
 }
 
 export type TextFieldProps = NonMutuallyExclusiveProps &
@@ -118,6 +124,9 @@ export function TextField({
   onFocus,
   onBlur,
   textSize,
+  horizontal,
+  center,
+  large,
 }: TextFieldProps) {
   const [focus, setFocus] = useState(Boolean(focused));
   const id = useUniqueId('TextField', idProp);
@@ -170,6 +179,7 @@ export function TextField({
     pattern,
     error: Boolean(error),
     focus,
+    center,
     type: inputType,
     'aria-describedby': describedBy.length ? describedBy.join(' ') : undefined,
     'aria-labelledby': name,
@@ -189,6 +199,9 @@ export function TextField({
       action={labelAction}
       labelHidden={labelHidden}
       helpText={helpText}
+      horizontal={horizontal}
+      center={center}
+      large={large}
     >
       <Box
         onKeyPress={handleKeyPress}

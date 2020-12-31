@@ -23,7 +23,12 @@ export interface LabelledProps {
   children?: React.ReactNode;
   /** Visually hide the label */
   labelHidden?: boolean;
+  /** Center layout */
   center?: boolean;
+  /** Side-by-side layout */
+  horizontal?: boolean;
+  /** Large layout */
+  large?: boolean;
 }
 
 export function Labelled({
@@ -35,14 +40,20 @@ export function Labelled({
   children,
   labelHidden,
   center,
+  horizontal,
+  large,
   ...rest
 }: LabelledProps) {
+  const flexDirection = horizontal ? 'row' : 'column';
+  const labelFlexDirection = center ? 'column' : 'row';
+  const textAlign = center ? 'center' : 'left';
   const actionMarkup = action ? (
-    <div>{buttonFrom(action, {size: 'small'})}</div>
+    <Box>{buttonFrom(action, {size: 'small'})}</Box>
   ) : null;
 
+  const helpTextProps = large ? {} : {small: true};
   const helpTextMarkup = helpText ? (
-    <Text small pb="2" id={helpTextID(id)}>
+    <Text {...helpTextProps} textAlign={textAlign} pb="2" id={helpTextID(id)}>
       {helpText}
     </Text>
   ) : null;
@@ -51,25 +62,42 @@ export function Labelled({
     <InlineError fieldID={id}>{error}</InlineError>
   );
 
-  const labelMarkup = label ? (
-    <Flex alignItems="center" justifyContent="space-between">
-      <Label pb={1} {...rest} hidden={false}>
-        {label}
-      </Label>
+  const labelTextMarkup = large ? (
+    <Text italic large pb={0} {...rest}>
+      {label}
+    </Text>
+  ) : (
+    <Label pb={0} {...rest} hidden={false}>
+      {label}
+    </Label>
+  );
 
+  const labelMarkup = label ? (
+    <Flex
+      width="100%"
+      alignItems="center"
+      flexDirection={labelFlexDirection}
+      justifyContent="space-between"
+      pb={1}
+    >
+      {labelTextMarkup}
       {actionMarkup}
     </Flex>
   ) : null;
 
+  const horizonalProps = horizontal
+    ? {justifyContent: 'space-between', alignItems: 'center'}
+    : {};
+
   return (
-    <Box pb={4}>
+    <Flex pb={4} flexDirection={flexDirection} {...horizonalProps}>
       <Box pb={1}>
         {labelMarkup}
         {helpTextMarkup}
       </Box>
       {children}
       {errorMarkup}
-    </Box>
+    </Flex>
   );
 }
 

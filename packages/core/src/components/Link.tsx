@@ -29,7 +29,7 @@ const StyledLink = styled.a<Props>`
   ${line}
 `;
 
-function line({theme, active, unstyled}: any) {
+export function line({theme, active, unstyled}: any) {
   const showLine = 'scaleX(1);';
   const hideLine = 'scaleX(0);';
   let transform = hideLine;

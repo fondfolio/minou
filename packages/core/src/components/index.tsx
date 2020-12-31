@@ -27,6 +27,7 @@ export {Display} from './Display';
 export {Label} from './Label';
 export {Title} from './Title';
 export {Text} from './Text';
+export {Markdown} from './Markdown';
 // Modifiers
 export {Italic} from './Italic';
 export {Mono} from './Mono';
