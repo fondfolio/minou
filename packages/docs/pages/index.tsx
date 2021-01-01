@@ -338,12 +338,13 @@ export default function Home() {
         />
         <Layout>
           <Box>
-            <Box pb={4}>
-              <Title>Start collecting contributions</Title>
-              <Text>
-                Share the questionnaire link with Minou’s favourite people. When
-                someone contributes you’ll recieve an email notification and
-                it’ll show up here where you can make edits, if needed.
+            <Box pb={5}>
+              <Label large>Start Collecting Contributions</Label>
+              <Text large>
+                Share the questionnaire link with Minou’s{' '}
+                <Italic>favourite</Italic> people. When someone contributes
+                you’ll recieve an email notification and it’ll show up here
+                where you can make edits, if needed.
               </Text>
               <Link>Share the questionnaire link</Link>
             </Box>

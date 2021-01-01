@@ -6,7 +6,6 @@ import type {ComplexAction} from '../types';
 import {buttonsFrom} from './Button';
 import {Box, Flex, BoxProps} from './Box';
 import {Label} from './Label';
-import {Section} from './Section';
 import {Icon, IconType} from './Icon';
 
 interface Props extends BoxProps {
@@ -64,24 +63,11 @@ const StyledCard = styled(Box)<Props>`
 
 export function Card({children, title, icon, action, ...props}: Props) {
   const actionMarkup = action ? <Box pt={3}>{buttonsFrom(action)}</Box> : null;
-
-  if (icon) {
-    return (
-      <StyledCard p={4} bg="white" borderRadius={2} {...props}>
-        <Section>
-          <Icon icon={icon} />
-          <Label pl={1} pb={2}>
-            {title}
-          </Label>
-        </Section>
-        {children}
-        {actionMarkup}
-      </StyledCard>
-    );
-  }
+  const iconMarkup = icon ? <Icon icon={icon} color="primary" /> : null;
 
   return (
     <StyledCard p={4} bg="white" borderRadius="card" {...props}>
+      {iconMarkup}
       <Label pb={2}>{title}</Label>
       {children}
       {actionMarkup}
