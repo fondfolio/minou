@@ -8,5 +8,7 @@ interface Props extends TextProps {
 }
 
 export function Title(props: Props) {
-  return <Text textAlign="left" pb={3} fontSize={3} {...props} />;
+  return (
+    <Text fontFamily="serif" textAlign="left" pb={3} fontSize={3} {...props} />
+  );
 }

@@ -181,7 +181,7 @@ export default function Home() {
             <Order />
           </Box>
         </Layout>
-        <Rule m={4} icon={Icons.LogoIcon} color="primary" />
+        <Rule m={4} icon={Icons.LogoIcon} color="primary" center />
         <Layout full>
           <Flex pb={2} flexWrap="wrap" justifyContent="center">
             <IconBox icon={Icons.User} />
@@ -242,7 +242,17 @@ export default function Home() {
           </Flex>
         </Layout>
         <Layout full>
-          <Rule text="Words from our customers" />
+          <Rule
+            text={
+              <Text pb={0} small italic pr={1}>
+                What is a Fondfolio?
+              </Text>
+            }
+            center
+            action={{
+              content: 'Learn more',
+            }}
+          />
           <Blockquote citation="Allan, Perth WA">
             Lise absolutely loves the gift. She has been flipping through it
             every day this week, and was brought to tears several times. Thank
@@ -557,7 +567,7 @@ export default function Home() {
       <Page>
         <Container>
           <Section>
-            <Layout full>
+            <Layout>
               <>
                 <TextField
                   textSize="small"
@@ -566,11 +576,17 @@ export default function Home() {
                 />
                 <TextField
                   large
-                  horizontal
                   multiline
                   value="Large text field"
-                  helpText="It could be something seemingly mundane, like a great conversation you shared over a cup of coffee, or a completely unique and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it."
                   label="Describe a fond memory you recall having shared with Minou."
+                  help={{
+                    text:
+                      'It could be something seemingly mundane, like a great conversation you shared over a cup of coffee, or a completely unique and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
+                    action: {
+                      onClick: () => console.log('jey'),
+                      content: 'Not sure where to start?',
+                    },
+                  }}
                 />
                 <Markdown>
                   **Markdown** [Link](/test) *Italic* Normal text
@@ -672,7 +688,9 @@ function LoginSignUp() {
       <TextField
         type="text"
         label="Email Address"
-        helpText="You need to have an email to join fondfolio."
+        help={{
+          text: 'Enter your email and we will send you a reset link',
+        }}
         name="email"
         placeholder="your@email.com"
         {...fields.email}
@@ -691,7 +709,9 @@ function LoginSignUp() {
       />
       <TextField
         center
-        helpText="Enter your email and we will send you a reset link"
+        help={{
+          text: 'Enter your email and we will send you a reset link',
+        }}
         label="Forgot Password"
         labelAction={{
           content: 'Action',
@@ -701,7 +721,9 @@ function LoginSignUp() {
       />
       <TextField
         center
-        helpText="Enter your email and we will send you a reset link"
+        help={{
+          text: 'Enter your email and we will send you a reset link',
+        }}
         label="Forgot Password"
         {...fields.password}
       />
