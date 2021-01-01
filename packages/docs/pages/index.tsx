@@ -22,7 +22,6 @@ import {
   Display,
   Italic,
   Banner,
-  Cards,
   Navigation,
   Section,
   Container,
@@ -37,6 +36,7 @@ import {
   Modal,
   Loader,
   Markdown,
+  ButtonGroup,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -260,49 +260,46 @@ export default function Home() {
           </Blockquote>
         </Layout>
         <Layout full>
-          <Cards>
-            <Card active title="Digital Only">
-              <Box py={3}>
-                <Icon icon={Icons.OptionDigital} />
-              </Box>
-              <Text large>
-                Your Fondfolio contributions stored online forever in a
-                personalized Fondfolio website—share the lovely words with
-                everyone who contributed. Sort responses by question type or
-                read individual responses.
-              </Text>
-              <Label large pb={0}>
-                $80
-              </Label>
-            </Card>
-            <Card active title="Digital + Hardcover">
-              <Box py={3}>
-                <Icon icon={Icons.OptionHardcover} />
-              </Box>
-              <Text large>
-                Everything you get with digital, plus a beautiful handmade
-                hardcover version—each response occupying a spread. Free
-                Furoshiki giftwrapping, free shipping. Something tangible to
-                treasure.
-              </Text>
-              <Label large pb={0}>
-                $240
-              </Label>
-            </Card>
-            <Card active title="Digital + Custom">
-              <Box py={3}>
-                <Icon icon={Icons.OptionCustom} />
-              </Box>
-              <Text large>
-                Solid hardwood cover? Custom engraving inside? Handmade book
-                box? The only limits are that of your imagination, let us know
-                what you’re thinking.
-              </Text>
-              <Label large pb={0}>
-                $360
-              </Label>
-            </Card>
-          </Cards>
+          <Card active title="Digital Only">
+            <Box py={3}>
+              <Icon icon={Icons.OptionDigital} />
+            </Box>
+            <Text large>
+              Your Fondfolio contributions stored online forever in a
+              personalized Fondfolio website—share the lovely words with
+              everyone who contributed. Sort responses by question type or read
+              individual responses.
+            </Text>
+            <Label large pb={0}>
+              $80
+            </Label>
+          </Card>
+          <Card active title="Digital + Hardcover">
+            <Box py={3}>
+              <Icon icon={Icons.OptionHardcover} />
+            </Box>
+            <Text large>
+              Everything you get with digital, plus a beautiful handmade
+              hardcover version—each response occupying a spread. Free Furoshiki
+              giftwrapping, free shipping. Something tangible to treasure.
+            </Text>
+            <Label large pb={0}>
+              $240
+            </Label>
+          </Card>
+          <Card active title="Digital + Custom">
+            <Box py={3}>
+              <Icon icon={Icons.OptionCustom} />
+            </Box>
+            <Text large>
+              Solid hardwood cover? Custom engraving inside? Handmade book box?
+              The only limits are that of your imagination, let us know what
+              you’re thinking.
+            </Text>
+            <Label large pb={0}>
+              $360
+            </Label>
+          </Card>
           <Text small m="auto" textAlign="center">
             Don’t pay anything until all contributions have been collected and
             you are ready to order. All prices in US Dollars (USD). Free
@@ -314,6 +311,9 @@ export default function Home() {
       <Page>
         <Header secondary={<Link unstyled>Help</Link>} primary={<UserMenu />} />
         <Mast
+          breadcrumbs={[
+            {url: '/test', external: true, content: 'My fondfolios'},
+          ]}
           title="Minou McDougafien"
           image="/avatar.jpg"
           meta={
@@ -384,13 +384,6 @@ export default function Home() {
           </Section>
         </Container>
         <Navigation
-          prefix={
-            <Box pr={4} display={['none', 'none', 'block']}>
-              <Label small pb={0}>
-                Copyright 2020 Fondfolio Inc.
-              </Label>
-            </Box>
-          }
           items={[
             {content: 'Help', size: 'small'},
             {content: 'Terms', size: 'small'},
@@ -398,21 +391,39 @@ export default function Home() {
             {content: 'About', size: 'small'},
             {content: 'Blog', size: 'small'},
           ]}
-          postfix={
-            <Box pl={2} display={['none', 'none', 'block']}>
-              <Text small italic pb={0}>
+        />
+        <Container pt={[3, 3]}>
+          <Section
+            justifyContent="space-between"
+            pt="0"
+            flexDirection={['column', 'row']}
+          >
+            <Flex flexDirection={['column', 'row']}>
+              <Label small pb={1} pr={1}>
+                Copyright 2020 Fondfolio Inc.
+              </Label>
+              <Text small italic>
                 <Link unstyled>Proudly made in Toronto by Cartogram</Link>
               </Text>
-            </Box>
-          }
-        />
+            </Flex>
+            <ButtonGroup>
+              <Link unstyled>
+                <Icon color="primary" icon={Icons.Twitter} />
+              </Link>
+              <Link unstyled>
+                <Icon color="primary" icon={Icons.Instagram} />
+              </Link>
+              <Link unstyled>
+                <Icon color="primary" icon={Icons.Facebook} />
+              </Link>
+            </ButtonGroup>
+          </Section>
+        </Container>
       </Page>
       <Page>
         <Container>
           <Section>
-            <Display>
-              <Italic>Buttons</Italic>
-            </Display>
+            <Label>Buttons</Label>
           </Section>
           <Section justifyContent="space-around">
             <Flex p={3} pl={0} flexDirection="column">
@@ -677,6 +688,7 @@ function LoginSignUp() {
     fields: {
       email: useField(''),
       password: useField(''),
+      question: useField(''),
     },
     async onSubmit(fieldValues) {
       console.log('submitting', fieldValues);
@@ -728,6 +740,21 @@ function LoginSignUp() {
         }}
         label="Forgot Password"
         {...fields.password}
+      />
+      <TextField
+        large
+        multiline
+        label="Describe a fond memory you recall having shared with Minou."
+        help={{
+          hidden: false,
+          icon: Icons.DropDown,
+          text:
+            '**It could be something seemingly mundane** like a great conversation you shared over a *cup of coffee*, or a [completely unique]() and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
+          action: {
+            content: 'Not sure where to start?',
+          },
+        }}
+        {...fields.question}
       />
       <Text small textAlign="center">
         By signing up for an account you agree to our

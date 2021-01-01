@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import type {ComplexAction} from '../types';
 
 import {buttonsFrom} from './Button';
-import {Box, Flex, BoxProps} from './Box';
+import {Box, BoxProps} from './Box';
 import {Label} from './Label';
 
 interface Props extends BoxProps {
@@ -69,8 +69,4 @@ export function Card({children, title, action, ...props}: Props) {
       {actionMarkup}
     </StyledCard>
   );
-}
-
-export function Cards(props: {children: React.ReactNode}) {
-  return <Flex width={[1]} pb={4} {...props} />;
 }

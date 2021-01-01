@@ -19,7 +19,8 @@ export function Layout({children, full, center}: Props) {
   const content = React.Children.map(children, (child, index) => {
     const props = {
       width: full ? ['100%'] : ['100%', '90%', '80%', '50%'],
-      padding: full ? 0 : 3,
+      paddingLeft: full ? 0 : 3,
+      paddingRight: full ? 0 : 3,
     };
 
     return (
