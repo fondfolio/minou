@@ -1,5 +1,4 @@
 import React from 'react';
-import {useToggle} from '@shopify/react-hooks';
 
 import type {Action, Error} from '../types';
 
@@ -9,6 +8,8 @@ import {Label} from './Label';
 import {Text} from './Text';
 import {InlineError} from './InlineError';
 import {Rule} from './Rule';
+import {Markdown} from './Markdown';
+import {IconType} from './Icon';
 
 export interface LabelledProps {
   /** A unique identifier for the label */
@@ -21,7 +22,9 @@ export interface LabelledProps {
   action?: Action;
   /** Content to display inside the connected */
   help?: {
+    icon?: IconType;
     text?: string;
+    hidden?: boolean;
     action?: LabelledProps['action'];
   };
   /** An action */
@@ -56,7 +59,9 @@ export function Labelled({
   ) : null;
 
   const errorMarkup = error && typeof error !== 'boolean' && (
-    <InlineError fieldID={id}>{error}</InlineError>
+    <InlineError center={center} fieldID={id}>
+      {error}
+    </InlineError>
   );
 
   const labelTextMarkup = large ? (
@@ -110,39 +115,26 @@ function HelpText({
   text,
   center,
   id,
+  hidden,
   action,
-}: {
-  text?: React.ReactNode;
-  center?: boolean;
-  id: string;
-  action?: LabelledProps['action'];
+  icon,
+}: LabelledProps['help'] & {
+  center: LabelledProps['center'];
+  id: LabelledProps['id'];
 }) {
-  const {value: helpTextVisible, toggle: toggleHelpTextVisible} = useToggle(
-    false,
-  );
-  const textAlign = center ? 'center' : 'left';
-
-  const onClick = action
-    ? () => {
-        toggleHelpTextVisible();
-        if (action.onClick) {
-          action.onClick();
-        }
-      }
-    : undefined;
-
   if (!text) {
     return null;
   }
 
+  const textAlign = center ? 'center' : 'left';
   const toggleMarkup = action ? (
-    <Rule mb={1} action={{...action, onClick}} center={center} />
+    <Rule mb={1} action={action} center={center} icon={icon} />
   ) : null;
-  const textMarkup = helpTextVisible ? (
-    <Text textAlign={textAlign} pb="2" small id={helpTextID(id)}>
-      {text}
+  const textMarkup = hidden ? null : (
+    <Text textAlign={textAlign} pt="1" pb={0} small id={helpTextID(id)}>
+      <Markdown>{text}</Markdown>
     </Text>
-  ) : null;
+  );
 
   return (
     <>

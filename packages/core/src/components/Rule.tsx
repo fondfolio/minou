@@ -37,7 +37,9 @@ const StyledRule = styled(Flex)<Props>`
 export function Rule(props: Props) {
   const {text, icon, action, center, ...rest} = props;
 
-  const actionProps = action ? {as: 'button', onClick: action.onClick} : {};
+  const actionProps = action
+    ? {as: 'button', onClick: action.onClick, type: 'button'}
+    : {};
   const actionMarkup = action
     ? buttonFrom(action, {
         size: 'small',
@@ -46,7 +48,7 @@ export function Rule(props: Props) {
         unstyled: true,
       })
     : null;
-  const iconMarkup = icon ? <Icon mx={1} icon={icon} color="primary" /> : null;
+  const iconMarkup = icon ? <Icon icon={icon} color="primary" /> : null;
   let textMarkup = text ? text : null;
 
   if (typeof text === 'string') {
@@ -62,7 +64,7 @@ export function Rule(props: Props) {
       <>
         {iconMarkup}
         {textMarkup}
-        {actionMarkup}{' '}
+        {actionMarkup}
       </>
     ) : null;
 
