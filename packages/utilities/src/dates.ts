@@ -3,11 +3,14 @@ import {
   formatDistanceToNow as dateFnsFormatDistanceToNow,
 } from 'date-fns';
 
-export function formatDistance(date: string) {
+export function formatDateFromNow(date: string) {
   return dateFnsFormatDistanceToNow(convertTimestampToDate(date));
 }
 
-export function format(date: number | string, formatString = 'MMMM dd, yyyy') {
+export function formatDate(
+  date: number | string,
+  formatString = 'MMMM dd, yyyy',
+) {
   return dateFnsFormat(convertTimestampToDate(date), formatString);
 }
 
