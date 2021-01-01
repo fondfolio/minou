@@ -321,7 +321,7 @@ export default function Home() {
               <Label small pb={0}>
                 Also known as:
               </Label>
-              <Mono>Pizza Cat, Cheese Monster</Mono>
+              <Mono>Pizza Cat, Mister T.</Mono>
             </>
           }
         />
@@ -336,6 +336,38 @@ export default function Home() {
             {content: 'Questionnaire', external: true},
           ]}
         />
+        <Layout>
+          <Box>
+            <Box pb={5}>
+              <Label large>Start Collecting Contributions</Label>
+              <Text large>
+                Share the questionnaire link with Minou’s{' '}
+                <Italic>favourite</Italic> people. When someone contributes
+                you’ll recieve an email notification and it’ll show up here
+                where you can make edits, if needed.
+              </Text>
+              <Link>Share the questionnaire link</Link>
+            </Box>
+          </Box>
+          <Box pb={4}>
+            <Box>
+              <Card
+                active
+                title="Need help collecting contributions?"
+                icon={Icons.Lightbulb}
+                action={{content: 'Read our Share FAQ'}}
+              >
+                <Text pb={0}>
+                  Life is complicated, there’s always a million things to do,
+                  and sometimes we forget. Don’t give up if you don’t hear back
+                  from everyone you’ve reached out to right away. Read our FAQ
+                  for some tips we’ve found helpful when reaching out to people
+                  or to help round up those stragglers.
+                </Text>
+              </Card>
+            </Box>
+          </Box>
+        </Layout>
         <Container>
           <Section>
             <Card active>
@@ -351,7 +383,7 @@ export default function Home() {
                 10 Minutes ago <Link>Edit</Link>
               </Text>
             </Card>
-            <Card active title="What‘s Next" action={{content: 'Do this now'}}>
+            <Card active title="What’s Next" action={{content: 'Do this now'}}>
               <Text pb={0}>
                 What better gift to give a couple on their wedding day than the
                 memories and wisdom from everyone near and dear, including those
@@ -373,7 +405,7 @@ export default function Home() {
               </Text>
             </Box>
             <Box px={3}>
-              <Text large textAlign={['center', 'left']}>
+              <Text large textAlign="center">
                 Gifting tips, special offers and
                 <br />
                 an occasional bundle of email joy.
@@ -517,7 +549,7 @@ export default function Home() {
           </Section>
           <Section>
             <Display>
-              <Italic>Typograpy</Italic>
+              <Italic>Typography</Italic>
             </Display>
           </Section>
           <Section>

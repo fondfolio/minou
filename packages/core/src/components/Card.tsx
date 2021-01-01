@@ -6,10 +6,12 @@ import type {ComplexAction} from '../types';
 import {buttonsFrom} from './Button';
 import {Box, Flex, BoxProps} from './Box';
 import {Label} from './Label';
+import {Icon, IconType} from './Icon';
 
 interface Props extends BoxProps {
   active?: boolean;
   title?: string;
+  icon?: IconType;
   children: React.ReactNode;
   action?: ComplexAction;
 }
@@ -59,11 +61,13 @@ const StyledCard = styled(Box)<Props>`
   `}
 `;
 
-export function Card({children, title, action, ...props}: Props) {
+export function Card({children, title, icon, action, ...props}: Props) {
   const actionMarkup = action ? <Box pt={3}>{buttonsFrom(action)}</Box> : null;
+  const iconMarkup = icon ? <Icon icon={icon} color="primary" /> : null;
 
   return (
     <StyledCard p={4} bg="white" borderRadius="card" {...props}>
+      {iconMarkup}
       <Label pb={2}>{title}</Label>
       {children}
       {actionMarkup}
