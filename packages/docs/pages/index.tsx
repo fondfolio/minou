@@ -580,10 +580,11 @@ export default function Home() {
                   value="Large text field"
                   label="Describe a fond memory you recall having shared with Minou."
                   help={{
+                    hidden: false,
+                    icon: Icons.DropDown,
                     text:
-                      'It could be something seemingly mundane, like a great conversation you shared over a cup of coffee, or a completely unique and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
+                      '**It could be something seemingly mundane** like a great conversation you shared over a *cup of coffee*, or a [completely unique]() and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
                     action: {
-                      onClick: () => console.log('jey'),
                       content: 'Not sure where to start?',
                     },
                   }}
@@ -718,6 +719,7 @@ function LoginSignUp() {
           url: '/test',
         }}
         {...fields.password}
+        error="Not strong enough"
       />
       <TextField
         center

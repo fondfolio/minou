@@ -24,12 +24,16 @@ export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
     <ButtonGroup>{buttonsFrom(secondaryActions)}</ButtonGroup>
   ) : null;
 
-  const noteMarkup = note ? <Box pr={5}>{note}</Box> : null;
+  const noteMarkup = note ? (
+    <Box pt={2} pr={5}>
+      {note}
+    </Box>
+  ) : null;
 
   const justifyContent = secondaryActions || note ? 'space-between' : 'center';
 
   return (
-    <Flex alignItems="center" justifyContent={justifyContent}>
+    <Flex justifyContent={justifyContent}>
       {noteMarkup}
       {secondaryActionsMarkup}
       {primaryActionMarkup}

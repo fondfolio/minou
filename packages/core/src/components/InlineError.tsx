@@ -9,15 +9,30 @@ export interface InlineErrorProps extends TextProps {
   children: Error;
   /** Unique identifier of the invalid form field that the message describes */
   fieldID?: string;
+  center?: boolean;
 }
 
-export function InlineError({children, fieldID, ...props}: InlineErrorProps) {
+export function InlineError({
+  children,
+  center,
+  fieldID,
+  ...props
+}: InlineErrorProps) {
   if (!children) {
     return null;
   }
 
+  const textAlign = center ? 'center' : 'left';
+
   return (
-    <Text small color="error" id={errorTextID(fieldID || '')} {...props}>
+    <Text
+      small
+      color="error"
+      textAlign={textAlign}
+      id={errorTextID(fieldID || '')}
+      pb={0}
+      {...props}
+    >
       {children}
     </Text>
   );
