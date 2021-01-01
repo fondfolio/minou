@@ -339,20 +339,29 @@ export default function Home() {
         <Layout>
           <Box>
             <Box pb={4}>
-              <Title>
-                Start collecting contributions
-              </Title>
+              <Title>Start collecting contributions</Title>
               <Text>
-              Share the questionnaire link with Minou’s favourite people. When someone contributes you’ll recieve an email notification and it’ll show up here where you can make edits, if needed.
+                Share the questionnaire link with Minou’s favourite people. When
+                someone contributes you’ll recieve an email notification and
+                it’ll show up here where you can make edits, if needed.
               </Text>
               <Link>Share the questionnaire link</Link>
             </Box>
           </Box>
           <Box pb={4}>
             <Box>
-              <Card active title="Need help collecting contributions?" icon={Icons.Lightbulb} action={{content: 'Read our Share FAQ'}}>
+              <Card
+                active
+                title="Need help collecting contributions?"
+                icon={Icons.Lightbulb}
+                action={{content: 'Read our Share FAQ'}}
+              >
                 <Text pb={0}>
-                Life is complicated, there’s always a million things to do, and sometimes we forget. Don’t give up if you don’t hear back from everyone you’ve reached out to right away. Read our FAQ for some tips we’ve found helpful when reaching out to people or to help round up those stragglers.
+                  Life is complicated, there’s always a million things to do,
+                  and sometimes we forget. Don’t give up if you don’t hear back
+                  from everyone you’ve reached out to right away. Read our FAQ
+                  for some tips we’ve found helpful when reaching out to people
+                  or to help round up those stragglers.
                 </Text>
               </Card>
             </Box>

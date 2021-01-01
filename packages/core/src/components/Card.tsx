@@ -70,10 +70,12 @@ export function Card({children, title, icon, action, ...props}: Props) {
       <StyledCard p={4} bg="white" borderRadius={2} {...props}>
         <Section>
           <Icon icon={icon} />
-          <Label pl={1} pb={2}>{title}</Label>
+          <Label pl={1} pb={2}>
+            {title}
+          </Label>
         </Section>
-      {children}
-      {actionMarkup}
+        {children}
+        {actionMarkup}
       </StyledCard>
     );
   }
