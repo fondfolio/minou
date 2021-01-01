@@ -9,6 +9,7 @@ import {Spinner} from './Spinner';
 
 interface Props extends ComplexAction {
   unstyled?: boolean;
+  as?: string;
 }
 
 type CombinedProps = Props &
@@ -106,23 +107,24 @@ export function Button({
     </>
   );
 
-  let buttonContent;
-  const additionalProps: any = {
+  const linkProps: any = {
     as: url ? 'a' : 'button',
     href: external ? url : undefined,
   };
 
+  let buttonContent;
+
   switch (variant) {
     case 'primary':
       buttonContent = (
-        <StyledPrimaryButton {...props} {...additionalProps}>
+        <StyledPrimaryButton {...linkProps} {...props}>
           {children}
         </StyledPrimaryButton>
       );
       break;
     case 'secondary':
       buttonContent = (
-        <StyledSecondaryButton {...props} {...additionalProps}>
+        <StyledSecondaryButton {...linkProps} {...props}>
           {children}
         </StyledSecondaryButton>
       );
@@ -130,7 +132,7 @@ export function Button({
       break;
     default:
       buttonContent = (
-        <StyledBasicButton {...props} {...additionalProps}>
+        <StyledBasicButton {...linkProps} {...props}>
           {children}
         </StyledBasicButton>
       );

@@ -9,6 +9,6 @@ interface Props extends TextProps {
 
 export function Display(props: Props) {
   return (
-    <Text lineHeight="heading" fontFamily="sans" fontSize={4} {...props} />
+    <Text lineHeight="heading" fontFamily="serif" fontSize={4} {...props} />
   );
 }

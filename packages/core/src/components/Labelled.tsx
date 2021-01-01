@@ -1,4 +1,5 @@
 import React from 'react';
+import {useToggle} from '@shopify/react-hooks';
 
 import type {Action, Error} from '../types';
 
@@ -7,6 +8,7 @@ import {Box, Flex} from './Box';
 import {Label} from './Label';
 import {Text} from './Text';
 import {InlineError} from './InlineError';
+import {Rule} from './Rule';
 
 export interface LabelledProps {
   /** A unique identifier for the label */
@@ -17,9 +19,12 @@ export interface LabelledProps {
   error?: Error | boolean | string;
   /** An action */
   action?: Action;
-  /** Additional hint text to display */
-  helpText?: React.ReactNode;
   /** Content to display inside the connected */
+  help?: {
+    text?: string;
+    action?: LabelledProps['action'];
+  };
+  /** An action */
   children?: React.ReactNode;
   /** Visually hide the label */
   labelHidden?: boolean;
@@ -36,26 +41,18 @@ export function Labelled({
   label,
   error,
   action,
-  helpText,
   children,
   labelHidden,
   center,
   horizontal,
   large,
+  help,
   ...rest
 }: LabelledProps) {
   const flexDirection = horizontal ? 'row' : 'column';
   const labelFlexDirection = center ? 'column' : 'row';
-  const textAlign = center ? 'center' : 'left';
   const actionMarkup = action ? (
     <Box>{buttonFrom(action, {size: 'small'})}</Box>
-  ) : null;
-
-  const helpTextProps = large ? {} : {small: true};
-  const helpTextMarkup = helpText ? (
-    <Text {...helpTextProps} textAlign={textAlign} pb="2" id={helpTextID(id)}>
-      {helpText}
-    </Text>
   ) : null;
 
   const errorMarkup = error && typeof error !== 'boolean' && (
@@ -63,7 +60,7 @@ export function Labelled({
   );
 
   const labelTextMarkup = large ? (
-    <Text italic large pb={0} {...rest}>
+    <Text fontFamily="serif" large pb={0} {...rest}>
       {label}
     </Text>
   ) : (
@@ -93,7 +90,7 @@ export function Labelled({
     <Flex pb={4} flexDirection={flexDirection} {...horizonalProps}>
       <Box pb={1}>
         {labelMarkup}
-        {helpTextMarkup}
+        <HelpText id={id} {...help} center={center} />
       </Box>
       {children}
       {errorMarkup}
@@ -107,4 +104,50 @@ export function errorID(id: string) {
 
 export function helpTextID(id: string) {
   return `${id}HelpText`;
+}
+
+function HelpText({
+  text,
+  center,
+  id,
+  action,
+}: {
+  text?: React.ReactNode;
+  center?: boolean;
+  id: string;
+  action?: LabelledProps['action'];
+}) {
+  const {value: helpTextVisible, toggle: toggleHelpTextVisible} = useToggle(
+    false,
+  );
+  const textAlign = center ? 'center' : 'left';
+
+  const onClick = action
+    ? () => {
+        toggleHelpTextVisible();
+        if (action.onClick) {
+          action.onClick();
+        }
+      }
+    : undefined;
+
+  if (!text) {
+    return null;
+  }
+
+  const toggleMarkup = action ? (
+    <Rule mb={1} action={{...action, onClick}} center={center} />
+  ) : null;
+  const textMarkup = helpTextVisible ? (
+    <Text textAlign={textAlign} pb="2" small id={helpTextID(id)}>
+      {text}
+    </Text>
+  ) : null;
+
+  return (
+    <>
+      {toggleMarkup}
+      {textMarkup}
+    </>
+  );
 }

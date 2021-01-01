@@ -20,6 +20,7 @@ export interface TextProps extends TypographyProps, SpaceProps, ColorProps {
   as?: React.ElementType;
   large?: boolean;
   small?: boolean;
+  sans?: boolean;
 }
 
 const StyledText = styled.span<TextProps>`
@@ -33,7 +34,11 @@ const StyledText = styled.span<TextProps>`
 `;
 
 export function Text({large, small, italic, children, ...props}: TextProps) {
-  const content = italic ? <Italic>{children}</Italic> : children;
+  let content = children;
+
+  if (italic) {
+    content = <Italic>{children}</Italic>;
+  }
 
   if (small) {
     return (

@@ -14,12 +14,12 @@ interface NonMutuallyExclusiveProps {
   placeholder?: string;
   /** Initial value for the input */
   value?: string;
-  /** Additional hint text to display */
-  helpText?: React.ReactNode;
   /** Label for the input */
   label?: string;
   /** Adds an action to the label */
   labelAction?: LabelledProps['action'];
+  /** Adds an action to the help text */
+  help?: LabelledProps['help'];
   /** Visually hide the label */
   labelHidden?: boolean;
   /** Disable the input */
@@ -94,9 +94,9 @@ export type TextFieldProps = NonMutuallyExclusiveProps &
 export function TextField({
   placeholder,
   value,
-  helpText,
   label,
   labelAction,
+  help,
   labelHidden,
   disabled,
   readOnly,
@@ -151,7 +151,7 @@ export function TextField({
   if (error) {
     describedBy.push(`${id}Error`);
   }
-  if (helpText) {
+  if (help) {
     describedBy.push(helpTextID(id || ''));
   }
 
@@ -198,7 +198,7 @@ export function TextField({
       error={error}
       action={labelAction}
       labelHidden={labelHidden}
-      helpText={helpText}
+      help={help}
       horizontal={horizontal}
       center={center}
       large={large}
