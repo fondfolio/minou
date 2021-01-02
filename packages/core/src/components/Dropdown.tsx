@@ -33,6 +33,7 @@ const StyledDropdownContent = styled(Card)`
   min-width: 200px;
   max-width: 100%;
   padding: 0 0 1em 0;
+  will-change: transform;
   animation: ${fadeInUp} ${({theme}) => `${theme.timings[0]} ${easing}`};
 `;
 

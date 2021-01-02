@@ -19,14 +19,11 @@ const StyledFieldSet = styled(Flex)<Props>``;
 
 export function FieldSet({children, action, title}: Props) {
   const actionMarkup = action ? <Box>{buttonFrom(action)}</Box> : null;
-  const titleMarkup = title ? (
-    <Box pb={3}>
-      <Title italic>{title}</Title>
-    </Box>
-  ) : null;
+  const titleMarkup = title ? <Title>{title}</Title> : null;
+  const pb = action ? 5 : 4;
 
   return (
-    <StyledFieldSet pb={4} flexDirection="column">
+    <StyledFieldSet pb={pb} flexDirection="column">
       {titleMarkup}
       {children}
       {actionMarkup}

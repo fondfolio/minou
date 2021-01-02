@@ -25,7 +25,7 @@ export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
   ) : null;
 
   const noteMarkup = note ? (
-    <Box pt={2} pr={5}>
+    <Box pt={1} pr={5}>
       {note}
     </Box>
   ) : null;
@@ -33,7 +33,7 @@ export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
   const justifyContent = secondaryActions || note ? 'space-between' : 'center';
 
   return (
-    <Flex justifyContent={justifyContent}>
+    <Flex justifyContent={justifyContent} alignItems="flex-start">
       {noteMarkup}
       {secondaryActionsMarkup}
       {primaryActionMarkup}

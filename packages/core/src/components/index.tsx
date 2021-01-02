@@ -6,7 +6,7 @@ export {Section} from './Section';
 export {Layout} from './Layout';
 
 /** Site */
-export {Card, Cards} from './Card';
+export {Card} from './Card';
 export {Header} from './Header';
 export {Mast} from './Mast';
 

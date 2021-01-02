@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {Flex, BoxProps} from './Box';
+import {Portal} from './Portal';
 
 interface BackdropProps extends BoxProps {
   onClick(): void;
@@ -26,12 +27,14 @@ export function Backdrop({onClick, active, visible = false}: BackdropProps) {
   const opacity = visible ? 0.95 : 0;
 
   return (
-    <StyledBackdrop
-      bg="black"
-      opacity={opacity}
-      as="a"
-      onClick={onClick}
-      aria-hidden="true"
-    />
+    <Portal>
+      <StyledBackdrop
+        bg="black"
+        opacity={opacity}
+        as="a"
+        onClick={onClick}
+        aria-hidden="true"
+      />
+    </Portal>
   );
 }
