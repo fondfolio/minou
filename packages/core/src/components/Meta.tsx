@@ -16,6 +16,18 @@ export function Meta() {
         as="font"
         crossOrigin=""
       />
+      <link
+        rel="preload"
+        href="/fonts/Fragen Regular.otf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/Fragen Regular Italic.otf"
+        as="font"
+        crossOrigin=""
+      />
       <meta charSet="utf-8" />
       <meta
         name="viewport"

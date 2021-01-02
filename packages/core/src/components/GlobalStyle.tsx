@@ -50,7 +50,7 @@ export const GlobalStyle = createGlobalStyle`
     url('/fonts/Franca-Book.woff') format('woff'); /* Pretty Modern Browsers */
     font-style: normal;
     font-weight: 400;
-    font-display: swap;
+    font-display: fallback;
   }
   
   @font-face {
@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
     url('/fonts/Franca-SemiBold.woff') format('woff'); /* Pretty Modern Browsers */
     font-style: bold;
     font-weight: 500;
-    font-display: swap;
+    font-display: fallback;
   }
   
   @font-face {
@@ -71,7 +71,7 @@ export const GlobalStyle = createGlobalStyle`
         url('/fonts/Fragen Regular.woff') format('woff'); /* Pretty Modern Browsers */
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: fallback;
   }
   
   /* Fragen Regular Italic */
@@ -83,7 +83,7 @@ export const GlobalStyle = createGlobalStyle`
         url('/fonts/Fragen Regular Italic.woff') format('woff'); /* Pretty Modern Browsers */
     font-weight: 400;
     font-style: italic;
-    font-display: swap;
+    font-display: fallback;
   }
   
   
