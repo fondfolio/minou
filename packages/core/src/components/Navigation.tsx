@@ -45,7 +45,7 @@ export function Navigation({
 }: Props) {
   const itemsMarkup = items.map(({content, url, ...item}, index) => {
     return (
-      <Tab key={index} active={location === url} url={url} {...item}>
+      <Tab bold key={index} active={location === url} url={url} {...item}>
         {content}
       </Tab>
     );

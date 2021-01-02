@@ -309,7 +309,14 @@ export default function Home() {
         </Layout>
       </Page>
       <Page>
-        <Header secondary={<Link unstyled>Help</Link>} primary={<UserMenu />} />
+        <Header
+          secondary={
+            <Link bold external unstyled>
+              Help
+            </Link>
+          }
+          primary={<UserMenu />}
+        />
         <Mast
           breadcrumbs={[
             {url: '/test', external: true, content: 'My fondfolios'},

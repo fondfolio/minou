@@ -110,6 +110,7 @@ export function Button({
   const linkProps: any = {
     as: url ? 'a' : 'button',
     href: external ? url : undefined,
+    type: url ? undefined : 'button',
   };
 
   let buttonContent;
