@@ -8,7 +8,7 @@ import {Icon} from './Icon';
 
 const StyledLink = styled.a<Props>`
   text-decoration: none;
-  cursor: pointer;
+  cursor: ${({active}) => (active ? 'default' : 'pointer')};
   position: relative;
   display: inline-flex;
   color: ${({theme}) => theme.colors.primary};
@@ -25,6 +25,7 @@ const StyledLink = styled.a<Props>`
     color: ${({theme}) => theme.colors.tealDark};
     background: ${({theme, unstyled}) =>
       unstyled ? 'none' : theme.colors.teal[0]};
+    cursor: ${({active}) => (active ? 'default' : 'pointer')};
   }
 
   ${line}

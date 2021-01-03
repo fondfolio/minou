@@ -89,7 +89,6 @@ export function RadioButton({
     ? describedBy.join(' ')
     : undefined;
 
-  console.log(mouseOver);
   const color = checked ? 'primary' : undefined;
 
   return (
@@ -101,7 +100,7 @@ export function RadioButton({
       helpText={helpText}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      selected={checked}
+      selected={checked || mouseOver}
     >
       <input
         id={id || ''}

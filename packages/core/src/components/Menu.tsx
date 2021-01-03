@@ -13,15 +13,13 @@ type MenuAction = ComplexAction & {
 
 interface Props extends BoxProps {
   items: MenuAction[];
-  prefix?: React.ReactNode;
-  postfix?: React.ReactNode;
 }
 
 const Item = styled(Link)<ComplexAction>`
   padding: 0.5em 0 0 1.5em;
 `;
 
-export function Menu({items, prefix, postfix, ...props}: Props) {
+export function Menu({items, ...props}: Props) {
   const itemsMarkup = items.map(({content, segment, ...item}, index) => {
     const itemMarkup = (
       <Item key={index} unstyled {...item}>

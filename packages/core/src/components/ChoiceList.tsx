@@ -80,7 +80,6 @@ export function ChoiceList({
     } = choice;
 
     function handleChange(checked: boolean) {
-      console.log(checked);
       onChange(
         updateSelectedChoices(choice, checked, selected, allowMultiple),
         name || '',

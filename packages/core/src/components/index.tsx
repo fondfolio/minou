@@ -55,6 +55,7 @@ export {Toast} from './Toast';
 /** Navigation */
 export {Navigation} from './Navigation';
 export {Menu} from './Menu';
+export {List} from './List';
 
 /** Indicators */
 export {Spinner} from './Spinner';
