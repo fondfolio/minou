@@ -26,6 +26,7 @@ interface Choice {
   /**  Method to render children with a choice */
   renderChildren?(isSelected: boolean): React.ReactNode | false;
   icon?: IconType;
+  image?: string;
 }
 
 export interface ChoiceListProps {
@@ -77,6 +78,7 @@ export function ChoiceList({
       disabled: choiceDisabled,
       describedByError,
       icon,
+      image,
     } = choice;
 
     function handleChange(checked: boolean) {
@@ -103,6 +105,7 @@ export function ChoiceList({
           helpText={helpText}
           onChange={handleChange}
           icon={icon}
+          image={image}
           ariaDescribedBy={
             error && describedByError ? errorTextID(finalName || '') : undefined
           }

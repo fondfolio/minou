@@ -841,7 +841,7 @@ function SingleChoiceListExample() {
 
   return (
     <ChoiceList
-      title="Company name"
+      title="Events"
       choices={events.map((event) => ({
         label: event.name,
         value: event.value,
@@ -852,19 +852,6 @@ function SingleChoiceListExample() {
     />
   );
 }
-
-// {config.events.map((e) => (
-//   <Box key={e.value} pb={4} width={['50%', '50%', '33%']}>
-//     <Checkbox
-//       label={e.name}
-//       icon={
-//         Icons[
-//           getIconFromFondfolio({event: e.value}, 'Large') as any
-//         ]
-//       }
-//     />
-//   </Box>
-// ))}
 
 const BIRTHDAY = 'BIRTHDAY';
 const RETIREMENT = 'RETIREMENT';

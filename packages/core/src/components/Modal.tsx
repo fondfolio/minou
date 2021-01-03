@@ -24,10 +24,14 @@ export interface ModalProps extends BoxProps {
 
 const StyledModal = styled(Flex)`
   ${center({x: true, y: false})}
-  top: 0;
+  top: 10%;
+  max-height: 90%;
+  z-index: ${({theme}) => theme.zIndices.modal};
+`;
+
+const StyledModalContent = styled(Flex)`
   overflow-y: scroll;
   height: 100%;
-  z-index: ${({theme}) => theme.zIndices.modal};
 `;
 
 export function Modal({
@@ -58,18 +62,20 @@ export function Modal({
         width={['100%', '80%', '70%', '50%']}
         flexDirection="column"
       >
-        <Flex p={4} pb={2} flexDirection="column">
-          <Flex
-            pb={2}
-            width="100%"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Box flex="1">{titleMarkup}</Box>
-            {closeMarkup}
-          </Flex>
-          {children}
+        <Flex
+          px={4}
+          py={3}
+          width="100%"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Box flex="1">{titleMarkup}</Box>
+          {closeMarkup}
         </Flex>
+        <Rule />
+        <StyledModalContent px={4} pt={2} pb={2} flexDirection="column">
+          {children}
+        </StyledModalContent>
         <Rule />
         <Box px={4} py={2}>
           <Actions

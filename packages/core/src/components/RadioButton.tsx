@@ -4,6 +4,7 @@ import {useUniqueId, useToggle} from '@minou/utilities';
 
 import {Choice, helpTextID} from './Choice';
 import {Icon, IconType} from './Icon';
+import {Image} from './Image';
 
 export interface RadioButtonProps {
   /** Indicates the ID of the element that describes the the radio button*/
@@ -31,6 +32,7 @@ export interface RadioButtonProps {
   /** Callback when focus is removed */
   onBlur?(): void;
   icon?: IconType;
+  image?: string;
 }
 
 export function RadioButton({
@@ -47,6 +49,7 @@ export function RadioButton({
   name: nameProp,
   value,
   icon,
+  image,
 }: RadioButtonProps) {
   const id = useUniqueId('RadioButton', idProp);
   const name = nameProp || id;
@@ -90,6 +93,16 @@ export function RadioButton({
     : undefined;
 
   const color = checked ? 'primary' : undefined;
+  const iconMarkup = icon ? <Icon icon={icon} color={color} /> : null;
+  const imageMarkup = image ? (
+    <Image
+      circle
+      alt={`Preview of ${label}`}
+      width="40px"
+      height="40px"
+      src={image}
+    />
+  ) : null;
 
   return (
     <Choice
@@ -116,7 +129,8 @@ export function RadioButton({
         aria-describedby={ariaDescribedBy}
         ref={inputNode}
       />
-      <Icon icon={icon} color={color} />
+      {iconMarkup}
+      {imageMarkup}
     </Choice>
   );
 }
