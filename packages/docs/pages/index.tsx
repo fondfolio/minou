@@ -204,6 +204,8 @@ export default function Home() {
             <IconBox icon={Icons.ArrowLongLeft} />
             <IconBox icon={Icons.ArrowLongExternal} />
             <IconBox icon={Icons.Close} />
+            <IconBox icon={Icons.SquareUnchecked} />
+            <IconBox icon={Icons.SquareChecked} />
             <IconBox icon={Icons.MoreDots} />
             <IconBox icon={Icons.Clipboard} />
             <IconBox icon={Icons.Search} />
