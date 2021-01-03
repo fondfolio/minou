@@ -11,7 +11,6 @@ interface Props {
   /** App component */
   children?: React.ReactNode;
 }
-
 export function Provider({children, ...props}: Props) {
   return (
     <>

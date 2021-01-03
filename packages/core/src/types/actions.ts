@@ -2,7 +2,7 @@ export interface BaseAction {
   /** A unique identifier for the action */
   id?: string;
   /** Content the action displays */
-  content?: string;
+  content?: string | React.ReactNode;
   /** Visually hidden text for screen readers */
   accessibilityLabel?: string;
   /** A destination to link to, rendered in the action */
@@ -39,13 +39,6 @@ export interface DestructableAction extends Action {
   destructive?: boolean;
 }
 
-export interface IconableAction extends Action {
-  /** Source of the icon */
-  // eslint-disable-next-line no-warning-comments
-  // TODO: Bring Icon into minou and type this
-  // icon?: IconProps['source'];
-}
-
 export interface LoadableAction extends Action {
   /** Should a spinner be displayed */
   loading?: boolean;
@@ -55,5 +48,4 @@ export interface ComplexAction
   extends Action,
     DisableableAction,
     DestructableAction,
-    IconableAction,
     LoadableAction {}

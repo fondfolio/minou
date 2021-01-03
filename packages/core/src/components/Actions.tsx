@@ -17,23 +17,20 @@ export interface ActionsProps {
 
 export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
   const primaryActionMarkup = primaryAction
-    ? buttonsFrom(primaryAction, {variant: 'primary'})
+    ? buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})
     : null;
 
   const secondaryActionsMarkup = secondaryActions ? (
     <ButtonGroup>{buttonsFrom(secondaryActions)}</ButtonGroup>
   ) : null;
 
-  const noteMarkup = note ? (
-    <Box pt={1} pr={5}>
-      {note}
-    </Box>
-  ) : null;
+  const noteMarkup = note ? <Box pr={5}>{note}</Box> : null;
 
   const justifyContent = secondaryActions || note ? 'space-between' : 'center';
+  const alignItems = note ? 'baseline' : 'center';
 
   return (
-    <Flex justifyContent={justifyContent} alignItems="flex-start">
+    <Flex justifyContent={justifyContent} alignItems={alignItems}>
       {noteMarkup}
       {secondaryActionsMarkup}
       {primaryActionMarkup}

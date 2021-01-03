@@ -26,7 +26,7 @@ export function Mast({title, image, breadcrumbs, meta, ...props}: Props) {
     );
   const imageMarkup = imageContent ? <Box pr={4}>{imageContent}</Box> : null;
   const breadcrumbsMarkup = breadcrumbs ? (
-    <Box>{buttonsFrom(breadcrumbs)}</Box>
+    <Flex alignItems="center">{buttonsFrom(breadcrumbs)}</Flex>
   ) : null;
 
   return (

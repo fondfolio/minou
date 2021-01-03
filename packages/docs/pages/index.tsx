@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-child-element-spacing */
 import React, {useCallback, useState} from 'react';
-import {useField, useForm} from '@shopify/react-form';
+import {useField, useForm, asChoiceField} from '@shopify/react-form';
 import {
   Box,
   TextField,
@@ -37,6 +37,8 @@ import {
   Loader,
   Markdown,
   ButtonGroup,
+  Checkbox,
+  ChoiceList,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -309,10 +311,26 @@ export default function Home() {
         </Layout>
       </Page>
       <Page>
-        <Header secondary={<Link unstyled>Help</Link>} primary={<UserMenu />} />
+        <Header
+          secondary={
+            <Link bold external unstyled>
+              Help
+            </Link>
+          }
+          primary={<UserMenu />}
+        />
         <Mast
           breadcrumbs={[
-            {url: '/test', external: true, content: 'My fondfolios'},
+            {
+              url: '/test',
+              external: true,
+              content: (
+                <>
+                  <Icon icon={Icons.ArrowLongLeft} color="primary" />
+                  My fondfolios
+                </>
+              ),
+            },
           ]}
           title="Minou McDougafien"
           image="/avatar.jpg"
@@ -329,11 +347,11 @@ export default function Home() {
           bg="white"
           postfix={<Button variant="primary">Order Now</Button>}
           items={[
-            {content: 'Contributions'},
-            {content: 'Details'},
-            {content: 'Share'},
+            {content: 'Contributions', url: 'somewhere'},
+            {content: 'Details', url: 'somewhere'},
+            {content: 'Share', url: 'somewhere'},
             {content: 'Customizations', active: true},
-            {content: 'Questionnaire', external: true},
+            {content: 'Questionnaire', external: true, url: 'sumwhere'},
           ]}
         />
         <Layout>
@@ -392,7 +410,7 @@ export default function Home() {
             </Card>
           </Section>
         </Container>
-        <Rule my={2} icon={Icons.LogoIcon} />
+        <Rule my={2} icon={Icons.LogoIcon} center />
         <Container>
           <Section justifyContent="center" flexDirection={['column', 'row']}>
             <Box px={3}>
@@ -721,6 +739,7 @@ function LoginSignUp() {
       email: useField(''),
       password: useField(''),
       question: useField(''),
+      terms: useField(false),
     },
     async onSubmit(fieldValues) {
       console.log('submitting', fieldValues);
@@ -788,6 +807,13 @@ function LoginSignUp() {
         }}
         {...fields.question}
       />
+      <Checkbox
+        label="Birthday"
+        helpText="This is the text for birthday"
+        icon={Icons.EventBirthdayLarge}
+        {...asChoiceField(fields.terms)}
+      />
+      <SingleChoiceListExample />
       <Text small textAlign="center">
         By signing up for an account you agree to our
         <Link url="">Terms &amp; Conditions</Link>
@@ -796,3 +822,94 @@ function LoginSignUp() {
     </Form>
   );
 }
+
+function SingleChoiceListExample() {
+  const [selected, setSelected] = useState(['hidden']);
+
+  const handleChange = useCallback((value) => setSelected(value), []);
+
+  return (
+    <ChoiceList
+      title="Company name"
+      choices={events.map((event) => ({
+        label: event.name,
+        value: event.value,
+        icon: Icons[`Event${event.name}Large`],
+      }))}
+      selected={selected}
+      onChange={handleChange}
+    />
+  );
+}
+
+// {config.events.map((e) => (
+//   <Box key={e.value} pb={4} width={['50%', '50%', '33%']}>
+//     <Checkbox
+//       label={e.name}
+//       icon={
+//         Icons[
+//           getIconFromFondfolio({event: e.value}, 'Large') as any
+//         ]
+//       }
+//     />
+//   </Box>
+// ))}
+
+const BIRTHDAY = 'BIRTHDAY';
+const RETIREMENT = 'RETIREMENT';
+const RECOVERY = 'RECOVERY';
+const WEDDING = 'WEDDING';
+const ANNIVERSARY = 'ANNIVERSARY';
+const ENGAGEMENT = 'ENGAGEMENT';
+const REMEMBERING = 'REMEMBERING';
+const MOVING = 'MOVING';
+const SUCCESS = 'SUCCESS';
+const NEWBORN = 'NEWBORN';
+const CAUSE = 'CAUSE';
+
+const events = [
+  {
+    name: 'Birthday',
+    value: BIRTHDAY,
+  },
+  {
+    name: 'Retirement',
+    value: RETIREMENT,
+  },
+  {
+    name: 'Recovery',
+    value: RECOVERY,
+  },
+  {
+    name: 'Anniversary',
+    value: ANNIVERSARY,
+  },
+  {
+    name: 'Engagement',
+    value: ENGAGEMENT,
+  },
+  {
+    name: 'Wedding',
+    value: WEDDING,
+  },
+  {
+    name: 'Remembering',
+    value: REMEMBERING,
+  },
+  {
+    name: 'Moving',
+    value: MOVING,
+  },
+  {
+    name: 'Success',
+    value: SUCCESS,
+  },
+  {
+    name: 'Newborn',
+    value: NEWBORN,
+  },
+  {
+    name: 'Cause',
+    value: CAUSE,
+  },
+];

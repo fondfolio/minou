@@ -17,6 +17,7 @@ const StyledLink = styled.a<Props>`
   font-size: ${({size, theme}) =>
     size === 'small' ? toPx(theme.fontSizes[0]) : '1em'};
   padding: 0 1px;
+  font-weight: ${({bold}) => (bold ? 'bold' : 'normal')};
   align-items: center;
   white-space: nowrap;
 
@@ -68,11 +69,11 @@ interface Props {
   children: React.ReactNode;
   external?: boolean;
   active?: boolean;
-  tab?: boolean;
+  bold?: boolean;
   unstyled?: boolean;
 }
 
-export function Link({url, external, tab, children, ...props}: Props) {
+export function Link({url, external, children, ...props}: Props) {
   if (external) {
     return (
       <StyledLink href={url || ''} active {...props}>

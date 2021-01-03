@@ -32,5 +32,6 @@ module.exports = {
     '@typescript-eslint/array-type': ['error', {defaultOption: 'array'}],
     '@typescript-eslint/unbound-method': 'off',
     'react/no-array-index-key': 'off',
+    'jsx-a11y/label-has-for': 'off',
   },
 };
