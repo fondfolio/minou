@@ -17,7 +17,7 @@ export interface ActionsProps {
 
 export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
   const primaryActionMarkup = primaryAction
-    ? buttonsFrom(primaryAction, {variant: 'primary'})
+    ? buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})
     : null;
 
   const secondaryActionsMarkup = secondaryActions ? (

@@ -10,6 +10,7 @@ import {Spinner} from './Spinner';
 interface Props extends ComplexAction {
   unstyled?: boolean;
   as?: string;
+  type?: 'button' | 'submit';
 }
 
 type CombinedProps = Props &
@@ -86,6 +87,7 @@ export function Button({
   url,
   loading,
   external,
+  type = 'button',
   ...props
 }: CombinedProps) {
   let spinnerColor;
@@ -110,7 +112,7 @@ export function Button({
   const linkProps: any = {
     as: url ? 'a' : 'button',
     href: external ? url : undefined,
-    type: url ? undefined : 'button',
+    type: url ? undefined : type,
   };
 
   let buttonContent;

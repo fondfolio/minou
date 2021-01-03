@@ -1,266 +1,150 @@
-import React, {createElement, useState, useEffect, useRef} from 'react';
-import {useUniqueId} from '@minou/utilities';
+import React, {useState} from 'react';
+// import {MinusMinor, TickSmallMinor} from '@shopify/polaris-icons';
+import {useToggle, useUniqueId} from '@minou/utilities';
 
-import {Key, Error} from '../types';
+import {Error, Key} from '../types';
 
-import {Input, Type, TextArea} from './Input';
-import {Box} from './Box';
-import {Labelled, LabelledProps, helpTextID} from './Labelled';
+import {Choice, helpTextID} from './Choice';
+import {errorTextID} from './InlineError';
+import {Icon, IconType} from './Icon';
 
-type Alignment = 'left' | 'center' | 'right';
-
-interface NonMutuallyExclusiveProps {
-  /** Hint text to display */
-  placeholder?: string;
-  /** Initial value for the input */
-  value?: string;
-  /** Label for the input */
-  label?: string;
-  /** Adds an action to the label */
-  labelAction?: LabelledProps['action'];
-  /** Adds an action to the help text */
-  help?: LabelledProps['help'];
+export interface CheckboxProps {
+  /** Indicates the ID of the element that describes the checkbox*/
+  ariaDescribedBy?: string;
+  /** Label for the checkbox */
+  label: React.ReactNode;
   /** Visually hide the label */
   labelHidden?: boolean;
-  /** Disable the input */
+  /** Checkbox is selected. */
+  checked?: boolean;
+  /** Additional text to aide in use */
+  helpText?: React.ReactNode;
+  /** Disable input */
   disabled?: boolean;
-  /** Disable editing of the input */
-  readOnly?: boolean;
-  /** Automatically focus the input */
-  autoFocus?: boolean;
-  /** Force the focus state on the input */
-  focused?: boolean;
-  /** Allow for multiple lines of input */
-  multiline?: boolean | number;
-  /** Error to display beneath the label */
-  error?: Error | boolean | string;
-  /** Determine type of input */
-  type?: Type;
-  /** Name of the input */
-  name?: string;
-  /** ID for the input */
+  /** ID for form input */
   id?: string;
-  /** Defines a specific role attribute for the input */
-  role?: string;
-  /** Limit increment value for numeric and date-time inputs */
-  step?: number;
-  /** Enable automatic completion by the browser */
-  autoComplete?: boolean | string;
-  /** Mimics the behavior of the native HTML attribute, limiting the maximum value */
-  max?: number | string;
-  /** Maximum character length for an input */
-  maxLength?: number;
-  /** Mimics the behavior of the native HTML attribute, limiting the minimum value */
-  min?: number | string;
-  /** Minimum character length for an input */
-  minLength?: number;
-  /** A regular expression to check the value against */
-  pattern?: string;
-  /** Indicate whether value should have spelling checked */
-  spellCheck?: boolean;
-  /** Indicates the id of a component owned by the input */
-  ariaOwns?: string;
-  /** Indicates the id of a component controlled by the input */
-  ariaControls?: string;
-  /** Indicates the id of a related component’s visually focused element to the input */
-  ariaActiveDescendant?: string;
-  /** Indicates what kind of user input completion suggestions are provided */
-  ariaAutocomplete?: 'none' | 'inline' | 'list' | 'both' | undefined;
-  /** Determines the alignment of the text in the input */
-  align?: Alignment;
-  /** Determines the size of the text in the input */
-  textSize?: 'small' | 'large';
-  /** Callback when value is changed */
-  onChange?(value: string, id: string): void;
-  /** Callback when input is focused */
+  /** Name for form input */
+  name?: string;
+  /** Value for form input */
+  value?: string;
+  /** Display an error message */
+  error?: Error | boolean;
+  /** Callback when checkbox is toggled */
+  onChange?(newChecked: boolean, id: string): void;
+  /** Callback when checkbox is focussed */
   onFocus?(): void;
   /** Callback when focus is removed */
   onBlur?(): void;
-  /** Side-by-side layout */
-  horizontal?: boolean;
-  /** Center layout */
-  center?: boolean;
-  /** Large label */
-  large?: boolean;
+  icon?: IconType;
+  children?: React.ReactNode;
 }
 
-export type TextFieldProps = NonMutuallyExclusiveProps &
-  (
-    | {readOnly: true}
-    | {disabled: true}
-    | {onChange?(value: string, id: string): void}
-  );
-
-export function TextField({
-  placeholder,
-  value,
+export function Checkbox({
+  ariaDescribedBy: ariaDescribedByProp,
   label,
-  labelAction,
-  help,
   labelHidden,
+  checked = false,
+  helpText,
   disabled,
-  readOnly,
-  autoFocus,
-  focused,
-  multiline,
-  error,
-  type,
-  name,
   id: idProp,
-  role,
-  step,
-  autoComplete,
-  max,
-  maxLength,
-  min,
-  minLength,
-  pattern,
-  spellCheck,
-  ariaOwns,
-  ariaControls,
-  ariaActiveDescendant,
-  ariaAutocomplete,
+  name,
+  value,
+  error,
   onChange,
   onFocus,
   onBlur,
-  textSize,
-  horizontal,
-  center,
-  large,
-}: TextFieldProps) {
-  const [focus, setFocus] = useState(Boolean(focused));
-  const id = useUniqueId('TextField', idProp);
-  const inputRef = useRef<HTMLElement>(null);
+  icon,
+  children,
+}: CheckboxProps) {
+  const id = useUniqueId('Checkbox', idProp);
+  const {
+    value: mouseOver,
+    setTrue: handleMouseOver,
+    setFalse: handleMouseOut,
+  } = useToggle(false);
+  const [keyFocused, setKeyFocused] = useState(false);
 
-  useEffect(() => {
-    const input = inputRef.current;
-    if (!input || focused === undefined) {
-      return;
+  const handleBlur = () => {
+    if (onBlur) {
+      onBlur();
     }
-    if (focused) {
-      input.focus();
-    } else {
-      input.blur();
-    }
-  }, [focused]);
+    setKeyFocused(false);
+  };
 
-  const normalizedValue = typeof value === 'string' ? value : '';
-  const inputType = type === 'currency' ? 'text' : type;
+  const handleInput = () => {
+    if (onChange) {
+      onChange(!checked, id || '');
+    }
+  };
+
+  const handleKeyUp = (event: React.KeyboardEvent) => {
+    const {keyCode} = event;
+    if (!keyFocused) {
+      setKeyFocused(true);
+    }
+    if (keyCode === Key.Space) {
+      handleInput();
+    }
+  };
 
   const describedBy: string[] = [];
-  if (error) {
-    describedBy.push(`${id}Error`);
+  if (error && typeof error !== 'boolean') {
+    describedBy.push(errorTextID(id || ''));
   }
-  if (help) {
+  if (helpText) {
     describedBy.push(helpTextID(id || ''));
   }
+  if (ariaDescribedByProp) {
+    describedBy.push(ariaDescribedByProp);
+  }
+  const ariaDescribedBy = describedBy.length
+    ? describedBy.join(' ')
+    : undefined;
 
-  const input = createElement(multiline ? TextArea : Input, {
-    name,
-    id: id || '',
-    disabled,
-    readOnly,
-    textSize,
-    role,
-    autoFocus,
-    value: normalizedValue,
-    placeholder,
-    onFocus,
-    onBlur,
-    onKeyPress: handleKeyPress,
-    autoComplete: normalizeAutoComplete(autoComplete),
-    onChange: handleChange,
-    min,
-    max,
-    step,
-    minLength,
-    maxLength,
-    spellCheck,
-    pattern,
-    error: Boolean(error),
-    focus,
-    center,
-    type: inputType,
-    'aria-describedby': describedBy.length ? describedBy.join(' ') : undefined,
-    'aria-labelledby': name,
-    'aria-invalid': Boolean(error),
-    'aria-owns': ariaOwns,
-    'aria-activedescendant': ariaActiveDescendant,
-    'aria-autocomplete': ariaAutocomplete,
-    'aria-controls': ariaControls,
-    'aria-multiline': normalizeAriaMultiline(multiline),
-  });
+  const color = checked ? 'primary' : '';
+
+  const iconMarkup = icon ? <Icon icon={icon} color={color} /> : null;
 
   return (
-    <Labelled
-      label={label}
+    /* eslint-disable jsx-a11y/control-has-associated-label */
+    <Choice
       id={id || ''}
-      error={error}
-      action={labelAction}
+      label={label}
       labelHidden={labelHidden}
-      help={help}
-      horizontal={horizontal}
-      center={center}
-      large={large}
+      helpText={helpText}
+      error={error}
+      disabled={disabled}
+      hovered={mouseOver}
+      onClick={handleInput}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      selected={checked}
     >
-      <Box
-        onKeyPress={handleKeyPress}
-        onFocus={handleFocus}
+      <input
+        onKeyUp={handleKeyUp}
+        id={id || ''}
+        name={name}
+        value={value}
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+        onFocus={onFocus}
         onBlur={handleBlur}
-        onClick={handleClick}
-      >
-        {input}
-      </Box>
-    </Labelled>
+        onClick={stopPropagation}
+        onChange={noop}
+        aria-invalid={error != null}
+        aria-describedby={ariaDescribedBy}
+        aria-checked={checked}
+      />
+      {iconMarkup}
+      {children}
+    </Choice>
+    /* eslint-enable jsx-a11y/control-has-associated-label */
   );
-
-  function handleKeyPress(event: React.KeyboardEvent) {
-    const {key, which} = event;
-    const numbersSpec = /[\d.eE+-]$/;
-    if (type !== 'number' || which === Key.Enter || numbersSpec.test(key)) {
-      return;
-    }
-    event.preventDefault();
-  }
-
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    if (onChange) {
-      onChange(event.currentTarget.value, id || '');
-    }
-  }
-
-  function handleFocus() {
-    setFocus(true);
-  }
-
-  function handleBlur() {
-    setFocus(false);
-  }
-
-  function handleClick() {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }
 }
 
-function normalizeAutoComplete(autoComplete?: boolean | string) {
-  if (autoComplete === true) {
-    return 'on';
-  } else if (autoComplete === false) {
-    return 'off';
-  } else {
-    return autoComplete;
-  }
-}
+function noop() {}
 
-function normalizeAriaMultiline(multiline?: boolean | number) {
-  switch (typeof multiline) {
-    case 'undefined':
-      return false;
-    case 'boolean':
-      return multiline;
-    case 'number':
-      return Boolean(multiline > 0);
-  }
+function stopPropagation<E>(event: React.MouseEvent<E>) {
+  event.stopPropagation();
 }

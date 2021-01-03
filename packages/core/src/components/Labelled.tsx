@@ -65,11 +65,11 @@ export function Labelled({
   );
 
   const labelTextMarkup = large ? (
-    <Text fontFamily="serif" large pb={0} {...rest}>
+    <Text as="label" fontFamily="serif" large pb={0} {...rest}>
       {label}
     </Text>
   ) : (
-    <Label pb={0} {...rest} hidden={false}>
+    <Label as="label" pb={0} {...rest} hidden={labelHidden}>
       {label}
     </Label>
   );

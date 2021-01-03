@@ -1,7 +1,3 @@
-import React from 'react';
-import Head from 'next/head';
-
-const fonts = `
 @font-face {
   font-family: 'Franca';
   src: url('/fonts/Franca-Book.otf');
@@ -43,21 +39,4 @@ const fonts = `
   font-weight: 400;
   font-style: italic;
   font-display: swap;
-}
-`;
-
-export function Meta() {
-  return (
-    <Head>
-      <meta charSet="utf-8" />
-      <meta
-        name="viewport"
-        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
-      />
-      <link rel="manifest" href="site.webmanifest" />
-      <link rel="shortcut icon" href="favicon.ico" />
-
-      <style type="text/css">{fonts}</style>
-    </Head>
-  );
 }

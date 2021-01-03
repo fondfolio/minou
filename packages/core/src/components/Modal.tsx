@@ -23,7 +23,10 @@ export interface ModalProps extends BoxProps {
 }
 
 const StyledModal = styled(Flex)`
-  ${center({x: true, y: true})}
+  ${center({x: true, y: false})}
+  top: 0;
+  overflow-y: scroll;
+  height: 100%;
   z-index: ${({theme}) => theme.zIndices.modal};
 `;
 
@@ -52,7 +55,7 @@ export function Modal({
         borderRadius="modal"
         position="fixed"
         bg="white"
-        width={['100%', 1 / 2]}
+        width={['100%', '80%', '70%', '50%']}
         flexDirection="column"
       >
         <Flex p={4} pb={2} flexDirection="column">

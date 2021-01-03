@@ -11,6 +11,7 @@ import {
 import {reset} from '@minou/utilities';
 
 import {Italic} from './Italic';
+import {VisuallyHidden} from './VisuallyHidden';
 
 export interface TextProps extends TypographyProps, SpaceProps, ColorProps {
   children: React.ReactNode;
@@ -21,6 +22,7 @@ export interface TextProps extends TypographyProps, SpaceProps, ColorProps {
   large?: boolean;
   small?: boolean;
   sans?: boolean;
+  hidden?: boolean;
 }
 
 const StyledText = styled.span<TextProps>`
@@ -33,7 +35,14 @@ const StyledText = styled.span<TextProps>`
   ${color}
 `;
 
-export function Text({large, small, italic, children, ...props}: TextProps) {
+export function Text({
+  large,
+  small,
+  italic,
+  children,
+  hidden,
+  ...props
+}: TextProps) {
   let content = children;
 
   if (italic) {
@@ -42,23 +51,29 @@ export function Text({large, small, italic, children, ...props}: TextProps) {
 
   if (small) {
     return (
-      <StyledText as="p" pb={3} fontSize={0} {...props}>
-        {content}
-      </StyledText>
+      <VisuallyHidden hidden={hidden}>
+        <StyledText as="p" pb={3} fontSize={0} {...props}>
+          {content}
+        </StyledText>
+      </VisuallyHidden>
     );
   }
 
   if (large) {
     return (
-      <StyledText as="p" pb={3} fontSize={2} {...props}>
-        {content}
-      </StyledText>
+      <VisuallyHidden hidden={hidden}>
+        <StyledText as="p" pb={3} fontSize={2} {...props}>
+          {content}
+        </StyledText>
+      </VisuallyHidden>
     );
   }
 
   return (
-    <StyledText as="p" fontSize={1} pb={3} {...props}>
-      {content}
-    </StyledText>
+    <VisuallyHidden hidden={hidden}>
+      <StyledText as="p" fontSize={1} pb={3} {...props}>
+        {content}
+      </StyledText>
+    </VisuallyHidden>
   );
 }
