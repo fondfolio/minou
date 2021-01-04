@@ -77,11 +77,12 @@ export default function Home() {
       </Modal>
       <Header />
       <Layout>
-        <>hey</>
+        <Box order={[0, 1]}>first</Box>
+        <Box order={[1, 0]}>second</Box>
       </Layout>
       <Page>
         <Layout>
-          <Box>
+          <Box order={[0, 1]}>
             <Box pb={4}>
               <Display pb={0}>
                 Collaborative gift books for your favourite people.

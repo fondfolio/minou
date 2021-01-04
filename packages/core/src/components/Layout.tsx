@@ -24,6 +24,10 @@ export function Layout({children, full, center}: Props) {
       width: full ? ['100%'] : ['100%', '90%', '80%', '50%'],
       paddingLeft: [0, 0, 0, shouldBleed ? 0 : 4],
       paddingRight: [0, 0, 0, shouldBleed ? 0 : 4],
+      order:
+        React.isValidElement(child) && child.props.order
+          ? child.props.order
+          : undefined,
     };
 
     return (
