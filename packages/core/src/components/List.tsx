@@ -49,7 +49,14 @@ export function List({items, small, ...props}: Props) {
 
       if (url || onClick) {
         return (
-          <Item active={active} key={index} bold {...item}>
+          <Item
+            active={active}
+            key={index}
+            bold
+            url={url}
+            onClick={onClick}
+            {...item}
+          >
             {contentMarkup}
             {metaMarkup}
           </Item>
