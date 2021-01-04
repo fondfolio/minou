@@ -16,14 +16,14 @@ export function Layout({children, full, center}: Props) {
 
   const additionalProps = {
     justifyContent: center ? 'center' : 'flex-start',
-    ml: shouldBleed ? 0 : -4,
+    ml: [0, 0, 0, shouldBleed ? 0 : -4],
   };
 
   const content = React.Children.map(children, (child, index) => {
     const props = {
       width: full ? ['100%'] : ['100%', '90%', '80%', '50%'],
-      paddingLeft: shouldBleed ? 0 : 4,
-      paddingRight: shouldBleed ? 0 : 4,
+      paddingLeft: [0, 0, 0, shouldBleed ? 0 : 4],
+      paddingRight: [0, 0, 0, shouldBleed ? 0 : 4],
     };
 
     return (

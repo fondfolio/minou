@@ -62,7 +62,7 @@ export function Text({
   if (large) {
     return (
       <VisuallyHidden hidden={hidden}>
-        <StyledText as="p" pb={3} fontSize={2} {...props}>
+        <StyledText as="p" pb={3} fontSize={[1, 2]} {...props}>
           {content}
         </StyledText>
       </VisuallyHidden>
