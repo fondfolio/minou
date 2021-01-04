@@ -85,6 +85,14 @@ export function Link({url, external, children, ...props}: Props) {
     );
   }
 
+  if (looksExternal(url)) {
+    return (
+      <StyledLink href={url || ''} active {...props}>
+        {children}
+      </StyledLink>
+    );
+  }
+
   return (
     <NextLink href={url || ''}>
       <StyledLink active {...props}>
@@ -92,4 +100,8 @@ export function Link({url, external, children, ...props}: Props) {
       </StyledLink>
     </NextLink>
   );
+}
+
+function looksExternal(url?: string) {
+  return url?.startsWith('http');
 }

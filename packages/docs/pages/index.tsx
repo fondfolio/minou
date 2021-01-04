@@ -39,6 +39,7 @@ import {
   Markdown,
   ButtonGroup,
   Checkbox,
+  Footer,
   ChoiceList,
 } from 'minou';
 import copy from 'copy-to-clipboard';
@@ -752,6 +753,7 @@ export default function Home() {
           </Section>
         </Container>
       </Page>
+      <Footer />
     </>
   );
 }

@@ -8,6 +8,7 @@ export {Layout} from './Layout';
 /** Site */
 export {Card} from './Card';
 export {Header} from './Header';
+export {Footer} from './Footer';
 export {Mast} from './Mast';
 
 /** Actions */
