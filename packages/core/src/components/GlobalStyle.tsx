@@ -39,6 +39,10 @@ export const GlobalStyle = createGlobalStyle`
 
   }
 
+  strong {
+    font-weight: 500;
+  }
+
   html {
     background: ${theme.colors.primary};
   }
