@@ -1,22 +1,27 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 import type {ComplexAction} from '../types';
 
 import {buttonsFrom} from './Button';
-import {Box, BoxProps} from './Box';
+import {Box, Flex, BoxProps} from './Box';
 import {Label} from './Label';
 import {Icon, IconType} from './Icon';
+import {Link} from './Link';
+import {Text} from './Text';
+import {Rule} from './Rule';
 
 interface Props extends BoxProps {
   active?: boolean;
-  title?: string;
+  title?: React.ReactNode;
   icon?: IconType;
   children: React.ReactNode;
   action?: ComplexAction;
+  footerText?: React.ReactNode;
+  footerAction?: ComplexAction;
 }
 
-const StyledCard = styled(Box)<Props>`
+export const cardStyles = css<{active?: boolean}>`
   position: relative;
   margin-top: -1px;
   margin-left: -1px;
@@ -61,16 +66,76 @@ const StyledCard = styled(Box)<Props>`
   `}
 `;
 
-export function Card({children, title, icon, action, ...props}: Props) {
-  const actionMarkup = action ? <Box pt={3}>{buttonsFrom(action)}</Box> : null;
-  const iconMarkup = icon ? <Icon icon={icon} color="primary" /> : null;
+const StyledCard = styled(Box)<Props>`
+  ${cardStyles}
+`;
+
+export function Card({
+  children,
+  title,
+  icon,
+  action,
+  footerText,
+  footerAction,
+  ...props
+}: Props) {
+  const actionMarkup = action ? (
+    <Box>{buttonsFrom(action, {variant: 'secondary', size: 'small'})}</Box>
+  ) : null;
+  const iconMarkup = icon ? (
+    <Box pr={2}>
+      <Icon icon={icon} color="primary" />
+    </Box>
+  ) : null;
+
+  const footerTextMarkup = footerText ? (
+    <Text small pb={0}>
+      {footerText}
+    </Text>
+  ) : null;
+
+  const footerActionMarkup = footerAction ? buttonsFrom(footerAction) : null;
+
+  const footerMarkup =
+    footerAction || footerText ? (
+      <>
+        <Rule />
+        <Flex alignItems="center" justifyContent="space-between" py={3} px={4}>
+          {footerTextMarkup}
+          {footerActionMarkup}
+        </Flex>
+      </>
+    ) : null;
+
+  const titleMarkup = (
+    <Flex alignItems="center">
+      {iconMarkup}
+      <Label pb={0}>{title}</Label>
+    </Flex>
+  );
+
+  const finalLinkedTitleMarkup =
+    action && action.url ? (
+      <Flex pb={2} alignItems="center" justifyContent="space-between">
+        <Link unstyled bold url={action.url}>
+          {titleMarkup}
+        </Link>
+        {actionMarkup}
+      </Flex>
+    ) : (
+      <Flex pb={2} alignItems="center" justifyContent="space-between">
+        {titleMarkup}
+        {actionMarkup}
+      </Flex>
+    );
 
   return (
-    <StyledCard p={4} bg="white" borderRadius="card" {...props}>
-      {iconMarkup}
-      <Label pb={2}>{title}</Label>
-      {children}
-      {actionMarkup}
+    <StyledCard bg="white" borderRadius="card" {...props}>
+      <Box p={4}>
+        {finalLinkedTitleMarkup}
+        {children}
+      </Box>
+      {footerMarkup}
     </StyledCard>
   );
 }

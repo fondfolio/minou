@@ -22,7 +22,7 @@ export const StyledBanner = styled(Flex)<Props>`
 
 export function Banner({children, variant, title, ...props}: Props) {
   const titleMarkup = title ? (
-    <Text p={0} pl={1} color={variant || 'secondary'}>
+    <Text p={0} pl={2} color={variant || 'secondary'}>
       <Italic>{title}</Italic>
     </Text>
   ) : null;

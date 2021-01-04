@@ -46,6 +46,25 @@ import copy from 'copy-to-clipboard';
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const fondfolio = {
+    id: '1234',
+    title: 'Minou’s Birthday',
+    contributions: [
+      {
+        author: 'Matthew Seccafien',
+      },
+      {
+        author: 'Fiona Mcdougall',
+      },
+      {
+        author: 'Ryan Becker',
+      },
+      {
+        author: 'Vicky Pratt-becker',
+      },
+    ],
+  };
+
   return (
     <>
       <Modal
@@ -57,6 +76,9 @@ export default function Home() {
         <Text>This cannot be undone.</Text>
       </Modal>
       <Header />
+      <Layout>
+        <>hey</>
+      </Layout>
       <Page>
         <Layout>
           <Box>
@@ -91,12 +113,71 @@ export default function Home() {
               </Text>
             </Box>
             <Loader />
+            <Box pb={6}>
+              <Card
+                active
+                icon={Icons.EventBirthday}
+                title={fondfolio.title}
+                action={{content: 'View'}}
+                footerAction={{
+                  content: 'Order',
+                  size: 'small',
+                  variant: 'primary',
+                }}
+                footerText={
+                  <>
+                    Order now and receive by <strong>Jan 20</strong>
+                  </>
+                }
+              >
+                <Label small pt={3}>
+                  Recent contributions
+                </Label>
+                <List
+                  small
+                  items={fondfolio.contributions.map((contribution) => ({
+                    content: contribution.author,
+                    meta: '1 hour ago',
+                  }))}
+                />
+                <Box pt={0}>
+                  <Link size="small">View all 12 contributions</Link>
+                </Box>
+              </Card>
+              <Card
+                active
+                title={
+                  <Link unstyled bold>
+                    <Flex alignItems="center">
+                      <Box pr={2}>
+                        <Icon icon={Icons.EventBirthday} color="primary" />
+                      </Box>
+                      {fondfolio.title}
+                    </Flex>
+                  </Link>
+                }
+                action={{content: 'View'}}
+              >
+                <Text small pb={0}>
+                  <Italic>No contributions yet :)</Italic> Take a look at our{' '}
+                  <Link>Sharing tips</Link>
+                </Text>
+              </Card>
+            </Box>
             <List
               items={mockData.contributions.map((contribution) => ({
                 content: contribution.author,
                 meta: '1 hour ago',
                 active: contribution.active,
                 url: '/test',
+              }))}
+            />
+            <List
+              small
+              items={mockData.contributions.map((contribution) => ({
+                content: contribution.author,
+                meta: '1 hour ago',
+                active: contribution.active,
               }))}
             />
             <Box mt={4} mb="5">
@@ -115,14 +196,15 @@ export default function Home() {
                 </Text>
               </Card>
             </Box>
-            <Card active title="Retirement" action={{content: 'Get started'}}>
+            <Card active title="Retirement">
               <Text pb={0}>
                 What better gift to give a couple on their wedding day than the
                 memories and wisdom from everyone near and dear, including those
                 unable to attend.
               </Text>
+              <Button>Get started</Button>
             </Card>
-            <Card active action={{content: 'Create a Fondfolio'}}>
+            <Card active>
               <Text large pb={0}>
                 Fondfolio allows you to create a beautiful collaborative book
                 filled with sincere and heartwarming words from loved ones. A
@@ -737,7 +819,7 @@ function Order() {
         {...fields.copies}
       />
       <Actions
-        note="This is a note about the order"
+        note="Your contribution will be sent. If you enter your email above you can continue to edit your words until the Fondfolio has been purchased."
         primaryAction={{content: 'Order'}}
       />
     </Form>

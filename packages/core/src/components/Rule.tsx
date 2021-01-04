@@ -53,7 +53,7 @@ export function Rule(props: Props) {
 
   if (typeof text === 'string') {
     textMarkup = (
-      <Text small italic pb={0}>
+      <Text small italic pb={0} textAlign="center">
         {text}
       </Text>
     );

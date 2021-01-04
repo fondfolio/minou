@@ -3,9 +3,11 @@ import styled from 'styled-components';
 
 import {ComplexAction} from '../types';
 
-import {Flex, BoxProps} from './Box';
+import {Flex, Box, BoxProps} from './Box';
 import {Link} from './Link';
 import {Text} from './Text';
+import {Italic} from './Italic';
+import {Rule} from './Rule';
 
 type ListAction = ComplexAction & {
   meta?: string;
@@ -13,31 +15,58 @@ type ListAction = ComplexAction & {
 
 interface Props extends BoxProps {
   items: ListAction[];
+  small?: boolean;
 }
 
 const Item = styled(Link)<ComplexAction>`
-  padding: 0.8em 0.2em;
+  padding: 0.8em 0;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  background: ${({theme, active}) => (active ? theme.colors.teal[0] : 'none')};
+
+  &:hover {
+    background: none;
+  }
 `;
 
-export function List({items, ...props}: Props) {
-  const itemsMarkup = items.map(({content, meta, active, ...item}, index) => {
-    const metaMarkup = meta ? (
-      <Text pb={0} small>
-        {meta}
-      </Text>
-    ) : null;
+export function List({items, small, ...props}: Props) {
+  const itemsMarkup = items.map(
+    ({content, meta, active, url, onClick, ...item}, index) => {
+      const color = active ? 'primary' : 'secondary';
+      const metaMarkup = meta ? (
+        <Text pb={0} small color={color}>
+          <Italic>{meta}</Italic>
+        </Text>
+      ) : null;
 
-    return (
-      <Item active={active} key={index} bold {...item}>
-        {content}
-        {metaMarkup}
-      </Item>
-    );
-  });
+      const contentMarkup = (
+        <Box flex={1}>
+          <Text key={index} small={small} pb={0}>
+            {content}
+          </Text>
+        </Box>
+      );
+
+      if (url || onClick) {
+        return (
+          <Item active={active} key={index} bold {...item}>
+            {contentMarkup}
+            {metaMarkup}
+          </Item>
+        );
+      }
+
+      return (
+        <>
+          <Flex>
+            {contentMarkup}
+            {metaMarkup}
+          </Flex>
+          <Rule my={2} />
+        </>
+      );
+    },
+  );
 
   return (
     <Flex as="nav" flexDirection="column" {...props}>

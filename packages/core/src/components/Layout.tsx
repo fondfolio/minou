@@ -11,16 +11,19 @@ interface Props {
 }
 
 export function Layout({children, full, center}: Props) {
+  const numberOfChildren = React.Children.count(children);
+  const shouldBleed = full || numberOfChildren === 1;
+
   const additionalProps = {
     justifyContent: center ? 'center' : 'flex-start',
-    ml: full ? 0 : -3,
+    ml: shouldBleed ? 0 : -4,
   };
 
   const content = React.Children.map(children, (child, index) => {
     const props = {
       width: full ? ['100%'] : ['100%', '90%', '80%', '50%'],
-      paddingLeft: full ? 0 : 3,
-      paddingRight: full ? 0 : 3,
+      paddingLeft: shouldBleed ? 0 : 4,
+      paddingRight: shouldBleed ? 0 : 4,
     };
 
     return (

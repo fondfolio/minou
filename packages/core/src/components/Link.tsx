@@ -8,15 +8,16 @@ import {Icon} from './Icon';
 
 const StyledLink = styled.a<Props>`
   text-decoration: none;
-  cursor: ${({active}) => (active ? 'default' : 'pointer')};
+  cursor: pointer;
   position: relative;
   display: inline-flex;
-  color: ${({theme}) => theme.colors.primary};
+  color: ${({theme, unstyled}) =>
+    unstyled ? 'inherit' : theme.colors.primary};
   text-decoration: none;
   transition: ${({theme}) => theme.transitions.all};
   font-size: ${({size, theme}) =>
     size === 'small' ? toPx(theme.fontSizes[0]) : '1em'};
-  padding: 0 1px;
+  padding: ${({unstyled}) => (unstyled ? '0' : '0 1px')};
   font-weight: ${({bold}) => (bold ? 'bold' : 'normal')};
   align-items: center;
   white-space: nowrap;
@@ -25,7 +26,7 @@ const StyledLink = styled.a<Props>`
     color: ${({theme}) => theme.colors.tealDark};
     background: ${({theme, unstyled}) =>
       unstyled ? 'none' : theme.colors.teal[0]};
-    cursor: ${({active}) => (active ? 'default' : 'pointer')};
+    cursor: pointer;
   }
 
   ${line}

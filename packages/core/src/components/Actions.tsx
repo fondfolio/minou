@@ -19,18 +19,24 @@ export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
   const primaryActionMarkup = primaryAction
     ? buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})
     : null;
-
   const secondaryActionsMarkup = secondaryActions ? (
     <ButtonGroup>{buttonsFrom(secondaryActions)}</ButtonGroup>
   ) : null;
-
-  const noteMarkup = note ? <Box pr={5}>{note}</Box> : null;
+  const noteMarkup = note ? (
+    <Box pr={[0, 3]} pb={[3, 0]}>
+      {note}
+    </Box>
+  ) : null;
 
   const justifyContent = secondaryActions || note ? 'space-between' : 'center';
-  const alignItems = note ? 'baseline' : 'center';
+  const alignItems = note ? 'flex-start' : 'center';
 
   return (
-    <Flex justifyContent={justifyContent} alignItems={alignItems}>
+    <Flex
+      justifyContent={justifyContent}
+      alignItems={alignItems}
+      flexWrap={['wrap', 'nowrap']}
+    >
       {noteMarkup}
       {secondaryActionsMarkup}
       {primaryActionMarkup}

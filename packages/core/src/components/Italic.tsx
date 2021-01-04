@@ -9,6 +9,7 @@ const StyledItalic = styled.span<ItalicProps>`
   font-family: ${({theme}) => theme.fonts.serif};
   margin: 0 1px;
   color: inherit;
+  font-weight: normal;
 `;
 
 export function Italic(props: ItalicProps) {

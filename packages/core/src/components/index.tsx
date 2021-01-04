@@ -38,6 +38,7 @@ export {Markdown} from './Markdown';
 export {Blockquote} from './Blockquote';
 export {Rule} from './Rule';
 export {VisuallyHidden} from './VisuallyHidden';
+export {Bullet} from './Bullet';
 
 /** Global */
 export {Provider} from './Provider';

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
-import {Card} from './Card';
+import {cardStyles} from './Card';
+import {Box} from './Box';
 import {Backdrop} from './Backdrop';
 
 const fadeInUp = keyframes`
@@ -23,7 +24,8 @@ const StyledDropdown = styled.div`
   z-index: 1;
 `;
 
-const StyledDropdownContent = styled(Card)`
+const StyledDropdownContent = styled(Box)`
+  ${cardStyles}
   position: absolute;
   margin-top: 0.5em;
   top: 100%;
@@ -32,7 +34,7 @@ const StyledDropdownContent = styled(Card)`
   background: white;
   min-width: 200px;
   max-width: 100%;
-  padding: 0 0 1em 0;
+  padding: 1em 0 1em 0;
   will-change: transform;
   animation: ${fadeInUp} ${({theme}) => `${theme.timings[0]} ${easing}`};
 `;
