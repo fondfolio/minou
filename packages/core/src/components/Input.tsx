@@ -31,12 +31,15 @@ interface Props {
   error?: boolean;
   /** Center align the text inside the input */
   center?: boolean;
+  /** Disable the input */
+  disabled?: boolean;
 }
 
 type CombinedProps = Props & React.InputHTMLAttributes<HTMLInputElement>;
 
 const StyledInput = styled.input<Props>`
-  background: white;
+  background: ${({disabled, theme}) =>
+    disabled ? theme.colors.greySuperlight : 'white'};
   width: 100%;
   border-radius: ${({theme}) => theme.radii.input};
   padding: 0.8em 1.2em;

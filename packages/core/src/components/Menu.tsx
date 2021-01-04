@@ -13,16 +13,18 @@ type MenuAction = ComplexAction & {
 
 interface Props extends BoxProps {
   items: MenuAction[];
+  location?: string;
 }
 
 const Item = styled(Link)<ComplexAction>`
   padding: 0.5em 0 0 1.5em;
 `;
 
-export function Menu({items, ...props}: Props) {
-  const itemsMarkup = items.map(({content, segment, ...item}, index) => {
+export function Menu({items, location, ...props}: Props) {
+  const itemsMarkup = items.map(({content, segment, url, ...item}, index) => {
+    console.log(url, location, url === location);
     const itemMarkup = (
-      <Item key={index} unstyled {...item}>
+      <Item key={index} bold={url === location} url={url} unstyled {...item}>
         {content}
       </Item>
     );
