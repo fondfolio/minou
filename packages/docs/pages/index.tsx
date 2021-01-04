@@ -188,6 +188,7 @@ export default function Home() {
                   What better gift to give a couple on their wedding day than
                   the memories and wisdom from everyone near and dear, including
                   those unable to attend.
+                  https://www.cbc.ca/sports/olympics/summer/trackandfield/andrea-seccafien-mental-health-lockdowns-1.5815931
                 </Text>
               </Card>
               <Card active title="Milestone Birthday">
@@ -357,46 +358,50 @@ export default function Home() {
           </Blockquote>
         </Layout>
         <Layout full>
-          <Card active title="Digital Only">
-            <Box py={3}>
-              <Icon icon={Icons.OptionDigital} />
-            </Box>
-            <Text large>
-              Your Fondfolio contributions stored online forever in a
-              personalized Fondfolio website—share the lovely words with
-              everyone who contributed. Sort responses by question type or read
-              individual responses.
-            </Text>
-            <Label large pb={0}>
-              $80
-            </Label>
-          </Card>
-          <Card active title="Digital + Hardcover">
-            <Box py={3}>
-              <Icon icon={Icons.OptionHardcover} />
-            </Box>
-            <Text large>
-              Everything you get with digital, plus a beautiful handmade
-              hardcover version—each response occupying a spread. Free Furoshiki
-              giftwrapping, free shipping. Something tangible to treasure.
-            </Text>
-            <Label large pb={0}>
-              $240
-            </Label>
-          </Card>
-          <Card active title="Digital + Custom">
-            <Box py={3}>
-              <Icon icon={Icons.OptionCustom} />
-            </Box>
-            <Text large>
-              Solid hardwood cover? Custom engraving inside? Handmade book box?
-              The only limits are that of your imagination, let us know what
-              you’re thinking.
-            </Text>
-            <Label large pb={0}>
-              $360
-            </Label>
-          </Card>
+          <Flex flexWrap={['wrap', 'nowrap']}>
+            <Card active title="Digital Only">
+              <Box py={3}>
+                <Icon icon={Icons.OptionDigital} />
+              </Box>
+              <Text large>
+                Your Fondfolio contributions stored online forever in a
+                personalized Fondfolio website—share the lovely words with
+                everyone who contributed. Sort responses by question type or
+                read individual responses.
+              </Text>
+              <Label large pb={0}>
+                $80
+              </Label>
+            </Card>
+
+            <Card active title="Digital + Hardcover">
+              <Box py={3}>
+                <Icon icon={Icons.OptionHardcover} />
+              </Box>
+              <Text large>
+                Everything you get with digital, plus a beautiful handmade
+                hardcover version—each response occupying a spread. Free
+                Furoshiki giftwrapping, free shipping. Something tangible to
+                treasure.
+              </Text>
+              <Label large pb={0}>
+                $240
+              </Label>
+            </Card>
+            <Card active title="Digital + Custom">
+              <Box py={3}>
+                <Icon icon={Icons.OptionCustom} />
+              </Box>
+              <Text large>
+                Solid hardwood cover? Custom engraving inside? Handmade book
+                box? The only limits are that of your imagination, let us know
+                what you’re thinking.
+              </Text>
+              <Label large pb={0}>
+                $360
+              </Label>
+            </Card>
+          </Flex>
           <Text small m="auto" textAlign="center">
             Don’t pay anything until all contributions have been collected and
             you are ready to order. All prices in US Dollars (USD). Free

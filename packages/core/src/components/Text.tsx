@@ -30,6 +30,7 @@ const StyledText = styled.span<TextProps>`
   display: block;
   max-width: 60em;
   line-height: 1.45;
+  overflow-wrap: break-word;
   ${typography}
   ${space}
   ${color}

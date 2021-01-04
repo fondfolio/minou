@@ -18,7 +18,7 @@ const StyledLink = styled.a<Props>`
   font-size: ${({size, theme}) =>
     size === 'small' ? toPx(theme.fontSizes[0]) : '1em'};
   padding: ${({unstyled}) => (unstyled ? '0' : '0 1px')};
-  font-weight: ${({bold}) => (bold ? 'bold' : 'normal')};
+  font-weight: ${({bold}) => (bold ? '500' : 'normal')};
   align-items: center;
   white-space: nowrap;
 

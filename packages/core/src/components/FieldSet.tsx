@@ -23,7 +23,7 @@ export function FieldSet({children, action, title}: Props) {
   const pb = action ? 5 : 4;
 
   return (
-    <StyledFieldSet pb={pb} flexDirection="column">
+    <StyledFieldSet pb={pb} flexDirection="column" flex="0 0">
       {titleMarkup}
       {children}
       {actionMarkup}
