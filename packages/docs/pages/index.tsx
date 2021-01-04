@@ -187,6 +187,7 @@ export default function Home() {
                   What better gift to give a couple on their wedding day than
                   the memories and wisdom from everyone near and dear, including
                   those unable to attend.
+                  https://www.cbc.ca/sports/olympics/summer/trackandfield/andrea-seccafien-mental-health-lockdowns-1.5815931
                 </Text>
               </Card>
               <Card active title="Milestone Birthday">
@@ -356,6 +357,7 @@ export default function Home() {
           </Blockquote>
         </Layout>
         <Layout full>
+        <Flex flexWrap={['wrap', 'nowrap']}>
           <Card active title="Digital Only">
             <Box py={3}>
               <Icon icon={Icons.OptionDigital} />
@@ -370,6 +372,7 @@ export default function Home() {
               $80
             </Label>
           </Card>
+        
           <Card active title="Digital + Hardcover">
             <Box py={3}>
               <Icon icon={Icons.OptionHardcover} />
@@ -396,6 +399,7 @@ export default function Home() {
               $360
             </Label>
           </Card>
+          </Flex>
           <Text small m="auto" textAlign="center">
             Don’t pay anything until all contributions have been collected and
             you are ready to order. All prices in US Dollars (USD). Free

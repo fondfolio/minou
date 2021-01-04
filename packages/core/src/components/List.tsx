@@ -41,7 +41,7 @@ export function List({items, small, ...props}: Props) {
 
       const contentMarkup = (
         <Box flex={1}>
-          <Text key={index} small={small} pb={0}>
+          <Text color="primary" key={index} small={small} pb={0}>
             {content}
           </Text>
         </Box>
