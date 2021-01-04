@@ -5,9 +5,6 @@
   "scripts": {
     "build": "tsc"
   },
-  "engines": {
-    "node": ">=14.0.0"
-  },
   "dependencies": {
     "@minou/icons": "^0.0.31",
     "@minou/theme": "^0.0.31",

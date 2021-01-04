@@ -1,12 +1,12 @@
-name: "tagged-release"
+name: 'tagged-release'
 
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 jobs:
   tagged-release:
-    name: "Tagged Release"
+    name: 'Tagged Release'
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v1
         name: Setup node.js and yarn
         with:
-          node-version: 14.0.0
+          node-version: 12.19.0
           registry-url: https://registry.npmjs.org/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
