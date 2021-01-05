@@ -5,8 +5,12 @@ import styled from 'styled-components';
 import {line} from './Link';
 
 const StyledMarkdown = styled.div`
-  p {
+  p,
+  ul {
     margin-bottom: 1em;
+  }
+
+  li {
   }
 
   em {
