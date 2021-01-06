@@ -73,6 +73,7 @@ interface Props {
   active?: boolean;
   bold?: boolean;
   unstyled?: boolean;
+  target?: '_blank';
 }
 
 export function Link({url, external, children, ...props}: Props) {
