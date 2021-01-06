@@ -117,6 +117,14 @@ export default function Home() {
             <Loader />
             <Box pb={6}>
               <Card
+                flag={{
+                  error: true,
+                  content: (
+                    <>
+                      <Italic>Something is wrong!</Italic> Do better.
+                    </>
+                  ),
+                }}
                 active
                 icon={Icons.EventBirthday}
                 title={fondfolio.title}
@@ -147,6 +155,14 @@ export default function Home() {
                 </Box>
               </Card>
               <Card
+                flag={{
+                  content: (
+                    <>
+                      <Italic>free</Italic> <Link>shipping</Link> and{' '}
+                      <Link>giftwrap</Link>
+                    </>
+                  ),
+                }}
                 active
                 title={
                   <Link unstyled bold>

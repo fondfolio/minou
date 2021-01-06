@@ -64,13 +64,13 @@ export function List({items, small, ...props}: Props) {
       }
 
       return (
-        <>
+        <Box key={index} width="100%">
           <Flex>
             {contentMarkup}
             {metaMarkup}
           </Flex>
           <Rule my={2} />
-        </>
+        </Box>
       );
     },
   );
