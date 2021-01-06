@@ -43,7 +43,7 @@ const StyledBasicButton = styled.button<CombinedProps>`
 
   &:hover {
     color: ${({theme, destructive}) =>
-      destructive ? theme.colors.red : theme.colors.tealDark};
+      destructive ? theme.colors.error : theme.colors.tealDark};
     background: ${({theme, destructive, unstyled}) =>
       destructive || unstyled ? 'none' : theme.colors.teal[0]};
   }
@@ -60,7 +60,7 @@ const StyledPrimaryButton = styled(StyledBasicButton)<CombinedProps>`
   &:hover {
     color: ${({theme}) => theme.colors.white};
     background: ${({theme, destructive}) =>
-      destructive ? theme.colors.red : theme.colors.tealDark};
+      destructive ? theme.colors.red[1] : theme.colors.tealDark};
   }
 `;
 
@@ -75,10 +75,10 @@ const StyledSecondaryButton = styled(StyledPrimaryButton)<CombinedProps>`
   &:hover {
     background: ${({theme}) => theme.colors.white};
     color: ${({theme, destructive}) =>
-      destructive ? theme.colors.red : theme.colors.tealDark};
+      destructive ? theme.colors.red[1] : theme.colors.tealDark};
     border: 1px solid
       ${({theme, destructive}) =>
-        destructive ? theme.colors.red : theme.colors.tealDark};
+        destructive ? theme.colors.red[1] : theme.colors.tealDark};
   }
 `;
 

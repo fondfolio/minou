@@ -24,7 +24,7 @@ export function FieldSet({children, sticky, action, title}: Props) {
       width="100%"
       left={['0', null, null, '100%']}
       position={['relative', null, null, 'absolute']}
-      p={[0, null, null, 3]}
+      p={[0, null, null, 4]}
     >
       {sticky}
     </Flex>

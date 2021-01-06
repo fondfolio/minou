@@ -7,6 +7,7 @@ import {Section} from './Section';
 import {Container} from './Container';
 import {Flex, BoxProps} from './Box';
 import {Link} from './Link';
+import {Button} from './Button';
 
 interface Props extends BoxProps {
   items: ComplexAction[];
@@ -43,7 +44,14 @@ export function Navigation({
   postfix,
   ...props
 }: Props) {
-  const itemsMarkup = items.map(({content, url, ...item}, index) => {
+  const itemsMarkup = items.map(({content, url, onClick, ...item}, index) => {
+    if (onClick) {
+      return (
+        <Button key={index} onClick={onClick} {...item}>
+          {content}
+        </Button>
+      );
+    }
     return (
       <Tab bold key={index} active={location === url} url={url} {...item}>
         {content}

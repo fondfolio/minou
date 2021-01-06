@@ -9,12 +9,12 @@ interface Props extends BoxProps {
 }
 
 const StyledButtonGroup = styled(Flex)`
-  margin-left: -0.4em;
+  margin-left: -1em;
   align-items: baseline;
 
   > button,
   > link {
-    margin: 0 0.4em;
+    margin: 0 1em;
   }
 `;
 
