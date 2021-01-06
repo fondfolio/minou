@@ -158,8 +158,14 @@ export default function Home() {
                 flag={{
                   content: (
                     <>
-                      <Italic>free</Italic> <Link>shipping</Link> and{' '}
-                      <Link>giftwrap</Link>
+                      <Italic>free</Italic>{' '}
+                      <Link url="https://fondfolio.com/?s=shipping">
+                        shipping
+                      </Link>{' '}
+                      and{' '}
+                      <Link url="https://fondfolio.com/help/is-giftwrapping-included-in-the-price">
+                        giftwrap
+                      </Link>
                     </>
                   ),
                 }}
@@ -947,7 +953,20 @@ function SingleChoiceListExample() {
 
   return (
     <ChoiceList
-      title="Events"
+      labelAction={{
+        content: 'Forgot password?',
+        url: '/test',
+      }}
+      label="Describe a fond memory you recall having shared with Minou."
+      help={{
+        hidden: false,
+        icon: Icons.DropDown,
+        text:
+          '**It could be something seemingly mundane** like a great conversation you shared over a *cup of coffee*, or a [completely unique]() and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
+        action: {
+          content: 'Not sure where to start?',
+        },
+      }}
       choices={events.map((event) => ({
         label: event.name,
         value: event.value,

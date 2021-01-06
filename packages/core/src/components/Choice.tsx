@@ -55,7 +55,7 @@ export function Choice({
   onMouseOver,
   selected,
 }: ChoiceProps) {
-  const color = disabled || !selected ? 'secondary' : 'primary';
+  const color = disabled || !selected ? 'black' : 'primary';
   const labelMarkup = (
     <Flex
       as="label"

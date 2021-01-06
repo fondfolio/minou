@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import type {ComplexAction} from '../types';
 
@@ -13,20 +12,30 @@ interface Props extends BoxProps {
   /** The fields of the fieldset*/
   action?: ComplexAction;
   title?: string;
+  sticky?: React.ReactNode;
 }
 
-const StyledFieldSet = styled(Flex)<Props>``;
-
-export function FieldSet({children, action, title}: Props) {
+export function FieldSet({children, sticky, action, title}: Props) {
   const actionMarkup = action ? <Box>{buttonFrom(action)}</Box> : null;
   const titleMarkup = title ? <Title>{title}</Title> : null;
   const pb = action ? 5 : 4;
+  const stickyMarkup = sticky ? (
+    <Flex
+      width="100%"
+      left={['0', null, null, '100%']}
+      position={['relative', null, null, 'absolute']}
+      p={[0, null, null, 3]}
+    >
+      {sticky}
+    </Flex>
+  ) : null;
 
   return (
-    <StyledFieldSet pb={pb} flexDirection="column" flex="0 0">
+    <Flex pb={pb} flexDirection="column" flex="0 0" position="relative">
       {titleMarkup}
       {children}
       {actionMarkup}
-    </StyledFieldSet>
+      {stickyMarkup}
+    </Flex>
   );
 }

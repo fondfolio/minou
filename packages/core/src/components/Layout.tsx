@@ -2,9 +2,9 @@ import React from 'react';
 
 import {Container} from './Container';
 import {Section} from './Section';
-import {Flex} from './Box';
+import {Flex, BoxProps} from './Box';
 
-interface Props {
+interface Props extends BoxProps {
   children: React.ReactNode;
   center?: boolean;
   full?: boolean;

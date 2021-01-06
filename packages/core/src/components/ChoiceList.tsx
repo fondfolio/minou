@@ -7,10 +7,10 @@ import type {Error} from '../types';
 
 import {Checkbox} from './Checkbox';
 import {RadioButton} from './RadioButton';
-import {Label} from './Label';
-import {InlineError, errorTextID} from './InlineError';
+import {errorTextID} from './InlineError';
 import {IconType} from './Icon';
 import {Flex, BoxProps} from './Box';
+import {Labelled, LabelledProps} from './Labelled';
 
 interface Choice {
   /** Value of the choice */
@@ -30,8 +30,6 @@ interface Choice {
 }
 
 export interface ChoiceListProps {
-  /** Label for list of choices */
-  title: React.ReactNode;
   /** Collection of choices */
   choices: Choice[];
   /** Collection of selected choices */
@@ -48,11 +46,19 @@ export interface ChoiceListProps {
   disabled?: boolean;
   /** Callback when the selected choices change */
   onChange?(selected: string[], name: string): void;
+  /** Label for the input */
+  label?: string;
+  /** Adds an action to the label */
+  labelAction?: LabelledProps['action'];
+  /** Adds an action to the help text */
+  help?: LabelledProps['help'];
+  /** Visually hide the label */
+  labelHidden?: boolean;
+  /** ID for the input */
+  id?: string;
 }
 
 export function ChoiceList({
-  title,
-  titleHidden,
   allowMultiple,
   choices,
   selected,
@@ -60,15 +66,16 @@ export function ChoiceList({
   error,
   disabled = false,
   name: nameProp,
+  label,
+  labelHidden,
+  labelAction,
+  id,
+  help,
 }: ChoiceListProps) {
   const ControlComponent = allowMultiple ? Checkbox : RadioButton;
 
   const name = useUniqueId('ChoiceList', nameProp || '') || '';
   const finalName = allowMultiple ? `${name}[]` : name;
-
-  const titleMarkup = title ? (
-    <Label hidden={titleHidden}>{title}</Label>
-  ) : null;
 
   const choicesMarkup = choices.map((choice) => {
     const {
@@ -115,14 +122,17 @@ export function ChoiceList({
     );
   });
 
-  const errorMarkup = error && <InlineError>{error}</InlineError>;
-
   return (
-    <Flex flexDirection="column">
-      {titleMarkup}
+    <Labelled
+      label={label}
+      id={id || ''}
+      error={error}
+      action={labelAction}
+      labelHidden={labelHidden}
+      help={help}
+    >
       <List alignItems="center">{choicesMarkup}</List>
-      {errorMarkup}
-    </Flex>
+    </Labelled>
   );
 }
 
