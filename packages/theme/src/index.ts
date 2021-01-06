@@ -27,18 +27,10 @@ export const pallet = {
   black: '#231D24',
 };
 
-const shadows = {
-  default: '0px 2px 8px 0px rgba(0,0,0,0.10)',
-  Switch: '0 2px 4px 0 rgba(35,29,36,0.20)',
-  outline: '0px 0px 1px 0px rgba(0,0,0,0.4)',
-  smallest: '0px 4px 8px rgba(0,0,0,0.12)',
-  small: '0 5px 10px rgba(0,0,0,0.12)',
-  medium: '0 8px 30px rgba(0,0,0,0.12)',
-  large: '0 30px 60px rgba(0,0,0,0.12)',
-};
-
 const teal = ['#EBFFFF', '#005D63', '#00383C', '#90DEE3'];
 const gray = ['#EAEAEA', '#F5F5F5', '#FBFBFB', '#C0BEC0', '#7E7A7E', '#5B585B'];
+const blue = ['#EEFBFD', '#3FC5D9'];
+const red = ['#FDEEEE', '#EE5E5E', '#B62A34'];
 
 const sans =
   'Franca, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
@@ -69,6 +61,8 @@ export const theme = {
     ...pallet,
     teal,
     gray,
+    blue,
+    red,
     primary: pallet.teal,
     success: pallet.blue,
     warning: pallet.yellowDark,
@@ -103,8 +97,6 @@ export const theme = {
     heading: 1.25,
   },
 
-  shadows,
-
   transitions: {
     all: `all ${timing} ease`,
     background: `background ${timing}`,
@@ -119,26 +111,3 @@ export const theme = {
 };
 
 export default theme;
-
-// bodyLarge: {
-//   fontFamily: 'sans',
-//   lineHeight: 'body',
-//   fontWeight: 'normal',
-//   fontSize: [3],
-// },
-// body: {
-//   fontFamily: 'sans',
-//   lineHeight: 'body',
-//   fontWeight: 'normal',
-//   fontSize: [2],
-// },
-// caption: {
-//   fontFamily: 'sans',
-//   lineHeight: 'body',
-//   fontWeight: 'normal',
-//   fontSize: [1],
-// },
-// caps: {
-//   textTransform: 'uppercase',
-//   letterSpacing: '0.5em',
-// },

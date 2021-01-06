@@ -19,6 +19,7 @@ interface Props extends BoxProps {
   action?: ComplexAction;
   footerText?: React.ReactNode;
   footerAction?: ComplexAction;
+  flag?: FlagProps;
 }
 
 export const cardStyles = css<{active?: boolean}>`
@@ -66,6 +67,17 @@ export const cardStyles = css<{active?: boolean}>`
   `}
 `;
 
+const StyledFlag = styled.div`
+  margin-top: 0px;
+  margin-left: -1px;
+  width: 100%;
+  z-index: 0;
+  margin-bottom: 3px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+`;
+
 const StyledCard = styled(Box)<Props>`
   ${cardStyles}
 `;
@@ -77,6 +89,7 @@ export function Card({
   action,
   footerText,
   footerAction,
+  flag,
   ...props
 }: Props) {
   const actionMarkup = action ? (
@@ -129,13 +142,48 @@ export function Card({
       </Flex>
     );
 
+  const flagMarkup = <Flag {...flag} />;
+
   return (
-    <StyledCard bg="white" borderRadius="card" {...props}>
-      <Box p={4}>
-        {finalLinkedTitleMarkup}
-        {children}
+    <>
+      <StyledCard bg="white" borderRadius="card" {...props}>
+        <Box p={4}>
+          {finalLinkedTitleMarkup}
+          {children}
+        </Box>
+        {footerMarkup}
+      </StyledCard>
+      {flagMarkup}
+    </>
+  );
+}
+
+interface FlagProps {
+  error?: boolean;
+  content?: React.ReactNode;
+}
+
+function Flag({error, content}: FlagProps) {
+  if (!content) {
+    return null;
+  }
+
+  const color = error ? 'red' : 'blue';
+  return (
+    <StyledFlag>
+      <Box
+        px={4}
+        py={2}
+        bg={`${color}.0`}
+        border="1px solid"
+        borderColor={`${color}.1`}
+        borderTop="none"
+        borderRadius="0 0 4px 4px"
+      >
+        <Text small color={`${color}.2`} pb={0} textAlign="center">
+          {content}
+        </Text>
       </Box>
-      {footerMarkup}
-    </StyledCard>
+    </StyledFlag>
   );
 }
