@@ -111,7 +111,7 @@ export function Button({
 
   const linkProps: any = {
     as: url ? 'a' : 'button',
-    href: external ? url : undefined,
+    href: external || looksExternal(url) ? url : undefined,
     type: url ? undefined : type,
   };
 
@@ -182,4 +182,8 @@ export function buttonsFrom(
     const action = actions;
     return buttonFrom(action, overrides);
   }
+}
+
+export function looksExternal(url?: string) {
+  return url?.startsWith('http') || url?.startsWith('mailto');
 }
