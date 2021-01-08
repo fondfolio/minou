@@ -1,0 +1,1 @@
+export {withGraphql} from './apollo';
