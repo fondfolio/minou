@@ -23,7 +23,8 @@ const StyledLink = styled.a<Props>`
   white-space: nowrap;
 
   &:hover {
-    color: ${({theme}) => theme.colors.tealDark};
+    color: ${({theme, unstyled}) =>
+      unstyled ? 'inherit' : theme.colors.tealDark};
     background: ${({theme, unstyled}) =>
       unstyled ? 'none' : theme.colors.teal[0]};
     cursor: pointer;
@@ -103,6 +104,6 @@ export function Link({url, external, children, ...props}: Props) {
   );
 }
 
-function looksExternal(url?: string) {
-  return url?.startsWith('http');
+export function looksExternal(url?: string) {
+  return url?.startsWith('http') || url?.startsWith('mailto');
 }
