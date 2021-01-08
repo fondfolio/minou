@@ -1,14 +1,14 @@
 {
   "name": "@minou/core",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@minou/icons": "^0.0.35",
-    "@minou/theme": "^0.0.35",
-    "@minou/utilities": "^0.0.35",
+    "@minou/icons": "^0.0.36",
+    "@minou/theme": "^0.0.36",
+    "@minou/utilities": "^0.0.36",
     "@types/styled-components": "^5.0.0",
     "@types/styled-system": "^5.1.10",
     "react-markdown": "^5.0.3",
