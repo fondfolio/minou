@@ -75,10 +75,10 @@ interface Props {
   bold?: boolean;
   unstyled?: boolean;
   target?: '_blank';
-  onClick?(): void;
+  onClick?(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void;
 }
 
-export function Link({url, external, children, ...props}: Props) {
+export function Link({url, external, children, onClick, ...props}: Props) {
   if (external) {
     return (
       <StyledLink href={url || ''} active {...props}>
@@ -91,6 +91,21 @@ export function Link({url, external, children, ...props}: Props) {
   if (looksExternal(url)) {
     return (
       <StyledLink href={url || ''} active {...props}>
+        {children}
+      </StyledLink>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <StyledLink
+        active
+        onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+          event.preventDefault();
+          onClick(event);
+        }}
+        {...props}
+      >
         {children}
       </StyledLink>
     );

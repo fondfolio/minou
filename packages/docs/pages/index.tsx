@@ -40,6 +40,7 @@ import {
   ButtonGroup,
   Checkbox,
   Footer,
+  SupportFooter,
   ChoiceList,
 } from 'minou';
 import copy from 'copy-to-clipboard';
@@ -783,6 +784,7 @@ export default function Home() {
           </Section>
         </Container>
       </Page>
+      <SupportFooter />
       <Footer />
     </>
   );
