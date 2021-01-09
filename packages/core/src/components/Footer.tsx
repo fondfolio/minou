@@ -48,11 +48,12 @@ export function Footer() {
             <Box display={['none', 'block']}>
               <Bullet />
             </Box>
-            <Text pb={0} small pr={3}>
-              <Italic>Proudly made</Italic> in Toronto and Berlin by Cartogram
-              Inc
+            <Text pb={0} small>
+              <Italic>Proudly made in Toronto &amp; Berlin</Italic>
+              {/* <Bullet /> <Link>Cartogram</Link> */}
             </Text>
-            <ButtonGroup>
+            <Bullet />
+            <ButtonGroup pl={3} pt={[3, 0]}>
               <Link unstyled url="https://twitter.com/fondfolio">
                 <Icon color="primary" icon={Icons.Twitter} />
               </Link>
