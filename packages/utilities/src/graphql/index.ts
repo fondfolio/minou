@@ -1,1 +1,1 @@
-export {withGraphql} from './apollo';
+export {withApollo as withGraphql} from './apollo';

@@ -88,7 +88,7 @@ function initApolloClient(
  * @param  {Boolean} [withApolloOptions.ssr=false]
  * @returns {(PageComponent: ReactNode) => ReactNode}
  */
-export const withGraphql = ({ssr = true} = {}) => (PageComponent: any) => {
+export const withApollo = ({ssr = true} = {}) => (PageComponent: any) => {
   const WithApollo = ({apolloClient, apolloState, ...pageProps}: any) => {
     let client;
     if (apolloClient) {
