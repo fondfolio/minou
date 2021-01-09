@@ -38,7 +38,7 @@ export function Form({
         {errors.map((error, index) => {
           const message = typeof error === 'string' ? error : error.message;
           return (
-            <Banner variant="error" key={`${message}${index}`}>
+            <Banner mb={2} variant="error" key={`${message}${index}`}>
               {message}
             </Banner>
           );

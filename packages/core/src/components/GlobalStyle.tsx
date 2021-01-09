@@ -36,6 +36,7 @@ export const GlobalStyle = createGlobalStyle`
     
     background: linear-gradient(90deg, ${props.background} 22px, transparent 1%) center, linear-gradient(${props.background} 22px, transparent 1%) center, ${props.color};
     background-size: ${props.space} ${props.space};
+    background: url("minou/bg.png")
 
   }
 

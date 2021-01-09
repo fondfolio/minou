@@ -259,7 +259,7 @@ export default function Home() {
             </Card>
           </Box>
           <Box>
-            <Banner title="Whoops!" variant="error">
+            <Banner title="Whoops!" variant="error" flag={{content: 'report'}}>
               You did not enter a username or a password.
             </Banner>
             <Banner variant="error">

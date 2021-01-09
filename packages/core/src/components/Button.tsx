@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NextLink from 'next/link';
-import {reset} from '@minou/utilities';
+import {reset, looksExternal} from '@minou/utilities';
 
 import {ComplexAction} from '../types';
 
@@ -182,8 +182,4 @@ export function buttonsFrom(
     const action = actions;
     return buttonFrom(action, overrides);
   }
-}
-
-export function looksExternal(url?: string) {
-  return url?.startsWith('http') || url?.startsWith('mailto');
 }

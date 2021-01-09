@@ -2,7 +2,7 @@ import React from 'react';
 import NextLink from 'next/link';
 import styled, {css} from 'styled-components';
 import {Icons} from '@minou/icons';
-import {toPx} from '@minou/utilities';
+import {toPx, looksExternal} from '@minou/utilities';
 
 import {Icon} from './Icon';
 
@@ -75,6 +75,7 @@ interface Props {
   bold?: boolean;
   unstyled?: boolean;
   target?: '_blank';
+  onClick?(): void;
 }
 
 export function Link({url, external, children, ...props}: Props) {
@@ -102,8 +103,4 @@ export function Link({url, external, children, ...props}: Props) {
       </StyledLink>
     </NextLink>
   );
-}
-
-export function looksExternal(url?: string) {
-  return url?.startsWith('http') || url?.startsWith('mailto');
 }
