@@ -53,7 +53,7 @@ export function SupportFooter() {
             flexDirection="column"
             alignItems="center"
           >
-            <Text pb={0} large textAlign="center">
+            <Text pb={0} large textAlign={['center', 'left']}>
               Updates, gifting tips, and promos
               <br />— an occasional newsletter
             </Text>
