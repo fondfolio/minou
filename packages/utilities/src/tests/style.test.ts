@@ -1,4 +1,4 @@
-import {createScale} from '../utilities';
+import {createScale} from '../style';
 
 describe('utilities', () => {
   describe('createScale', () => {
