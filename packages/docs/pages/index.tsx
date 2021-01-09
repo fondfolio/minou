@@ -122,8 +122,8 @@ export default function Home() {
                   error: true,
                   content: (
                     <Flex alignItems="center" justifyContent="center">
-                      <Icon color="error" icon={Icons.Flag} />{' '}
-                      <Italic>Something is wrong! </Italic> Do better.
+                      <Icon color="error" icon={Icons.FlagSmall} />{' '}
+                      <Italic>Something is wrong! </Italic>&nbsp; Do better.
                     </Flex>
                   ),
                 }}
@@ -317,6 +317,7 @@ export default function Home() {
             <IconBox icon={Icons.SquareUnchecked} />
             <IconBox icon={Icons.SquareChecked} />
             <IconBox icon={Icons.Flag} />
+            <IconBox icon={Icons.FlagSmall} />
             <IconBox icon={Icons.MoreDots} />
             <IconBox icon={Icons.Clipboard} />
             <IconBox icon={Icons.Search} />
