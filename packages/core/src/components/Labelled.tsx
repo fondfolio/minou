@@ -131,7 +131,14 @@ function HelpText({
     <Rule mb={1} action={action} center={center} icon={icon} />
   ) : null;
   const textMarkup = hidden ? null : (
-    <Text textAlign={textAlign} pt="1" pb={0} small id={helpTextID(id)}>
+    <Text
+      as="div"
+      textAlign={textAlign}
+      pt="1"
+      pb={0}
+      small
+      id={helpTextID(id)}
+    >
       <Markdown>{text}</Markdown>
     </Text>
   );

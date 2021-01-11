@@ -11,5 +11,5 @@ export {formatDate, formatDateFromNow, formatDateWithAddedDays} from './dates';
 export {useUniqueId, globalIdGeneratorFactory} from './unique-id';
 export {useToggle} from './use-toggle';
 export {formatCurrency} from './currency';
-export {withGraphql} from './graphql';
+export {withGraphql, getToken, TOKEN_NAME} from './graphql';
 export {looksExternal} from './url';

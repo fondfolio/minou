@@ -22,7 +22,6 @@ const Item = styled(Link)<ComplexAction>`
 
 export function Menu({items, location, ...props}: Props) {
   const itemsMarkup = items.map(({content, segment, url, ...item}, index) => {
-    console.log(url, location, url === location);
     const itemMarkup = (
       <Item key={index} bold={url === location} url={url} unstyled {...item}>
         {content}

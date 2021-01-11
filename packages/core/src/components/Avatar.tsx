@@ -5,7 +5,7 @@ import {Image} from './Image';
 
 interface User {
   name?: string;
-  picture?: string;
+  picture?: string | null;
 }
 
 interface Props {
