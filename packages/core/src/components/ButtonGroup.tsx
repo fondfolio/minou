@@ -1,23 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
+import {toPx} from '@minou/utilities';
 
 import {Flex, BoxProps} from './Box';
 
 interface Props extends BoxProps {
+  size?: 'narrow';
   /** Button components */
   children?: React.ReactNode;
 }
 
-const StyledButtonGroup = styled(Flex)`
-  margin-left: -1em;
+const StyledButtonGroup = styled(Flex)<{spacing: number}>`
+  margin-left: ${({spacing}) => toPx(spacing)};
   align-items: baseline;
 
   > button,
   > link {
-    margin: 0 1em;
+    margin: 0 ${({spacing}) => toPx(spacing)};
   }
 `;
 
-export function ButtonGroup(props: Props) {
-  return <StyledButtonGroup {...props} />;
+export function ButtonGroup({size, ...props}: Props) {
+  const spacing = {
+    narrow: 6,
+  };
+
+  const spacingUnit = size ? spacing[size] : 8;
+  return <StyledButtonGroup spacing={spacingUnit} {...props} />;
 }

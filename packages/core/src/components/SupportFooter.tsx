@@ -27,7 +27,7 @@ export function SupportFooter() {
           justifyContent="center"
           flexDirection={['column', 'row']}
         >
-          <Box px={3}>
+          <Box width={['100%', '50%']} px={3}>
             <Text pb={0} large textAlign={['center', 'right']}>
               <Italic>Questions?</Italic> We’re here to help.
               <br />
@@ -47,12 +47,7 @@ export function SupportFooter() {
               We value your words.
             </Text>
           </Box>
-          <Flex
-            px={3}
-            justifyContent="center"
-            flexDirection="column"
-            alignItems="center"
-          >
+          <Flex width={['100%', '50%']} px={3} flexDirection="column">
             <Text pb={0} large textAlign={['center', 'left']}>
               Updates, gifting tips, and promos
               <br />— an occasional newsletter
@@ -67,7 +62,7 @@ export function SupportFooter() {
 
 function NewsletterSignupForm() {
   const textMarkup = (
-    <Text pb={0} textAlign="center" color="primary" large>
+    <Text pb={0} textAlign={['center', 'left']} color="primary" large>
       Subscribe for 15% off your first order
     </Text>
   );

@@ -55,6 +55,7 @@ export {Icon} from './Icon';
 export {Dropdown} from './Dropdown';
 export {Modal} from './Modal';
 export {Toast} from './Toast';
+export {Portal} from './Portal';
 
 /** Navigation */
 export {Navigation} from './Navigation';

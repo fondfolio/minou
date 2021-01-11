@@ -52,7 +52,9 @@ export function Footer() {
               <Italic>Proudly made in Toronto &amp; Berlin</Italic>
               {/* <Bullet /> <Link>Cartogram</Link> */}
             </Text>
-            <Bullet />
+            <Box display={['none', 'block']}>
+              <Bullet />
+            </Box>
             <ButtonGroup pl={3} pt={[3, 0]}>
               <Link unstyled url="https://twitter.com/fondfolio">
                 <Icon color="primary" icon={Icons.Twitter} />
