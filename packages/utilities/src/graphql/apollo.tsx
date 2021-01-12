@@ -8,7 +8,7 @@ import {
   ApolloProvider,
 } from '@apollo/client';
 
-import createApolloClient from './client';
+import {createApolloClient, CreateApolloClientOptions} from './client';
 
 // On the client, we store the Apollo Client in the following variable.
 // This prevents the client from reinitializing between page transitions.
@@ -63,18 +63,19 @@ export const initOnContext = (ctx: any) => {
  * @param  {NextPageContext} ctx
  */
 function initApolloClient(
+  options: CreateApolloClientOptions,
   initialState: NormalizedCacheObject,
   ctx?: NextPageContext,
 ) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (typeof window === 'undefined') {
-    return createApolloClient(initialState, ctx);
+    return createApolloClient(options, initialState, ctx);
   }
 
   // Reuse client on the client-side
   if (!globalApolloClient) {
-    globalApolloClient = createApolloClient(initialState, ctx);
+    globalApolloClient = createApolloClient(options, initialState, ctx);
   }
 
   return globalApolloClient;
@@ -88,7 +89,10 @@ function initApolloClient(
  * @param  {Boolean} [withApolloOptions.ssr=false]
  * @returns {(PageComponent: ReactNode) => ReactNode}
  */
-export const withApollo = ({ssr = true} = {}) => (PageComponent: any) => {
+export const withApollo = ({
+  ssr = true,
+  url = 'http://localhost:3000/api/graphql',
+} = {}) => (PageComponent: any) => {
   const WithApollo = ({apolloClient, apolloState, ...pageProps}: any) => {
     let client;
     if (apolloClient) {
@@ -96,7 +100,7 @@ export const withApollo = ({ssr = true} = {}) => (PageComponent: any) => {
       client = apolloClient;
     } else {
       // Happens on: next.js csr
-      client = initApolloClient(apolloState, undefined);
+      client = initApolloClient({url}, apolloState, undefined);
     }
 
     return (

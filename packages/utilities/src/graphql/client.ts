@@ -11,10 +11,14 @@ import {getToken} from './token';
 
 dotenv.config();
 
-const uri = process.env.GRAPHQL_ENDPOINT;
 const permanantToken = process.env.GRAPHQL_ACCESS_TOKEN;
 
-export default function createApolloClient(
+export interface CreateApolloClientOptions {
+  url: string;
+}
+
+export function createApolloClient(
+  options: CreateApolloClientOptions,
   initialState: NormalizedCacheObject,
   ctx?: NextPageContext,
 ) {
@@ -24,7 +28,7 @@ export default function createApolloClient(
   return new ApolloClient({
     ssrMode: isServer,
     link: new HttpLink({
-      uri,
+      uri: options.url,
       headers: {
         authorization: `Bearer ${token || permanantToken}`,
       },
