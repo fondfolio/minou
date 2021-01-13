@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Icons} from '@minou/icons';
+import {IconName} from '@minou/icons';
 import {center} from '@minou/utilities';
 
 import {ComplexAction} from '../types';
@@ -47,7 +47,7 @@ export function Modal({
 
   const closeMarkup = (
     <Button unstyled onClick={onClose} color="destructive">
-      <Icon icon={Icons.Close} />
+      <Icon icon={IconName.Close} />
     </Button>
   );
   const titleMarkup = title ? <Label pb="0">{title}</Label> : null;

@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import {IconType} from '@minou/icons';
+import {IconName, useIcon} from '@minou/icons';
 
 import {Box, BoxProps} from './Box';
 
-export {IconType};
+export {IconName};
 
 const DEFAULT_SIZE = 24;
 
 interface Props extends BoxProps {
-  icon?: IconType;
+  icon?: IconName;
   overrides?: React.SVGProps<SVGElement>;
 }
 
@@ -19,11 +19,9 @@ const StyledIcon = styled(Box)<Props>`
 `;
 
 export function Icon({icon, overrides, ...props}: Props) {
-  if (!icon) {
-    return null;
-  }
+  const iconConfig = useIcon(icon);
 
-  const {width = DEFAULT_SIZE, height = DEFAULT_SIZE} = icon;
+  const {width = DEFAULT_SIZE, height = DEFAULT_SIZE} = iconConfig || {};
 
   return (
     <StyledIcon
@@ -36,7 +34,7 @@ export function Icon({icon, overrides, ...props}: Props) {
       {...props}
       {...overrides}
     >
-      {icon.path}
+      {iconConfig.path}
     </StyledIcon>
   );
 }

@@ -6,7 +6,70 @@ export interface IconType {
   height?: number;
 }
 
-export const Icons: {[key: string]: IconType} = {
+export enum IconName {
+  LogoWord = 'LogoWord',
+  Logo = 'Logo',
+  LogoIcon = 'LogoIcon',
+  LogoIconLarge = 'LogoIconLarge',
+  Facebook = 'Facebook',
+  Twitter = 'Twitter',
+  Instagram = 'Instagram',
+  ArrowDown = 'ArrowDown',
+  ArrowUp = 'ArrowUp',
+  ArrowLongRight = 'ArrowLongRight',
+  ArrowLongLeft = 'ArrowLongLeft',
+  ArrowLongExternal = 'ArrowLongExternal',
+  DropUp = 'DropUp',
+  DropDown = 'DropDown',
+  Close = 'Close',
+  SquareUnchecked = 'SquareUnchecked',
+  SquareChecked = 'SquareChecked',
+  FlagSmall = 'FlagSmall',
+  Flag = 'Flag',
+  Clipboard = 'Clipboard',
+  MoreDots = 'MoreDots',
+  Search = 'Search',
+  Lightbulb = 'Lightbulb',
+  Mail = 'Mail',
+  Tooltip = 'Tooltip',
+  Plus = 'Plus',
+  Success = 'Success',
+  Warning = 'Warning',
+  Info = 'Info',
+  Error = 'Error',
+  User = 'User',
+  Folio = 'Folio',
+  OptionHardcover = 'OptionHardcover',
+  OptionDigital = 'OptionDigital',
+  OptionCustom = 'OptionCustom',
+  FolioLarge = 'FolioLarge',
+  EventBirthday = 'EventBirthday',
+  EventAnniversary = 'EventAnniversary',
+  EventWedding = 'EventWedding',
+  EventEngagement = 'EventEngagement',
+  EventCause = 'EventCause',
+  EventRetirement = 'EventRetirement',
+  EventMoving = 'EventMoving',
+  EventNewborn = 'EventNewborn',
+  EventSuccess = 'EventSuccess',
+  EventRemembering = 'EventRemembering',
+  EventRecovery = 'EventRecovery',
+  Spinner = 'Spinner',
+  EventBirthdayLarge = 'EventBirthdayLarge',
+  EventAnniversaryLarge = 'EventAnniversaryLarge',
+  EventWeddingLarge = 'EventWeddingLarge',
+  EventEngagementLarge = 'EventEngagementLarge',
+  EventCauseLarge = 'EventCauseLarge',
+  EventRetirementLarge = 'EventRetirementLarge',
+  EventMovingLarge = 'EventMovingLarge',
+  EventNewbornLarge = 'EventNewbornLarge',
+  EventSuccessLarge = 'EventSuccessLarge',
+  EventRememberingLarge = 'EventRememberingLarge',
+  EventRecoveryLarge = 'EventRecoveryLarge',
+  LogoAnimated = 'LogoAnimated',
+}
+
+export const Icons: Record<IconName, IconType> = {
   LogoWord: {
     width: 140,
     path: (
@@ -76,6 +139,28 @@ export const Icons: {[key: string]: IconType} = {
 			c0,3.24-2.641,6.082-5.652,6.082H15.076l-0.002-9.815h5.852c0.497,0,0.9-0.403,0.9-0.9s-0.403-0.9-0.9-0.9h-5.852l0-0.96
 			c0-3.073,2.482-5.48,5.651-5.48h12.198l0.003,9.86h-5.742c-0.497,0-0.9,0.403-0.9,0.9S26.688,26.633,27.185,26.633z"
       />
+    ),
+  },
+  LogoAnimated: {
+    path: (
+      <circle
+        cx="50"
+        cy="50"
+        fill="none"
+        stroke="primary"
+        strokeWidth="6"
+        r="37"
+        strokeDasharray="174.35839227423352 60.119464091411174"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          repeatCount="indefinite"
+          dur="0.6097560975609756s"
+          values="0 50 50;360 50 50"
+          keyTimes="0;1"
+        />
+      </circle>
     ),
   },
   Facebook: {

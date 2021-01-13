@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Icons} from '@minou/icons';
+import {IconName} from '@minou/icons';
 
 import {ComplexAction} from '../types';
 
@@ -50,7 +50,7 @@ export function Toast({content, onClick, action, error, variant}: ToastProps) {
       </Box>
       {actionMarkup}
       <Button onClick={onClick} unstyled>
-        <Icon icon={Icons.Close} color="white" />
+        <Icon icon={IconName.Close} color="white" />
       </Button>
     </StyledContent>
   );

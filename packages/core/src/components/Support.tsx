@@ -4,7 +4,6 @@ import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import {typography, TypographyProps} from 'styled-system';
-import {Icons} from '@minou/icons';
 
 import {Italic} from './Italic';
 import {Link} from './Link';
@@ -13,7 +12,7 @@ import {VisuallyHidden} from './VisuallyHidden';
 import {Text} from './Text';
 import {Container} from './Container';
 import {Section} from './Section';
-import {Icon} from './Icon';
+import {Icon, IconName} from './Icon';
 
 export function Support() {
   return (
@@ -86,7 +85,7 @@ function NewsletterSignupForm() {
       </VisuallyHidden>
       <VisuallyHidden hidden>
         <StyledButton type="submit">
-          <Icon color="primary" icon={Icons.ArrowLongExternal} />
+          <Icon color="primary" icon={IconName.ArrowLongExternal} />
         </StyledButton>
       </VisuallyHidden>
     </StyledForm>

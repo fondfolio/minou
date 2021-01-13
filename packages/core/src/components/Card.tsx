@@ -6,7 +6,7 @@ import type {ComplexAction} from '../types';
 import {buttonsFrom} from './Button';
 import {Box, Flex, BoxProps} from './Box';
 import {Label} from './Label';
-import {Icon, IconType} from './Icon';
+import {Icon, IconName} from './Icon';
 import {Link} from './Link';
 import {Text} from './Text';
 import {Rule} from './Rule';
@@ -15,7 +15,7 @@ import {Flag} from './Flag';
 interface Props extends BoxProps {
   active?: boolean;
   title?: React.ReactNode;
-  icon?: IconType;
+  icon?: IconName;
   children: React.ReactNode;
   action?: ComplexAction;
   footerText?: React.ReactNode;

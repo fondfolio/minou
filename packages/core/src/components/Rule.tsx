@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 import {Action} from '../types';
 
-import {Icon, IconType} from './Icon';
+import {Icon, IconName} from './Icon';
 import {Text} from './Text';
 import {Flex, BoxProps} from './Box';
 import {buttonFrom} from './Button';
 
 interface Props extends BoxProps {
-  icon?: IconType;
+  icon?: IconName;
   text?: React.ReactNode;
   action?: Action;
   center?: boolean;

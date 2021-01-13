@@ -5,6 +5,9 @@
   "scripts": {
     "build": "tsc"
   },
+  "dependencies": {
+    "change-case": "^4.0.0"
+  },
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

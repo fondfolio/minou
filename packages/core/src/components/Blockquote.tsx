@@ -16,8 +16,10 @@ export function Blockquote({citation, children}: Props) {
       <Display textAlign="center" italic>
         {children}
       </Display>
-      <Box pt="4">
-        <Text textAlign="center">– {citation}</Text>
+      <Box>
+        <Text as="span" textAlign="center">
+          – {citation}
+        </Text>
       </Box>
     </Flex>
   );

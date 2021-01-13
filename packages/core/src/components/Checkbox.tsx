@@ -6,7 +6,7 @@ import {Error, Key} from '../types';
 
 import {Choice, helpTextID} from './Choice';
 import {errorTextID} from './InlineError';
-import {Icon, IconType} from './Icon';
+import {Icon, IconName} from './Icon';
 
 export interface CheckboxProps {
   /** Indicates the ID of the element that describes the checkbox*/
@@ -35,7 +35,7 @@ export interface CheckboxProps {
   onFocus?(): void;
   /** Callback when focus is removed */
   onBlur?(): void;
-  icon?: IconType;
+  icon?: IconName;
   children?: React.ReactNode;
 }
 

@@ -12,7 +12,7 @@ export function Display(props: Props) {
     <Text
       lineHeight="heading"
       fontFamily="serif"
-      fontSize={[3, 4]}
+      fontSize={[2, 3, 4]}
       {...props}
     />
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Icons} from '@minou/icons';
+import {IconName} from '@minou/icons';
 
 import {Flex, BoxProps} from './Box';
 import {Text} from './Text';
@@ -55,12 +55,12 @@ export function Banner({children, variant, title, flag, ...props}: Props) {
 function iconForVariant(variant?: 'success' | 'error' | 'warning') {
   switch (variant) {
     case 'success':
-      return Icons.Success;
+      return IconName.Success;
     case 'warning':
-      return Icons.Warning;
+      return IconName.Warning;
     case 'error':
-      return Icons.Error;
+      return IconName.Error;
     default:
-      return Icons.Info;
+      return IconName.Info;
   }
 }

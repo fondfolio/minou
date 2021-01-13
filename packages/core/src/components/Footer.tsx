@@ -1,5 +1,4 @@
 import React from 'react';
-import {Icons} from '@minou/icons';
 
 import {Navigation} from './Navigation';
 import {Italic} from './Italic';
@@ -9,7 +8,7 @@ import {Bullet} from './Bullet';
 import {Flex, Box} from './Box';
 import {Label} from './Label';
 import {Text} from './Text';
-import {Icon} from './Icon';
+import {Icon, IconName} from './Icon';
 import {Container} from './Container';
 import {Section} from './Section';
 
@@ -55,15 +54,15 @@ export function Footer() {
             <Box display={['none', 'block']}>
               <Bullet />
             </Box>
-            <ButtonGroup pl={[3, 0]} pt={[3, 0]}>
+            <ButtonGroup pt={[3, 0]}>
               <Link unstyled url="https://twitter.com/fondfolio">
-                <Icon color="primary" icon={Icons.Twitter} />
+                <Icon color="primary" icon={IconName.Twitter} />
               </Link>
               <Link unstyled url="https://www.instagram.com/fondfolio">
-                <Icon color="primary" icon={Icons.Instagram} />
+                <Icon color="primary" icon={IconName.Instagram} />
               </Link>
               <Link unstyled url="https://www.facebook.com/fondfolio/">
-                <Icon color="primary" icon={Icons.Facebook} />
+                <Icon color="primary" icon={IconName.Facebook} />
               </Link>
             </ButtonGroup>
           </Flex>

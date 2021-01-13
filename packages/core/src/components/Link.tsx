@@ -1,7 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import styled, {css} from 'styled-components';
-import {Icons} from '@minou/icons';
+import {IconName} from '@minou/icons';
 import {toPx, looksExternal} from '@minou/utilities';
 
 import {Icon} from './Icon';
@@ -83,7 +83,7 @@ export function Link({url, external, children, onClick, ...props}: Props) {
     return (
       <StyledLink href={url || ''} active {...props}>
         {children}
-        <Icon color="primary" icon={Icons.ArrowLongExternal} />
+        <Icon color="primary" icon={IconName.ArrowLongExternal} />
       </StyledLink>
     );
   }

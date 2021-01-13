@@ -42,6 +42,7 @@ import {
   Footer,
   Support,
   ChoiceList,
+  IconName,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -122,13 +123,13 @@ export default function Home() {
                   error: true,
                   content: (
                     <Flex alignItems="center" justifyContent="center">
-                      <Icon color="error" icon={Icons.FlagSmall} />{' '}
+                      <Icon color="error" icon={IconName.FlagSmall} />{' '}
                       <Italic>Something is wrong! </Italic>&nbsp; Do better.
                     </Flex>
                   ),
                 }}
                 active
-                icon={Icons.EventBirthday}
+                icon={IconName.EventBirthday}
                 title={fondfolio.title}
                 action={{content: 'View'}}
                 footerAction={{
@@ -177,7 +178,7 @@ export default function Home() {
                   <Link unstyled bold>
                     <Flex alignItems="center">
                       <Box pr={2}>
-                        <Icon icon={Icons.EventBirthday} color="primary" />
+                        <Icon icon={IconName.EventBirthday} color="primary" />
                       </Box>
                       {fondfolio.title}
                     </Flex>
@@ -302,67 +303,67 @@ export default function Home() {
             <Order />
           </Box>
         </Layout>
-        <Rule m={4} icon={Icons.LogoIcon} color="primary" center />
+        <Rule m={4} icon={IconName.LogoIcon} color="primary" center />
         <Layout full>
           <Flex pb={2} flexWrap="wrap" justifyContent="center">
-            <IconBox icon={Icons.User} />
-            <IconBox icon={Icons.ArrowDown} />
-            <IconBox icon={Icons.ArrowUp} />
-            <IconBox icon={Icons.DropUp} />
-            <IconBox icon={Icons.DropDown} />
-            <IconBox icon={Icons.ArrowLongRight} />
-            <IconBox icon={Icons.ArrowLongLeft} />
-            <IconBox icon={Icons.ArrowLongExternal} />
-            <IconBox icon={Icons.Close} />
-            <IconBox icon={Icons.SquareUnchecked} />
-            <IconBox icon={Icons.SquareChecked} />
-            <IconBox icon={Icons.Flag} />
-            <IconBox icon={Icons.FlagSmall} />
-            <IconBox icon={Icons.MoreDots} />
-            <IconBox icon={Icons.Clipboard} />
-            <IconBox icon={Icons.Search} />
-            <IconBox icon={Icons.Lightbulb} />
-            <IconBox icon={Icons.Mail} />
-            <IconBox icon={Icons.Tooltip} />
-            <IconBox icon={Icons.Plus} />
-            <IconBox icon={Icons.EventMoving} />
-            <IconBox icon={Icons.EventMovingLarge} />
-            <IconBox icon={Icons.EventBirthday} />
-            <IconBox icon={Icons.EventBirthdayLarge} />
-            <IconBox icon={Icons.EventCause} />
-            <IconBox icon={Icons.EventCauseLarge} />
-            <IconBox icon={Icons.EventAnniversary} />
-            <IconBox icon={Icons.EventAnniversaryLarge} />
-            <IconBox icon={Icons.EventEngagement} />
-            <IconBox icon={Icons.EventEngagementLarge} />
-            <IconBox icon={Icons.EventWedding} />
-            <IconBox icon={Icons.EventWeddingLarge} />
-            <IconBox icon={Icons.EventRetirement} />
-            <IconBox icon={Icons.EventRetirementLarge} />
-            <IconBox icon={Icons.EventRecovery} />
-            <IconBox icon={Icons.EventRecoveryLarge} />
-            <IconBox icon={Icons.EventRemembering} />
-            <IconBox icon={Icons.EventRememberingLarge} />
-            <IconBox icon={Icons.EventSuccess} />
-            <IconBox icon={Icons.EventSuccessLarge} />
-            <IconBox icon={Icons.EventNewborn} />
-            <IconBox icon={Icons.EventNewbornLarge} />
-            <IconBox icon={Icons.Folio} />
-            <IconBox icon={Icons.FolioLarge} />
-            <IconBox icon={Icons.LogoIcon} />
-            <IconBox icon={Icons.LogoIconLarge} />
-            <IconBox icon={Icons.LogoWord} />
-            <IconBox icon={Icons.Logo} />
-            <IconBox icon={Icons.Facebook} />
-            <IconBox icon={Icons.Twitter} />
-            <IconBox icon={Icons.Instagram} />
-            <IconBox icon={Icons.Success} />
-            <IconBox icon={Icons.Error} />
-            <IconBox icon={Icons.Warning} />
-            <IconBox icon={Icons.Info} />
-            <IconBox icon={Icons.OptionHardcover} />
-            <IconBox icon={Icons.OptionDigital} />
-            <IconBox icon={Icons.OptionCustom} />
+            <IconBox icon="User" />
+            <IconBox icon="ArrowDown" />
+            <IconBox icon="ArrowUp" />
+            <IconBox icon="DropUp" />
+            <IconBox icon="DropDown" />
+            <IconBox icon="ArrowLongRight" />
+            <IconBox icon="ArrowLongLeft" />
+            <IconBox icon="ArrowLongExternal" />
+            <IconBox icon="Close" />
+            <IconBox icon="SquareUnchecked" />
+            <IconBox icon="SquareChecked" />
+            <IconBox icon="Flag" />
+            <IconBox icon="FlagSmall" />
+            <IconBox icon="MoreDots" />
+            <IconBox icon="Clipboard" />
+            <IconBox icon="Search" />
+            <IconBox icon="Lightbulb" />
+            <IconBox icon="Mail" />
+            <IconBox icon="Tooltip" />
+            <IconBox icon="Plus" />
+            <IconBox icon="EventMoving" />
+            <IconBox icon="EventMovingLarge" />
+            <IconBox icon="EventBirthday" />
+            <IconBox icon="EventBirthdayLarge" />
+            <IconBox icon="EventCause" />
+            <IconBox icon="EventCauseLarge" />
+            <IconBox icon="EventAnniversary" />
+            <IconBox icon="EventAnniversaryLarge" />
+            <IconBox icon="EventEngagement" />
+            <IconBox icon="EventEngagementLarge" />
+            <IconBox icon="EventWedding" />
+            <IconBox icon="EventWeddingLarge" />
+            <IconBox icon="EventRetirement" />
+            <IconBox icon="EventRetirementLarge" />
+            <IconBox icon="EventRecovery" />
+            <IconBox icon="EventRecoveryLarge" />
+            <IconBox icon="EventRemembering" />
+            <IconBox icon="EventRememberingLarge" />
+            <IconBox icon="EventSuccess" />
+            <IconBox icon="EventSuccessLarge" />
+            <IconBox icon="EventNewborn" />
+            <IconBox icon="EventNewbornLarge" />
+            <IconBox icon="Folio" />
+            <IconBox icon="FolioLarge" />
+            <IconBox icon="LogoIcon" />
+            <IconBox icon="LogoIconLarge" />
+            <IconBox icon="LogoWord" />
+            <IconBox icon="Logo" />
+            <IconBox icon="Facebook" />
+            <IconBox icon="Twitter" />
+            <IconBox icon="Instagram" />
+            <IconBox icon="Success" />
+            <IconBox icon="Error" />
+            <IconBox icon="Warning" />
+            <IconBox icon="Info" />
+            <IconBox icon="OptionHardcover" />
+            <IconBox icon="OptionDigital" />
+            <IconBox icon="OptionCustom" />
             <Spinner />
           </Flex>
         </Layout>
@@ -388,7 +389,7 @@ export default function Home() {
           <Flex flexWrap={['wrap', 'nowrap']}>
             <Card active title="Digital Only">
               <Box py={3}>
-                <Icon icon={Icons.OptionDigital} />
+                <Icon icon={IconName.OptionDigital} />
               </Box>
               <Text large>
                 Your Fondfolio contributions stored online forever in a
@@ -403,7 +404,7 @@ export default function Home() {
 
             <Card active title="Digital + Hardcover">
               <Box py={3}>
-                <Icon icon={Icons.OptionHardcover} />
+                <Icon icon={IconName.OptionHardcover} />
               </Box>
               <Text large>
                 Everything you get with digital, plus a beautiful handmade
@@ -417,7 +418,7 @@ export default function Home() {
             </Card>
             <Card active title="Digital + Custom">
               <Box py={3}>
-                <Icon icon={Icons.OptionCustom} />
+                <Icon icon={IconName.OptionCustom} />
               </Box>
               <Text large>
                 Solid hardwood cover? Custom engraving inside? Handmade book
@@ -453,7 +454,7 @@ export default function Home() {
               external: true,
               content: (
                 <>
-                  <Icon icon={Icons.ArrowLongLeft} color="primary" />
+                  <Icon icon={IconName.ArrowLongLeft} color="primary" />
                   My fondfolios
                 </>
               ),
@@ -499,7 +500,7 @@ export default function Home() {
               <Card
                 active
                 title="Need help collecting contributions?"
-                icon={Icons.Lightbulb}
+                icon={IconName.Lightbulb}
                 action={{content: 'Read our Share FAQ'}}
               >
                 <Text pb={0}>
@@ -537,7 +538,7 @@ export default function Home() {
             </Card>
           </Section>
         </Container>
-        <Rule my={2} icon={Icons.LogoIcon} center />
+        <Rule my={2} icon={IconName.LogoIcon} center />
         <Container>
           <Section justifyContent="center" flexDirection={['column', 'row']}>
             <Box px={3}>
@@ -585,13 +586,13 @@ export default function Home() {
             </Flex>
             <ButtonGroup>
               <Link unstyled>
-                <Icon color="primary" icon={Icons.Twitter} />
+                <Icon color="primary" icon={IconName.Twitter} />
               </Link>
               <Link unstyled>
-                <Icon color="primary" icon={Icons.Instagram} />
+                <Icon color="primary" icon={IconName.Instagram} />
               </Link>
               <Link unstyled>
-                <Icon color="primary" icon={Icons.Facebook} />
+                <Icon color="primary" icon={IconName.Facebook} />
               </Link>
             </ButtonGroup>
           </Section>
@@ -730,7 +731,7 @@ export default function Home() {
           <Section>
             <Layout center>
               <>
-                <Icon icon={Icons.EventAnniversaryLarge} m="auto" />
+                <Icon icon={IconName.EventAnniversaryLarge} m="auto" />
                 <Display textAlign="center" italic>
                   Minou’s Anniversary
                 </Display>
@@ -769,7 +770,7 @@ export default function Home() {
                   label="Describe a fond memory you recall having shared with Minou."
                   help={{
                     hidden: false,
-                    icon: Icons.DropDown,
+                    icon: IconName.DropDown,
                     text:
                       '**It could be something seemingly mundane** like a great conversation you shared over a *cup of coffee*, or a [completely unique]() and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
                     action: {
@@ -809,7 +810,7 @@ function UserMenu() {
 
   const activator = (
     <Flex alignItems="center">
-      <Icon icon={Icons.DropDown} color="primary" />
+      <Icon icon={IconName.DropDown} color="primary" />
       <Avatar active={popoverActive} onClick={togglePopoverActive} />
     </Flex>
   );
@@ -927,7 +928,7 @@ function LoginSignUp() {
         label="Describe a fond memory you recall having shared with Minou."
         help={{
           hidden: false,
-          icon: Icons.DropDown,
+          icon: IconName.DropDown,
           text:
             '**It could be something seemingly mundane** like a great conversation you shared over a *cup of coffee*, or a [completely unique]() and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
           action: {
@@ -939,7 +940,7 @@ function LoginSignUp() {
       <Checkbox
         label="Birthday"
         helpText="This is the text for birthday"
-        icon={Icons.EventBirthdayLarge}
+        icon={IconName.EventBirthdayLarge}
         {...asChoiceField(fields.terms)}
       />
       <SingleChoiceListExample />
@@ -966,7 +967,7 @@ function SingleChoiceListExample() {
       label="Describe a fond memory you recall having shared with Minou."
       help={{
         hidden: false,
-        icon: Icons.DropDown,
+        icon: IconName.DropDown,
         text:
           '**It could be something seemingly mundane** like a great conversation you shared over a *cup of coffee*, or a [completely unique]() and magical event. It doesn’t matter so long as the memory has meaning for you and makes you smile when you think of it.',
         action: {

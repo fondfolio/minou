@@ -6,14 +6,13 @@ import {Container} from './Container';
 import {Section} from './Section';
 import {Title} from './Title';
 import {Image} from './Image';
-import {IconType} from './Icon';
 import {Flex, Box} from './Box';
 import {buttonsFrom} from './Button';
 
 interface Props {
   title: React.ReactNode;
   meta?: React.ReactNode;
-  image?: string | React.ReactNode | IconType;
+  image?: string | React.ReactNode;
   breadcrumbs?: Action[];
 }
 

@@ -3,7 +3,7 @@ import React, {useRef, useState} from 'react';
 import {useUniqueId, useToggle} from '@minou/utilities';
 
 import {Choice, helpTextID} from './Choice';
-import {Icon, IconType} from './Icon';
+import {Icon, IconName} from './Icon';
 import {Image} from './Image';
 
 export interface RadioButtonProps {
@@ -31,7 +31,7 @@ export interface RadioButtonProps {
   onFocus?(): void;
   /** Callback when focus is removed */
   onBlur?(): void;
-  icon?: IconType;
+  icon?: IconName;
   image?: string;
 }
 

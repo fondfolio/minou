@@ -8,7 +8,7 @@ import type {Error} from '../types';
 import {Checkbox} from './Checkbox';
 import {RadioButton} from './RadioButton';
 import {errorTextID} from './InlineError';
-import {IconType} from './Icon';
+import {IconName} from './Icon';
 import {Flex, BoxProps} from './Box';
 import {Labelled, LabelledProps} from './Labelled';
 
@@ -25,7 +25,7 @@ interface Choice {
   describedByError?: boolean;
   /**  Method to render children with a choice */
   renderChildren?(isSelected: boolean): React.ReactNode | false;
-  icon?: IconType;
+  icon?: IconName;
   image?: string;
 }
 

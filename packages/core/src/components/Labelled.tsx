@@ -9,7 +9,7 @@ import {Text} from './Text';
 import {InlineError} from './InlineError';
 import {Rule} from './Rule';
 import {Markdown} from './Markdown';
-import {IconType} from './Icon';
+import {IconName} from './Icon';
 
 export interface LabelledProps {
   /** A unique identifier for the label */
@@ -22,7 +22,7 @@ export interface LabelledProps {
   action?: Action;
   /** Content to display inside the connected */
   help?: {
-    icon?: IconType;
+    icon?: IconName;
     text?: string;
     hidden?: boolean;
     action?: LabelledProps['action'];

@@ -1,6 +1,6 @@
 import React from 'react';
 import {gql, useQuery} from '@apollo/client';
-import {Page, Layout, Title, withGraphql} from 'minou';
+import {Page, Icon, IconName, Spinner, Layout, Title, withGraphql} from 'minou';
 
 const ALL_FONDFOLIOS_QUERY = gql`
   query allFondfolios {
@@ -32,6 +32,7 @@ function Graphql() {
   return (
     <Page>
       <Layout>
+        <Spinner />
         <Title>Graphql</Title>
         {fondfoliosMarkup}
       </Layout>
@@ -39,4 +40,4 @@ function Graphql() {
   );
 }
 
-export default withGraphql()(Graphql);
+export default withGraphql({ssr: false})(Graphql);
