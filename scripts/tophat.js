@@ -1,6 +1,6 @@
 const {resolve} = require('path');
 
-const {config, cp, mkdir, rm, echo, exit} = require('shelljs');
+const {config, exec, cp, mkdir, rm, echo, exit} = require('shelljs');
 
 const root = resolve(__dirname, '..');
 const projectDir = process.argv[2];
@@ -53,6 +53,9 @@ const files = [
     scope: true,
   },
 ];
+
+log('building project...');
+exec('yarn run build');
 
 logBreak();
 files.forEach(({name, scope}) => {

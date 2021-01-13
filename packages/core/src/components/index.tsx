@@ -9,7 +9,7 @@ export {Layout} from './Layout';
 export {Card} from './Card';
 export {Header} from './Header';
 export {Footer} from './Footer';
-export {SupportFooter} from './SupportFooter';
+export {Support} from './Support';
 export {Mast} from './Mast';
 export {Flag} from './Flag';
 

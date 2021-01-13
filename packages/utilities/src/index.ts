@@ -6,6 +6,7 @@ export {
   toMs,
   toEm,
   toPx,
+  position,
 } from './style';
 export {formatDate, formatDateFromNow, formatDateWithAddedDays} from './dates';
 export {useUniqueId, globalIdGeneratorFactory} from './unique-id';

@@ -55,7 +55,7 @@ export function Footer() {
             <Box display={['none', 'block']}>
               <Bullet />
             </Box>
-            <ButtonGroup pl={3} pt={[3, 0]}>
+            <ButtonGroup pl={[3, 0]} pt={[3, 0]}>
               <Link unstyled url="https://twitter.com/fondfolio">
                 <Icon color="primary" icon={Icons.Twitter} />
               </Link>

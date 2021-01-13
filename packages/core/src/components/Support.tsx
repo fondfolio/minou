@@ -15,7 +15,7 @@ import {Container} from './Container';
 import {Section} from './Section';
 import {Icon} from './Icon';
 
-export function SupportFooter() {
+export function Support() {
   return (
     <>
       <Head>
@@ -82,7 +82,6 @@ function NewsletterSignupForm() {
           type="text"
           name="b_65e81a3fa309924ed7ff3fd68_fb444d9189"
           tabIndex={-1}
-          value=""
         />
       </VisuallyHidden>
       <VisuallyHidden hidden>

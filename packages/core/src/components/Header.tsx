@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
+import {position} from '@minou/utilities';
 
 import {Section} from './Section';
 import {Container} from './Container';
@@ -18,33 +19,13 @@ const StyledHeader = styled.header<Omit<Props, 'primary' | 'secondary'>>`
   top: 0px;
 `;
 
-function position({position}: Props) {
-  switch (position) {
-    case 'sticky':
-      return css`
-        position: sticky;
-        position: -webkit-sticky;
-      `;
-    case 'absolute':
-      return css`
-        position: absolute;
-      `;
-    case 'fixed':
-      return css`
-        position: fixed;
-      `;
-    default:
-      return css`
-        position: relative;
-      `;
-  }
-}
-
 export function Header({secondary, primary, ...props}: Props) {
+  const justifyContent = secondary && primary ? 'space-between' : 'center';
+
   return (
     <StyledHeader {...props}>
       <Container py={3} bg="white">
-        <Section alignItems="center" justifyContent="space-between">
+        <Section alignItems="center" justifyContent={justifyContent}>
           {secondary}
           <Logo color="primary" />
           {primary}

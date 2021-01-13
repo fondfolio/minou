@@ -75,3 +75,29 @@ export function createScale(
 
   return values;
 }
+
+interface PositionProps {
+  position?: 'absolute' | 'fixed' | 'sticky';
+}
+
+export function position({position}: PositionProps) {
+  switch (position) {
+    case 'sticky':
+      return css`
+        position: sticky;
+        position: -webkit-sticky;
+      `;
+    case 'absolute':
+      return css`
+        position: absolute;
+      `;
+    case 'fixed':
+      return css`
+        position: fixed;
+      `;
+    default:
+      return css`
+        position: relative;
+      `;
+  }
+}
