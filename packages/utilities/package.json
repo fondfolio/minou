@@ -1,6 +1,6 @@
 {
   "name": "@minou/utilities",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
