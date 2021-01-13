@@ -42,6 +42,7 @@ import {
   Footer,
   Support,
   ChoiceList,
+  usePageTitle,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -82,7 +83,7 @@ export default function Home() {
         <Box order={[0, 1]}>first</Box>
         <Box order={[1, 0]}>second</Box>
       </Layout>
-      <Page>
+      <Page title={usePageTitle('docs')}>
         <Layout>
           <Box order={[0, 1]}>
             <Box pb={4}>
@@ -436,8 +437,6 @@ export default function Home() {
             available at a discounted rate.
           </Text>
         </Layout>
-      </Page>
-      <Page>
         <Header
           secondary={
             <Link bold external unstyled>
@@ -596,8 +595,7 @@ export default function Home() {
             </ButtonGroup>
           </Section>
         </Container>
-      </Page>
-      <Page>
+
         <Container>
           <Section>
             <Label>Buttons</Label>
@@ -724,8 +722,6 @@ export default function Home() {
             </Flex>
           </Section>
         </Container>
-      </Page>
-      <Page>
         <Container>
           <Section>
             <Layout center>
@@ -751,8 +747,6 @@ export default function Home() {
             </Layout>
           </Section>
         </Container>
-      </Page>
-      <Page>
         <Container>
           <Section>
             <Layout>

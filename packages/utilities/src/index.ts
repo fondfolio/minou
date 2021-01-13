@@ -14,3 +14,4 @@ export {useToggle} from './use-toggle';
 export {formatCurrency} from './currency';
 export {withGraphql, getToken, TOKEN_NAME} from './graphql';
 export {looksExternal} from './url';
+export {usePageTitle} from './hooks';
