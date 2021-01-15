@@ -1,28 +1,28 @@
 {
   "name": "@minou/core",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@minou/icons": "^0.0.42",
-    "@minou/theme": "^0.0.42",
-    "@minou/utilities": "^0.0.42",
+    "@minou/icons": "^0.0.43",
+    "@minou/theme": "^0.0.43",
+    "@minou/utilities": "^0.0.43",
+    "@types/nprogress": "^0.0.29",
     "@types/styled-components": "^5.0.0",
     "@types/styled-system": "^5.1.10",
+    "next-seo": "^4.0.0",
     "react-markdown": "^5.0.3",
     "styled-system": "^5.1.5",
-    "typed-react-markdown": "^0.1.0",
-    "next-seo": "^4.0.0",
-    "@types/nprogress": "^0.0.29"
+    "typed-react-markdown": "^0.1.0"
   },
   "peerDependencies": {
     "next": ">=10.0.0",
+    "nprogress": "^0.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": ">=5.0.0",
-    "nprogress": "^0.2.0"
+    "styled-components": ">=5.0.0"
   },
   "publishConfig": {
     "access": "public"
