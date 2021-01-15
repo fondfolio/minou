@@ -79,7 +79,7 @@ export default function Home() {
         <Text>This cannot be undone.</Text>
       </Modal>
       <Header />
-      <Layout>
+      <Layout bg="red">
         <Box order={[0, 1]}>first</Box>
         <Box order={[1, 0]}>second</Box>
       </Layout>

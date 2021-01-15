@@ -10,7 +10,7 @@ interface Props extends BoxProps {
   full?: boolean;
 }
 
-export function Layout({children, full, center}: Props) {
+export function Layout({children, bg, full, center}: Props) {
   const numberOfChildren = React.Children.count(children);
   const shouldBleed = full || numberOfChildren === 1;
 
@@ -38,7 +38,7 @@ export function Layout({children, full, center}: Props) {
   });
 
   return (
-    <Container>
+    <Container bg={bg}>
       <Section>
         <Flex flexWrap="wrap" width="100%" {...additionalProps}>
           {content}

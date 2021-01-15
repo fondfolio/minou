@@ -50,7 +50,7 @@ export function Footer() {
             <Text pb={0} small>
               <Italic>Proudly made in Toronto</Italic>
             </Text>
-            <ButtonGroup pl={[3, 0]} pt={[3, 0]}>
+            <ButtonGroup pt={[3, 0]}>
               <Link unstyled url="https://twitter.com/fondfolio">
                 <Icon color="primary" icon={Icons.Twitter} />
               </Link>

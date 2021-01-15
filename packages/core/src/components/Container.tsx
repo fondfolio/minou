@@ -6,7 +6,7 @@ interface Props extends BoxProps {
   children: React.ReactNode;
 }
 
-export function Container(props: Props) {
+export function Container({bg, ...props}: Props) {
   return (
     <Flex
       width="100%"
@@ -14,6 +14,7 @@ export function Container(props: Props) {
       flexDirection="column"
       textAlign="center"
       p={[3, 4]}
+      bg={bg}
       {...props}
     />
   );

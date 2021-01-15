@@ -5,6 +5,7 @@ import {ThemeProvider} from 'styled-components';
 import {Meta} from './Meta';
 import {Seo} from './Seo';
 import {GlobalStyle} from './GlobalStyle';
+import {GlobalLoader} from './GlobalLoader';
 
 interface Props {
   /** Custom theme */
@@ -19,6 +20,7 @@ export function Provider({children, domain, ...props}: Props) {
   return (
     <>
       <GlobalStyle />
+      <GlobalLoader />
       <Meta />
       <Seo openGraph={{url: domain}} />
       <ThemeProvider theme={{...theme, ...props.theme}}>
