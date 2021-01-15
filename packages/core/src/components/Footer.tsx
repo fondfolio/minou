@@ -1,5 +1,6 @@
 import React from 'react';
 import {Icons} from '@minou/icons';
+import {DOMAINS} from '@minou/utilities';
 
 import {Navigation} from './Navigation';
 import {Italic} from './Italic';
@@ -13,21 +14,19 @@ import {Icon} from './Icon';
 import {Container} from './Container';
 import {Section} from './Section';
 
-const FONDFOLIO_DOMAIN = 'https://fondfolio.com';
-
 export function Footer() {
   return (
     <>
       <Navigation
         items={[
-          {content: 'About', size: 'small', url: `${FONDFOLIO_DOMAIN}/about`},
-          {content: 'Help', size: 'small', url: `${FONDFOLIO_DOMAIN}/help`},
-          {content: 'Blog', size: 'small', url: `${FONDFOLIO_DOMAIN}/blog`},
-          {content: 'Terms', size: 'small', url: `${FONDFOLIO_DOMAIN}/terms`},
+          {content: 'About', size: 'small', url: `${DOMAINS.website}/about`},
+          {content: 'Help', size: 'small', url: `${DOMAINS.website}/help`},
+          {content: 'Blog', size: 'small', url: `${DOMAINS.website}/blog`},
+          {content: 'Terms', size: 'small', url: `${DOMAINS.website}/terms`},
           {
             content: 'Privacy',
             size: 'small',
-            url: `${FONDFOLIO_DOMAIN}/privacy`,
+            url: `${DOMAINS.website}/privacy`,
           },
           {
             content: 'Status',
@@ -49,12 +48,8 @@ export function Footer() {
               <Bullet />
             </Box>
             <Text pb={0} small>
-              <Italic>Proudly made in Toronto &amp; Berlin</Italic>
-              {/* <Bullet /> <Link>Cartogram</Link> */}
+              <Italic>Proudly made in Toronto</Italic>
             </Text>
-            <Box display={['none', 'block']}>
-              <Bullet />
-            </Box>
             <ButtonGroup pl={[3, 0]} pt={[3, 0]}>
               <Link unstyled url="https://twitter.com/fondfolio">
                 <Icon color="primary" icon={Icons.Twitter} />

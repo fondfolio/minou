@@ -54,8 +54,8 @@ export function Meta() {
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
       />
-      <link rel="manifest" href="site.webmanifest" />
-      <link rel="shortcut icon" href="favicon.ico" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="shortcut icon" href="/favicon.ico" />
 
       <style type="text/css">{fonts}</style>
     </Head>
