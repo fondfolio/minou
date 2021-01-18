@@ -50,7 +50,6 @@ const StyledInput = styled.input<Props>`
       : `1px solid ${theme.colors.greyLight}`};
   font-size: ${({textSize}) => (textSize === 'small' ? '0.8em' : '1em')};
   line-height: 1.45;
-  margin-bottom: 0.5em;
   height: ${({height}) => (height ? `${height}px` : 'auto')};
 
   &:focus {

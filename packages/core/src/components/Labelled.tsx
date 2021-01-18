@@ -74,13 +74,14 @@ export function Labelled({
     </Label>
   );
 
+  const labelPadding = labelHidden || help ? 0 : 1;
   const labelMarkup = label ? (
     <Flex
       width="100%"
       alignItems="center"
       flexDirection={labelFlexDirection}
       justifyContent="space-between"
-      pb={1}
+      pb={labelPadding}
     >
       {labelTextMarkup}
       {actionMarkup}
@@ -91,9 +92,15 @@ export function Labelled({
     ? {justifyContent: 'space-between', alignItems: 'center'}
     : {};
 
+  const textFieldPadding = label || errorMarkup || help ? 4 : 0;
+
   return (
-    <Flex pb={4} flexDirection={flexDirection} {...horizonalProps}>
-      <Box pb={1}>
+    <Flex
+      pb={textFieldPadding}
+      flexDirection={flexDirection}
+      {...horizonalProps}
+    >
+      <Box pb={labelPadding}>
         {labelMarkup}
         <HelpText id={id} {...help} center={center} />
       </Box>

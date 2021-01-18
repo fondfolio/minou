@@ -21,3 +21,4 @@ export {
   CONTRIBUTION_MINIMUM,
   CONTRIBUTION_CHARACTER_MAX_LENGTH,
 } from './constants';
+export {truncate, reverseTruncate} from './string';
