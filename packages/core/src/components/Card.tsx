@@ -21,6 +21,7 @@ interface Props extends BoxProps {
   footerText?: React.ReactNode;
   footerAction?: ComplexAction;
   flag?: React.ComponentProps<typeof Flag>;
+  id?: string;
 }
 
 export const cardStyles = css<{active?: boolean}>`
@@ -81,6 +82,7 @@ export function Card({
   footerAction,
   flag,
   padding,
+  id,
   ...props
 }: Props) {
   const actionMarkup = action ? (
@@ -137,7 +139,7 @@ export function Card({
 
   return (
     <>
-      <StyledCard bg="white" borderRadius="card" {...props}>
+      <StyledCard bg="white" borderRadius="card" id={id} {...props}>
         <Box p={padding || 4}>
           {finalLinkedTitleMarkup}
           {children}

@@ -157,7 +157,7 @@ export function TextField({
 
   const input = createElement(multiline ? TextArea : Input, {
     name,
-    id: id || '',
+    id: id || idProp,
     disabled,
     readOnly,
     textSize,
