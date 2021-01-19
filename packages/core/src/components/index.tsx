@@ -15,7 +15,7 @@ export {Flag} from './Flag';
 
 /** Actions */
 export {Link} from './Link';
-export {Button} from './Button';
+export {Button, buttonFrom} from './Button';
 export {ButtonGroup} from './ButtonGroup';
 export {Actions} from './Actions';
 
@@ -27,6 +27,7 @@ export {Checkbox} from './Checkbox';
 export {RadioButton} from './RadioButton';
 export {ChoiceList} from './ChoiceList';
 export {Banner} from './Banner';
+export {Input} from './Input';
 
 /** Typography & Icons*/
 export {Display} from './Display';
@@ -37,6 +38,7 @@ export {Text} from './Text';
 export {Italic} from './Italic';
 export {Mono} from './Mono';
 export {Markdown} from './Markdown';
+export {Truncate} from './Truncate';
 //  Specials
 export {Blockquote} from './Blockquote';
 export {Rule} from './Rule';
