@@ -17,9 +17,27 @@ const StyledMarkdown = styled.div`
   h1 {
     font-size: ${({theme}) => toPx(theme.fontSizes[2])};
     font-family: ${({theme}) => theme.fonts.serif};
-    margin-top: 1em;
-    margin-bottom: 0.35em;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
     font-weight: normal;
+  }
+
+  blockquote {
+    width: calc(100% + 6em);
+    margin-left: -3em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    position: relative;
+    background: white;
+    padding: 2em;
+    box-shadow: 0px 0px 1px currentColor inset;
+    line-height: 1.45;
+    p {
+      text-align: center;
+      font-size: ${({theme}) => toPx(theme.fontSizes[2])};
+      font-style: italic;
+      font-family: ${({theme}) => theme.fonts.serif};
+    }
   }
 
   ol {
@@ -71,10 +89,32 @@ const StyledMarkdown = styled.div`
     color: inherit;
   }
 
+  hr {
+    background-color: currentColor;
+    height: 1px;
+    opacity: 0.1;
+    margin: 2em -2em;
+  }
+
   img {
-    max-width: 100%;
     display: block;
+    width: calc(100% + 12em);
+    margin-left: -6em;
+    margin-top: 3em;
     margin-bottom: 1em;
+    position: relative;
+    background: white;
+    box-shadow: 0px 0px 1px currentColor inset;
+    line-height: 1.45;
+    padding: 3em;
+  }
+
+  p img + em {
+    font-size: ${({theme}) => toPx(theme.fontSizes[0])};
+    display: block;
+    text-align: center;
+    top: -3.5em;
+    position: relative;
   }
 
   a {
