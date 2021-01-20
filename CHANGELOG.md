@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - TBD
 
-## [0.0.45] - TBD
+## [0.0.45] - 20/01/2021
 
 - Adds `truncate` and `reverseTruncate` helpers.
 - Adds `<Truncate />` component.
+- Adds `InlineFieldSet />` component.
+- Additional style support for markdown blockquot and images
