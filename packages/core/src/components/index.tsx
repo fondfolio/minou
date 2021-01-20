@@ -15,7 +15,7 @@ export {Flag} from './Flag';
 
 /** Actions */
 export {Link} from './Link';
-export {Button, buttonFrom} from './Button';
+export {Button} from './Button';
 export {ButtonGroup} from './ButtonGroup';
 export {Actions} from './Actions';
 
@@ -27,7 +27,7 @@ export {Checkbox} from './Checkbox';
 export {RadioButton} from './RadioButton';
 export {ChoiceList} from './ChoiceList';
 export {Banner} from './Banner';
-export {Input} from './Input';
+export {InlineFieldSet} from './InlineFieldSet';
 
 /** Typography & Icons*/
 export {Display} from './Display';
