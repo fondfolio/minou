@@ -16,7 +16,7 @@ export interface BaseAction {
   /** Callback when element is touched */
   onTouchStart?(): void;
   /** Changes the button size */
-  size?: 'small';
+  size?: 'small' | 'large';
   /**
    * By default a button that looks like a link
    * "primary" provides extra visual weight and identifies the primary action in a set of buttons

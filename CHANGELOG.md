@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - TBD
 
+## [0.0.46] - TBD
+
+- Adds large size for `<Button />`
+
 ## [0.0.45] - 20/01/2021
 
 - Adds `truncate` and `reverseTruncate` helpers.

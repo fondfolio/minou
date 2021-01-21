@@ -53,7 +53,7 @@ const StyledPrimaryButton = styled(StyledBasicButton)<CombinedProps>`
   color: ${({theme}) => theme.colors.white};
   background: ${({theme, destructive}) =>
     destructive ? theme.colors.redDark : theme.colors.primary};
-  padding: 0.4em 1.2em;
+  padding: ${({size}) => (size === 'large' ? '1em 2.5em' : '0.4em 1.2em')};
   border-radius: ${({theme}) => theme.radii.button};
 
   opacity: ${({disabled}) => (disabled ? '0.75' : '1')};

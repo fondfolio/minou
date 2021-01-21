@@ -67,7 +67,7 @@ export function line({theme, active, unstyled}: any) {
 }
 
 interface Props {
-  size?: 'small';
+  size?: 'small' | 'large';
   url?: string;
   children: React.ReactNode;
   external?: boolean;
