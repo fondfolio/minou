@@ -15,6 +15,7 @@ import {Flag} from './Flag';
 interface Props extends BoxProps {
   active?: boolean;
   title?: React.ReactNode;
+  url?: string;
   icon?: IconType;
   children: React.ReactNode;
   action?: ComplexAction;
@@ -76,6 +77,7 @@ const StyledCard = styled(Box)<Props>`
 export function Card({
   children,
   title,
+  url,
   icon,
   action,
   footerText,
@@ -121,9 +123,9 @@ export function Card({
   );
 
   const finalLinkedTitleMarkup =
-    action && action.url ? (
+    url && title ? (
       <Flex pb={2} alignItems="center" justifyContent="space-between">
-        <Link unstyled bold url={action.url}>
+        <Link unstyled bold url={url}>
           {titleMarkup}
         </Link>
         {actionMarkup}

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Icons} from '@minou/icons';
 import {center} from '@minou/utilities';
+import FocusTrap from 'focus-trap-react';
 
 import {ComplexAction} from '../types';
 
@@ -55,35 +56,37 @@ export function Modal({
   return (
     <Portal>
       <Backdrop onClick={onClose} active={active} visible />
-      <StyledModal
-        borderRadius="modal"
-        position="fixed"
-        bg="white"
-        width={['100%', '80%', '70%', '50%']}
-        flexDirection="column"
-      >
-        <Flex
-          px={4}
-          py={3}
-          width="100%"
-          alignItems="center"
-          justifyContent="space-between"
+      <FocusTrap active={active}>
+        <StyledModal
+          borderRadius="modal"
+          position="fixed"
+          bg="white"
+          width={['100%', '80%', '70%', '50%']}
+          flexDirection="column"
         >
-          <Box flex="1">{titleMarkup}</Box>
-          {closeMarkup}
-        </Flex>
-        <Rule />
-        <StyledModalContent px={4} pt={2} pb={2} flexDirection="column">
-          {children}
-        </StyledModalContent>
-        <Rule />
-        <Box px={4} py={2}>
-          <Actions
-            primaryAction={primaryAction}
-            secondaryActions={[{content: 'Close', onClick: onClose}]}
-          />
-        </Box>
-      </StyledModal>
+          <Flex
+            px={4}
+            py={3}
+            width="100%"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Box flex="1">{titleMarkup}</Box>
+            {closeMarkup}
+          </Flex>
+          <Rule />
+          <StyledModalContent px={4} pt={2} pb={2} flexDirection="column">
+            {children}
+          </StyledModalContent>
+          <Rule />
+          <Box px={4} py={2}>
+            <Actions
+              primaryAction={primaryAction}
+              secondaryActions={[{content: 'Close', onClick: onClose}]}
+            />
+          </Box>
+        </StyledModal>
+      </FocusTrap>
     </Portal>
   );
 }
