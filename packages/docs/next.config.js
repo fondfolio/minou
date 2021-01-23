@@ -9,4 +9,7 @@ module.exports = {
 
     return config;
   },
+  env: {
+    GRAPHQL_ACCESS_TOKEN: process.env.GRAPHQL_ACCESS_TOKEN,
+  },
 };
