@@ -1,3 +1,4 @@
+/* eslint-disable @shopify/jsx-no-complex-expressions */
 /* eslint-disable react/jsx-child-element-spacing */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
@@ -15,12 +16,33 @@ import {Container} from './Container';
 import {Section} from './Section';
 import {Icon} from './Icon';
 
-export function Support() {
+interface Props {
+  widget?: 'appzi' | 'message-bird';
+}
+
+export function Support(props: Props) {
+  let scriptMarkup = null;
+
+  switch (props.widget) {
+    case 'message-bird':
+      scriptMarkup = (
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `var MessageBirdChatWidgetSettings = {     widgetId: '56e2324f-6a1a-4038-9ccf-e8c24439aeb9',     initializeOnLoad: true,   };  !function(){"use strict";if(Boolean(document.getElementById("live-chat-widget-script")))console.error("MessageBirdChatWidget: Snippet loaded twice on page");else{var e,t;window.MessageBirdChatWidget={},window.MessageBirdChatWidget.queue=[];for(var i=["init","setConfig","toggleChat","identify","hide","on","shutdown"],n=function(){var e=i[d];window.MessageBirdChatWidget[e]=function(){for(var t=arguments.length,i=new Array(t),n=0;n<t;n++)i[n]=arguments[n];window.MessageBirdChatWidget.queue.push([[e,i]])}},d=0;d<i.length;d++)n();var a=(null===(e=window)||void 0===e||null===(t=e.MessageBirdChatWidgetSettings)||void 0===t?void 0:t.widgetId)||"",o=function(){var e,t=document.createElement("script");t.type="text/javascript",t.src="https://livechat.messagebird.com/bootstrap.js?widgetId=".concat(a),t.async=!0,t.id="live-chat-widget-script";var i=document.getElementsByTagName("script")[0];null==i||null===(e=i.parentNode)||void 0===e||e.insertBefore(t,i)};"complete"===document.readyState?o():window.attachEvent?window.attachEvent("onload",o):window.addEventListener("load",o,!1)}}();`,
+          }}
+        />
+      );
+      break;
+    case 'appzi':
+      scriptMarkup = <script async src="https://w.appzi.io/w.js?token=qOeTY" />;
+      break;
+    default:
+      break;
+  }
+
   return (
     <>
-      <Head>
-        <script async src="https://w.appzi.io/w.js?token=qOeTY" />
-      </Head>
+      <Head>{scriptMarkup}</Head>
       <Container>
         <Section
           alignItems="center"
@@ -36,9 +58,13 @@ export function Support() {
               </Link> or{' '}
               <Link
                 onClick={() => {
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  appzi.openWidget('7d210d18-0f06-48bb-9bcf-d9310696a889');
+                  if (props.widget === 'message-bird') {
+                    (window as any).MessageBirdChatWidget.toggleChat();
+                  } else if (props.widget === 'appzi') {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    appzi.openWidget('7d210d18-0f06-48bb-9bcf-d9310696a889');
+                  }
                 }}
               >
                 Give us feedback

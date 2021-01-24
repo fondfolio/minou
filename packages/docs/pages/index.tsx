@@ -760,7 +760,7 @@ export default function Home() {
           </Section>
         </Container>
       </Page>
-      <Support />
+      <Support widget="appzi" />
       <Footer />
     </>
   );
