@@ -3,6 +3,8 @@ import React from 'react';
 import {Display} from './Display';
 import {Box, Flex} from './Box';
 import {Text} from './Text';
+import {Mono} from './Mono';
+import {Bullet} from './Bullet';
 
 interface Props {
   /** The content to display inside the button */
@@ -13,11 +15,14 @@ interface Props {
 export function Blockquote({citation, children}: Props) {
   return (
     <Flex flexDirection="column" alignItems="center" p="4">
-      <Display textAlign="center" italic>
+      <Display textAlign="center" as="blockquote" italic>
         {children}
       </Display>
       <Box pt="4">
-        <Text textAlign="center">– {citation}</Text>
+        <Text pb={0} textAlign="center">
+          <Bullet mr={1} />
+          <Mono>{citation}</Mono>
+        </Text>
       </Box>
     </Flex>
   );

@@ -43,7 +43,7 @@ export const theme = {
   timings,
   borderRadius: '4px',
   radii: {
-    button: '4px',
+    button: '2px',
     toast: '2px',
     card: '2px',
     input: '2px',

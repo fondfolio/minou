@@ -1,4 +1,6 @@
 import React from 'react';
+import styled, {css} from 'styled-components';
+import {center} from '@minou/utilities';
 
 import {Container} from './Container';
 import {Section} from './Section';
@@ -8,9 +10,14 @@ interface Props extends BoxProps {
   children: React.ReactNode;
   center?: boolean;
   full?: boolean;
+  split?: boolean;
 }
 
-export function Layout({children, bg, full, center}: Props) {
+const StyledLayout = styled(Flex)<Props>`
+  ${({split}) => line(split)};
+`;
+
+export function Layout({children, split, bg, full, center}: Props) {
   const numberOfChildren = React.Children.count(children);
   const shouldBleed = full || numberOfChildren === 1;
 
@@ -40,10 +47,37 @@ export function Layout({children, bg, full, center}: Props) {
   return (
     <Container bg={bg}>
       <Section>
-        <Flex flexWrap="wrap" width="100%" {...additionalProps}>
+        <StyledLayout
+          position="relative"
+          flexWrap="wrap"
+          width="100%"
+          split={split}
+          {...additionalProps}
+        >
           {content}
-        </Flex>
+        </StyledLayout>
       </Section>
     </Container>
   );
+}
+
+export function line(show?: boolean) {
+  if (!show) {
+    return '';
+  }
+
+  return css`
+    position: relative;
+    @media screen and (min-width: ${({theme}) => theme.breakpoints[2]}) {
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        top: 0;
+        background: ${({theme}) => theme.colors.primary};
+        width: 1px;
+        ${center({x: true, y: true})};
+      }
+    }
+  `;
 }

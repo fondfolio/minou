@@ -37,7 +37,7 @@ export const visuallyHidden = css`
 `;
 
 export const center = (
-  {x, y}: {x: boolean; y: boolean} = {x: false, y: false},
+  {x, y}: {x?: boolean; y?: boolean} = {x: false, y: false},
 ) => {
   if (x && y) {
     return css`

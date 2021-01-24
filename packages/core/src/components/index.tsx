@@ -45,6 +45,7 @@ export {Blockquote} from './Blockquote';
 export {Rule} from './Rule';
 export {VisuallyHidden} from './VisuallyHidden';
 export {Bullet} from './Bullet';
+export {Dash} from './Dash';
 
 /** Global */
 export {Provider} from './Provider';

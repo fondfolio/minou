@@ -43,6 +43,7 @@ import {
   ChoiceList,
   usePageTitle,
   Caps,
+  Dash,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -80,11 +81,8 @@ export default function Home() {
       </Modal>
       <Header />
       <Layout bg="red">
-        <Box order={[0, 1]}>first</Box>
-        <Box order={[1, 0]}>
-          <Card as="a">Create a Fondfolio</Card>
-          second
-        </Box>
+        <Box>first</Box>
+        <Box>second</Box>
       </Layout>
       <Page title={usePageTitle('docs')}>
         <Layout>
