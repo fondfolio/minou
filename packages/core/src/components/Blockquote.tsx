@@ -14,7 +14,7 @@ interface Props {
 
 export function Blockquote({citation, children}: Props) {
   return (
-    <Flex flexDirection="column" alignItems="center" p="4">
+    <Flex flexDirection="column" alignItems="center">
       <Display textAlign="center" as="blockquote" italic>
         {children}
       </Display>

@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
   *:before,
   *:after {
     ${reset}
-    color: ${theme.colors.black};
   }
 
   html,

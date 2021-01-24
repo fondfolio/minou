@@ -47,7 +47,7 @@ export function Footer() {
             <Box display={['none', 'block']}>
               <Bullet />
             </Box>
-            <Text pb={0} small>
+            <Text pb={0} small pr={3}>
               <Italic>Proudly made in Toronto</Italic>
             </Text>
             <ButtonGroup pt={[3, 0]}>

@@ -89,7 +89,9 @@ export function Card({
   ...props
 }: Props) {
   const actionMarkup = action ? (
-    <Box>{buttonsFrom(action, {variant: 'secondary', size: 'small'})}</Box>
+    <Box order={[0, 1]}>
+      {buttonsFrom(action, {variant: 'secondary', size: 'small'})}
+    </Box>
   ) : null;
   const iconMarkup = icon ? (
     <Box pr={2}>
@@ -98,9 +100,11 @@ export function Card({
   ) : null;
 
   const footerTextMarkup = footerText ? (
-    <Text small pb={0}>
-      {footerText}
-    </Text>
+    <Box order={[1, 0]}>
+      <Text small pb={0}>
+        {footerText}
+      </Text>
+    </Box>
   ) : null;
 
   const footerActionMarkup = footerAction ? buttonsFrom(footerAction) : null;
@@ -109,7 +113,13 @@ export function Card({
     footerAction || footerText ? (
       <>
         <Rule />
-        <Flex alignItems="center" justifyContent="space-between" py={3} px={4}>
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          py={3}
+          px={4}
+          flexWrap="wrap"
+        >
           {footerTextMarkup}
           {footerActionMarkup}
         </Flex>

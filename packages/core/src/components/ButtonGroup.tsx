@@ -11,7 +11,7 @@ interface Props extends BoxProps {
 }
 
 const StyledButtonGroup = styled(Flex)<{spacing: number}>`
-  margin-left: ${({spacing}) => toPx(spacing)};
+  margin-left: -${({spacing}) => toPx(spacing)};
   align-items: baseline;
 
   > button,
