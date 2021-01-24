@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - TBD
 
-## [0.0.46] - TBD
+## [0.0.47] - 24/01/2021
+
+- `<Modal />` traps focus
+
+## [0.0.46] - 22/01/2021
 
 - Adds large size for `<Button />`
 

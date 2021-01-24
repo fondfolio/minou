@@ -27,7 +27,7 @@ export function Support() {
           justifyContent="center"
           flexDirection={['column', 'row']}
         >
-          <Box width={['100%', '50%']} px={3}>
+          <Box width={['100%', '50%']} px={3} pb={3}>
             <Text pb={0} large textAlign={['center', 'right']}>
               <Italic>Questions?</Italic> We’re here to help.
               <br />
@@ -47,7 +47,7 @@ export function Support() {
               We value your words.
             </Text>
           </Box>
-          <Flex width={['100%', '50%']} px={3} flexDirection="column">
+          <Flex width={['100%', '50%']} px={3} flexDirection="column" pb={3}>
             <Text pb={0} large textAlign={['center', 'left']}>
               Updates, gifting tips, and promos
               <br />— an occasional newsletter

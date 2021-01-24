@@ -13,6 +13,7 @@ export function Container({bg, ...props}: Props) {
       justifyContent="center"
       flexDirection="column"
       textAlign="center"
+      overflowX="hidden"
       p={[3, 4]}
       bg={bg}
       {...props}

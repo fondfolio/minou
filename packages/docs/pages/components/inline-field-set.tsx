@@ -55,8 +55,3 @@ function Graphql() {
 }
 
 export default withGraphql()(Graphql);
-
-declare module 'trap-focus-react' {
-  interface Props {}
-  export default function TrapFocus(props: Props);
-}

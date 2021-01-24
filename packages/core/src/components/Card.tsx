@@ -31,6 +31,7 @@ export const cardStyles = css<{active?: boolean}>`
   margin-left: -1px;
   width: 100%;
   z-index: ${({theme}) => theme.zIndices.card};
+  display: block;
 
   &:after,
   &:before {

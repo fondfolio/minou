@@ -10,6 +10,7 @@ interface Props {
 
 export const Logo = ({color, ...rest}: Props) => (
   <Link unstyled url="/" {...rest}>
-    <Icon icon={Icons.LogoWord} color={color} />
+    <Icon display={['block', 'none']} icon={Icons.LogoIcon} color={color} />
+    <Icon display={['none', 'block']} icon={Icons.LogoWord} color={color} />
   </Link>
 );

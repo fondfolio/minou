@@ -37,6 +37,7 @@ export {Text} from './Text';
 // Modifiers
 export {Italic} from './Italic';
 export {Mono} from './Mono';
+export {Caps} from './Caps';
 export {Markdown} from './Markdown';
 export {Truncate} from './Truncate';
 //  Specials

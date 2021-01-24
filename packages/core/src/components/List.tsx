@@ -6,7 +6,7 @@ import {ComplexAction} from '../types';
 import {Flex, Box, BoxProps} from './Box';
 import {Link} from './Link';
 import {Text} from './Text';
-import {Italic} from './Italic';
+import {Mono} from './Mono';
 import {Rule} from './Rule';
 
 type ListAction = ComplexAction & {
@@ -35,7 +35,7 @@ export function List({items, small, ...props}: Props) {
       const color = active ? 'primary' : 'secondary';
       const metaMarkup = meta ? (
         <Text pb={0} small color={color}>
-          <Italic>{meta}</Italic>
+          <Mono>{meta}</Mono>
         </Text>
       ) : null;
 
@@ -65,7 +65,7 @@ export function List({items, small, ...props}: Props) {
 
       return (
         <Box key={index} width="100%">
-          <Flex>
+          <Flex alignItems="center">
             {contentMarkup}
             {metaMarkup}
           </Flex>

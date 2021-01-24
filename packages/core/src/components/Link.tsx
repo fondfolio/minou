@@ -20,7 +20,10 @@ const StyledLink = styled.a<Props>`
   padding: ${({unstyled}) => (unstyled ? '0' : '0 1px')};
   font-weight: ${({bold}) => (bold ? '500' : 'normal')};
   align-items: center;
-  white-space: nowrap;
+
+  p > & {
+    white-space: nowrap;
+  }
 
   &:hover {
     color: ${({theme, unstyled}) =>

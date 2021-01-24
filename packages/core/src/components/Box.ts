@@ -33,11 +33,11 @@ export interface BoxProps
 export const Box = styled.div<BoxProps>`
   ${space}
   ${position}
-  ${layout}
   ${color}
   ${flexbox}
   ${border}
   ${shadow}
+  ${layout}
 `;
 
 export const Flex = styled(Box)`

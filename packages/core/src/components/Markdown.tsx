@@ -6,7 +6,8 @@ import {toPx} from '@minou/utilities';
 import {line} from './Link';
 
 const StyledMarkdown = styled.div`
-  p {
+  p,
+  ul {
     margin-bottom: 1em;
   }
 
@@ -113,8 +114,8 @@ const StyledMarkdown = styled.div`
     font-size: ${({theme}) => toPx(theme.fontSizes[0])};
     display: block;
     text-align: center;
-    top: -3.5em;
     position: relative;
+    padding-bottom: 1em;
   }
 
   a {

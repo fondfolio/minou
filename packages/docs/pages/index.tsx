@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-child-element-spacing */
 import React, {useCallback, useState} from 'react';
 import {useField, useForm, asChoiceField} from '@shopify/react-form';
 import {
@@ -43,6 +42,7 @@ import {
   Support,
   ChoiceList,
   usePageTitle,
+  Caps,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -81,7 +81,10 @@ export default function Home() {
       <Header />
       <Layout bg="red">
         <Box order={[0, 1]}>first</Box>
-        <Box order={[1, 0]}>second</Box>
+        <Box order={[1, 0]}>
+          <Card as="a">Create a Fondfolio</Card>
+          second
+        </Box>
       </Layout>
       <Page title={usePageTitle('docs')}>
         <Layout>
@@ -536,38 +539,7 @@ export default function Home() {
             </Card>
           </Section>
         </Container>
-        <Rule my={2} icon={Icons.LogoIcon} center />
-        <Container>
-          <Section justifyContent="center" flexDirection={['column', 'row']}>
-            <Box px={3}>
-              <Text large textAlign={['center', 'right']}>
-                Questions? <Italic>We’re here to help.</Italic>
-                <br />
-                <Link>Visit support</Link> or <Link>Send us an email</Link>
-                <br />
-                We value your words.
-              </Text>
-            </Box>
-            <Box px={3}>
-              <Text large textAlign="center">
-                Gifting tips, special offers and
-                <br />
-                an occasional bundle of email joy.
-                <br />
-                <Link>Subscribe to our newsletter</Link>
-              </Text>
-            </Box>
-          </Section>
-        </Container>
-        <Navigation
-          items={[
-            {content: 'Help', size: 'small'},
-            {content: 'Terms', size: 'small'},
-            {content: 'Privacy', size: 'small'},
-            {content: 'About', size: 'small'},
-            {content: 'Blog', size: 'small'},
-          ]}
-        />
+
         <Container pt={[3, 3]}>
           <Section
             justifyContent="space-between"
@@ -713,12 +685,23 @@ export default function Home() {
               <Label>Label</Label>
               <Label italic>Label italic</Label>
               <Text large>Text Large</Text>
+              <Text large>
+                <Caps>Text Large</Caps>
+              </Text>
               <Text large italic>
                 Text Large
               </Text>
               <Text>Text</Text>
               <Text small>Text Small</Text>
               <Label small>Text Small</Label>
+              <Label small>
+                <Caps>Text Small</Caps>
+              </Label>
+              <Text small>
+                <Caps>
+                  <Mono>mono space</Mono>
+                </Caps>
+              </Text>
             </Flex>
           </Section>
         </Container>
