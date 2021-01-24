@@ -1,23 +1,23 @@
 {
   "name": "@minou/core",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@minou/icons": "^0.0.46",
-    "@minou/theme": "^0.0.46",
-    "@minou/utilities": "^0.0.46",
+    "@minou/icons": "^0.0.47",
+    "@minou/theme": "^0.0.47",
+    "@minou/utilities": "^0.0.47",
     "@types/nprogress": "^0.0.29",
     "@types/styled-components": "^5.0.0",
     "@types/styled-system": "^5.1.10",
+    "focus-trap-react": "^8.4.1",
     "next-seo": "^4.0.0",
+    "nprogress": "^0.2.0",
     "react-markdown": "^5.0.3",
     "styled-system": "^5.1.5",
-    "typed-react-markdown": "^0.1.0",
-    "nprogress": "^0.2.0",
-    "focus-trap-react": "^8.4.1"
+    "typed-react-markdown": "^0.1.0"
   },
   "peerDependencies": {
     "next": ">=10.0.0",
