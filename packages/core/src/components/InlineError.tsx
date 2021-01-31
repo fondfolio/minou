@@ -31,6 +31,7 @@ export function InlineError({
       textAlign={textAlign}
       id={errorTextID(fieldID || '')}
       pb={0}
+      pt={2}
       {...props}
     >
       {children}

@@ -47,7 +47,11 @@ export function Form({
   return (
     <>
       {loadingMarkup}
-      <BannerGroup errors={errors} error />
+      <BannerGroup
+        content="There are errors with your submission"
+        errors={errors}
+        error
+      />
       <StyledForm submitting={submitting} onSubmit={handleSubmit} {...props}>
         {children}
       </StyledForm>

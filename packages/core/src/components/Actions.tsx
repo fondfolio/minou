@@ -20,6 +20,7 @@ export interface ActionsProps {
   /** Notes to display with the actons */
   note?: string | React.ReactNode;
   errors?: Error[];
+  center?: boolean;
 }
 
 export function Actions({
@@ -27,6 +28,7 @@ export function Actions({
   note,
   errors,
   secondaryActions,
+  center,
 }: ActionsProps) {
   const primaryActionMarkup = primaryAction
     ? buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})
@@ -41,14 +43,16 @@ export function Actions({
   ) : null;
 
   const justifyContent = secondaryActions || note ? 'space-between' : 'center';
-  const alignItems = note ? 'flex-start' : 'center';
+  const direction = center ? 'column' : 'row';
 
   return (
     <>
       <Flex
+        mb={3}
         justifyContent={justifyContent}
-        alignItems={alignItems}
+        alignItems="center"
         flexWrap={['wrap', 'nowrap']}
+        flexDirection={direction}
       >
         {noteMarkup}
         {secondaryActionsMarkup}

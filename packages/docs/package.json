@@ -18,6 +18,9 @@
     "nprogress": "^0.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "@mdx-js/loader": "^1.5.1",
+    "@mdx-js/react": "^1.6.18",
+    "@next/mdx": "^9.1.1"
   }
 }

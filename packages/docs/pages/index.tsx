@@ -171,7 +171,6 @@ export default function Home() {
                       <Link url="https://fondfolio.com/help/is-giftwrapping-included-in-the-price">
                         giftwrap
                       </Link>
-                      ⚑
                     </>
                   ),
                 }}

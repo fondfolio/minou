@@ -15,7 +15,7 @@ const StyledButtonGroup = styled(Flex)<{spacing: number}>`
   align-items: baseline;
 
   > button,
-  > link {
+  > a {
     margin: 0 ${({spacing}) => toPx(spacing)};
   }
 `;
