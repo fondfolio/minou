@@ -5,7 +5,6 @@ import {DOMAINS} from '@minou/utilities';
 import {Navigation} from './Navigation';
 import {Italic} from './Italic';
 import {Link} from './Link';
-import {ButtonGroup} from './ButtonGroup';
 import {Bullet} from './Bullet';
 import {Flex, Box} from './Box';
 import {Label} from './Label';
@@ -50,7 +49,7 @@ export function Footer() {
             <Text pb={0} small pr={3}>
               <Italic>Proudly made in Toronto</Italic>
             </Text>
-            <ButtonGroup pt={[3, 0]}>
+            <Box pt={[3, 0]}>
               <Link unstyled url="https://twitter.com/fondfolio">
                 <Icon color="primary" icon={Icons.Twitter} />
               </Link>
@@ -60,7 +59,7 @@ export function Footer() {
               <Link unstyled url="https://www.facebook.com/fondfolio/">
                 <Icon color="primary" icon={Icons.Facebook} />
               </Link>
-            </ButtonGroup>
+            </Box>
           </Flex>
         </Section>
       </Container>

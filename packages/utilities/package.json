@@ -11,7 +11,8 @@
   "peerDependencies": {
     "@apollo/client": "^3.3.6",
     "react": ">=17.0.0",
-    "styled-components": ">=5.0.0"
+    "styled-components": ">=5.0.0",
+    "date-fns": ">=2.0.0"
   },
   "repository": "https://github.com/fondfolio/minou.git",
   "gitHead": "e80a486848f02470991d163dcfa86473af4df616",

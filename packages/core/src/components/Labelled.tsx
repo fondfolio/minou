@@ -74,14 +74,14 @@ export function Labelled({
     </Label>
   );
 
-  const labelPadding = labelHidden || help ? 0 : 1;
+  // const labelPadding = labelHidden || help ? 0 : 3;
   const labelMarkup = label ? (
     <Flex
       width="100%"
       alignItems="center"
       flexDirection={labelFlexDirection}
       justifyContent="space-between"
-      pb={labelPadding}
+      pb={1}
     >
       {labelTextMarkup}
       {actionMarkup}
@@ -92,7 +92,7 @@ export function Labelled({
     ? {justifyContent: 'space-between', alignItems: 'center'}
     : {};
 
-  const textFieldPadding = label || errorMarkup || help ? 4 : 0;
+  const textFieldPadding = label || errorMarkup || help ? 3 : 0;
 
   return (
     <Flex
@@ -100,7 +100,7 @@ export function Labelled({
       flexDirection={flexDirection}
       {...horizonalProps}
     >
-      <Box pb={labelPadding}>
+      <Box pb={1}>
         {labelMarkup}
         <HelpText id={id} {...help} center={center} />
       </Box>
@@ -138,14 +138,7 @@ function HelpText({
     <Rule mb={1} action={action} center={center} icon={icon} />
   ) : null;
   const textMarkup = hidden ? null : (
-    <Text
-      as="div"
-      textAlign={textAlign}
-      pt="1"
-      pb={0}
-      small
-      id={helpTextID(id)}
-    >
+    <Text as="div" textAlign={textAlign} pb={2} small id={helpTextID(id)}>
       <Markdown>{text}</Markdown>
     </Text>
   );

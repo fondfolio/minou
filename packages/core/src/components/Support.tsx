@@ -1,4 +1,3 @@
-/* eslint-disable @shopify/jsx-no-complex-expressions */
 /* eslint-disable react/jsx-child-element-spacing */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
