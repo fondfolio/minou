@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import {Error} from '../types';
 
-import {Box} from './Box';
-import {Banner} from './Banner';
+import {BannerGroup} from './Banner';
 import {Spinner} from './Spinner';
 
 interface Props extends React.FormHTMLAttributes<HTMLFormElement> {
@@ -32,19 +31,6 @@ export function Form({
   ...props
 }: Props) {
   const loadingMarkup = submitting ? <Spinner /> : null;
-  const errorMarkup =
-    errors && errors.length ? (
-      <Box pb={3} width={[1]}>
-        {errors.map((error, index) => {
-          const message = typeof error === 'string' ? error : error.message;
-          return (
-            <Banner mb={2} variant="error" key={`${message}${index}`}>
-              {message}
-            </Banner>
-          );
-        })}
-      </Box>
-    ) : null;
 
   const handleSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
@@ -61,7 +47,7 @@ export function Form({
   return (
     <>
       {loadingMarkup}
-      {errorMarkup}
+      <BannerGroup errors={errors} error />
       <StyledForm submitting={submitting} onSubmit={handleSubmit} {...props}>
         {children}
       </StyledForm>

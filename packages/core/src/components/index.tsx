@@ -26,7 +26,7 @@ export {TextField} from './TextField';
 export {Checkbox} from './Checkbox';
 export {RadioButton} from './RadioButton';
 export {ChoiceList} from './ChoiceList';
-export {Banner} from './Banner';
+export {Banner, BannerGroup} from './Banner';
 export {InlineFieldSet} from './InlineFieldSet';
 
 /** Typography & Icons*/

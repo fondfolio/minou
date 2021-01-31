@@ -1,10 +1,16 @@
 import React from 'react';
 
-import type {ComplexAction, DisableableAction, LoadableAction} from '../types';
+import type {
+  Error,
+  ComplexAction,
+  DisableableAction,
+  LoadableAction,
+} from '../types';
 
 import {Flex, Box} from './Box';
 import {ButtonGroup} from './ButtonGroup';
 import {buttonsFrom} from './Button';
+import {BannerGroup} from './Banner';
 
 export interface ActionsProps {
   /** The primary action for the page */
@@ -13,9 +19,15 @@ export interface ActionsProps {
   secondaryActions?: ComplexAction[];
   /** Notes to display with the actons */
   note?: string | React.ReactNode;
+  errors?: Error[];
 }
 
-export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
+export function Actions({
+  primaryAction,
+  note,
+  errors,
+  secondaryActions,
+}: ActionsProps) {
   const primaryActionMarkup = primaryAction
     ? buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})
     : null;
@@ -32,14 +44,17 @@ export function Actions({primaryAction, note, secondaryActions}: ActionsProps) {
   const alignItems = note ? 'flex-start' : 'center';
 
   return (
-    <Flex
-      justifyContent={justifyContent}
-      alignItems={alignItems}
-      flexWrap={['wrap', 'nowrap']}
-    >
-      {noteMarkup}
-      {secondaryActionsMarkup}
-      {primaryActionMarkup}
-    </Flex>
+    <>
+      <Flex
+        justifyContent={justifyContent}
+        alignItems={alignItems}
+        flexWrap={['wrap', 'nowrap']}
+      >
+        {noteMarkup}
+        {secondaryActionsMarkup}
+        {primaryActionMarkup}
+      </Flex>
+      <BannerGroup errors={errors} error />
+    </>
   );
 }

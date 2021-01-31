@@ -34,7 +34,7 @@ export function Footer() {
           },
         ]}
       />
-      <Container>
+      <Container pt={[2, 3]}>
         <Section>
           <Flex
             alignItems={['flex-start', 'center']}

@@ -44,6 +44,7 @@ import {
   usePageTitle,
   Caps,
   Dash,
+  Flag,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -264,7 +265,13 @@ export default function Home() {
             </Card>
           </Box>
           <Box>
-            <Banner title="Whoops!" variant="error" flag={{content: 'report'}}>
+            <Flag
+              mount="top"
+              error
+              content="There are errors with your submission"
+            />
+            <Banner variant="error">You need to enter a receiver name</Banner>
+            <Banner title="Whoops!" variant="error">
               You did not enter a username or a password.
             </Banner>
             <Banner variant="error">
