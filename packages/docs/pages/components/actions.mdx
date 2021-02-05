@@ -1,10 +1,66 @@
-import {Actions} from 'minou';
-import {Demo} from '../../components/Demo';
+import {Actions, Rule} from 'minou';
+import faker from 'faker';
 
-<Demo>
-  <Actions
-    note="Your contribution will be sent. If you enter your email above you can continue to edit your words until the Fondfolio has been purchased."
-    primaryAction={{content: 'Order'}}
-  />
-</Demo>
-;
+<Actions primaryAction={{content: 'Order'}} />
+<Rule my={4} />
+<Actions
+  secondaryActions={[{content: 'Cancel', destructive: true}]}
+  primaryAction={{content: 'Confirm'}}
+/>
+<Rule my={4} />
+<Actions
+  center
+  primaryAction={{content: 'Login'}}
+  note={faker.lorem.sentence()}
+/>
+<Rule my={4} />
+<Actions
+  center
+  primaryAction={{content: 'Login'}}
+  note={faker.lorem.sentence()}
+  secondaryActions={[{content: 'Return to fondfolio.com'}]}
+/>
+<Rule my={4} />
+<Actions
+  center
+  primaryAction={{content: 'Login'}}
+  secondaryActions={[{content: 'Return to fondfolio.com'}]}
+/>
+<Rule my={4} />
+<Actions note={faker.lorem.sentence()} primaryAction={{content: 'Order'}} />
+<Rule my={4} />
+<Actions
+  note={faker.lorem.sentence()}
+  primaryAction={{content: 'Order'}}
+  errors={[{message: 'You did not enter an email'}]}
+/>
+<Rule my={4} />
+<Actions
+  note={faker.lorem.sentence()}
+  primaryAction={{content: 'Order'}}
+  errors={[
+    {message: 'You did not enter an email'},
+    {message: 'You entered the wrong password'},
+  ]}
+/>
+<Rule my={4} />
+<Actions
+  note={faker.lorem.sentence()}
+  primaryAction={{content: 'Order'}}
+  secondaryActions={[{content: 'Return to fondfolio.com'}]}
+  errors={[
+    {message: 'You did not enter an email'},
+    {message: 'You entered the wrong password'},
+  ]}
+/>
+
+<Actions
+  center
+  note={faker.lorem.sentence()}
+  primaryAction={{content: 'Order'}}
+  secondaryActions={[{content: 'Return to fondfolio.com'}]}
+  errors={[
+    {message: 'You did not enter an email'},
+    {message: 'You entered the wrong password'},
+  ]}
+/>

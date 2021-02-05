@@ -26,7 +26,7 @@ export const StyledBanner = styled(Flex)<Props>`
 
 export function Banner({children, variant, title, ...props}: Props) {
   const titleMarkup = title ? (
-    <Text small p={0} pl={2} color={variant || 'secondary'}>
+    <Text small p={0} pt={1} pl={2} color={variant || 'secondary'}>
       <Italic>{title}</Italic>
     </Text>
   ) : null;
@@ -38,13 +38,13 @@ export function Banner({children, variant, title, ...props}: Props) {
         borderRadius={2}
         px={3}
         py={2}
-        alignItems="center"
+        alignItems="flex-start"
         variant={variant}
         {...props}
       >
         <Icon icon={iconForVariant(variant)} color={variant || 'secondary'} />
         {titleMarkup}
-        <Text small p={0} pl={1}>
+        <Text small p={0} pt={1} pl={1}>
           {children}
         </Text>
       </StyledBanner>

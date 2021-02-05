@@ -10,17 +10,18 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.6",
+    "@mdx-js/loader": "^1.5.1",
+    "@mdx-js/react": "^1.6.18",
+    "@next/mdx": "^9.1.1",
     "@shopify/react-form": "^0.10.0",
     "babel-plugin-inline-react-svg": "^1.1.2",
     "copy-to-clipboard": "^3.3.1",
+    "faker": "^5.3.1",
     "minou": "^0.0.52",
     "next": "^10.0.4",
     "nprogress": "^0.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.0.0",
-    "@mdx-js/loader": "^1.5.1",
-    "@mdx-js/react": "^1.6.18",
-    "@next/mdx": "^9.1.1"
+    "styled-components": "^5.0.0"
   }
 }

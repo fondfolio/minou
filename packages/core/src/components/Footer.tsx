@@ -46,10 +46,10 @@ export function Footer() {
             <Box display={['none', 'block']}>
               <Bullet />
             </Box>
-            <Text pb={0} small pr={3}>
+            <Text pb={0} small pr={2}>
               <Italic>Proudly made in Toronto</Italic>
             </Text>
-            <Box pt={[3, 0]}>
+            <Box pt={[3, 2]}>
               <Link unstyled url="https://twitter.com/fondfolio">
                 <Icon color="primary" icon={Icons.Twitter} />
               </Link>

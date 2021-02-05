@@ -94,16 +94,20 @@ export function Labelled({
 
   const textFieldPadding = label || errorMarkup || help ? 3 : 0;
 
+  const headerMarkup =
+    label || help ? (
+      <Box pb={1}>
+        {labelMarkup}
+        <HelpText id={id} {...help} center={center} />
+      </Box>
+    ) : null;
   return (
     <Flex
       pb={textFieldPadding}
       flexDirection={flexDirection}
       {...horizonalProps}
     >
-      <Box pb={1}>
-        {labelMarkup}
-        <HelpText id={id} {...help} center={center} />
-      </Box>
+      {headerMarkup}
       {children}
       {errorMarkup}
     </Flex>

@@ -1,9 +1,13 @@
 import {Provider as MinouProvider} from 'minou';
 
-export default function App({Component, pageProps}) {
+import {Interface} from '../components';
+
+export default function App({Component, pageProps, components}) {
   return (
     <MinouProvider domain="">
-      <Component {...pageProps} />
+      <Interface>
+        <Component {...pageProps} />
+      </Interface>
     </MinouProvider>
   );
 }

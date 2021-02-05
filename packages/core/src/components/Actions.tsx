@@ -8,6 +8,7 @@ import type {
 } from '../types';
 
 import {Flex, Box} from './Box';
+import {Text} from './Text';
 import {ButtonGroup} from './ButtonGroup';
 import {buttonsFrom} from './Button';
 import {BannerGroup} from './Banner';
@@ -30,35 +31,64 @@ export function Actions({
   secondaryActions,
   center,
 }: ActionsProps) {
-  const primaryActionMarkup = primaryAction
-    ? buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})
-    : null;
-  const secondaryActionsMarkup = secondaryActions ? (
-    <ButtonGroup>{buttonsFrom(secondaryActions)}</ButtonGroup>
+  const actionPadding = center ? 3 : 0;
+  const primaryActionMarkup = primaryAction ? (
+    <Box py={actionPadding} order={0}>
+      {buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})}
+    </Box>
   ) : null;
-  const noteMarkup = note ? (
-    <Box pr={[0, 3]} pb={[3, 0]}>
-      {note}
+  const secondaryActionsMarkup = secondaryActions ? (
+    // eslint-disable-next-line @shopify/jsx-no-complex-expressions
+    <Box order={center ? 1 : 0}>
+      <ButtonGroup>
+        {buttonsFrom(secondaryActions, {size: 'small'})}
+      </ButtonGroup>
     </Box>
   ) : null;
 
-  const justifyContent = secondaryActions || note ? 'space-between' : 'center';
+  const justifyContent = center ? 'center' : 'space-between';
   const direction = center ? 'column' : 'row';
 
   return (
     <>
       <Flex
-        mb={3}
+        my={3}
         justifyContent={justifyContent}
         alignItems="center"
         flexWrap={['wrap', 'nowrap']}
         flexDirection={direction}
       >
-        {noteMarkup}
         {secondaryActionsMarkup}
+        <Note note={note} center={center} />
         {primaryActionMarkup}
       </Flex>
       <BannerGroup errors={errors} error />
     </>
+  );
+}
+
+function Note({
+  note,
+  center,
+}: Pick<React.ComponentProps<typeof Actions>, 'note' | 'center'>) {
+  if (!note) {
+    return null;
+  }
+
+  const textAlign = center ? 'center' : 'left';
+  const contentMarkup =
+    typeof note === 'string' ? (
+      <Text pb={0} small textAlign={textAlign}>
+        {note}
+      </Text>
+    ) : (
+      note
+    );
+  const paddingRight = center ? 0 : [0, 3];
+
+  return (
+    <Box pr={paddingRight} pb={[3, 0]}>
+      {contentMarkup}
+    </Box>
   );
 }

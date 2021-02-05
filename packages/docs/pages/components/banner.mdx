@@ -1,0 +1,21 @@
+import {Banner, Flag, Rule, Link} from 'minou';
+import faker from 'faker';
+
+<Rule my={4} />
+
+<Banner variant="error">You need to enter a receiver name</Banner>
+<Banner title="Whoops!" variant="error">
+  You did not enter a username or a password.
+</Banner>
+<Banner variant="error">
+  Must be at least 8 characters, Must have a lower case character, Must have an
+  upper case character, Must have at least 1 number, Must have a special
+  character
+</Banner>
+<Banner title="Sorry!" variant="warning">
+  That password isn’t right. <Link url="/">Recover your password.</Link>
+</Banner>
+<Banner title="Nice!" variant="success">
+  Something successful just happened.
+</Banner>
+<Banner title="Okay">Everything is fine.</Banner>

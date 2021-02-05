@@ -16,7 +16,7 @@ const StyledButtonGroup = styled(Flex)<{spacing: number}>`
 
   > button,
   > a {
-    margin: 0 ${({spacing}) => toPx(spacing)};
+    margin: 0 0 0 ${({spacing}) => toPx(spacing)};
   }
 `;
 
