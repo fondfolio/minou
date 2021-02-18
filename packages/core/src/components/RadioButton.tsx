@@ -5,6 +5,7 @@ import {useUniqueId, useToggle} from '@minou/utilities';
 import {Choice, helpTextID} from './Choice';
 import {Icon, IconType} from './Icon';
 import {Image} from './Image';
+import {Box} from './Box';
 
 export interface RadioButtonProps {
   /** Indicates the ID of the element that describes the the radio button*/
@@ -33,6 +34,7 @@ export interface RadioButtonProps {
   onBlur?(): void;
   icon?: IconType;
   image?: string;
+  bordered?: boolean;
 }
 
 export function RadioButton({
@@ -50,6 +52,7 @@ export function RadioButton({
   value,
   icon,
   image,
+  bordered,
 }: RadioButtonProps) {
   const id = useUniqueId('RadioButton', idProp);
   const name = nameProp || id;
@@ -91,9 +94,26 @@ export function RadioButton({
   const ariaDescribedBy = describedBy.length
     ? describedBy.join(' ')
     : undefined;
-
   const color = checked ? 'primary' : undefined;
-  const iconMarkup = icon ? <Icon icon={icon} color={color} /> : null;
+  const borderColor = checked ? 'primary' : 'greyLight';
+  const borderProps = bordered
+    ? {
+        borderRadius: 2,
+        border: '1px solid',
+      }
+    : {};
+  const marginBottom = bordered ? 3 : 0;
+  const iconMarkup = icon ? (
+    <Box
+      {...borderProps}
+      p={3}
+      mb={marginBottom}
+      borderColor={borderColor}
+      color={color}
+    >
+      <Icon icon={icon} color={color} />
+    </Box>
+  ) : null;
   const imageMarkup = image ? (
     <Image
       circle
