@@ -17,6 +17,10 @@ const ITEMS = [
     content: 'Banner',
     url: '/components/banner',
   },
+  {
+    content: 'Checkbox',
+    url: '/components/checkbox',
+  },
 ];
 
 export function Interface({children}) {

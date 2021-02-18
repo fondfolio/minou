@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 // import {MinusMinor, TickSmallMinor} from '@shopify/polaris-icons';
 import {useToggle, useUniqueId} from '@minou/utilities';
+import {Icons} from '@minou/icons';
 
 import {Error, Key} from '../types';
 
@@ -53,7 +54,6 @@ export function Checkbox({
   onChange,
   onFocus,
   onBlur,
-  icon,
   children,
 }: CheckboxProps) {
   const id = useUniqueId('Checkbox', idProp);
@@ -100,10 +100,8 @@ export function Checkbox({
   const ariaDescribedBy = describedBy.length
     ? describedBy.join(' ')
     : undefined;
-
-  const color = checked ? 'primary' : '';
-
-  const iconMarkup = icon ? <Icon icon={icon} color={color} /> : null;
+  const color = checked || keyFocused ? 'primary' : '';
+  const icon = checked ? Icons.SquareChecked : Icons.SquareUnchecked;
 
   return (
     /* eslint-disable jsx-a11y/control-has-associated-label */
@@ -119,6 +117,7 @@ export function Checkbox({
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
       selected={checked}
+      flexDirection="row"
     >
       <input
         onKeyUp={handleKeyUp}
@@ -136,7 +135,7 @@ export function Checkbox({
         aria-describedby={ariaDescribedBy}
         aria-checked={checked}
       />
-      {iconMarkup}
+      <Icon icon={icon} color={color} mr={2} />
       {children}
     </Choice>
     /* eslint-enable jsx-a11y/control-has-associated-label */
