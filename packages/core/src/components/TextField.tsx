@@ -82,6 +82,7 @@ interface NonMutuallyExclusiveProps {
   center?: boolean;
   /** Large label */
   large?: boolean;
+  height?: number;
 }
 
 export type TextFieldProps = NonMutuallyExclusiveProps &
@@ -127,6 +128,7 @@ export function TextField({
   horizontal,
   center,
   large,
+  height,
 }: TextFieldProps) {
   const [focus, setFocus] = useState(Boolean(focused));
   const id = useUniqueId('TextField', idProp);
@@ -189,6 +191,7 @@ export function TextField({
     'aria-autocomplete': ariaAutocomplete,
     'aria-controls': ariaControls,
     'aria-multiline': normalizeAriaMultiline(multiline),
+    height,
   });
 
   return (
