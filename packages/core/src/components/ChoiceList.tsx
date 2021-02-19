@@ -104,7 +104,7 @@ export function ChoiceList({
     const children = renderedChildren ? renderedChildren : null;
 
     return (
-      <Flex key={value} as="li" width={['100%', '50%', '33%']} pr={1} py={2}>
+      <Flex key={value} as="li" width={['50%', null, '33%']} pr={1} py={2}>
         <ControlComponent
           bordered={bordered}
           name={finalName}
@@ -170,6 +170,7 @@ const StyledList = styled(Flex)`
     list-style: none;
     text-align: center;
     margin-bottom: 1em;
+    white-space: nowrap;
     * {
       display: flex;
       margin-right: auto;

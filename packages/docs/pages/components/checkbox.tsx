@@ -43,7 +43,7 @@ export default function CheckboxPage() {
     <Page>
       <Container>
         <Section>
-          <Layout>
+          <Layout full>
             <>
               <Title>Checkbox</Title>
               <SingleChoiceListExample />
