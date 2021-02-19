@@ -12,6 +12,8 @@ const StyledChoice = styled.div`
   &,
   & > *,
   & > *:hover,
+  & > &:focus,
+  &:focus,
   &:hover {
     cursor: pointer;
   }
@@ -40,6 +42,7 @@ export interface ChoiceProps {
   onMouseOut?(): void;
   hovered?: boolean;
   selected?: boolean;
+  flexDirection?: 'column' | 'row';
 }
 
 export function Choice({
@@ -54,13 +57,14 @@ export function Choice({
   onMouseOut,
   onMouseOver,
   selected,
+  flexDirection = 'column',
 }: ChoiceProps) {
   const color = disabled || !selected ? 'black' : 'primary';
   const labelMarkup = (
     <Flex
       as="label"
+      flexDirection={flexDirection}
       onClick={onClick}
-      onKeyDown={onClick}
       onFocus={onMouseOver}
       onBlur={onMouseOut}
       onMouseOver={onMouseOver}
@@ -68,7 +72,7 @@ export function Choice({
       alignItems="center"
     >
       {children}
-      <Label as="span" pb="0" pl={2} hidden={labelHidden} color={color}>
+      <Label as="span" pb="0" hidden={labelHidden} color={color}>
         {label}
       </Label>
     </Flex>

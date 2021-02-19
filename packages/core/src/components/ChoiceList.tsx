@@ -56,6 +56,7 @@ export interface ChoiceListProps {
   labelHidden?: boolean;
   /** ID for the input */
   id?: string;
+  bordered?: boolean;
 }
 
 export function ChoiceList({
@@ -71,6 +72,7 @@ export function ChoiceList({
   labelAction,
   id,
   help,
+  bordered,
 }: ChoiceListProps) {
   const ControlComponent = allowMultiple ? Checkbox : RadioButton;
 
@@ -102,8 +104,9 @@ export function ChoiceList({
     const children = renderedChildren ? renderedChildren : null;
 
     return (
-      <Flex key={value} as="li" width={['100%', '50%', '33%']} pr={1} py={2}>
+      <Flex key={value} as="li" width={['50%', null, '33%']} pr={1} py={2}>
         <ControlComponent
+          bordered={bordered}
           name={finalName}
           value={value}
           label={label}
@@ -165,6 +168,14 @@ const StyledList = styled(Flex)`
   &,
   li {
     list-style: none;
+    text-align: center;
+    margin-bottom: 1em;
+    white-space: nowrap;
+    * {
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 `;
 
