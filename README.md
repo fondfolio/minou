@@ -3,7 +3,7 @@
 [![CI Status](https://github.com/fondfolio/minou/workflows/CI/badge.svg)](https://github.com/fondfolio/minou/actions)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
-[![Keep a Changelog v1.1.0 badge][changelog-badge]][changelog] [![Version 1.1.0 Badge][version-badge]][changelog]
+
 
 ## Development
 
