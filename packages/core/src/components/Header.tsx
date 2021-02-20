@@ -19,6 +19,7 @@ const StyledHeader = styled.header<Omit<Props, 'primary' | 'secondary'>>`
   margin: auto;
   width: 100%;
   top: 0px;
+  z-index: ${({theme}) => theme.zIndices.header};
   ${color}
 `;
 

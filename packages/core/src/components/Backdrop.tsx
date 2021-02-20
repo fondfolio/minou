@@ -16,7 +16,7 @@ const StyledBackdrop = styled(Flex)`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 0;
+  z-index: ${({theme}) => theme.zIndices.modalBackdrop};
 `;
 
 export function Backdrop({onClick, active, visible = false}: BackdropProps) {

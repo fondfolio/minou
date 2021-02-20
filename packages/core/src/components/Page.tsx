@@ -16,7 +16,6 @@ export function Page({children, title, ...props}: PageProps) {
       width="100%"
       textAlign="center"
       flex={1}
-      minHeight="85vh"
       {...props}
     >
       <Head>
