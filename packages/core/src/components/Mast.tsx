@@ -30,7 +30,7 @@ export function Mast({title, image, breadcrumbs, meta, ...props}: Props) {
   ) : null;
 
   return (
-    <Container pb={[0, 0]} bg="white" {...props}>
+    <Container pb={[2, 2]} bg="white" {...props}>
       <Section alignItems="center">
         {imageMarkup}
         <Flex flexDirection="column">

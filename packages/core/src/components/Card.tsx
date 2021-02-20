@@ -101,7 +101,7 @@ export function Card({
 
   const footerTextMarkup = footerText ? (
     <Box order={[1, 0]}>
-      <Text small pb={0}>
+      <Text small pb={0} pt={[1, 0]} px={[1, 0]}>
         {footerText}
       </Text>
     </Box>

@@ -22,6 +22,7 @@ export interface ActionsProps {
   note?: string | React.ReactNode;
   errors?: Error[];
   center?: boolean;
+  loading?: boolean;
 }
 
 export function Actions({
@@ -30,11 +31,16 @@ export function Actions({
   errors,
   secondaryActions,
   center,
+  loading,
 }: ActionsProps) {
   const actionPadding = center ? 3 : 0;
   const primaryActionMarkup = primaryAction ? (
     <Box py={actionPadding} order={0}>
-      {buttonsFrom(primaryAction, {variant: 'primary', type: 'submit'})}
+      {buttonsFrom(primaryAction, {
+        variant: 'primary',
+        type: 'submit',
+        loading,
+      })}
     </Box>
   ) : null;
   const secondaryActionsMarkup = secondaryActions ? (
