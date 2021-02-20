@@ -62,6 +62,6 @@ export const Input = (props: CombinedProps) => {
   return <StyledInput {...props} />;
 };
 
-export const TextArea = (props: CombinedProps) => {
-  return <StyledInput as="textarea" height={400} {...props} />;
+export const TextArea = ({height, ...props}: CombinedProps) => {
+  return <StyledInput height={height || 400} as="textarea" {...props} />;
 };
