@@ -10,7 +10,7 @@ import {Link} from './Link';
 import {Button} from './Button';
 
 interface Props extends BoxProps {
-  items: ComplexAction[];
+  items?: ComplexAction[];
   prefix?: React.ReactNode;
   postfix?: React.ReactNode;
   location?: string;
@@ -44,25 +44,28 @@ export function Navigation({
   postfix,
   ...props
 }: Props) {
-  const itemsMarkup = items.map(({content, url, onClick, ...item}, index) => {
-    if (onClick) {
+  const itemsMarkup =
+    items &&
+    items.map(({content, url, onClick, ...item}, index) => {
+      if (onClick) {
+        return (
+          <Button key={index} onClick={onClick} {...item}>
+            {content}
+          </Button>
+        );
+      }
       return (
-        <Button key={index} onClick={onClick} {...item}>
+        <Tab bold key={index} active={location === url} url={url} {...item}>
           {content}
-        </Button>
+        </Tab>
       );
-    }
-    return (
-      <Tab bold key={index} active={location === url} url={url} {...item}>
-        {content}
-      </Tab>
-    );
-  });
+    });
 
   return (
     <Container
       as="nav"
       pb={[0, 0]}
+      pt={[2, 2]}
       borderBottom="1px solid"
       borderColor="gray.0"
       {...props}
