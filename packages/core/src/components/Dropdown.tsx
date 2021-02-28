@@ -21,7 +21,7 @@ const easing = 'cubic-bezier(.19,1,.22,1)';
 
 const StyledDropdown = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: 0;
 `;
 
 const StyledDropdownContent = styled(Box)`

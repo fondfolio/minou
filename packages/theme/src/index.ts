@@ -105,6 +105,7 @@ export const theme = {
 
   zIndices: {
     card: 0,
+    dropdownBackdrop: 5,
     header: 10,
     modalBackdrop: 20,
     modal: 30,
