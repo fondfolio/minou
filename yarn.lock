@@ -1955,35 +1955,30 @@
     pkg-dir "^4.2.0"
     pluralize "^8.0.0"
 
-"@shopify/predicates@^1.2.7":
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/@shopify/predicates/-/predicates-1.2.7.tgz#5370ee5948ac2fb7a0c15ded87cbe55052287ca9"
-  integrity sha512-oqfaTf78ROOfBbX8qVBejxS5+dsn0s1tD9RVRRxc9E2s6JShT39yw89tckPcsAECdk5KxXUYYxrLkaBtgqwC3g==
-  dependencies:
-    tslib "^1.14.1"
+"@shopify/predicates@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@shopify/predicates/-/predicates-1.3.4.tgz#479e78fa87683a14004e9f406e3c8e7438fafbee"
+  integrity sha512-jUcv6QK46UcNg3TKr1GH0cvBuIUtPFANjeaBkbysq1g5dAAC2niRqrWTS814oTLPpl4GXFj7UomqD2fSnDOH0g==
 
 "@shopify/prettier-config@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@shopify/prettier-config/-/prettier-config-1.1.2.tgz#612f87c0cd1196e8b43c85425e587d0fa7f1172d"
   integrity sha512-5ugCL9sPGzmOaZjeRGaWUWhHgAbemrS6z+R7v6gwiD+BiqSeoFhIY+imLpfdFCVpuOGalpHeCv6o3gv++EHs0A==
 
-"@shopify/react-form@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@shopify/react-form/-/react-form-0.10.0.tgz#3d84b1898c43913b840dc52c458b1bd9ea4e97de"
-  integrity sha512-oGLoSRqWlYhzPDt6zdmgMN9wg9D/zfqdTJ2YcLUN1qdkrYcUqRwr8zfyU6p2i9F55tnqLtPNI6rAIu3GDCflOQ==
+"@shopify/react-form@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@shopify/react-form/-/react-form-0.13.0.tgz#cb2ddfe8a78c390f69796a33d9d42a666f023134"
+  integrity sha512-Lb100FcSawa2HFw88N1lgUL0Gorq1zeMo6riE2rDC85/D/KCyc4x82xA5eJ+Yxdb+Q59OLAExbW8Q3ROxTGSDA==
   dependencies:
-    "@shopify/predicates" "^1.2.7"
-    "@shopify/react-hooks" "^1.11.2"
-    fast-deep-equal "^2.0.1"
+    "@shopify/predicates" "^1.3.4"
+    "@shopify/react-hooks" "^1.13.1"
+    fast-deep-equal "^3.1.3"
     get-value "^3.0.1"
-    tslib "^1.14.1"
 
-"@shopify/react-hooks@^1.11.2":
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/@shopify/react-hooks/-/react-hooks-1.11.2.tgz#216421d52abc94c5c8e5b8821ff7800da6949110"
-  integrity sha512-KVbBxdOXcShtj+PJrfq5FW0T6DkqXkt3Q4YKf3NlGrBB0vprrN71Zs4MAyUhCqJp1B7qfKM8dgHcikmIxtDp4Q==
-  dependencies:
-    tslib "^1.14.1"
+"@shopify/react-hooks@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@shopify/react-hooks/-/react-hooks-1.13.1.tgz#0756205f29e5320920f9dcaae8b057bb34f0e21f"
+  integrity sha512-i1/HKdpsuNXRi5MoZp2nciw0UtqAWEmV25Moq689X8GrfQLAGuxu97HV1V0TUx9PODlyfJsfuHyepEG+TRSjNA==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
@@ -5475,12 +5470,7 @@ faker@^5.3.1:
   resolved "https://registry.yarnpkg.com/faker/-/faker-5.3.1.tgz#67f8f5c170b97a76b875389e0e8b9155da7b4853"
   integrity sha512-sVdoApX/awJHO9DZHZsHVaJBNFiJW0n3lPs0q/nFxp/Mtya1dr2sCMktST3mdxNMHjkvKTTMAW488E+jH1eSbg==
 
-fast-deep-equal@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
-  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
-
-fast-deep-equal@^3.1.1:
+fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
