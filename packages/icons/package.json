@@ -1,6 +1,6 @@
 {
   "name": "@minou/icons",
-  "version": "0.0.57",
+  "version": "0.0.58",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
