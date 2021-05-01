@@ -276,11 +276,12 @@ const StyledSelectInput = styled.select`
   margin: 0;
   opacity: 0.001;
   appearance: none;
+  cursor: pointer;
 `;
 
 const StyledSelect = styled.div`
   position: relative;
-  cursor: pointer;
+
   select::-ms-expand {
     display: none;
   }
