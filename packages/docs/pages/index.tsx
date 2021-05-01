@@ -45,6 +45,7 @@ import {
   Caps,
   Dash,
   Flag,
+  Select,
 } from 'minou';
 import copy from 'copy-to-clipboard';
 
@@ -193,6 +194,7 @@ export default function Home() {
                 </Text>
               </Card>
             </Box>
+            <SelectExample />
             <List
               items={mockData.contributions.map((contribution) => ({
                 content: contribution.author,
@@ -769,6 +771,31 @@ export default function Home() {
       <Support widget="appzi" />
       <Footer />
     </>
+  );
+}
+
+function SelectExample() {
+  const [selected, setSelected] = useState('newestUpdate');
+
+  const handleSelectChange = useCallback((value) => setSelected(value), []);
+
+  const options = [
+    {label: 'Newest update', value: 'newestUpdate'},
+    {label: 'Oldest update', value: 'oldestUpdate'},
+    {label: 'Most spent', value: 'mostSpent'},
+    {label: 'Most orders', value: 'mostOrders'},
+    {label: 'Last name A–Z', value: 'lastNameAlpha'},
+    {label: 'Last name Z–A', value: 'lastNameReverseAlpha'},
+  ];
+
+  return (
+    <Select
+      label="Sort by"
+      labelInline
+      options={options}
+      onChange={handleSelectChange}
+      value={selected}
+    />
   );
 }
 

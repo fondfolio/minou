@@ -22,6 +22,7 @@ export {Actions} from './Actions';
 /** Forms */
 export {Form} from './Form';
 export {FieldSet} from './FieldSet';
+export {Select} from './Select';
 export {TextField} from './TextField';
 export {Checkbox} from './Checkbox';
 export {RadioButton} from './RadioButton';
