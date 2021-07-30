@@ -486,7 +486,14 @@ export default function Home() {
             {content: 'Details', url: 'somewhere'},
             {content: 'Share', url: 'somewhere'},
             {content: 'Customizations', active: true},
-            {content: 'Questionnaire', external: true, url: 'sumwhere'},
+            {
+              content: 'Questionnaire',
+              external: true,
+              url: 'sumwhere',
+              onClick: () => {
+                setModalOpen(true);
+              },
+            },
           ]}
         />
         <Layout>

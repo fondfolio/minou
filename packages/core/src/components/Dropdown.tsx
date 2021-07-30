@@ -21,7 +21,7 @@ const easing = 'cubic-bezier(.19,1,.22,1)';
 
 const StyledDropdown = styled.div`
   position: relative;
-  z-index: 0;
+  z-index: ${({theme}) => theme.zIndices.dropdown};
 `;
 
 const StyledDropdownContent = styled(Box)`
@@ -56,7 +56,7 @@ export function Dropdown({active, onClose, children, activator}: Props) {
   }
   return (
     <>
-      <Backdrop onClick={onClose} active={active} />
+      <Backdrop context="dropdown" onClick={onClose} active={active} />
       <StyledDropdown>
         {activator}
         <StyledDropdownContent>{children}</StyledDropdownContent>
