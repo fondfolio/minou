@@ -18,7 +18,11 @@ export function Footer() {
     <>
       <Navigation
         items={[
-          {content: 'About', size: 'small', url: `${DOMAINS.website}/help/fondfolio-about`},
+          {
+            content: 'About',
+            size: 'small',
+            url: `${DOMAINS.website}/help/fondfolio-about`,
+          },
           {content: 'Help', size: 'small', url: `${DOMAINS.website}/help`},
           {content: 'Blog', size: 'small', url: `${DOMAINS.website}/blog`},
           {content: 'Terms', size: 'small', url: `${DOMAINS.website}/terms`},
