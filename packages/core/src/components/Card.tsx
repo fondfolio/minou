@@ -153,7 +153,7 @@ export function Card({
   return (
     <>
       <StyledCard bg="white" borderRadius="card" id={id} {...props}>
-        <Box p={padding || 4}>
+        <Box p={padding || [3, 3, 4, 4]}>
           {finalLinkedTitleMarkup}
           {children}
         </Box>
