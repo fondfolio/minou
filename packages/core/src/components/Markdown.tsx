@@ -128,7 +128,7 @@ const StyledMarkdown = styled.div`
     transition: ${({theme}) => theme.transitions.all};
     padding: 0 1px;
     align-items: center;
-    white-space: nowrap;
+    white-space: pre-wrap;
 
     &:hover {
       color: ${({theme}) => theme.colors.tealDark};
