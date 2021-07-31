@@ -142,6 +142,7 @@ const StyledInput = styled.input<TypographyProps>`
   ${typography}
   opacity:0;
   outline: none;
+  border-radius: 0;
 
   &:focus {
     opacity: 1;
