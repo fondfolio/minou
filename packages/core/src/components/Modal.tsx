@@ -55,7 +55,7 @@ export function Modal({
 
   return (
     <Portal>
-      <Backdrop onClick={onClose} active={active} visible />
+      <Backdrop context="modal" onClick={onClose} active={active} visible />
       <FocusTrap active={active}>
         <StyledModal
           borderRadius="modal"
