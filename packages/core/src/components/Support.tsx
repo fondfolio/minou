@@ -88,7 +88,7 @@ export function Support(props: Props) {
 function NewsletterSignupForm() {
   const textMarkup = (
     <Text pb={0} textAlign={['center', 'left']} color="primary" large>
-      Subscribe for 15% off your first order
+      Subscribe for $10 off your first order
     </Text>
   );
 
