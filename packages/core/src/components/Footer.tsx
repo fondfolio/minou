@@ -25,6 +25,11 @@ export function Footer() {
           },
           {content: 'Help', size: 'small', url: `${DOMAINS.website}/help`},
           {content: 'Blog', size: 'small', url: `${DOMAINS.website}/blog`},
+          {
+            content: 'Packaging',
+            size: 'small',
+            url: `${DOMAINS.website}/packaging`,
+          },
           {content: 'Terms', size: 'small', url: `${DOMAINS.website}/terms`},
           {
             content: 'Privacy',
