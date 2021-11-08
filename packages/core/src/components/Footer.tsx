@@ -21,7 +21,7 @@ export function Footer() {
           {
             content: 'About',
             size: 'small',
-            url: `${DOMAINS.website}/help/fondfolio-about`,
+            url: `${DOMAINS.website}/about`,
           },
           {content: 'Help', size: 'small', url: `${DOMAINS.website}/help`},
           {content: 'Blog', size: 'small', url: `${DOMAINS.website}/blog`},
