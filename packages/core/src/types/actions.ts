@@ -25,6 +25,9 @@ export interface BaseAction {
    */
   variant?: 'primary' | 'secondary';
   active?: boolean;
+  /** https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type */
+  type?: 'submit' | 'button';
+  // type?: React.HTMLAttributes<HTMLButtonElement>['f;
 }
 
 export interface Action extends BaseAction {}

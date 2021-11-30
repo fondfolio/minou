@@ -1,0 +1,29 @@
+import {Card, Rule} from 'minou';
+import faker from 'faker';
+
+<Card
+  title={faker.lorem.sentence()}
+  action={{
+    content: 'Save',
+    size: 'small',
+    variant: 'primary',
+  }}
+  footerAction={[
+    {
+      content: 'Delete',
+      size: 'small',
+      variant: 'plain',
+      destructive: true,
+    },
+    {
+      content: 'Cancel',
+      size: 'small',
+      variant: 'plain',
+    },
+    {
+      content: 'Save',
+      size: 'small',
+      variant: 'primary',
+    },
+  ]}
+/>

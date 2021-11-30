@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Rename <Actions /> `primaryAction` prop to `primaryActions`
+- Need to manually pass in the `variant` and `type` action properties to <Action /> `primaryAction`. To replicate previous behaviour, pass `{variant: 'primary', type: 'submit'}`
+- `Button` now wraps list of buttons in a `<Flex />` and `<Box />` elements
+
 ## [1.0.0] - TBD
 
 ## [0.0.47] - 24/01/2021

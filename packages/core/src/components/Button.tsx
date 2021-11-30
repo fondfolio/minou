@@ -5,6 +5,7 @@ import {reset, looksExternal} from '@minou/utilities';
 
 import {ComplexAction} from '../types';
 
+import {Box, Flex} from './Box';
 import {Spinner} from './Spinner';
 
 interface Props extends ComplexAction {
@@ -171,13 +172,21 @@ export function buttonsFrom(
 export function buttonsFrom(
   actions: CombinedProps[],
   overrides?: Partial<CombinedProps>,
-): React.ReactElement<CombinedProps>[];
+): React.ReactElement;
 export function buttonsFrom(
   actions: CombinedProps[] | CombinedProps,
   overrides: Partial<CombinedProps> = {},
 ) {
   if (Array.isArray(actions)) {
-    return actions.map((action, index) => buttonFrom(action, overrides, index));
+    return (
+      <Flex alignItems="baseline" mr={-2}>
+        {actions.map((action, index) => (
+          <Box px={2} key={`${index}--${action.content}`}>
+            {buttonFrom(action, overrides, index)}
+          </Box>
+        ))}
+      </Flex>
+    );
   } else {
     const action = actions;
     return buttonFrom(action, overrides);

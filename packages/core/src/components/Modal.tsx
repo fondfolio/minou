@@ -52,6 +52,7 @@ export function Modal({
     </Button>
   );
   const titleMarkup = title ? <Label pb="0">{title}</Label> : null;
+  const primaryActions = primaryAction ? [primaryAction] : undefined;
 
   return (
     <Portal>
@@ -81,7 +82,7 @@ export function Modal({
           <Rule />
           <Box px={4} py={2}>
             <Actions
-              primaryAction={primaryAction}
+              primaryActions={primaryActions}
               secondaryActions={[{content: 'Close', onClick: onClose}]}
             />
           </Box>

@@ -15,7 +15,7 @@ import {BannerGroup} from './Banner';
 
 export interface ActionsProps {
   /** The primary action for the page */
-  primaryAction?: DisableableAction & LoadableAction;
+  primaryActions?: (DisableableAction & LoadableAction)[];
   /** The secondary actions for the page */
   secondaryActions?: ComplexAction[];
   /** Notes to display with the actons */
@@ -26,7 +26,7 @@ export interface ActionsProps {
 }
 
 export function Actions({
-  primaryAction,
+  primaryActions,
   note,
   errors,
   secondaryActions,
@@ -34,11 +34,9 @@ export function Actions({
   loading,
 }: ActionsProps) {
   const actionPadding = center ? 3 : 0;
-  const primaryActionMarkup = primaryAction ? (
+  const primaryActionMarkup = primaryActions ? (
     <Box py={actionPadding} order={0}>
-      {buttonsFrom(primaryAction, {
-        variant: 'primary',
-        type: 'submit',
+      {buttonsFrom(primaryActions, {
         loading,
       })}
     </Box>

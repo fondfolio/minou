@@ -3,12 +3,12 @@ import styled, {css} from 'styled-components';
 
 import type {ComplexAction} from '../types';
 
+import {Actions} from './Actions';
 import {buttonsFrom} from './Button';
 import {Box, Flex, BoxProps} from './Box';
 import {Label} from './Label';
 import {Icon, IconType} from './Icon';
 import {Link} from './Link';
-import {Text} from './Text';
 import {Rule} from './Rule';
 import {Flag} from './Flag';
 
@@ -20,7 +20,7 @@ interface Props extends BoxProps {
   children: React.ReactNode;
   action?: ComplexAction;
   footerText?: React.ReactNode;
-  footerAction?: ComplexAction;
+  footerAction?: ComplexAction | ComplexAction[];
   flag?: React.ComponentProps<typeof Flag>;
   id?: string;
 }
@@ -99,30 +99,34 @@ export function Card({
     </Box>
   ) : null;
 
-  const footerTextMarkup = footerText ? (
-    <Box order={[1, 0]}>
-      <Text small pb={0} pt={[1, 0]} px={[1, 0]}>
-        {footerText}
-      </Text>
-    </Box>
-  ) : null;
+  const firstFooterActions =
+    Array.isArray(footerAction) && footerAction.length > 1
+      ? footerAction.shift()
+      : undefined;
 
-  const footerActionMarkup = footerAction ? buttonsFrom(footerAction) : null;
+  const secondaryActions = firstFooterActions
+    ? [firstFooterActions]
+    : undefined;
 
-  const footerMarkup =
+  const primaryActions = assertArray(footerAction);
+
+  const actionsMarkup =
     footerAction || footerText ? (
       <>
         <Rule />
-        <Flex
+        <Box
           alignItems="center"
           justifyContent="space-between"
-          py={3}
+          py={2}
           px={4}
           flexWrap="wrap"
         >
-          {footerTextMarkup}
-          {footerActionMarkup}
-        </Flex>
+          <Actions
+            note={footerText}
+            secondaryActions={secondaryActions}
+            primaryActions={primaryActions}
+          />
+        </Box>
       </>
     ) : null;
 
@@ -157,9 +161,21 @@ export function Card({
           {finalLinkedTitleMarkup}
           {children}
         </Box>
-        {footerMarkup}
+        {actionsMarkup}
       </StyledCard>
       {flagMarkup}
     </>
   );
+}
+
+function assertArray<T>(value?: T | T[]): T[] | undefined {
+  if (!value) {
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  return [value];
 }
