@@ -552,7 +552,6 @@ export default function Home() {
             </Card>
           </Section>
         </Container>
-
         <Container pt={[3, 3]}>
           <Section
             justifyContent="space-between"
@@ -871,7 +870,7 @@ function Order() {
       />
       <Actions
         note="Your contribution will be sent. If you enter your email above you can continue to edit your words until the Fondfolio has been purchased."
-        primaryAction={{content: 'Order'}}
+        primaryActions={[{content: 'Order'}]}
       />
     </Form>
   );
@@ -962,7 +961,7 @@ function LoginSignUp() {
         By signing up for an account you agree to our
         <Link url="">Terms &amp; Conditions</Link>
       </Text>
-      <Actions primaryAction={{content: 'Login'}} />
+      <Actions primaryActions={[{content: 'Login'}]} />
     </Form>
   );
 }

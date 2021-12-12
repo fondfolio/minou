@@ -171,7 +171,7 @@ export function UserSettingsForm() {
           {...asChoiceField(fields.emailSubscriptions)}
         />
       </FieldSet>
-      <Actions primaryAction={{content: 'Update'}} />
+      <Actions primaryActions={[{content: 'Update'}]} />
     </Form>
   );
 }

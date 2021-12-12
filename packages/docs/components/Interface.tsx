@@ -2,6 +2,10 @@ import {Header, Flex, Box, Layout, Footer, List} from 'minou';
 
 const ITEMS = [
   {
+    content: 'Card',
+    url: '/components/card',
+  },
+  {
     content: 'Actions',
     url: '/components/actions',
   },

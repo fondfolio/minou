@@ -4,19 +4,22 @@ import faker from 'faker';
 <Actions primaryAction={{content: 'Order'}} />
 <Rule my={4} />
 <Actions
-  secondaryActions={[{content: 'Cancel', destructive: true}]}
+  secondaryActions={[
+    {content: 'Cancel', destructive: true},
+    {content: 'Cancel', destructive: true},
+  ]}
   primaryAction={{content: 'Confirm'}}
 />
 <Rule my={4} />
 <Actions
   center
-  primaryAction={{content: 'Login'}}
+  primaryAction={{variant: 'submit', content: 'Login'}}
   note={faker.lorem.sentence()}
 />
 <Rule my={4} />
 <Actions
   center
-  primaryAction={{content: 'Login'}}
+  primaryAction={{variant: 'primary', type: 'submit', content: 'Login'}}
   note={faker.lorem.sentence()}
   secondaryActions={[{content: 'Return to fondfolio.com'}]}
 />
