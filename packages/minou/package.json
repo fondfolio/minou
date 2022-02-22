@@ -1,12 +1,12 @@
 {
   "name": "minou",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@minou/core": "^0.1.6",
+    "@minou/core": "^0.1.7",
     "@minou/icons": "^0.1.0",
     "@minou/theme": "^0.1.1",
     "@minou/utilities": "^0.1.0"
