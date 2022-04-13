@@ -50,13 +50,13 @@ export function Footer() {
             flexDirection={['column', 'row']}
           >
             <Label pb={0} small>
-              Copyright 2021 Fondfolio Inc.
+              Copyright 2022 Fondfolio Inc.
             </Label>
             <Box display={['none', 'block']}>
               <Bullet />
             </Box>
             <Text pb={0} small pr={2}>
-              <Italic>Proudly made in Toronto</Italic>
+              <Italic>Proudly made in Toronto & Berlin</Italic>
             </Text>
             <Box pt={[3, 2]}>
               <Link unstyled url="https://twitter.com/fondfolio">
