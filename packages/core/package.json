@@ -9,7 +9,7 @@
     "@minou/icons": "^0.1.0",
     "@minou/theme": "^0.1.1",
     "@minou/utilities": "^0.1.0",
-    "@types/nprogress": "^0.0.29",
+    "@types/nprogress": "^0.2.0",
     "@types/styled-components": "^5.0.0",
     "@types/styled-system": "^5.1.10",
     "focus-trap-react": "^8.4.1",
