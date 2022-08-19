@@ -40,6 +40,7 @@ import {
   Checkbox,
   Footer,
   Support,
+  Analytics,
   ChoiceList,
   usePageTitle,
   Caps,
