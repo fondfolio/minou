@@ -1,6 +1,5 @@
 import React from 'react';
 import App from 'next/app';
-import Head from 'next/head';
 import {NextPageContext} from 'next';
 import {
   NormalizedCacheObject,
@@ -174,7 +173,7 @@ export const withApollo = ({
 
           // getDataFromTree does not call componentWillUnmount
           // head side effect therefore need to be cleared manually
-          Head.rewind();
+          // Head.rewind();
         }
       }
 
