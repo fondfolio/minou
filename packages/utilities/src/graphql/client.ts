@@ -5,13 +5,10 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 import {NextPageContext} from 'next';
-import dotenv from 'dotenv';
 
 import {getToken} from './token';
 
-dotenv.config();
-
-const permanantToken = process.env.GRAPHQL_ACCESS_TOKEN;
+const permanantToken = process.env.NEXT_PUBLIC_GRAPHQL_ACCESS_TOKEN;
 
 export interface CreateApolloClientOptions {
   url: string;
