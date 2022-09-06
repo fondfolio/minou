@@ -15,6 +15,6 @@ module.exports = withMDX({
     return config;
   },
   env: {
-    GRAPHQL_ACCESS_TOKEN: process.env.GRAPHQL_ACCESS_TOKEN,
+    GRAPHQL_ACCESS_TOKEN: process.env.NEXT_PUBLIC_GRAPHQL_ACCESS_TOKEN,
   },
 });
