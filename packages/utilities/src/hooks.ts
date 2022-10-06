@@ -1,6 +1,9 @@
 export function usePageTitle(prefix?: string) {
   const seperator = ' ~ ';
-  const titleParts = ['Fondfolio', 'Collaborative books, hand made in Toronto'];
+  const titleParts = [
+    'Fondfolio',
+    'Handmade, collaborative memory books for special occasions',
+  ];
 
   return [prefix, ...titleParts].join(seperator);
 }
