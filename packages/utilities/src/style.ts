@@ -19,6 +19,7 @@ export const reset = css`
   border: none;
   background: none;
   font-size: 100%;
+  font-weight: normal;
   font-family: inherit;
   box-sizing: border-box;
   margin: 0;
