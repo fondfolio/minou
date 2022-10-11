@@ -1,6 +1,6 @@
 {
   "name": "@minou/theme",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
@@ -9,7 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@minou/utilities": "^0.1.10"
+    "@minou/utilities": "^0.1.11"
   },
   "repository": "https://github.com/fondfolio/minou.git",
   "gitHead": "e80a486848f02470991d163dcfa86473af4df616"
