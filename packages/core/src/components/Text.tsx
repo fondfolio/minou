@@ -31,6 +31,7 @@ const StyledText = styled.span<TextProps>`
   max-width: 60em;
   line-height: 1.45;
   overflow-wrap: break-word;
+  white-space: pre-wrap;
   ${typography}
   ${space}
   ${color}
