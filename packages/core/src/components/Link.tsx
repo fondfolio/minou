@@ -116,7 +116,7 @@ export function Link({url, external, children, onClick, ...props}: Props) {
 
   return (
     <NextLink href={url || ''}>
-      <StyledLink active {...props}>
+      <StyledLink href={url} active {...props}>
         {children}
       </StyledLink>
     </NextLink>
