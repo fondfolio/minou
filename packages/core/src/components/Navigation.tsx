@@ -27,6 +27,7 @@ const Tab = styled(Link)<ComplexAction>`
 
 const Wrapper = styled(Flex)`
   flex: 1;
+  justify-content: center;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;

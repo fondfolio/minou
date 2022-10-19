@@ -26,9 +26,9 @@ export function Footer() {
           {content: 'Help', size: 'small', url: `${DOMAINS.website}/help`},
           {content: 'Blog', size: 'small', url: `${DOMAINS.website}/blog`},
           {
-            content: 'Packaging',
+            content: 'Sitemap',
             size: 'small',
-            url: `${DOMAINS.website}/packaging`,
+            url: `${DOMAINS.website}/sitemap`,
           },
           {content: 'Terms', size: 'small', url: `${DOMAINS.website}/terms`},
           {
@@ -44,7 +44,7 @@ export function Footer() {
         ]}
       />
       <Container pt={[2, 3]}>
-        <Section>
+        <Section justifyContent={['center']}>
           <Flex
             alignItems={['flex-start', 'center']}
             flexDirection={['column', 'row']}
