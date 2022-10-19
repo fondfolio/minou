@@ -1,6 +1,6 @@
 {
   "name": "@minou/core",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc"
