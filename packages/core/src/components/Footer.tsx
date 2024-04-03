@@ -50,7 +50,7 @@ export function Footer() {
             flexDirection={['column', 'row']}
           >
             <Label pb={0} small>
-              Copyright 2023 Fondfolio Inc.
+              Copyright {new Date().getFullYear()} Fondfolio Inc.
             </Label>
             <Box display={['none', 'block']}>
               <Bullet />

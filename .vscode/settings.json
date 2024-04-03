@@ -10,8 +10,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.codeActionsOnSave": {
-    // For ESLint
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "prettier.useEditorConfig": true
 }
