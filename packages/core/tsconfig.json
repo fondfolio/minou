@@ -1,6 +1,7 @@
 {
   "extends": "../../config/typescript/tsconfig.base.json",
   "compilerOptions": {
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "outDir": "build",
     "tsBuildInfoFile": "build/.tsbuildinfo",
